@@ -25,6 +25,16 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="assets/plugins/nprogress/nprogress.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.min.js"></script>
+    <script>
+    $.get('sidebar.html', function(templates) {
+        // Fetch the <script /> block from the loaded external
+        // template file which contains our greetings template.
+        var template = $(templates).filter('#tpl-sidebar').html();
+        $('body').append(Mustache.render(template, templateData));
+    });
+    </script>
 </head>
 
 
@@ -37,68 +47,7 @@
 
     <div class="wrapper">
 
-        <!--
-          ====================================
-          ——— LEFT SIDEBAR WITH FOOTER
-          =====================================
-        -->
-        <aside class="left-sidebar bg-sidebar">
-            <div id="sidebar" class="sidebar sidebar-with-footer">
-                <!-- Aplication Brand -->
-                <div class="app-brand">
-                    <a href="/index.html" title="ONG Conseil Dashboard">
-                        <img src="./ongd/img/logos/Rond.png" class="brand-icon" width="30" />
-                        <span class="brand-name text-truncate">ONG Conseil</span>
-                    </a>
-                </div>
-                <!-- begin sidebar scrollbar -->
-                <div class="sidebar-scrollbar">
 
-                    <!-- sidebar menu -->
-                    <ul class="nav sidebar-inner" id="sidebar-menu">
-                        <li class="has-sub">
-                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#dashboard"
-                               aria-expanded="false" aria-controls="dashboard">
-                                <i class="mdi mdi-view-dashboard-outline"></i>
-                                <span class="nav-text">Dashboard</span> <b class="caret"></b>
-                            </a>
-                            <ul class="collapse" id="dashboard"
-                                data-parent="#sidebar-menu">
-                                <div class="sub-menu">
-
-                                    <li>
-                                        <a class="sidenav-item-link" href="noindex.html">
-                                            <span class="nav-text">Métriques</span>
-                                        </a>
-                                    </li>
-
-                                </div>
-                            </ul>
-                        </li>
-
-                        <li class="has-sub active expand">
-                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
-                               aria-expanded="false" aria-controls="app">
-                                <i class="mdi mdi-pencil-box-multiple"></i>
-                                <span class="nav-text">Exports</span> <b class="caret"></b>
-                            </a>
-                            <ul class="collapse show" id="app"
-                                data-parent="#sidebar-menu">
-                                <div class="sub-menu">
-
-                                    <li>
-                                        <a class="sidenav-item-link" href="chat.html">
-                                            <span class="nav-text">Mails non reçus</span>
-                                        </a>
-                                    </li>
-
-                                </div>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </aside>
 
 
         <div class="page-wrapper">
