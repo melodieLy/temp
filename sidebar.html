@@ -67,8 +67,8 @@
     $.get('sidebar.html', function(templates) {
         // Fetch the <script /> block from the loaded external
         // template file which contains our greetings template.
-        var template = $(templates).filter('#tpl-sidebar').html();
-        let templateData = {};
-        $('body').append(Mustache.render(template, templateData));
+        var sidebar = $(templates).filter('#tpl-sidebar').html();
+        let sidebarData = {};
+        $('body').append(Mustache.render(sidebar, sidebarData));
     });
 </script>
