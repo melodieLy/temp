@@ -1,74 +1,60 @@
-<script id="tpl-sidebar" type="text/html">
-    <!--
-        ====================================
-        ——— LEFT SIDEBAR WITH FOOTER
-        =====================================
-    -->
-    <aside class="left-sidebar bg-sidebar">
-        <div id="sidebar" class="sidebar sidebar-with-footer">
-            <!-- Aplication Brand -->
-            <div class="app-brand">
-                <a href="/index.html" title="ONG Conseil Dashboard">
-                    <img src="./logod/img/logos/Rond.png" class="brand-icon" width="30" />
-                    <span class="brand-name text-truncate">Nom entreprise</span>
+<!--
+====================================
+——— LEFT SIDEBAR WITH FOOTER
+=====================================
+-->
+<div id="sidebar" class="sidebar sidebar-with-footer">
+    <!-- Aplication Brand -->
+    <div class="app-brand">
+        <a href="/index.html" title="ONG Conseil Dashboard">
+            <img src="./logod/img/logos/Rond.png" class="brand-icon" width="30" />
+            <span class="brand-name text-truncate">Nom entreprise</span>
+        </a>
+    </div>
+    <!-- begin sidebar scrollbar -->
+    <div class="sidebar-scrollbar">
+
+        <!-- sidebar menu -->
+        <ul class="nav sidebar-inner" id="sidebar-menu">
+            <li class="has-sub">
+                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#dashboard"
+                    aria-expanded="false" aria-controls="dashboard">
+                    <i class="mdi mdi-view-dashboard-outline"></i>
+                    <span class="nav-text">Dashboard</span> <b class="caret"></b>
                 </a>
-            </div>
-            <!-- begin sidebar scrollbar -->
-            <div class="sidebar-scrollbar">
+                <ul class="collapse" id="dashboard"
+                    data-parent="#sidebar-menu">
+                    <div class="sub-menu">
 
-                <!-- sidebar menu -->
-                <ul class="nav sidebar-inner" id="sidebar-menu">
-                    <li class="has-sub">
-                        <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#dashboard"
-                            aria-expanded="false" aria-controls="dashboard">
-                            <i class="mdi mdi-view-dashboard-outline"></i>
-                            <span class="nav-text">Dashboard</span> <b class="caret"></b>
-                        </a>
-                        <ul class="collapse" id="dashboard"
-                            data-parent="#sidebar-menu">
-                            <div class="sub-menu">
+                        <li>
+                            <a class="sidenav-item-link" href="noindex.html">
+                                <span class="nav-text">Métriques</span>
+                            </a>
+                        </li>
 
-                                <li>
-                                    <a class="sidenav-item-link" href="noindex.html">
-                                        <span class="nav-text">Métriques</span>
-                                    </a>
-                                </li>
-
-                            </div>
-                        </ul>
-                    </li>
-
-                    <li class="has-sub active expand">
-                        <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
-                            aria-expanded="false" aria-controls="app">
-                            <i class="mdi mdi-pencil-box-multiple"></i>
-                            <span class="nav-text">Exports</span> <b class="caret"></b>
-                        </a>
-                        <ul class="collapse show" id="app"
-                            data-parent="#sidebar-menu">
-                            <div class="sub-menu">
-
-                                <li>
-                                    <a class="sidenav-item-link" href="chat.html">
-                                        <span class="nav-text">Mails non reçus</span>
-                                    </a>
-                                </li>
-
-                            </div>
-                        </ul>
-                    </li>
+                    </div>
                 </ul>
-            </div>
-        </div>
-    </aside>
-</script>
+            </li>
 
-<!-- <script>
-    $.get('sidebar.html', function(templates) {
-        // Fetch the <script /> block from the loaded external
-        // template file which contains our greetings template.
-        var sidebar = $(templates).filter('#tpl-sidebar').html();
-        let sidebarData = {};
-        $('body').append(Mustache.render(sidebar, sidebarData));
-    });
-</script> -->
+            <li class="has-sub active expand">
+                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
+                    aria-expanded="false" aria-controls="app">
+                    <i class="mdi mdi-pencil-box-multiple"></i>
+                    <span class="nav-text">Exports</span> <b class="caret"></b>
+                </a>
+                <ul class="collapse show" id="app"
+                    data-parent="#sidebar-menu">
+                    <div class="sub-menu">
+
+                        <li>
+                            <a class="sidenav-item-link" href="chat.html">
+                                <span class="nav-text">Mails non reçus</span>
+                            </a>
+                        </li>
+
+                    </div>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
