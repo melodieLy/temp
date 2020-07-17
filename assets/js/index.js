@@ -15,7 +15,16 @@ $.get('header.html', function(templates) {
 $.get('footer.html', function(templates) {
     // Fetch the <script /> block from the loaded external
     // template file which contains our greetings template.
-    var header = $(templates).filter('#tpl-footer').html();
-    let headerData = {};
-    $('#footer').append(Mustache.render(header, headerData));
+    var footer = $(templates).filter('#tpl-footer').html();
+    let footerData = {};
+    $('#footer').append(Mustache.render(footer, footerData));
 });
+
+$.get('sidebar-configuration.html', function(templates) {
+    // Fetch the <script /> block from the loaded external
+    // template file which contains our greetings template.
+    var sidebarConfig = $(templates).filter('#tpl-sidebar-config').html();
+    let sidebarConfigData = {};
+    $('#footer').append(Mustache.render(sidebarConfig, sidebarConfigData));
+});
+
