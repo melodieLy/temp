@@ -9,7 +9,7 @@ $.get('header.html', function(templates) {
     // template file which contains our greetings template.
     var header = $(templates).filter('#tpl-header').html();
     let headerData = {};
-    $('.page-wrapper').append(Mustache.render(header, headerData));
+    $('#header').append(Mustache.render(header, headerData));
 });
 
 $.get('footer.html', function(templates) {
