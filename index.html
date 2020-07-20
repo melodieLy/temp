@@ -79,6 +79,7 @@
 
                     <!--The content-->
                     <div class="row">
+                        <p>The left sidebar is generate by Jquery only. The header, foto</p>
                         <!--Put Here the content /elements you want to show-->
                         <div class="col-md-6 col-lg-6 col-xl-3">
                             <div class="media widget-media p-4 bg-white border">
@@ -128,7 +129,15 @@
                             </div>
                           </div>
 
-
+                            <!-- starting mustache-->
+                            <div onload="moustache()">
+                              <script id="moustache" type="x-tmpl-mustache">
+                                Hello {{ name }}!
+                              </script>
+                            </div>
+                            <!--
+                              END
+                            -->
                         <!-- Configuration of the website UI (necessary ?)-->
                         <div class="right-sidebar-2" id="sidebarConfig"></div>
                     </div>
@@ -144,5 +153,13 @@
         <script src="assets/plugins/circle-progress/circle-progress.js"></script>
         <script src="assets/js/sleek.bundle.js"></script>
 </body>
+
+<script>
+  function mustache() {
+  var template = document.getElementById('moustache').innerHTML;
+  var rendered = Mustache.render(template, { name: 'Luke' });
+  document.getElementById('target').innerHTML = rendered;
+}
+</script>
 
 </html>
