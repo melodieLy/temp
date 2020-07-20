@@ -86,67 +86,69 @@
 
                     <!--The content-->
                     <div class="row">
-                        <!--Put Here the content /elements you want to show-->
+                      <!--Put Here the content /elements you want to show-->
+                      <div class="col-md-6 col-lg-6 col-xl-3">
+                          <div class="media widget-media p-4 bg-white border">
+                            <div class="icon rounded-circle mr-4 bg-info">
+                              <i class="mdi mdi-email-open-outline text-white "></i>
+                            </div>
+                            <div class="media-body align-self-center">
+                              <h4 class="text-primary mb-2">5300</h4>
+                              <p>Mails ouverts</p>
+                            </div>
+                          </div>
+                        </div>
+
                         <div class="col-md-6 col-lg-6 col-xl-3">
-                            <div class="media widget-media p-4 bg-white border">
-                              <div class="icon rounded-circle mr-4 bg-info">
-                                <i class="mdi mdi-email-open-outline text-white "></i>
-                              </div>
-                              <div class="media-body align-self-center">
-                                <h4 class="text-primary mb-2">5300</h4>
-                                <p>Mails ouverts</p>
-                              </div>
+                          <div class="media widget-media p-4 bg-white border">
+                            <div class="icon rounded-circle mr-4 bg-primary">
+                              <i class="mdi mdi-email-check-outline text-white "></i>
+                            </div>
+                            <div class="media-body align-self-center">
+                              <h4 class="text-primary mb-2">5300</h4>
+                              <p>Mails cliqués</p>
                             </div>
                           </div>
+                        </div>
 
-                          <div class="col-md-6 col-lg-6 col-xl-3">
-                            <div class="media widget-media p-4 bg-white border">
-                              <div class="icon rounded-circle mr-4 bg-primary">
-                                <i class="mdi mdi-email-check-outline text-white "></i>
-                              </div>
-                              <div class="media-body align-self-center">
-                                <h4 class="text-primary mb-2">5300</h4>
-                                <p>Mails cliqués</p>
-                              </div>
+                        <div class="col-md-6 col-lg-6 col-xl-3">
+                          <div class="media widget-media p-4 bg-white border">
+                            <div class="icon rounded-circle mr-4 bg-warning">
+                              <i class="mdi mdi-email-search-outline text-white "></i>
+                            </div>
+                            <div class="media-body align-self-center">
+                              <h4 class="text-primary mb-2">5300</h4>
+                              <p>Mails d'erreurs</p>
                             </div>
                           </div>
+                        </div>
 
-                          <div class="col-md-6 col-lg-6 col-xl-3">
-                            <div class="media widget-media p-4 bg-white border">
-                              <div class="icon rounded-circle mr-4 bg-warning">
-                                <i class="mdi mdi-email-search-outline text-white "></i>
-                              </div>
-                              <div class="media-body align-self-center">
-                                <h4 class="text-primary mb-2">5300</h4>
-                                <p>Mails d'erreurs</p>
-                              </div>
+                        <div class="col-md-6 col-lg-6 col-xl-3">
+                          <div class="media widget-media p-4 bg-white border">
+                            <div class="icon rounded-circle mr-4 bg-danger">
+                              <i class="mdi mdi-email-alert text-white "></i>
+                            </div>
+                            <div class="media-body align-self-center">
+                              <h4 class="text-primary mb-2">5300</h4>
+                              <p>Mails spam</p>
                             </div>
                           </div>
+                        </div>      
 
-                          <div class="col-md-6 col-lg-6 col-xl-3">
-                            <div class="media widget-media p-4 bg-white border">
-                              <div class="icon rounded-circle mr-4 bg-danger">
-                                <i class="mdi mdi-email-alert text-white "></i>
-                              </div>
-                              <div class="media-body align-self-center">
-                                <h4 class="text-primary mb-2">5300</h4>
-                                <p>Mails spam</p>
-                              </div>
-                            </div>
-                          </div>
-
-                            <!-- starting mustache-->
-                            <div  class="col-md-6 col-lg-6 col-xl-3" onload="moustache()">
-                              <script id="moustache" type="x-tmpl-mustache">
-                                Hello {{ name }}!
-                              </script>
-                            </div>
-                            <!--
-                              END
-                            -->
                         <!-- Configuration of the website UI (necessary ?)-->
                         <div class="right-sidebar-2" id="sidebarConfig"></div>
                     </div>
+                </div>
+                <div class="row">
+                  <!-- starting mustache-->
+                  <div  class="col-md-6 col-lg-6 col-xl-3" onload="moustache()">
+                    <script id="moustache" type="x-tmpl-mustache">
+                      Hello {{ name }}!
+                    </script>
+                  </div>
+                  <!--
+                    END
+                  -->
                 </div>
                 <footer class="footer mt-auto" id="footer">
                 </footer>
