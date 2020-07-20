@@ -28,6 +28,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.min.js"></script>
     <script src="assets/js/index.js"></script>
+    <script>
+      function moustache() {
+      var template = document.getElementById('moustache').innerHTML;
+      var rendered = Mustache.render(template, { name: 'Luke' });
+      document.getElementById('target').innerHTML = rendered;
+    }
+    </script>
 </head>
 
 
@@ -79,7 +86,6 @@
 
                     <!--The content-->
                     <div class="row">
-                        <p>The left sidebar is generate by Jquery only. The header, foto</p>
                         <!--Put Here the content /elements you want to show-->
                         <div class="col-md-6 col-lg-6 col-xl-3">
                             <div class="media widget-media p-4 bg-white border">
@@ -130,7 +136,7 @@
                           </div>
 
                             <!-- starting mustache-->
-                            <div onload="moustache()">
+                            <div  class="col-md-6 col-lg-6 col-xl-3" onload="moustache()">
                               <script id="moustache" type="x-tmpl-mustache">
                                 Hello {{ name }}!
                               </script>
@@ -153,13 +159,5 @@
         <script src="assets/plugins/circle-progress/circle-progress.js"></script>
         <script src="assets/js/sleek.bundle.js"></script>
 </body>
-
-<script>
-  function mustache() {
-  var template = document.getElementById('moustache').innerHTML;
-  var rendered = Mustache.render(template, { name: 'Luke' });
-  document.getElementById('target').innerHTML = rendered;
-}
-</script>
 
 </html>
