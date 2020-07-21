@@ -25,6 +25,10 @@ $.get('sidebar-configuration.html', function(templates) {
     // template file which contains our greetings template.
     var sidebarConfig = $(templates).filter('#tpl-sidebar-config').html();
     let sidebarConfigData = {};
-    $('#footer').append(Mustache.render(sidebarConfig, sidebarConfigData));
+    $('#sidebarConfig').append(Mustache.render(sidebarConfig, sidebarConfigData));
 });
 
+$.getJson('index.json', function(data) {
+    $('#mailSummary').data("mails", data);
+        
+});

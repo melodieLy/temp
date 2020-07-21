@@ -28,14 +28,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.min.js"></script>
     <script src="assets/js/index.js"></script>
-    <script>
-      function moustache() {
-        console.log("toto");
-      var template = document.getElementById('moustache').innerHTML;
-      var rendered = Mustache.render(template, { name: 'Luke' });
-      document.getElementById('target').innerHTML = rendered;
-    }
-    </script>
+    <script src="tutorial-mustache.js"></script>
 </head>
 
 
@@ -53,30 +46,71 @@
 
         </aside>
 
-
         <div class="page-wrapper">
           <!-- Header are include here -->
           <header class="main-header " id="header"></header>
 
           <div class="content-wrapper">
             <div class="content">
-
-              <!--The content-->
-              <div class="row">
+              
                 <!-- starting mustache-->
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                  <div id="target">
-                    Désolée, la mustache n'a pas charger :(
-                  </div>
-                  <script id="moustache" type="x-tmpl-mustache">
-                    Hello {{ name }}! </br>
-                    Mustache à chargé ! 
-                  </script>
+                <div class="card card-default">
+                    <div class="card-header card-header-border-bottom">
+                        <h2> Introduction </h2>
+                    </div>                   
+                    <div class="card card-body">
+                      <p id="target"></p>
+                      <br>
+                      <pre><code>                      
+HTML : 
+  Salut {{ name }}!
+
+Javascript :
+  var template = document.getElementById('moustache').innerHTML;
+  var rendered = Mustache.render(template, { name: 'Luke' });
+  document.getElementById('target').innerHTML = rendered;
+                      </code></pre>
+  
+                      <h3>Explications :</h3>
+                      <br>
+                      <ul>
+                        <li>On cherche la balise HTML don't l'ID à pour nom "moustache"</li>
+                        <li>Dans une variale, on appelle la foncionne Mustache.render. Cette fonction prendre en paramètre: <br>
+                          
+                          1) La template que l'on souhaite afficher (Ici, la balise HTML qu'on a chercher précédemment) <br>
+                          2) Les données que l'on souhaite afficher sur cette template. Le nom de la donnée doit être le même que le nom écrit dans les balises {{ ... }} de la template !<br>
+                        </li>
+                        <li>
+                          Puis on récupère la balise où l'on souhaite appliquer notre template. L'application de la template ce fait si tous est OK pour mustache et par la .innerHTML
+                        </li>
+                      </ul> 
+                    </div>
+                    
+                    <p id="target2"></p>
+
+                    <script id="moustache" type="x-tmpl-mustache">
+                      Les fichiers utilisés pour la démonstration sont : tutorial-mustache.html (page actuel), tutorial-mustache.js et tutorial-mustache.json <br>
+                      Mustache permet d'afficher de la données par la simple utilisation {{ ... }}. Pour cela on utilise : Mustache.render().<br>
+                        <br>
+                        <h3>Résultat : </h3>
+                        </br>
+                        Salut {{ name }}!
+                    </script>
+
+                    <script id="mustachejson" type="x-tmpl-mustache">
+                      * {{name}}
+                      * {{age}}
+                      * {{company}}
+                      * {{{company}}}
+                      * {{&company}}
+                      {{=<% %>=}}
+                      * {{company}}
+                      <%={{ }}=%>
+                    </script>
                 </div>
                 <!--
-                  END
+                    END
                 -->
-              </div>
 
               <!-- Configuration of the website UI (necessary ?)-->
               <div class="right-sidebar-2" id="sidebarConfig"></div>

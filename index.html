@@ -63,7 +63,7 @@
               <!--Title of the content-->
               <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
                   <div>
-                      <h1>Team</h1>
+                      <h1>Dashboard</h1>
                       <nav aria-label="breadcrumb">
                           <ol class="breadcrumb p-0">
                               <li class="breadcrumb-item">
@@ -71,34 +71,31 @@
                                       <span class="mdi mdi-home"></span>
                                   </a>
                               </li>
-                              <li class="breadcrumb-item">
-                                  app
-                              </li>
-                              <li class="breadcrumb-item" aria-current="page">team</li>
                           </ol>
                       </nav>
                   </div>
-                  <div>
+                  <!-- <div>
                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-member">
                           Add Member
                       </button>
-                  </div>
+                  </div> -->
               </div>
 
-              <!--The content-->
-              <div class="row">
+              <!--The content FIRST ROW -->
+              <div class="row" id="mailSummary">
                 <!--Put Here the content /elements you want to show-->
+                <script id="mails" type="x-tmpl-mustache">
                 <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="media widget-media p-4 bg-white border">
-                      <div class="icon rounded-circle mr-4 bg-info">
-                        <i class="mdi mdi-email-open-outline text-white "></i>
-                      </div>
-                      <div class="media-body align-self-center">
-                        <h4 class="text-primary mb-2">5300</h4>
-                        <p>Mails ouverts</p>
-                      </div>
+                  <div class="media widget-media p-4 bg-white border">
+                    <div class="icon rounded-circle mr-4 bg-info">
+                      <i class="mdi mdi-email-open-outline text-white "></i>
+                    </div>
+                    <div class="media-body align-self-center">
+                      <h4 class="text-primary mb-2">{{MessageOpenedCount}}</h4>
+                      <p>Mails ouverts</p>
                     </div>
                   </div>
+                </div>
 
                   <div class="col-md-6 col-lg-6 col-xl-3">
                     <div class="media widget-media p-4 bg-white border">
@@ -136,6 +133,8 @@
                     </div>
                   </div>
               </div>
+            </script>
+
               <div class="row">
                 <!-- starting mustache-->
                 <div class="col-md-6 col-lg-6 col-xl-3">
