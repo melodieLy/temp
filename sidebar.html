@@ -2,7 +2,7 @@
     var url = window.location.pathname;
     var pathArray = window.location.pathname.split('/');
     if(pathArray[2].includes("tutorial-mustache")) {
-        $("ul").first("li:nth-child(1)").toggleClass("has-sub active expand");
+        $("ul").first("li:nth-child(1)").removeClass("has-sub").addClass("has-sub active expand");
     }
 
 </script>
