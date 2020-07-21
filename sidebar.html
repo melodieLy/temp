@@ -1,7 +1,9 @@
 <script>
     var url = window.location.pathname;
     var pathArray = window.location.pathname.split('/');
-    console.log(pathArray[0], pathArray[1], pathArray[2]);
+    if(pathArray[2].includes("tutorial-mustache")) {
+        console.log("hello");
+    }
 
 </script>
 
