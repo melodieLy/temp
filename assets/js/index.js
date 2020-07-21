@@ -27,8 +27,3 @@ $.get('sidebar-configuration.html', function(templates) {
     let sidebarConfigData = {};
     $('#sidebarConfig').append(Mustache.render(sidebarConfig, sidebarConfigData));
 });
-
-$.getJson('index.json', function(data) {
-    $('#mailSummary').data("mails", data);
-        
-});
