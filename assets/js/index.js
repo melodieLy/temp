@@ -27,3 +27,11 @@ $.get('sidebar-configuration.html', function(templates) {
     let sidebarConfigData = {};
     $('#sidebarConfig').append(Mustache.render(sidebarConfig, sidebarConfigData));
 });
+
+//From here, we call specifics components
+// * Call the mails summary 
+$.get('components/mails-summanry.html', function(templates) {
+    var component = $(templates).filter('#tpl-mails-sum').html();
+    let data = $.getJson('index.json');
+    $('#mailSummary').append(Mustache.render(component,data));
+});
