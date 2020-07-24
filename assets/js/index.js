@@ -31,7 +31,7 @@ $.get('sidebar-configuration.html', function(templates) {
 //From here, we call specifics components
 // * Call the mails summary 
 $.get('components/mails-summary.html', function(templates) {
+    let data = require('index.json');
     var component = $(templates).filter('#tpl-mails-sum').html();
-    let data = $.getJson('index.json');
     $('#mailSummary').append(Mustache.render(component,data));
 });
