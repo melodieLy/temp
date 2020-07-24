@@ -1,10 +1,10 @@
 <script>
     var url = window.location.pathname;
     var pathArray = window.location.pathname.split('/');
-    if(pathArray[2].includes("tutorial-mustache")) {
-        $("ul").first("li:nth-child(1)").removeClass("has-sub").addClass("has-sub active expand");
+    let element = document.getElementsByClassName("has-sub");
+    for (let i = 0; i < element.length; i++) {
+        console.log(pathArray[2])        
     }
-
 </script>
 
 <!--
@@ -31,7 +31,8 @@
                     <i class="mdi mdi-view-dashboard-outline"></i>
                     <span class="nav-text">Dashboard</span> <b class="caret"></b>
                 </a>
-                <ul class="collapse show" id="dashboard"
+                <!--class::collapse show-->
+                <ul class="collapse" id="dashboard"
                     data-parent="#sidebar-menu">
                     <div class="sub-menu">
 
