@@ -1,11 +1,12 @@
 <script id="tpl-mails-sum" type="text/html">
+  {{#Data}}
     <div class="col-md-6 col-lg-6 col-xl-3">
       <div class="media widget-media p-4 bg-white border">
         <div class="icon rounded-circle mr-4 bg-info">
           <i class="mdi mdi-email-open-outline text-white "></i>
         </div>
         <div class="media-body align-self-center">
-          <h4 class="text-primary mb-2">{{Data[0].MessageOpenedCount}}</h4>
+          <h4 class="text-primary mb-2">{{MessageOpenedCount}}</h4>
           <p>Mails ouverts</p>
         </div>
       </div>
@@ -17,7 +18,7 @@
             <i class="mdi mdi-email-check-outline text-white "></i>
           </div>
           <div class="media-body align-self-center">
-            <h4 class="text-primary mb-2">{{Count}}</h4>
+            <h4 class="text-primary mb-2">{{MessageClickedCount}}</h4>
             <p>Mails cliqués</p>
           </div>
         </div>
@@ -29,7 +30,7 @@
             <i class="mdi mdi-email-search-outline text-white "></i>
           </div>
           <div class="media-body align-self-center">
-            <h4 class="text-primary mb-2">{{Data[0].MessageHardBouncedCount + Data[0].MessageSoftBouncedCount}}</h4>
+            <h4 class="text-primary mb-2">{{MessageHardBouncedCount + MessageSoftBouncedCount}}</h4>
             <p>Mails d'erreurs</p>
           </div>
         </div>
@@ -41,11 +42,12 @@
             <i class="mdi mdi-email-alert text-white "></i>
           </div>
           <div class="media-body align-self-center">
-            <h4 class="text-primary mb-2">5300</h4>
+            <h4 class="text-primary mb-2">{{MessageSpamCount}}</h4>
             <p>Mails spam</p>
           </div>
         </div>
       </div>
   </div>
+  {{/Data}}
 </script>
 

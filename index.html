@@ -32,7 +32,23 @@
       function moustache() {
         console.log("toto");
       var template = document.getElementById('moustache').innerHTML;
-      var rendered = Mustache.render(template, { name: 'Luke' });
+      var rendered = Mustache.render(template, { "Count": 1,
+    "Data": [
+      {
+        "APIKeyID": 123456,
+        "MessageClickedCount": 50,
+        "MessageDeferredCount": 0,
+        "MessageHardBouncedCount": 7,
+        "MessageOpenedCount": 19,
+        "MessageQueuedCount": 0,
+        "MessageSentCount": 1,
+        "MessageSoftBouncedCount": 13,
+        "MessageSpamCount": 3,
+        "MessageUnsubscribedCount": 0,
+        "Total": 1
+      }
+    ],
+    "Total": 1 });
       document.getElementById('target').innerHTML = rendered;
     }
     </script>
@@ -93,7 +109,10 @@
                     Désolée, la mustache n'a pas charger :(
                   </div>
                   <script id="moustache" type="x-tmpl-mustache">
-                    Hello {{ name }}! </br>
+                    {{#Data}}
+                    Hello {{ MessageOpenedCount }}! </br>
+                    {{/Data}}
+
                     Mustache à chargé ! 
                   </script>
                 </div>
