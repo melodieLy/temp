@@ -5,11 +5,10 @@
         "APIKeyID": 123456,
         "MessageClickedCount": 50,
         "MessageDeferredCount": 0,
-        "MessageHardBouncedCount": 7,
+        "MessageBouncedCount": 20,
         "MessageOpenedCount": 19,
         "MessageQueuedCount": 0,
         "MessageSentCount": 1,
-        "MessageSoftBouncedCount": 13,
         "MessageSpamCount": 3,
         "MessageUnsubscribedCount": 0,
         "Total": 1
@@ -17,3 +16,4 @@
     ],
     "Total": 1
   }
+

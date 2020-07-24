@@ -36,6 +36,6 @@ $.get('components/mails-summary.html', function(templates) {
         console.log(data.Data[0].MessageOpenedCount);
         let bouced = data.Data[0].MessageHardBouncedCount + data.Data[0].MessageSoftBouncedCount;
         console.log(bouced);
-        $('#mailSummary').append(Mustache.render(component,data));
+        $('#mailSummary').append(Mustache.render(component,data,bouced));
     })
 });
