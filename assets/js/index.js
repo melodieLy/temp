@@ -1,6 +1,18 @@
 //Get element with Jquery
 $(function(){
   $("#sidebar").load("sidebar.html"); 
+    var url = window.location.url;
+    let element = document.getElementsByClassName("has-sub");
+    for (let i = 0; i < element.length; i++) {
+        let navText = element[i].getElementsByTagName('a');
+        for (let j = 0; j < navText.length; j++) {
+            if(navText[j].href == url) {
+                element[i].classList.toggle('active');
+                let t = element[i].getElementsByTagName('ul');
+                t[0].classList.toggle('show');
+            }
+        }
+    }
 });
 
 //Get elment with Jquery + moustache
