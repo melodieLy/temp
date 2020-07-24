@@ -28,30 +28,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.min.js"></script>
     <script src="assets/js/index.js"></script>
-    <script>
-      function moustache() {
-        console.log("toto");
-      var template = document.getElementById('moustache').innerHTML;
-      var rendered = Mustache.render(template, { "Count": 1,
-    "Data": [
-      {
-        "APIKeyID": 123456,
-        "MessageClickedCount": 50,
-        "MessageDeferredCount": 0,
-        "MessageHardBouncedCount": 7,
-        "MessageOpenedCount": 19,
-        "MessageQueuedCount": 0,
-        "MessageSentCount": 1,
-        "MessageSoftBouncedCount": 13,
-        "MessageSpamCount": 3,
-        "MessageUnsubscribedCount": 0,
-        "Total": 1
-      }
-    ],
-    "Total": 1 });
-      document.getElementById('target').innerHTML = rendered;
-    }
-    </script>
 </head>
 
 
@@ -102,24 +78,6 @@
                 <!--Put Here the content /elements you want to show-->
               </div>
 
-              <div class="row">
-                <!-- starting mustache-->
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                  <div id="target">
-                    Désolée, la mustache n'a pas charger :(
-                  </div>
-                  <script id="moustache" type="x-tmpl-mustache">
-                    {{#Data}}
-                    Hello {{ MessageOpenedCount }}! </br>
-                    {{/Data}}
-
-                    Mustache à chargé ! 
-                  </script>
-                </div>
-                <!--
-                  END
-                -->
-              </div>
 
               <!-- Configuration of the website UI (necessary ?)-->
               <div class="right-sidebar-2" id="sidebarConfig"></div>

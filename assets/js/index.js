@@ -33,9 +33,6 @@ $.get('sidebar-configuration.html', function(templates) {
 $.get('components/mails-summary.html', function(templates) {
     var component = $(templates).filter('#tpl-mails-sum').html();
     $.getJSON("./assets/js/index.json", function (data){
-        console.log(data.Data[0].MessageOpenedCount);
-        let bouced = data.Data[0].MessageHardBouncedCount + data.Data[0].MessageSoftBouncedCount;
-        console.log(bouced);
-        $('#mailSummary').append(Mustache.render(component,data,bouced));
+        $('#mailSummary').append(Mustache.render(component,data));
     })
 });
