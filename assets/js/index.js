@@ -32,7 +32,7 @@ $.get('sidebar-configuration.html', function(templates) {
 // * Call the mails summary 
 $.get('components/mails-summary.html', function(templates) {
     var component = $(templates).filter('#tpl-mails-sum').html();
-    $.getJSON("./js/index.json", function (data){
+    $.getJSON("./assets/js/index.json", function (data){
         $('#mailSummary').append(Mustache.render(component,data));
     })
 });
