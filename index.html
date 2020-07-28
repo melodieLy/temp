@@ -91,7 +91,7 @@
       function myFunct(theForm) {
         $.ajax({
           url: "https://recette-api.song-fr.com/swatoken",
-          contentType:"application/x-www-form-urlencoded",
+          contentType: "application/x-www-form-urlencoded",
           method: "POST",
           data : {
             grant_type:"password",            
@@ -99,8 +99,8 @@
             password: theForm.password.value,
           }
         })
-          .done(function(data) {
-            console.log(data);
+          .done(function(result) {
+            console.log(result);
           })
           .fail(function(xhr, status, error) {
             console.log("status : "+ xhr.status);
