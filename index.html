@@ -91,10 +91,11 @@
       function myFunct(theForm) {
         $.ajax({
           url: "https://recette-api.song-fr.com/swatoken",
+          contentType:"application/x-www-form-urlencoded",
           method: "GET",
           password:theForm.password,
           username:theForm.username,
-          dataType: "html"
+          dataType: "json"
         })
         .done(function(data) {
           console.log(data);
