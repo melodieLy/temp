@@ -89,18 +89,16 @@
         e.preventDefault();
       });
       function myFunct(theForm) {
-        let body = {
-          grant_type: 'password',
-          username: theForm.email.value,
-          password: theForm.password.value
-        }
-
         $.ajax({
           url: "https://recette-api.song-fr.com/swatoken",
           contentType:"application/x-www-form-urlencoded",
           method: "GET",
           crossDomain: true,
-          data : body,
+          data : {
+            grant_type:"password"
+          },
+          username: theForm.email.value,
+          password: theForm.password.value,
           dataType: "json",
           sucess: function(result) {
             alert(result);
