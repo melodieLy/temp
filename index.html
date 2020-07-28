@@ -91,7 +91,9 @@
       function myFunct(theForm) {
         $.ajax({
           url: "https://recette-api.song-fr.com/swatoken",
-          contentType: "application/x-www-form-urlencoded",
+          headers: {
+            contentType: "application/x-www-form-urlencoded"
+          },
           method: "POST",
           withCredentials: true,
           data : {
