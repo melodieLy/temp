@@ -90,9 +90,7 @@
       });
       function myFunct(theForm) {
         let body = {
-          grant_type: 'password',
-          username: theForm.username,
-          password: theForm.password
+          grant_type: 'password'
         }
 
         $.ajax({
@@ -101,6 +99,8 @@
           method: "GET",
           crossDomain: true,
           data : body,
+          username: theForm.email.value,
+          password: theForm.password.value,
           dataType: "json"
         })
         .done(function(data) {
