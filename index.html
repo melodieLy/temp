@@ -97,14 +97,14 @@
             grant_type:"password",            
             username: theForm.email.value,
             password: theForm.password.value,
-          },
-          sucess: function(result) {
-            alert(result);
-          }
+          } 
+          .done(function(data) {
+            console.log(data);
+          })
+          .fail(function(e) {
+            console.log(e);
+          })
         })
-        .done(function(data) {
-          console.log(data);
-        });
       }
     </script>
 </body>
