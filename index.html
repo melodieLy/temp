@@ -93,6 +93,7 @@
           url: "https://recette-api.song-fr.com/swatoken",
           contentType: "application/x-www-form-urlencoded",
           method: "POST",
+          withCredentials: true,
           data : {
             grant_type:"password",            
             username: theForm.email.value,
