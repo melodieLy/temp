@@ -102,8 +102,9 @@
           .done(function(data) {
             console.log(data);
           })
-          .fail(function(e) {
-            console.log(e);
+          .fail(function(xhr, status, error) {
+            console.log("status : "+ xhr.status);
+            console.log("message : "+ xhr.statusText);
           })
       }
     </script>
