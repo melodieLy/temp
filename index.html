@@ -93,12 +93,11 @@
           url: "https://recette-api.song-fr.com/swatoken",
           contentType:"application/x-www-form-urlencoded",
           method: "POST",
-          crossDomain: true,
           data : {
-            grant_type:"password"
+            grant_type:"password",            
+            username: theForm.email.value,
+            password: theForm.password.value,
           },
-          username: theForm.email.value,
-          password: theForm.password.value,
           sucess: function(result) {
             alert(result);
           }
