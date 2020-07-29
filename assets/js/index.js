@@ -16,7 +16,7 @@ function Auth(theForm) {
         const time = 1000;
         let expire = new Date();
         expire.setTime(expire.getTime()+ (result.expires_in * time));
-        createCookie(result,expire);
+        createCookie(result);
       })
       .fail(function(xhr, status, error) {
         console.log("status : "+ xhr.status);
@@ -24,7 +24,7 @@ function Auth(theForm) {
       })
 }
 
-function createCookie(setup, time) {
-    document.cookie = "token=" + setup.access_token + ";expires=" + time + ";token_type="+ setup.token_type;
+function createCookie(setup) {
+    document.cookie = setup;
     console.log(document.cookie)
 }
