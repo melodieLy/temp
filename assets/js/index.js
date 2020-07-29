@@ -28,6 +28,6 @@ function createCookie(setup,time) {
     const cookie = "expires=" + time + "; token="+setup.access_token;
     console.log(setup);
     document.cookie = "expires=" + time +";"; 
-    document.cookie = "token="+setup.access_token+"";";
+    document.cookie = "token="+setup.access_token+";";
     console.log(document.cookie);
 }
