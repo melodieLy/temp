@@ -22,6 +22,7 @@
   <!-- FAVICON -->
   <link href="logod/img/logos/rond.png" rel="shortcut icon" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="assets/js/index.js"></script>
 
 
   <!--
@@ -50,7 +51,7 @@
             <div class="card-body p-5">
 
               <h4 class="text-dark mb-5">Se connecter</h4>
-              <form action="/javascript:;" onsubmit="myFunct(this)" id="form">
+              <form action="/javascript:;" onsubmit="Auth(this)" id="form">
                 <div class="row">
                   <div class="form-group col-md-12 mb-4">
                     <input type="text" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="identifiant">
@@ -88,28 +89,6 @@
       $("#form").submit(function(e) {
         e.preventDefault();
       });
-      function myFunct(theForm) {
-        $.ajax({
-          url: "https://recette-api.song-fr.com/swatoken",
-          headers: {
-            'content-Type': "application/x-www-form-urlencoded"
-          },
-          method: "POST",
-          withCredentials: true,
-          data : {
-            grant_type:"password",            
-            username: theForm.email.value,
-            password: theForm.password.value,
-          }
-        })
-          .done(function(result) {
-            console.log(result.access_token);
-          })
-          .fail(function(xhr, status, error) {
-            console.log("status : "+ xhr.status);
-            console.log("message : "+ xhr.statusText);
-          })
-      }
     </script>
 </body>
 </html>
