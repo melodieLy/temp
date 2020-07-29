@@ -27,6 +27,7 @@ function Auth(theForm) {
 function createCookie(setup,time) {
     const cookie = "expires=" + time + "; token="+setup.access_token;
     console.log(setup);
-    document.cookie = setup; 
+    document.cookie = "expires=" + time +";"; 
+    document.cookie = "token="+setup.access_token+"";";
     console.log(document.cookie);
 }
