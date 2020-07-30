@@ -6,7 +6,11 @@ $(function(){
 $(function(){
     if(document.cookie.token === 'undefined') {
         console.log("cookies not found")
-    } else if (document.cookie.expires > $.now()) {
+    } else if (document.cookie.expires < $.now()) {
+        console.log("cookies expired")
+    } else if (document.cookie.token) {
+        console.log(document.cookie.token );
+        console.log(document.cookie.expires );
     }
 });
 
