@@ -3,7 +3,7 @@ $(function(){
   $("#sidebar").load("sidebar.html");
 });
 
-$(function(){
+$(document).ready(function() {
     if(document.cookie.token === 'undefined') {
         console.log("cookies not found")
     } else if (document.cookie.expires < $.now()) {
