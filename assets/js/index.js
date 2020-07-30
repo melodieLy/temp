@@ -19,8 +19,8 @@ function Auth(theForm) {
         createCookie(result,expire);
       })
       .fail(function(xhr, status, error) {
-        console.log("status : "+ xhr.status);
-        console.log("message : "+ xhr.statusText);
+        var errorMessage = xhr.status + ': ' + xhr.statusText
+        alert('Error - ' + errorMessage);
       })
 }
 
@@ -30,4 +30,10 @@ function createCookie(setup,time) {
     document.cookie = "expires=" + time +";"; 
     document.cookie = "token="+setup.access_token+";";
     console.log(document.cookie);
+}
+
+function alert() {
+  $(function(){
+    $("#sidebar").load("sidebar.html");
+  });
 }
