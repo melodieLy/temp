@@ -80,11 +80,9 @@
 </div>
 
 <script>
-    console.log("test");
-    var url = window.location.url;
+    var url = window.location.href;
     let element = document.getElementsByClassName("has-sub");
     for (let i = 0; i < element.length; i++) {
-        console.log("inside1");
 
         let navText = element[i].getElementsByTagName('a');
         for (let j = 0; j < navText.length; j++) {

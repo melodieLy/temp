@@ -7,7 +7,6 @@ $(function(){
     if(document.cookie.token === 'undefined') {
         console.log("cookies not found")
     } else if (document.cookie.expires > $.now()) {
-        console.log("expire time")
     }
 });
 
