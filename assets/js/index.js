@@ -17,7 +17,7 @@ function Auth(theForm) {
       let expire = new Date();
       expire.setTime(expire.getTime()+ (result.expires_in * time));
       createCookie(result,expire);
-      console.log(document.url);
+      console.log(window.location.href);
     })
     .fail(function(xhr, status, error) {
       var errorMessage = xhr.status + ': ' + xhr.statusText
