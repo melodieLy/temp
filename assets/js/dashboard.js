@@ -3,6 +3,14 @@ $(function(){
   $("#sidebar").load("sidebar.html");
 });
 
+$(function(){
+    if(document.cookie.token === 'undefined') {
+        console.log("cookies not found")
+    } else if (document.cookie.expires > $.now()) {
+        console.log("expire time")
+    }
+});
+
 //Get elment with Jquery + moustache
 $.get('header.html', function(templates) {
     // Fetch the <script /> block from the loaded external
