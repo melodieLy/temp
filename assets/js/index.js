@@ -32,7 +32,7 @@ function createCookie(setup,time) {
     console.log(document.cookie);
 }
 
-function alert() {
+function showAlert() {
   $(function(){
     $("#sidebar").load("sidebar.html");
   });
