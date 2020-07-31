@@ -9,6 +9,10 @@ function getCookie() {
     return result;
 };
 
+function hello() {
+    console.log("hello");
+}
+
 const cookies = getCookie();
 $(document).ready(function() {
         if(cookies === undefined) {
@@ -41,3 +45,5 @@ function get(path) {
         alert('Error - ' + errorMessage);
     })
 }
+
+export {cookies,getCookie, get};
