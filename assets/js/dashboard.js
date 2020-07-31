@@ -4,15 +4,17 @@ $(function(){
   $("#sidebar").load("sidebar.html");
 });
 
+get("context/current-user",callheader);
+
 //Get elment with Jquery + moustache
-$.get('header.html', function(templates) {
-    // Fetch the <script /> block from the loaded external
-    // template file which contains our greetings template.
-    var header = $(templates).filter('#tpl-header').html();
-    get("context/current-user", function(result){
+function callheader(result){
+    $.get('header.html', function(templates) {
+        // Fetch the <script /> block from the loaded external
+        // template file which contains our greetings template.
+        var header = $(templates).filter('#tpl-header').html();
         $('#header').append(Mustache.render(header, result));
     });
-});
+}
 
 $.get('footer.html', function(templates) {
     // Fetch the <script /> block from the loaded external
