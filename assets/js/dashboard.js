@@ -12,7 +12,7 @@ $.get('header.html', function(templates) {
     // Fetch the <script /> block from the loaded external
     // template file which contains our greetings template.
     var header = $(templates).filter('#tpl-header').html();
-    let headerData = {};
+    let headerData = currentUser;
     $('#header').append(Mustache.render(header, headerData));
 });
 
