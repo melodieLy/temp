@@ -7,7 +7,9 @@ $(document).ready(function() {
     console.log("ready for cookies");
     const cookies = getCookie();
     if(cookies === undefined) {
-        console.log("cookies not found");
+        window.location.replace("index.html");
+        alert("cookies not found");
+
     } else if (cookies.expires < $.now()) {
         console.log("cookies expired");
     } else if (cookies.token) {
