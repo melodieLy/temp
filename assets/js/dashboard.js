@@ -5,12 +5,11 @@ $(function(){
 });
 
 get("context/current-user",callheader);
+get("/users/"+cookies.username+"/roles",callMailSum);
 
-//Get elment with Jquery + moustache
+//Get element with Jquery + moustache
 function callheader(result){
     $.get('header.html', function(templates) {
-        // Fetch the <script /> block from the loaded external
-        // template file which contains our greetings template.
         var header = $(templates).filter('#tpl-header').html();
         $('#header').append(Mustache.render(header, result));
     });
@@ -34,6 +33,13 @@ $.get('sidebar-configuration.html', function(templates) {
 
 //From here, we call specifics components
 // * Call the mails summary 
+function callMailSum(result) {
+    for (let i = 0; i < result.length; i++) {
+        const element = array[i];
+        console.log(element.Role)
+    }
+}
+
 $.get('components/mails-summary.html', function(templates) {
     var component = $(templates).filter('#tpl-mails-sum').html();
     $.getJSON("./assets/js/index.json", function (data){

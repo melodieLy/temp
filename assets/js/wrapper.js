@@ -6,12 +6,9 @@ function getCookie() {
     let result = new Array();
     result.expires = (array[0].split('=').pop());
     result.token = "bearer " + (array[1].split('=').pop());
+    result.username = (array[2].split('=').pop());
     return result;
 };
-
-function hello() {
-    alert("hello");
-}
 
 const cookies = getCookie();
 $(document).ready(function() {
@@ -21,11 +18,29 @@ $(document).ready(function() {
 
     } else if (cookies.expires < $.now()) {
         console.log("cookies expired");
-    } else if (cookies) {
-        console.log(cookies.token);
-        console.log(cookies.expires);
     }
 });
+
+function get(path,funct) {
+    let resp = [];
+    $.ajax({
+        url: "https://recette-api.song-fr.com/"+path,
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept":"application/json",
+            "Authorization": cookies.token
+        },
+        method: "GET",
+        success: funct
+    })
+
+    .fail(function(xhr, status, error) {
+        var errorMessage = xhr.status + ': ' + xhr.statusText
+        alert('Error - ' + errorMessage);
+        return xhr;
+    });
+};
+
 
 function get(path,funct) {
     let resp = [];

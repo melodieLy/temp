@@ -16,7 +16,7 @@ function Auth(theForm) {
       const time = 1000;
       let expire = new Date();
       expire.setTime(expire.getTime()+ (result.expires_in * time));
-      createCookie(result,expire);
+      createCookie(result,expire, theForm.email.value);
       window.location.replace("dashboard.html");
     })
 
@@ -26,8 +26,8 @@ function Auth(theForm) {
     })
 }
 
-function createCookie(setup,time) {
+function createCookie(setup,time,username) {
     document.cookie = "expires=" + time +";"; 
     document.cookie = "token="+setup.access_token+";";
-    console.log(document.cookie);
+    document.cookie = "username="+username+";";
 }
