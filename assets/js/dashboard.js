@@ -4,6 +4,7 @@ $(function(){
 });
 
 $(document).ready(function() {
+    console.log("ready for cookies");
     if(document.cookie.token === 'undefined') {
         console.log("cookies not found")
     } else if (document.cookie.expires < $.now()) {
