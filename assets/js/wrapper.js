@@ -28,7 +28,8 @@ $(document).ready(function() {
 });
 
 function callback(data) {
-    return data;
+    const result = data;
+    return result;
 }
 
 function get(path) {
