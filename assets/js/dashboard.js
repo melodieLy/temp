@@ -5,7 +5,7 @@ $(function(){
 });
 
 get("context/current-user",callheader);
-get("/users/"+cookies.username+"/roles",retrieveRole);
+get("context/current-roles",retrieveRole);
 
 //Get element with Jquery + moustache
 function callheader(result){

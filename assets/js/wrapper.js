@@ -21,7 +21,7 @@ $(document).ready(function() {
     }
 });
 
-function get(path,funct) {
+function get(path) {
     let resp = [];
     $.ajax({
         url: "https://recette-api.song-fr.com/"+path,
@@ -30,8 +30,7 @@ function get(path,funct) {
             "Accept":"application/json",
             "Authorization": cookies.token
         },
-        method: "GET",
-        success: funct
+        method: "GET"
     })
 
     .fail(function(xhr, status, error) {
