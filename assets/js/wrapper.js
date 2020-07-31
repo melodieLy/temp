@@ -38,6 +38,7 @@ function get(path) {
         method: "GET",
     })
     .done(function(result) {
+        console.log(result);
         return result;
     })
 
