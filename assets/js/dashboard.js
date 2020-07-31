@@ -1,32 +1,12 @@
+import wrapper from './wrapper.js'
+
 //Get element with Jquery
 $(function(){
   $("#sidebar").load("sidebar.html");
 });
 
 $(document).ready(function() {
-    console.log("ready for cookies");
-    const cookies = getCookie();
-    if(cookies === undefined) {
-        window.location.replace("index.html");
-        alert("cookies not found");
-
-    } else if (cookies.expires < $.now()) {
-        console.log("cookies expired");
-    } else if (cookies.token) {
-        console.log(document.cookie.token);
-        console.log(document.cookie.expires);
-    }
-});
-
-function getCookie() {
-    if(!document.cookie){
-        return undefined;
-    }
-    let array = document.cookie.split(";");
-    let result = new Array();
-    result.expires = (array[0].split('=').pop());
-    result.token = (array[1].split('=').pop());
-    return result;
+    console.log("after?")
 }
 
 //Get elment with Jquery + moustache
