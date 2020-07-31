@@ -17,7 +17,7 @@ $(document).ready(function() {
 
     } else if (cookies.expires < $.now()) {
         console.log("cookies expired");
-    } else if (cookies.token) {
+    } else if (cookies) {
         console.log(document.cookie.token);
         console.log(document.cookie.expires);
     }
@@ -31,13 +31,13 @@ function get(path) {
             "Authorization": + "bearer " + cookies.token
         },
         method: "GET",
-      })
-        .done(function(result) {
-            console.log(result);
-        })
-    
-        .fail(function(xhr, status, error) {
-          var errorMessage = xhr.status + ': ' + xhr.statusText
-          alert('Error - ' + errorMessage);
-        })
+    })
+    .done(function(result) {
+        console.log(result);
+    })
+
+    .fail(function(xhr, status, error) {
+        var errorMessage = xhr.status + ': ' + xhr.statusText
+        alert('Error - ' + errorMessage);
+    })
 }

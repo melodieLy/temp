@@ -7,7 +7,7 @@ $(function(){
 
 $(document).ready(function() {
     console.log("after?")
-}
+});
 
 //Get elment with Jquery + moustache
 $.get('header.html', function(templates) {
