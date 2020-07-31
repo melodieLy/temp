@@ -1,10 +1,12 @@
-import {cookies,getCookie, get, hello} from './wrapper.js'
+import {hello} from './wrapper.js'
 
 //Get element with Jquery
 $(function(){
   $("#sidebar").load("sidebar.html");
 });
 
+let val = Hello;
+console.log(val);
 hello();
 
 //Get elment with Jquery + moustache

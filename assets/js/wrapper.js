@@ -9,7 +9,7 @@ function getCookie() {
     return result;
 };
 
-function hello() {
+export default function hello() {
     console.log("hello");
 }
 
@@ -45,5 +45,3 @@ function get(path) {
         alert('Error - ' + errorMessage);
     })
 };
-
- export {cookies,getCookie, get, hello};
