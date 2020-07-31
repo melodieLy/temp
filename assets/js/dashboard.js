@@ -37,13 +37,13 @@ function retrieveRole(result) {
     for (let i = 0; i < result.length; i++) {
         const element = result[i];
         if(element.Role.Id === "asso-admin") {
-            retrieveAsso(element[i]);
+            get('mail/stats/counters/'+element.Association.Id, retrieveAsso);
         }
     }
 }
 
 function retrieveAsso(data) {
-    console.log(data.Association.Id);
+    console.log(data);
 }
 
 $.get('components/mails-summary.html', function(templates) {
