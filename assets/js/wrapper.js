@@ -38,7 +38,7 @@ function get(path) {
         method: "GET",
     })
     .done(function(result) {
-        return console.log(result);
+        return result;
     })
 
     .fail(function(xhr, status, error) {
