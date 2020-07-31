@@ -4,8 +4,9 @@ $(function(){
   $("#sidebar").load("sidebar.html");
 });
 
-let currentUser = get("context/current-user");
-console.log(currentUser);
+const currentUser = new Promise(function(resolve,reject) {
+    resolve(get("context/current-user"));
+});
 
 //Get elment with Jquery + moustache
 $.get('header.html', function(templates) {
