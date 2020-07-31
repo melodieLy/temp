@@ -1,5 +1,5 @@
 <script id="tpl-mails-sum" type="text/html">
-  {{#Data}}
+  {{#Stats}}
     <div class="col-md-6 col-lg-6 col-xl-3">
       <div class="media widget-media p-4 bg-white border">
         <div class="icon rounded-circle mr-4 bg-info">
@@ -30,8 +30,7 @@
             <i class="mdi mdi-email-search-outline text-white "></i>
           </div>
           <div class="media-body align-self-center">
-            <!--ASK TO ADD THE NUMBER FOR HARD AND SOFT BOUNCED-->
-            <h4 class="text-primary mb-2">{{MessageBouncedCount}}</h4>
+            <h4 class="text-primary mb-2">{{MessageHardBouncedCount}}</h4>
             <p>Mails d'erreurs</p>
           </div>
         </div>
@@ -49,6 +48,6 @@
         </div>
       </div>
   </div>
-  {{/Data}}
+  {{/Stats}}
 </script>
 

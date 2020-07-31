@@ -43,12 +43,8 @@ function retrieveRole(result) {
 }
 
 function retrieveAsso(data) {
-    console.log(data);
-}
-
-$.get('components/mails-summary.html', function(templates) {
-    var component = $(templates).filter('#tpl-mails-sum').html();
-    $.getJSON("./assets/js/index.json", function (data){
+    $.get('components/mails-summary.html', function(templates) {
+        var component = $(templates).filter('#tpl-mails-sum').html();
         $('#mailSummary').append(Mustache.render(component,data));
-    })
-});
+    });
+}
