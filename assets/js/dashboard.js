@@ -1,7 +1,5 @@
 // import wrapper from './wrapper.js'
 
-const { getCookie } = require("./wrapper");
-
 //Get element with Jquery
 $(function(){
   $("#sidebar").load("sidebar.html");

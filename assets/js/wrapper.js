@@ -46,4 +46,4 @@ function get(path) {
     })
 }
 
-export {cookies,getCookie, get};
+// export {cookies,getCookie, get};
