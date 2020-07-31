@@ -5,7 +5,7 @@ $(function(){
 });
 
 get("context/current-user",callheader);
-get("/users/"+cookies.username+"/roles",callMailSum);
+get("/users/"+cookies.username+"/roles",retrieveRole);
 
 //Get element with Jquery + moustache
 function callheader(result){
@@ -33,11 +33,17 @@ $.get('sidebar-configuration.html', function(templates) {
 
 //From here, we call specifics components
 // * Call the mails summary 
-function callMailSum(result) {
+function retrieveRole(result) {
     for (let i = 0; i < result.length; i++) {
         const element = result[i];
-        console.log(element.Role)
+        if(element.Role === "Administrateur d'association") {
+            retrieveAsso(element[i]);
+        }
     }
+}
+
+function retrieveAsso(data) {
+    console.log(data.Association.id);
 }
 
 $.get('components/mails-summary.html', function(templates) {
