@@ -9,8 +9,8 @@ function getCookie() {
     return result;
 };
 
-export default function hello() {
-    console.log("hello");
+function hello() {
+    alert("hello");
 }
 
 const cookies = getCookie();

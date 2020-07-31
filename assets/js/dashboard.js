@@ -5,8 +5,6 @@ $(function(){
   $("#sidebar").load("sidebar.html");
 });
 
-let val = Hello;
-console.log(val);
 hello();
 
 //Get elment with Jquery + moustache
