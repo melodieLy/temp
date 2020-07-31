@@ -37,11 +37,12 @@ function get(path) {
         method: "GET",
     })
     .done(function(result) {
-        console.log(result);
+        return console.log(result);
     })
 
     .fail(function(xhr, status, error) {
         var errorMessage = xhr.status + ': ' + xhr.statusText
         alert('Error - ' + errorMessage);
+        return xhr;
     })
 };

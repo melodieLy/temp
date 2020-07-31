@@ -4,8 +4,8 @@ $(function(){
   $("#sidebar").load("sidebar.html");
 });
 
-hello();
-
+let currentUser = get("context/current-user");
+console.log(currentUser);
 
 //Get elment with Jquery + moustache
 $.get('header.html', function(templates) {
