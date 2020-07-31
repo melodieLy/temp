@@ -5,15 +5,24 @@ $(function(){
 
 $(document).ready(function() {
     console.log("ready for cookies");
-    if(document.cookie.token === 'undefined') {
-        console.log("cookies not found")
-    } else if (document.cookie.expires < $.now()) {
-        console.log("cookies expired")
-    } else if (document.cookie.token) {
-        console.log(document.cookie.token );
-        console.log(document.cookie.expires );
+    const cookies = getCookie();
+    if(cookies.token === 'undefined') {
+        console.log("cookies not found");
+    } else if (cookies.expires < $.now()) {
+        console.log("cookies expired");
+    } else if (cookies.token) {
+        console.log(document.cookie.token);
+        console.log(document.cookie.expires);
     }
 });
+
+function getCookie() {
+    let array = document.cookie.split(";");
+    let result = new Array();
+    result.expires = (array[0].split('=').pop());
+    result.token = (array[1].split('=').pop());
+    return result;
+}
 
 //Get elment with Jquery + moustache
 $.get('header.html', function(templates) {
