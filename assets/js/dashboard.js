@@ -1,15 +1,11 @@
-// import wrapper from './wrapper.js'
+import wrapper from './wrapper.js'
 
 //Get element with Jquery
 $(function(){
   $("#sidebar").load("sidebar.html");
 });
 
-hello();
-
-$(document).ready(function() {
-    console.log("after?")
-});
+wrapper.hello();
 
 //Get elment with Jquery + moustache
 $.get('header.html', function(templates) {

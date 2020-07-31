@@ -22,8 +22,8 @@ $(document).ready(function() {
     } else if (cookies.expires < $.now()) {
         console.log("cookies expired");
     } else if (cookies) {
-        console.log(document.cookie.token);
-        console.log(document.cookie.expires);
+        console.log(cookies.token);
+        console.log(cookies.expires);
     }
 });
 
@@ -46,4 +46,4 @@ function get(path) {
     })
 }
 
-// export {cookies,getCookie, get};
+ export {cookies,getCookie, get, hello};
