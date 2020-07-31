@@ -6,7 +6,7 @@ $(function(){
 $(document).ready(function() {
     console.log("ready for cookies");
     const cookies = getCookie();
-    if(cookies === 'undefined') {
+    if(cookies === undefined) {
         console.log("cookies not found");
     } else if (cookies.expires < $.now()) {
         console.log("cookies expired");
