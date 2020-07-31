@@ -44,6 +44,6 @@ function get(path) {
         var errorMessage = xhr.status + ': ' + xhr.statusText
         alert('Error - ' + errorMessage);
     })
-}
+};
 
  export {cookies,getCookie, get, hello};
