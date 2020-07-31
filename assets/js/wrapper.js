@@ -28,6 +28,7 @@ $(document).ready(function() {
 });
 
 function get(path) {
+    var toSend;
     $.ajax({
         url: "https://recette-api.song-fr.com/"+path,
         headers: {
@@ -39,7 +40,7 @@ function get(path) {
     })
     .done(function(result) {
         console.log(result);
-        return result;
+        return toSend = result;
     })
 
     .fail(function(xhr, status, error) {
