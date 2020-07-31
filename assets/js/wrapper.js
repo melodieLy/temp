@@ -31,6 +31,7 @@ function get(path) {
     $.ajax({
         url: "https://recette-api.song-fr.com/"+path,
         headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
             "Authorization": + "bearer " + cookies.token
         },
