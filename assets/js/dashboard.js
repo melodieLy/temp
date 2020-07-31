@@ -35,7 +35,7 @@ $.get('sidebar-configuration.html', function(templates) {
 // * Call the mails summary 
 function callMailSum(result) {
     for (let i = 0; i < result.length; i++) {
-        const element = array[i];
+        const element = result[i];
         console.log(element.Role)
     }
 }
