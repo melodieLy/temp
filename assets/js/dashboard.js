@@ -36,14 +36,14 @@ $.get('sidebar-configuration.html', function(templates) {
 function retrieveRole(result) {
     for (let i = 0; i < result.length; i++) {
         const element = result[i];
-        if(element.Role === "Administrateur d'association") {
+        if(element.Role.Id === "asso-admin") {
             retrieveAsso(element[i]);
         }
     }
 }
 
 function retrieveAsso(data) {
-    console.log(data.Association.id);
+    console.log(data.Association.Id);
 }
 
 $.get('components/mails-summary.html', function(templates) {
