@@ -33,6 +33,7 @@ function callback(data) {
 }
 
 function get(path) {
+    let resp = [];
     $.ajax({
         url: "https://recette-api.song-fr.com/"+path,
         headers: {
@@ -42,7 +43,7 @@ function get(path) {
         },
         method: "GET",
         success: function (result) {
-            callback(result);
+            resp.push(result);
         }
     })
 
@@ -51,4 +52,6 @@ function get(path) {
         alert('Error - ' + errorMessage);
         return xhr;
     })
+    console.log(resp);
+    return resp;
 };
