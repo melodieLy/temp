@@ -6,6 +6,7 @@ $(function(){
 
 hello();
 
+
 //Get elment with Jquery + moustache
 $.get('header.html', function(templates) {
     // Fetch the <script /> block from the loaded external
