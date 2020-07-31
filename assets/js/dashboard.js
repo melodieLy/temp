@@ -4,16 +4,14 @@ $(function(){
   $("#sidebar").load("sidebar.html");
 });
 
-const currentUser = new Promise(function(resolve,reject) {
-    resolve(get("context/current-user"));
-});
-
 //Get elment with Jquery + moustache
 $.get('header.html', function(templates) {
     // Fetch the <script /> block from the loaded external
     // template file which contains our greetings template.
     var header = $(templates).filter('#tpl-header').html();
-    let headerData = currentUser;
+    let headerData = get("context/current-user");
+    console.log(headerData);
+    console.log(get("context/current-user"));
     $('#header').append(Mustache.render(header, headerData));
 });
 

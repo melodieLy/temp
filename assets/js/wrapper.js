@@ -27,6 +27,10 @@ $(document).ready(function() {
     }
 });
 
+function callback(data) {
+    return data;
+}
+
 function get(path) {
     $.ajax({
         url: "https://recette-api.song-fr.com/"+path,
@@ -37,7 +41,7 @@ function get(path) {
         },
         method: "GET",
         success: function (result) {
-            return result;
+            callback(result);
         }
     })
 
