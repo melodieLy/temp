@@ -9,9 +9,9 @@ $.get('header.html', function(templates) {
     // Fetch the <script /> block from the loaded external
     // template file which contains our greetings template.
     var header = $(templates).filter('#tpl-header').html();
-    let headerData = get("context/current-user");
-    console.log(headerData);
-    $('#header').append(Mustache.render(header, headerData));
+    get("context/current-user", function(result){
+        $('#header').append(Mustache.render(header, result));
+    });
 });
 
 $.get('footer.html', function(templates) {
