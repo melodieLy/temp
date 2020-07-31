@@ -39,6 +39,7 @@ function get(path) {
         method: "GET",
         success: function (result) {
             resp.push(result);
+            return resp;
         }
     })
 
@@ -46,7 +47,5 @@ function get(path) {
         var errorMessage = xhr.status + ': ' + xhr.statusText
         alert('Error - ' + errorMessage);
         return xhr;
-    })
-    console.log(resp);
-    return resp;
+    });
 };
