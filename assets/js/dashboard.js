@@ -10,8 +10,8 @@ $.get('header.html', function(templates) {
     // template file which contains our greetings template.
     var header = $(templates).filter('#tpl-header').html();
     let headerData = get("context/current-user");
+    headerData = headerData[0];
     console.log(headerData);
-    console.log(get("context/current-user"));
     $('#header').append(Mustache.render(header, headerData));
 });
 

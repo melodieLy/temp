@@ -27,11 +27,6 @@ $(document).ready(function() {
     }
 });
 
-function callback(data) {
-    const result = data;
-    return result;
-}
-
 function get(path) {
     let resp = [];
     $.ajax({
