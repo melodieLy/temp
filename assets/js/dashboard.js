@@ -1,4 +1,3 @@
-import {hello} from './wrapper.js'
 
 //Get element with Jquery
 $(function(){
