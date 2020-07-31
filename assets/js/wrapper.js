@@ -31,7 +31,6 @@ function get(path) {
     let resp = [];
     $.ajax({
         url: "https://recette-api.song-fr.com/"+path,
-        async: false,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
