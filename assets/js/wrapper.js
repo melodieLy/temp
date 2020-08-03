@@ -1,12 +1,14 @@
 //Search the association of the user
-function retrieveRole(result,data) {
+function retrieveRole(result) {
+    let responses = new Array();
     for (let i = 0; i < result.length; i++) {
         const element = result[i];
         if(element.Role.Id === "asso-admin") {
-            data.asso = "association:" + element.Association.name+";";
-            data.assoId = "assoId:" + element.Association.Id+";";
+            responses.asso = "association:" + element.Association.name+";";
+            responses.assoId = "assoId:" + element.Association.Id+";";
         }
     }
+    return responses;
 }
 
 function getCookie() {
@@ -21,12 +23,13 @@ function getCookie() {
     result.token = "bearer " + (array[1].split('=').pop());
     result.username = (array[2].split('=').pop());
 
-    get("context/current-roles",retrieveRole,result);
-
     return result;
 };
 
 const cookies = getCookie();
+const asso = get("context/current-roles",retrieveRole);
+console.log(asso);
+
 $(document).ready(function() {
         if(cookies === undefined) {
         window.location.replace("index.html");
@@ -75,16 +78,16 @@ function get(path,funct) {
     });
 };
 
-function get(path,funct,data) {
+function get(path,funct) {
     $.ajax({
         url: "https://recette-api.song-fr.com/"+path,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
-            "Authorization": data.token
+            "Authorization": cookies.token
         },
         method: "GET",
-        success: funct(response,data)
+        success: funct
     })
 
     .fail(function(xhr, status, error) {
