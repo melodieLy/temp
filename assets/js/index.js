@@ -16,7 +16,7 @@ function Auth(theForm) {
       const time = 1000;
       let expire = new Date();
       expire.setTime(expire.getTime()+ (result.expires_in * time));
-      createCookie(result,expire, theForm.email.value);
+      createCookieAuth(result,expire, theForm.email.value);
       findAsso(result);
       window.location.replace("dashboard.html");
     })
@@ -27,10 +27,16 @@ function Auth(theForm) {
     })
 }
 
-function createCookie(setup,time,username) {
+function createCookieAuth(setup,time,username) {
   document.cookie = "expires=" + time +";"; 
   document.cookie = "token="+setup.access_token+";";
   document.cookie = "username="+username+";";
+};
+
+function createCookieAsso(setup) {
+  document.cookie = "asso=" + setup.association.Name;
+  document.cookie = "assoId=" + setup.association.Id;
+  console.log(document.cookie);
 };
 
 function findAsso(param) {
@@ -45,8 +51,7 @@ function findAsso(param) {
     method: "GET"
   })
   .done(function(result) {
-    document.cookie = "asso=" + result.association.Name;
-    document.cookie = "assoId=" + result.association.Id;
+    createCookieAsso(result);
   })
 
   .fail(function(xhr, status, error) {
