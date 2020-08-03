@@ -39,9 +39,8 @@ function retrieveRole(result) {
         const element = result[i];
         if(element.Role.Id === "asso-admin") {
             get('mail/stats/counters/'+element.Association.Id, retrieveAsso);
-            console.log('public/associations/'+element.Association.Id+"/logo");
-
-            get('public/associations/'+element.Association.Id+"/logo", retrieveAsso);
+            const request = "public/associations/"+element.Association.Id+"/logo";
+            get(request, retrieveAsso);
         }
     }
 }
