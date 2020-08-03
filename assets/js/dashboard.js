@@ -39,6 +39,8 @@ function retrieveRole(result) {
         const element = result[i];
         if(element.Role.Id === "asso-admin") {
             get('mail/stats/counters/'+element.Association.Id, retrieveAsso);
+            console.log('public/associations/'+element.Association.Id+"/logo");
+
             get('public/associations/'+element.Association.Id+"/logo", retrieveAsso);
         }
     }
@@ -54,7 +56,6 @@ function retrieveAsso(data) {
 function retrieveAssoLogo(data) {
     $.get('components/mails-summary.html', function(templates) {
         var component = $(templates).filter('#association').html();
-        console.log(data);
         $('#logo').append(Mustache.render(component,data));
     });
 }
