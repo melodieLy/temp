@@ -5,6 +5,7 @@ $(function(){
 });
 
 get("context/current-user",callheader);
+console.log(cookies);
 get('mail/stats/counters/'+cookies.asso, retrieveAssoMail);
 
 
