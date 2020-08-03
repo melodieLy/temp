@@ -18,7 +18,6 @@ function Auth(theForm) {
       expire.setTime(expire.getTime()+ (result.expires_in * time));
       createCookieAuth(result,expire, theForm.email.value);
       findAsso(result);
-      window.location.replace("dashboard.html");
     })
 
     .fail(function(xhr, status, error) {
@@ -52,6 +51,7 @@ function findAsso(param) {
   })
   .done(function(result) {
     createCookieAsso(result);
+    window.location.replace("dashboard.html");
   })
 
   .fail(function(xhr, status, error) {
