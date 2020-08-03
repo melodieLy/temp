@@ -22,7 +22,6 @@ $(document).ready(function() {
 });
 
 function get(path) {
-    let resp = [];
     $.ajax({
         url: "https://recette-api.song-fr.com/"+path,
         headers: {
@@ -42,13 +41,30 @@ function get(path) {
 
 
 function get(path,funct) {
-    let resp = [];
     $.ajax({
         url: "https://recette-api.song-fr.com/"+path,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
             "Authorization": cookies.token
+        },
+        method: "GET",
+        success: funct
+    })
+
+    .fail(function(xhr, status, error) {
+        var errorMessage = xhr.status + ': ' + xhr.statusText
+        alert('Error - ' + errorMessage);
+        return xhr;
+    });
+};
+
+function getPublic(path,funct) {
+    $.ajax({
+        url: "https://recette-api.song-fr.com/"+path,
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept":"application/json",
         },
         method: "GET",
         success: funct
