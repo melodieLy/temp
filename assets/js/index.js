@@ -33,8 +33,12 @@ function createCookieAuth(setup,time,username) {
 };
 
 function createCookieAsso(setup) {
-  document.cookie = "asso=" + setup.association.Name;
-  document.cookie = "assoId=" + setup.association.Id;
+  setup.forEach(element => {
+    if(element.Role.Id === "asso-admin") {
+      document.cookie = "asso=" + setup.Association.Name;
+      document.cookie = "assoId=" + setup.Association.Id;
+    }
+  });
   console.log(document.cookie);
 };
 
