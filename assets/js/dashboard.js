@@ -41,7 +41,7 @@ function retrieveRole(result) {
             get('mail/stats/counters/'+element.Association.Id, retrieveAsso);
 
             const request = "public/associations/"+element.Association.Id+"/logo";
-            getPublic(request, retrieveAsso);
+            getPublic(request, retrieveAssoLogo);
         }
     }
 }
