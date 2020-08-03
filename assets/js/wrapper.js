@@ -1,10 +1,10 @@
 //Search the association of the user
-function retrieveRole(result) {
+function retrieveRole(result,data) {
     for (let i = 0; i < result.length; i++) {
         const element = result[i];
         if(element.Role.Id === "asso-admin") {
-            document.cookie = "association:" + element.Association.name+";";
-            document.cookie = "assoId:" + element.Association.Id+";";
+            data.asso = "association:" + element.Association.name+";";
+            data.assoId = "assoId:" + element.Association.Id+";";
         }
     }
 }
@@ -21,10 +21,8 @@ function getCookie() {
     result.token = "bearer " + (array[1].split('=').pop());
     result.username = (array[2].split('=').pop());
 
-    get("context/current-roles",retrieveRole,result.token);
+    get("context/current-roles",retrieveRole,result);
 
-    result.asso = (array[3].split('=').pop());
-    result.assoId = (array[4].split('=').pop());
     return result;
 };
 
@@ -83,10 +81,10 @@ function get(path,funct,data) {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
-            "Authorization": data
+            "Authorization": data.token
         },
         method: "GET",
-        success: funct
+        success: funct(response,data)
     })
 
     .fail(function(xhr, status, error) {
