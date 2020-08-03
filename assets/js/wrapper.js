@@ -14,14 +14,15 @@ function getCookie() {
         return undefined;
     }
 
-    get("context/current-roles",retrieveRole);
-
     let array = document.cookie.split(";");
     let result = new Array();
 
     result.expires = (array[0].split('=').pop());
     result.token = "bearer " + (array[1].split('=').pop());
     result.username = (array[2].split('=').pop());
+
+    get("context/current-roles",retrieveRole,result.token);
+
     result.asso = (array[3].split('=').pop());
     result.assoId = (array[4].split('=').pop());
     return result;
@@ -64,6 +65,25 @@ function get(path,funct) {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
             "Authorization": cookies.token
+        },
+        method: "GET",
+        success: funct
+    })
+
+    .fail(function(xhr, status, error) {
+        var errorMessage = xhr.status + ': ' + xhr.statusText
+        alert('Error - ' + errorMessage);
+        return xhr;
+    });
+};
+
+function get(path,funct,data) {
+    $.ajax({
+        url: "https://recette-api.song-fr.com/"+path,
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept":"application/json",
+            "Authorization": data
         },
         method: "GET",
         success: funct

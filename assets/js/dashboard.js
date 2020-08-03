@@ -6,7 +6,6 @@ $(function(){
 
 get("context/current-user",callheader);
 get('mail/stats/counters/'+cookies.asso, retrieveAssoMail);
-get("public/associations/"+cookies.asso+"/logo", retrieveAssoLogo);
 
 
 //Get element with Jquery + moustache
@@ -39,12 +38,5 @@ function retrieveAssoMail(data) {
     $.get('components/mails-summary.html', function(templates) {
         var component = $(templates).filter('#tpl-mails-sum').html();
         $('#mailSummary').append(Mustache.render(component,data));
-    });
-}
-
-function retrieveAssoLogo(data) {
-    $.get('components/mails-summary.html', function(templates) {
-        var component = $(templates).filter('#association').html();
-        $('#logo').append(Mustache.render(component,data));
     });
 }
