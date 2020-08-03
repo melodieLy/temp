@@ -1,0 +1,8 @@
+get("public/associations/"+cookies.asso+"/logo", retrieveAssoLogo);
+
+function retrieveAssoLogo(data) {
+    $.get('components/mails-summary.html', function(templates) {
+        var component = $(templates).filter('#association').html();
+        $('#logo').append(Mustache.render(component,data));
+    });
+}
