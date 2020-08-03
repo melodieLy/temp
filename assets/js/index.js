@@ -42,7 +42,7 @@ function createCookieAsso(setup) {
 function findAsso(param) {
   const token = "bearer" + param.access_token;
   $.ajax({
-    url: "https://recette-api.song-fr.com/"+path,
+    url: "https://recette-api.song-fr.com/context/current-roles",
     headers: {
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept":"application/json",
