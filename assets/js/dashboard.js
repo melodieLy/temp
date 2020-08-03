@@ -6,6 +6,7 @@ $(function(){
 
 get("context/current-user",callheader);
 get("context/current-roles",retrieveRole);
+get("public/associations/'");
 
 //Get element with Jquery + moustache
 function callheader(result){
@@ -38,6 +39,7 @@ function retrieveRole(result) {
         const element = result[i];
         if(element.Role.Id === "asso-admin") {
             get('mail/stats/counters/'+element.Association.Id, retrieveAsso);
+            get('public/associations/'+element.Association.Id+"/logo", retrieveAsso);
         }
     }
 }
@@ -46,5 +48,13 @@ function retrieveAsso(data) {
     $.get('components/mails-summary.html', function(templates) {
         var component = $(templates).filter('#tpl-mails-sum').html();
         $('#mailSummary').append(Mustache.render(component,data));
+    });
+}
+
+function retrieveAssoLogo(data) {
+    $.get('components/mails-summary.html', function(templates) {
+        var component = $(templates).filter('#association').html();
+        console.log(data);
+        $('#logo').append(Mustache.render(component,data));
     });
 }
