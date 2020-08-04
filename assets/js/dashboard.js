@@ -5,8 +5,7 @@ $(function(){
 });
 
 get("context/current-user",callheader);
-console.log(cookies);
-get('mail/stats/counters/'+cookies.asso, retrieveAssoMail);
+get('mail/stats/counters/'+cookies.assoId, retrieveAssoMail);
 
 
 //Get element with Jquery + moustache
