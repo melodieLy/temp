@@ -1,4 +1,4 @@
-get("public/associations/"+cookies.asso+"/logo", retrieveAssoLogo);
+get("public/associations/"+cookies.assoId+"/logo", retrieveAssoLogo);
 
 function retrieveAssoLogo(data) {
     $.get('components/mails-summary.html', function(templates) {
