@@ -1,6 +1,7 @@
 $.get('components/members.html', function(templates) {
     var component = $(templates).filter('#tpl-members-table').html();
     $.getJSON("/assets/js/data_table.json", function (data){
-        $('#members').append(Mustache.render(component,data));
+        console.log(data);
+        // $('#members').append(Mustache.render(component,data));
     })
 });
