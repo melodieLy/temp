@@ -1,0 +1,93 @@
+[
+    {
+      "Name": "Maggie Terry",
+      "Civility": "female",
+      "Fonction": "PHUEL",
+      "Mail": "maggieterry@phuel.com",
+      "Phone": "+1 (980) 437-3258",
+      "Mobile": "+6 (880) 564-2476",
+      "Tdb": "True",
+      "Fact": "True",
+      "P.R.": "False",
+      "Log": "False",
+      "MàJ": "False"
+    },
+    {
+      "Name": "Darlene Chaney",
+      "Civility": "female",
+      "Fonction": "BLEENDOT",
+      "Mail": "darlenechaney@bleendot.com",
+      "Phone": "+1 (815) 576-2808",
+      "Mobile": "+6 (964) 422-2156",
+      "Tdb": "True",
+      "Fact": "False",
+      "P.R.": "True",
+      "Log": "False",
+      "MàJ": "False"
+    },
+    {
+      "Name": "Rivera Wood",
+      "Civility": "male",
+      "Fonction": "CALCULA",
+      "Mail": "riverawood@calcula.com",
+      "Phone": "+1 (878) 591-2779",
+      "Mobile": "+6 (900) 480-2964",
+      "Tdb": "True",
+      "Fact": "False",
+      "P.R.": "False",
+      "Log": "True",
+      "MàJ": "True"
+    },
+    {
+      "Name": "Sasha Glenn",
+      "Civility": "female",
+      "Fonction": "ENTOGROK",
+      "Mail": "sashaglenn@entogrok.com",
+      "Phone": "+1 (945) 567-2302",
+      "Mobile": "+6 (817) 515-3061",
+      "Tdb": "False",
+      "Fact": "False",
+      "P.R.": "True",
+      "Log": "True",
+      "MàJ": "True"
+    },
+    {
+      "Name": "Rice Hinton",
+      "Civility": "male",
+      "Fonction": "MEMORA",
+      "Mail": "ricehinton@memora.com",
+      "Phone": "+1 (886) 446-3962",
+      "Mobile": "+6 (987) 534-3159",
+      "Tdb": "True",
+      "Fact": "True",
+      "P.R.": "False",
+      "Log": "False",
+      "MàJ": "False"
+    },
+    {
+      "Name": "Wright Coffey",
+      "Civility": "male",
+      "Fonction": "BITTOR",
+      "Mail": "wrightcoffey@bittor.com",
+      "Phone": "+1 (953) 451-2334",
+      "Mobile": "+6 (875) 489-3646",
+      "Tdb": "True",
+      "Fact": "True",
+      "P.R.": "False",
+      "Log": "False",
+      "MàJ": "False"
+    },
+    {
+      "Name": "Cecile Lewis",
+      "Civility": "female",
+      "Fonction": "OLYMPIX",
+      "Mail": "cecilelewis@olympix.com",
+      "Phone": "+1 (815) 479-3014",
+      "Mobile": "+6 (979) 448-2056",
+      "Tdb": "True",
+      "Fact": "True",
+      "P.R.": "False",
+      "Log": "False",
+      "MàJ": "False"
+    }
+  ]
