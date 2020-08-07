@@ -42,8 +42,18 @@
         {{^PR}}
         <td><i class="mdi mdi-checkbox-blank-outline"></i></td>
         {{/PR}}
-        <td>{{Log}}</td>
-        <td>{{MàJ}}</td>
+        {{#Log}}
+        <td><i class="mdi mdi-checkbox-marked-outline"></i></td>
+        {{/Log}}
+        {{^Log}}
+        <td><i class="mdi mdi-checkbox-blank-outline"></i></td>
+        {{/Log}}
+        {{#MàJ}}
+        <td><i class="mdi mdi-checkbox-marked-outline"></i></td>
+        {{/MàJ}}
+        {{^MàJ}}
+        <td><i class="mdi mdi-checkbox-blank-outline"></i></td>
+        {{/MàJ}}
         </tr>
         </tbody>
         {{ /. }}
