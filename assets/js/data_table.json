@@ -6,11 +6,11 @@
       "Mail": "maggieterry@phuel.com",
       "Phone": "+1 (980) 437-3258",
       "Mobile": "+6 (880) 564-2476",
-      "Tdb": "True",
-      "Fact": "True",
-      "PR": "False",
-      "Log": "False",
-      "MàJ": "False"
+      "Tdb": true,
+      "Fact": true,
+      "PR": false,
+      "Log": false,
+      "MàJ": false
     },
     {
       "Name": "Darlene Chaney",
@@ -19,11 +19,11 @@
       "Mail": "darlenechaney@bleendot.com",
       "Phone": "+1 (815) 576-2808",
       "Mobile": "+6 (964) 422-2156",
-      "Tdb": "True",
-      "Fact": "False",
-      "PR": "True",
-      "Log": "False",
-      "MàJ": "False"
+      "Tdb": true,
+      "Fact": false,
+      "PR": true,
+      "Log": false,
+      "MàJ": false
     },
     {
       "Name": "Rivera Wood",
@@ -32,11 +32,11 @@
       "Mail": "riverawood@calcula.com",
       "Phone": "+1 (878) 591-2779",
       "Mobile": "+6 (900) 480-2964",
-      "Tdb": "True",
-      "Fact": "False",
-      "PR": "False",
-      "Log": "True",
-      "MàJ": "True"
+      "Tdb": true,
+      "Fact": false,
+      "PR": false,
+      "Log": true,
+      "MàJ": true
     },
     {
       "Name": "Sasha Glenn",
@@ -45,11 +45,11 @@
       "Mail": "sashaglenn@entogrok.com",
       "Phone": "+1 (945) 567-2302",
       "Mobile": "+6 (817) 515-3061",
-      "Tdb": "False",
-      "Fact": "False",
-      "PR": "True",
-      "Log": "True",
-      "MàJ": "True"
+      "Tdb": false,
+      "Fact": false,
+      "PR": true,
+      "Log": true,
+      "MàJ": true
     },
     {
       "Name": "Rice Hinton",
@@ -58,11 +58,11 @@
       "Mail": "ricehinton@memora.com",
       "Phone": "+1 (886) 446-3962",
       "Mobile": "+6 (987) 534-3159",
-      "Tdb": "True",
-      "Fact": "True",
-      "PR": "False",
-      "Log": "False",
-      "MàJ": "False"
+      "Tdb": true,
+      "Fact": true,
+      "PR": false,
+      "Log": false,
+      "MàJ": false
     },
     {
       "Name": "Wright Coffey",
@@ -71,11 +71,11 @@
       "Mail": "wrightcoffey@bittor.com",
       "Phone": "+1 (953) 451-2334",
       "Mobile": "+6 (875) 489-3646",
-      "Tdb": "True",
-      "Fact": "True",
-      "PR": "False",
-      "Log": "False",
-      "MàJ": "False"
+      "Tdb": true,
+      "Fact": true,
+      "PR": false,
+      "Log": false,
+      "MàJ": false
     },
     {
       "Name": "Cecile Lewis",
@@ -84,10 +84,10 @@
       "Mail": "cecilelewis@olympix.com",
       "Phone": "+1 (815) 479-3014",
       "Mobile": "+6 (979) 448-2056",
-      "Tdb": "True",
-      "Fact": "True",
-      "PR": "False",
-      "Log": "False",
-      "MàJ": "False"
+      "Tdb": true,
+      "Fact": true,
+      "PR": false,
+      "Log": false,
+      "MàJ": false
     }
   ]
