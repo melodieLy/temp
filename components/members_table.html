@@ -24,9 +24,24 @@
         <td>{{Phone}}</td>
         <td>{{Mobile}}</th>
         <td>{{Mail}}</td>
-        <td>{{Tdb}}</td>
-        <td>{{Fact}}</td>
-        <td>{{PR}}</td>
+        {{#Tdb}}
+        <td><i class="mdi mdi-checkbox-marked-outline"></i></td>
+        {{/Tdb}}
+        {{^Tdb}}
+        <td><i class="mdi mdi-checkbox-blank-outline"></i></td>
+        {{/Tdb}}
+        {{#Fact}}
+        <td><i class="mdi mdi-checkbox-marked-outline"></i></td>
+        {{/Fact}}
+        {{^Fact}}
+        <td><i class="mdi mdi-checkbox-blank-outline"></i></td>
+        {{/Fact}}
+        {{#PR}}
+        <td><i class="mdi mdi-checkbox-marked-outline"></i></td>
+        {{/PR}}
+        {{^PR}}
+        <td><i class="mdi mdi-checkbox-blank-outline"></i></td>
+        {{/PR}}
         <td>{{Log}}</td>
         <td>{{MàJ}}</td>
         </tr>
