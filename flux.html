@@ -60,44 +60,154 @@
               </div>
               <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" id="flux-tab" data-toggle="tab" href="#flux" role="tab" aria-controls="Flux" aria-selected="true">Flux Principal</a>
+                  <a class="nav-link active" id="flux-tab" data-toggle="tab" href="#flux" role="tab" aria-controls="flux" aria-selected="true">flux</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="FTPserver-tab" data-toggle="tab" href="#FTPserver" role="tab" aria-controls="FTPserver" aria-selected="false">Serveurs FTP</a>
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
                 </li>
               </ul>
-              <div class="tab-content" id="myTabContent1">
-                <div class="tab-pane pt-3 fade show active" id="flux" role="tabpanel" aria-labelledby="flux-tab">               
-                    <div class="card card-body">
-                      <div class="row">
-                        <h3>
-                          Flux : (Nom du flux)
-                        </h3>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <div class="form-group">
-                            <label for="exampleFormControlInput1">Modèle de fichier de livraison</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" value="(DATA DATA DATA)" disabled>
-                            <span class="mt-2 d-block">Modèle du nom du fichier de livraion.</span>
-                          </div>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="flux" role="tabpanel" aria-labelledby="flux-tab">
+                  <h3 style="padding: 10px;">
+                    Flux : (Nom du flux)
+                  </h3> 
+                  
+                  <div class="row">
+                    <div class="col">
+                      <div class="card card-body">
+                        <div class="form-group">
+                        <label for="exampleFormControlInput1">Modèle de fichier de livraison</label>
+                        <input type="text" class="form-control" value="(DATA DATA DATA)" disabled>
+                        <span class="mt-2 d-block">Modèle du nom du fichier de livraison.</span>
+                        <br>
+                        
+                        <label for="exampleFormControlInput1">Nom du fichier PDF livré à l'association</label>
+                        <input type="text" class="form-control" value="(DATA DATA DATA)" disabled>
+                        <span class="mt-2 d-block">Modèle de nom du fichier PDF remis à l'association.</span>
+                        <br>
+
+                        <label for="exampleFormControlInput1">Type de fichier de livraison</label>
+                        <input type="text" class="form-control" value="(DATA DATA DATA)" disabled>
+                        <span class="mt-2 d-block">Type de fichier 
+                          TXT, TXT_WITHOUT_BOM, XLS, CSV, CSV_WITHOUT_LAST_EMPTY_LINE, CSV_WITH_TAB, CSV_WITHOUT_BOM, CSV_WITH_TAB_WITHOUT_BOM_LF_ONLY...</span>
+                          <br>
+
+                        <label for="exampleFormControlInput1">Encodage du fichier de livraison</label>
+                        <input type="text" class="form-control" value="(DATA DATA DATA)" disabled>
+                        <span class="mt-2 d-block">Encodage du fichier </span>
+                        <br>
+
+                        <label for="exampleFormControlInput1">Répertoire de stockage des PDF</label>
+                        <input type="text" class="form-control" value="(DATA DATA DATA)" disabled>
+                        <span class="mt-2 d-block">Répertoire de dépôt des PDF sur le serveur SFTP. </span>
+                        <br>
+
+                        <label for="exampleFormControlInput1">Répertoire de stockage du fichier de livraison</label>
+                        <input type="text" class="form-control" value="(DATA DATA DATA)" disabled>
+                        <span class="mt-2 d-block">Répertoire de dépôt des fichiers de livraisons. </span>
+                        <br>
+
+                        <label for="exampleFormControlInput1">Encodage du fichier de livraison</label>
+                        <input type="text" class="form-control" value="(DATA DATA DATA)" disabled>
+                        <span class="mt-2 d-block">Encodage du fichier </span>
+                        <br>
                         </div>
                       </div>
+                    </div>
+                    <div class="col">
+                      <div class="card card-body">
+                        <label title="Envoyer les bulletins sans e-mail dans un fichier à part lors de l'envoi du flux." class="control outlined control-checkbox">
+                          Envoyer les bulletins sans e-mail 
+                          <i class="mdi mdi-information-outline"></i>
+                          <input type="checkbox" checked />
+                          <div class="control-indicator"></div>
+                        </label>
+
+                        <label title="Inclure les bulletins sans e-mail lors de l'envoi du flux." class="control outlined control-checkbox">
+                          Inclure les bulletins sans e-mai
+                          <i class="mdi mdi-information-outline"></i>
+                          <input type="checkbox" />
+                          <div class="control-indicator"></div>
+                        </label>
+
+                        <label title="Envoyer un fichier de livraison par mission." class="control outlined control-checkbox">Grouper les fichiers PDF par mission
+                          <i class="mdi mdi-information-outline"></i>
+                          <input type="checkbox" />
+                          <div class="control-indicator"></div>
+                        </label>
+                      </div>
+                      <br>
+                      <div class="card card-body">
+                        <div class="form-group">
+                        <label class="control outlined control-checkbox">
+                          Flux principale ?
+                          <input type="checkbox" checked disabled/>
+                          <div class="control-indicator"></div>
+                        </label>
+                        <label for="exampleFormControlInput1">
+                          Date du dernier envoi du flux : JJ/MM/YY
+                        </label>
+                        <label for="exampleFormControlInput1">
+                          Date état du flux : Actif / non actif
+                        </label>
+                        <br>
+                          <label for="exampleFormControlInput1">Dernier message envoyé du flux</label>
+                          <input type="text" class="form-control" value="(DATA DATA DATA)" disabled>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="tab-pane pt-3 fade" id="FTPserver" role="tabpanel" aria-labelledby="FTPserver-tab">
-                  <div class="card card-body">
-                    <p id="target"></p>
-                      FTP server
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <div class="col">
+                    <div class="card card-default">
+                      <div class="card-header card-header-border-bottom">
+                        <h2>Serveur FTP "4400-4400-5500-6600-8800-8000"</h2>
+                      </div>
+                      <div class="card card-body">
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1">Adresse du serveur</label>
+                          <input type="text" class="form-control" value="(DATA DATA DATA)" disabled>
+                          <span class="mt-2 d-block">Adresse du serveur FTP / SFTP.</span>
+                          <br>
+                          
+                          <label for="exampleFormControlInput1">Identifiant</label>
+                          <input type="text" class="form-control" value="(DATA DATA DATA)" disabled>
+                          <span class="mt-2 d-block">Modèle de nom du fichier PDF remis à l'association.</span>
+                          <br>
+                          
+                          <label class="control outlined control-checkbox">
+                            Dépôt des PDF
+                            <input type="checkbox" checked disabled/>
+                            <div class="control-indicator"></div>
+                          </label>
+
+                          <label title="Chaque semaine, un fichier de mise à jour des bulletins est déposé suite aux appels téléphoniques de satisfaction" class="control outlined control-checkbox">
+                            Dépôt des mises à jour
+                            <i class="mdi mdi-information-outline"></i>
+                            <input type="checkbox" checked disabled/>
+                            <div class="control-indicator"></div>
+                          </label>
+
+                          <label title="Un fichier d'initiation des transactions SEPA Direct Debit est créé pour aider l'association dans sa remise en banque." class="control outlined control-checkbox">
+                            Dépôt des fichiers SEPA
+                            <i class="mdi mdi-information-outline"></i>
+                            <input type="checkbox" checked disabled/>
+                            <div class="control-indicator"></div>
+
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+
               <!-- Configuration of the website UI (necessary ?)-->
               <div class="right-sidebar-2" id="sidebarConfig"></div>
             </div>
           </div>
         <footer class="footer mt-auto" id="footer"></footer>
-
+          
         </div>
 
         <script src="assets/plugins/slimscrollbar/jquery.slimscroll.min.js"></script>
