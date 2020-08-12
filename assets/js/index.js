@@ -22,7 +22,7 @@ function Auth(theForm) {
 
     .fail(function(xhr, status, error) {
       var errorMessage = xhr.status + ': ' + xhr.statusText
-      alert('Error - ' + errorMessage);
+      alert('Status - ' + xhr.status + "/" + xhr.statusText);
     })
 }
 
