@@ -23,7 +23,7 @@ function Auth(theForm) {
     .fail(function(xhr, status, error) {
       var errorMessage = xhr.status + ': ' + xhr.statusText
       if(xhr.status === 400) {
-        alert('Status - ' + xhr.status + "/" + xhr.statusText);
+        alert('Connexion imposible. Veuillez vérifier votre nom et mot de passe.');
       }
     })
 }

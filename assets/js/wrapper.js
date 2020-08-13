@@ -1,3 +1,15 @@
+function getError(info) {
+    switch(error.status){
+        case 401 :
+            deleteCookie();
+            alert('Une erreur à eu lieu, vous avez été déconnecter.')
+            break;
+        default:
+            break;
+    }
+
+}
+
 function getCookie() {
     if(!document.cookie){
         return undefined;
@@ -15,11 +27,17 @@ function getCookie() {
     return result;
 };
 
+function deleteCookie() {
+    var t = new Date();
+    document.cookie = "expires=" + t.setTime(00)+';';
+    window.location.replace("index.html");
+}
+
 const cookies = getCookie();
 
 $(document).ready(function() {
         if(cookies === undefined) {
-        //window.location.replace("index.html");
+        window.location.replace("index.html");
         alert("cookies not found");
 
     } else if (cookies.expires < $.now()) {
@@ -38,10 +56,8 @@ function get(path) {
         method: "GET"
     })
 
-    .fail(function(xhr, status, error) {
-        var errorMessage = xhr.status + ': ' + xhr.statusText
-        alert('Error - ' + errorMessage);
-        return xhr;
+    .fail(function(xhr) {
+        getError(xhr);
     });
 };
 
@@ -58,10 +74,8 @@ function get(path,funct) {
         success: funct
     })
 
-    .fail(function(xhr, status, error) {
-        var errorMessage = xhr.status + ': ' + xhr.statusText
-        alert('Error - ' + errorMessage);
-        return xhr;
+    .fail(function(xhr) {
+        getError(xhr);
     });
 };
 
@@ -76,9 +90,7 @@ function getPublic(path,funct) {
         success: funct
     })
 
-    .fail(function(xhr, status, error) {
-        var errorMessage = xhr.status + ': ' + xhr.statusText
-        alert('Error - ' + errorMessage);
-        return xhr;
+    .fail(function(xhr) {
+        getError(xhr);
     });
 };
