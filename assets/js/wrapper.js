@@ -37,8 +37,8 @@ const cookies = getCookie();
 
 $(document).ready(function() {
         if(cookies === undefined) {
-        window.location.replace("index.html");
-        alert("cookies not found");
+        //window.location.replace("index.html");
+        //alert("cookies not found");
 
     } else if (cookies.expires < $.now()) {
         console.log("cookies expired");
