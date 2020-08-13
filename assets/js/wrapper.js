@@ -1,5 +1,5 @@
 function getError(info) {
-    switch(error.status){
+    switch(info.status){
         case 401 :
             deleteCookie();
             alert('Une erreur à eu lieu, vous avez été déconnecter.')
