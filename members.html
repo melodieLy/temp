@@ -67,48 +67,108 @@
                       <h1>Membres de l'association</h1>
                   </div>
                   
-                  <button type="button" class="btn btn-primary" onclick="showForm()">Ajouter</button>
-                  <button type="button" class="btn btn-danger" onclick="">supprimer</button>
+                  <button type="button" id="addBtn" class="btn btn-outline-primary" onclick="showForm()" >Ajouter</button>
+                  <button type="button" class="btn btn-outline-danger" onclick="">supprimer</button>
               </div>
-              <div class="row">
+              <div class="row" id="addMember" style="display: none;">
                 <div class="col">
                   <div class="card card-default">
                       <div class="card-header card-header-border-bottom">
-                          <h2>Highlighted Input Field</h2>
+                          <h2>Ajouter un membres</h2>
                       </div>
                       <div class="card-body">
-                          <form >
+                          <form id="addNewMember" onsubmit="addNewMember(this)">
                               <div class="form-row">
                                   <div class="col-md-3 mb-3">
-                                      <label for="validationServer01">Prénom</label>
-                                      <input type="text" class="form-control" id="validationServer01" placeholder="First name" value="Md"
+                                      <label for="firstname">Prénom</label>
+                                      <input type="text" class="form-control" id="firstname" placeholder="First name" value=""
                                        required>
                                   </div>
                                   <div class="col-md-3 mb-3">
-                                      <label for="validationServer02">Last name</label>
-                                      <input type="text" class="form-control" id="validationServer02" placeholder="Last name" value="Rahad"
+                                      <label for="lastname">Last name</label>
+                                      <input type="text" class="form-control" id="lastname" placeholder="Last name" value=""
                                        required>
                                   </div>
                                   <div class="col-md-3 mb-3">
-                                      <label for="validationServerUsername">Username</label>
-                                      <input type="text" class="form-control" id="validationServerUsername" placeholder="Username"
+                                      <label for="username">Username</label>
+                                      <input type="text" class="form-control" id="username" placeholder="Username"
                                        aria-describedby="inputGroupPrepend3" required>
                                   </div>
+                                  <div class="col-md-3 mb-3">
+                                    <label for="role">Fonction</label>
+                                    <input type="text" class="form-control" id="role" placeholder="fonction"
+                                     aria-describedby="inputGroupPrepend3" required>
+                                </div>
                               </div>
                               <div class="form-row">
-                                  <div class="col-md-6 mb-3">
-                                      <label for="validationServer03">City</label>
-                                      <input type="text" class="form-control" id="validationServer03" placeholder="City" required>
+                                  <div class="col-md-3 mb-3">
+                                    <label class="text-dark mb-2 mt-4 font-weight-medium d-inline-block mr-3" for="">Civilité</label>
+                                    <label class="control control-radio">Homme
+                                      <input type="radio" value="Male" />
+                                      <div class="control-indicator"></div>
+                                    </label>
+                                    <label class="control control-radio">Femme
+                                      <input type="radio" value="Female" />
+                                      <div class="control-indicator"></div>
+                                    </label>
                                   </div>
                                   <div class="col-md-3 mb-3">
-                                      <label for="validationServer04">State</label>
-                                      <input type="text" class="form-control" id="validationServer04" placeholder="State" required>
+                                      <label for="fixe">Fixe</label>
+                                      <input type="tel" class="form-control" id="fixe" placeholder="Fixe">
                                   </div>
                                   <div class="col-md-3 mb-3">
-                                      <label for="validationServer05">Zip</label>
-                                      <input type="text" class="form-control" id="validationServer05" placeholder="Zip" required>
+                                      <label for="mobile">Mobile</label>
+                                      <input type="tel" class="form-control" id="mobile" placeholder="Mobile">
+                                  </div>
+                                  <div class="col-md-3 mb-3">
+                                    <label for="mail">Mail</label>
+                                    <input type="email" class="form-control" id="mail" placeholder="email" required>
                                   </div>
                               </div>
+                              <div class="form-row">
+                                <div class="col-md-6 mb-3">
+
+                                  <p class="text-dark font-weight-medium mb-3">Droits</p>
+                                  <ul class="list-unstyled list-inline">
+
+                                    <li class="d-inline-block mr-3">
+                                      <label class="control control-checkbox">Tdb
+                                        <input type="checkbox" value="Tdb" />
+                                        <div class="control-indicator"></div>
+                                      </label>
+                                    </li>
+
+                                    <li class="d-inline-block mr-3">
+                                      <label class="control control-checkbox">Fact
+                                        <input type="checkbox" value="Fact" />
+                                        <div class="control-indicator"></div>
+                                      </label>
+                                    </li>
+
+                                    <li class="d-inline-block mr-3">
+                                      <label class="control control-checkbox">P.R.
+                                        <input type="checkbox" value="Pr" />
+                                        <div class="control-indicator"></div>
+                                      </label>
+                                    </li>
+
+                                    <li class="d-inline-block mr-3">
+                                      <label class="control control-checkbox">log
+                                        <input type="checkbox" value="log" />
+                                        <div class="control-indicator"></div>
+                                      </label>
+                                    </li>
+
+                                    <li class="d-inline-block mr-3">
+                                      <label class="control control-checkbox">MaJ
+                                        <input type="checkbox" value="Maj" />
+                                        <div class="control-indicator"></div>
+                                      </label>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+
                               <button class="btn btn-primary" type="submit">Submit form</button>
                           </form>
                       </div>
@@ -135,4 +195,26 @@
         <script src="assets/js/sleek.bundle.js"></script>
 </body>
 
+<script>
+      $("#addNewMember").submit(function(e) {
+        e.preventDefault();
+      });
+
+  function showForm() {
+    const btn = document.querySelector('#addBtn');
+    const form = document.getElementById("addMember");
+    if (form.style.display === "none") {
+      form.style.display = "block";
+      btn.textContent = "Annuler";
+    } else {
+      form.style.display = "none";
+      btn.textContent = "Ajouter";
+    }
+  };
+
+  function addNewMember(formData) {
+    console.log(formData);
+    console.log(formData.firstname.value);
+  }
+</script>
 </html>
