@@ -30,6 +30,10 @@ function getCookie() {
 function deleteCookie() {
     var t = new Date();
     document.cookie = "expires=" + t.setTime(00)+';';
+    document.token = "";
+    document.username = "";
+    document.asso = "";
+    document.assoId = "";
     window.location.replace("index.html");
 }
 
@@ -37,8 +41,8 @@ const cookies = getCookie();
 
 $(document).ready(function() {
         if(cookies === undefined) {
-        //window.location.replace("index.html");
-        //alert("cookies not found");
+        window.location.replace("index.html");
+        alert("cookies not found");
 
     } else if (cookies.expires < $.now()) {
         console.log("cookies expired");
