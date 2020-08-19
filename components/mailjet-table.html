@@ -19,6 +19,12 @@
             <td>{{from}}</td>
             <td>{{to}}</td>
             <td>{{date}}</td>
+            {{#reason}}
+            <td>{{reason}}</td>
+            {{/reason}}
+            {{^reason}}
+            <td></td>
+            {{/reason}}
           </tr>
         {{ /. }}
         </tbody>
