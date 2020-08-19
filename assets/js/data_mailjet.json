@@ -1,0 +1,65 @@
+[
+    {
+      "type": "bounced",
+      "subject": "1 - Subject of the email",
+      "from": "nobleramsey@ifaw.com",
+      "to": "CLIENT@zidant.com",
+      "date": "2020-04-16T18:25:43-05:00"
+    },
+    {
+      "type": "send",
+      "subject": "2 - Subject of the email",
+      "from": "nobleramsey@ifaw.com",
+      "to": "CLIENT@zidant.com",
+      "date": "2020-03-16T18:25:43-05:00"
+    },
+    {
+      "type": "bounced",
+      "subject": "3 - Subject of the email, next is 5",
+      "from": "nobleramsey@ifaw.com",
+      "to": "CLIENT@zidant.com",
+      "date": "2020-08-17T18:25:43-05:00"
+    },
+    {
+      "type": "send",
+      "subject": "4 - Subject of the email",
+      "from": "nobleramsey@ifaw.com",
+      "to": "CLIENT@zidant.com",
+      "date": "2028-08-16T18:25:43-05:00"
+    },
+    {
+      "type": "send",
+      "subject": "5 - Subject of the email",
+      "from": "nobleramsey@ifaw.com",
+      "to": "CLIENT@zidant.com",
+      "date": "2020-08-16T18:25:43-05:00"
+    },
+    {
+      "type": "bounced",
+      "subject": "6 - Subject of the email",
+      "from": "nobleramsey@ifaw.com",
+      "to": "CLIENT@zidant.com",
+      "date": "2020-08-16T18:25:43-05:00"
+    },
+    {
+      "type": "bounced",
+      "subject": "7Subject of the email",
+      "from": "nobleramsey@ifaw.com",
+      "to": "CLIENT@zidant.com",
+      "date": "2019-08-16T18:25:43-05:00"
+    },
+    {
+      "type": "bounced",
+      "subject": "8Subject of the email - next not visible",
+      "from": "nobleramsey@ifaw.com",
+      "to": "CLIENT@zidant.com",
+      "date": "2020-08-16T18:25:43-05:00"
+    },
+    {
+      "type": "send",
+      "subject": "9Subject of the email",
+      "from": "nobleramsey@ifaw.com",
+      "to": "CLIENT@zidant.com",
+      "date": "2020-08-16T18:25:43-05:00"
+    }
+]
