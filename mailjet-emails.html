@@ -90,7 +90,7 @@
         <script src="assets/plugins/daterangepicker/moment.min.js"></script>
 <script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
 <script>
-  jQuery(document).ready(function() {
+  $(document).ready(function() {
     jQuery('input[name="dateRange"]').daterangepicker({
     autoUpdateInput: false,
     singleDatePicker: true,
@@ -103,6 +103,13 @@
     });
     jQuery('input[name="dateRange"]').on('cancel.daterangepicker', function (ev, picker) {
       jQuery(this).val('');
+    });
+  });
+
+  
+  $(document).ready(function() {
+    jQuery('#basic-data-table').DataTable({
+      "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
     });
   });
 </script>
