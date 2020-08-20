@@ -78,7 +78,7 @@
                   </div>
                 </div>
                 <div class="tab-pane fade" id="histo" role="tabpanel" aria-labelledby="histo-tab">
-                    <table id="hoverable-data-table" class="table hover nowrap" style="width:100%">
+                    <table id="data-table" class="table hover nowrap" style="width:100%">
                         <thead>
                           <tr>
                             <th>Date de dépot</th>
@@ -113,8 +113,8 @@
         <script src="assets/plugins/circle-progress/circle-progress.js"></script>
         <script src="assets/js/sleek.bundle.js"></script>
         <script>
-            jQuery(document).ready(function() {
-            jQuery('#hoverable-data-table').DataTable({
+            $(document).ready(function() {
+            $('#data-table').DataTable({
               "aLengthMenu": [[20, 30, 50, 75, -1], [20, 30, 50, 75, "All"]],
               "pageLength": 20,
               "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
