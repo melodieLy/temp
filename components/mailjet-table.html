@@ -1,32 +1,40 @@
 <script id="tpl-mailjet-table" type="text/html">
-    <table id="basic-data-table" class="table nowrap" style="width:100%">
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Sujet</th>
-            <th>De</th>
-            <th>A</th>
-            <th>Le</th>
-            <th>Raison</th>
-          </tr>
-        </thead>
-      
-        <tbody>
-        {{ #. }}
-          <tr>
-            <td>{{type}}</td>
-            <td>{{subject}}</td>
-            <td>{{from}}</td>
-            <td>{{to}}</td>
-            <td>{{date}}</td>
-            {{#reason}}
-            <td>{{reason}}</td>
-            {{/reason}}
-            {{^reason}}
-            <td></td>
-            {{/reason}}
-          </tr>
-        {{ /. }}
-        </tbody>
-       </table>
+  <table id="basic-data-table" class="table nowrap" style="width:100%">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Sujet</th>
+        <th>De</th>
+        <th>A</th>
+        <th>Le</th>
+        <th>Raison</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+    {{ #. }}
+      <tr>
+        <td>{{type}}</td>
+        <td>{{subject}}</td>
+        <td>{{from}}</td>
+        <td>{{to}}</td>
+        <td>{{date}}</td>
+        {{#reason}}
+        <td>{{reason}}</td>
+        {{/reason}}
+        {{^reason}}
+        <td></td>
+        {{/reason}}
+      </tr>
+    {{ /. }}
+    </tbody>
+  </table>
+
+  <script>
+    $(document).ready(function() {
+      jQuery('#basic-data-table').DataTable({
+      "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
+      });
+    });
+  </script>
 </script>

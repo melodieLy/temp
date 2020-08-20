@@ -89,30 +89,7 @@
 
         <script src="assets/plugins/daterangepicker/moment.min.js"></script>
 <script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
-<script>
-  $(document).ready(function() {
-    jQuery('input[name="dateRange"]').daterangepicker({
-    autoUpdateInput: false,
-    singleDatePicker: true,
-    locale: {
-      cancelLabel: 'Clear'
-    }
-  });
-    jQuery('input[name="dateRange"]').on('apply.daterangepicker', function (ev, picker) {
-      jQuery(this).val(picker.startDate.format('MM/DD/YYYY'));
-    });
-    jQuery('input[name="dateRange"]').on('cancel.daterangepicker', function (ev, picker) {
-      jQuery(this).val('');
-    });
-  });
 
-  
-  $(document).ready(function() {
-    jQuery('#basic-data-table').DataTable({
-      "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
-    });
-  });
-</script>
 </body>
 
 </html>
