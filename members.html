@@ -68,7 +68,7 @@
                   </div>
                   
                   <button type="button" id="addBtn" class="btn btn-outline-primary" onclick="showForm()" >Ajouter</button>
-                  <button type="button" class="btn btn-outline-danger" onclick="">supprimer</button>
+                  <button type="button" class="btn btn-outline-danger" onclick="ModifyAcess()">Modifier les droits d'accès</button>
               </div>
               <div class="row" id="addMember" style="display: none;">
                 <div class="col">
@@ -215,6 +215,11 @@
   function addNewMember(formData) {
     console.log(formData);
     console.log(formData.firstname.value);
+  }
+
+  function ModifyAcess() {
+    const t = document.getElementById("hoverable-data-table");
+    console.log(t);
   }
 </script>
 </html>
