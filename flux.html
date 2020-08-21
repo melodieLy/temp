@@ -78,25 +78,7 @@
                   </div>
                 </div>
                 <div class="tab-pane fade" id="histo" role="tabpanel" aria-labelledby="histo-tab">
-                    <table id="data-table" class="table hover nowrap" style="width:100%">
-                        <thead>
-                          <tr>
-                            <th>Date de dépot</th>
-                            <th>Code mission</th>
-                            <th>Nom du fichiers</th>
-                            <th>Nombre de PA</th>
-                          </tr>
-                        </thead>
-
-                        <tbody>
-                          <tr>
-                            <td>2020/06/12</td>
-                            <td>Missioncodemission</td>
-                            <td>nomdufichier.xls</td>
-                            <td>500</td>
-                          </tr>
-                        </tbody>
-                    </table>
+                    
                 </div>
               </div>
 
@@ -112,15 +94,6 @@
         <script src="assets/plugins/jekyll-search.min.js"></script>
         <script src="assets/plugins/circle-progress/circle-progress.js"></script>
         <script src="assets/js/sleek.bundle.js"></script>
-        <script>
-            $(document).ready(function() {
-            $('#data-table').DataTable({
-              "aLengthMenu": [[20, 30, 50, 75, -1], [20, 30, 50, 75, "All"]],
-              "pageLength": 20,
-              "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
-            });
-          });
-        </script>
 </body>
 
 </html>
