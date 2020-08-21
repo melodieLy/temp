@@ -68,7 +68,7 @@
                   </div>
                   
                   <button type="button" id="addBtn" class="btn btn-outline-primary" onclick="showForm()" >Ajouter</button>
-                  <button type="submit" form="test" class="btn btn-outline-danger"  onclick="ModifyAcess()">Modifier les droits d'accès</button>
+                  <button type="submit" form="test" class="btn btn-outline-danger">Modifier les droits d'accès</button>
               </div>
               <div class="row" id="addMember" style="display: none;">
                 <div class="col">
@@ -196,7 +196,13 @@
 </body>
 
 <script>
+
+
       $("#addNewMember").submit(function(e) {
+        e.preventDefault();
+      });
+
+      $("#test").submit(function(e) {
         e.preventDefault();
       });
 
