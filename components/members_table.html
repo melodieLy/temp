@@ -1,6 +1,7 @@
 <script id="tpl-members-table" type="text/html">
+    <form id="test" on-submit="ModifyAcess()">
     <table id="hoverable-data-table" class="table hover nowrap" style="width:100%">
-        <form id="test" on-submit="ModifyAcess()">
+        
         <thead>
         <tr>
         <th>accès autorisé ?</th>
@@ -76,6 +77,7 @@
         </tr>
         </tbody>
         {{ /. }}
-    </form>
     </table>
+</form>
+
 </script>
