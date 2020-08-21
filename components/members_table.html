@@ -2,6 +2,7 @@
     <table id="hoverable-data-table" class="table hover nowrap" style="width:100%">
         <thead>
         <tr>
+        <th>accès autorisé ?</th>
         <th>Nom</th>
         <th>Civilité</th>
         <th>Fonction</th>
@@ -18,6 +19,23 @@
         {{ #. }}
         <tbody>
         <tr>
+        {{#Activate}}
+        <td>
+            <label class="control control-checkbox">
+            <input type="checkbox" checked />
+            <div class="control-indicator"></div>
+            </label>
+        </td>
+        {{/Activate}}
+        {{^Activate}}
+        <td>
+            <label class="control control-checkbox">
+            <input type="checkbox"/>
+            <div class="control-indicator"></div>
+            </label>
+        </td>
+        {{/Activate}}
+        
         <td>{{Name}}</td>
         <td>{{Civility}}</td>
         <td>{{Fonction}}</td>

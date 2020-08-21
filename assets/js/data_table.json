@@ -1,5 +1,6 @@
 [
     {
+      "Activate": true,
       "Name": "Maggie Terry",
       "Civility": "female",
       "Fonction": "PHUEL",
@@ -13,6 +14,7 @@
       "MàJ": false
     },
     {
+      "Activate": true,
       "Name": "Darlene Chaney",
       "Civility": "female",
       "Fonction": "BLEENDOT",
@@ -26,6 +28,7 @@
       "MàJ": false
     },
     {
+      "Activate": false,
       "Name": "Rivera Wood",
       "Civility": "male",
       "Fonction": "CALCULA",
@@ -39,6 +42,7 @@
       "MàJ": true
     },
     {
+      "Activate": false,
       "Name": "Sasha Glenn",
       "Civility": "female",
       "Fonction": "ENTOGROK",
@@ -52,6 +56,7 @@
       "MàJ": true
     },
     {
+      "Activate": true,
       "Name": "Rice Hinton",
       "Civility": "male",
       "Fonction": "MEMORA",
@@ -65,6 +70,7 @@
       "MàJ": false
     },
     {
+      "Activate": false,
       "Name": "Wright Coffey",
       "Civility": "male",
       "Fonction": "BITTOR",
@@ -78,6 +84,7 @@
       "MàJ": false
     },
     {
+      "Activate": true,
       "Name": "Cecile Lewis",
       "Civility": "female",
       "Fonction": "OLYMPIX",
