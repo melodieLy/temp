@@ -74,7 +74,7 @@
               </div>
 
               <div>
-                <button type="button" onclick="exportsMail()">Exporter la liste</button>
+                <button type="button" class="btn btn-outline-primary" onclick="exportsMail()">Exporter la liste</button>
               </div>
 
               <!-- Configuration of the website UI (necessary ?)-->
@@ -93,7 +93,7 @@
         <script src="assets/plugins/daterangepicker/moment.min.js"></script>
         <script>
           function exportsMail() {
-            const t = document.getElementsByTagName("td");
+            const t = document.getElementsById("basic-data-table");
             console.log(t);
           }
         </script>
