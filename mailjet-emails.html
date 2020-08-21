@@ -73,6 +73,9 @@
                 
               </div>
 
+              <div>
+                <button type="button" onclick="exportsMail()">Exporter la liste</button>
+              </div>
 
               <!-- Configuration of the website UI (necessary ?)-->
               <div class="right-sidebar-2" id="sidebarConfig"></div>
@@ -87,8 +90,13 @@
         <script src="assets/plugins/circle-progress/circle-progress.js"></script>
         <script src="assets/js/sleek.bundle.js"></script>
 
-
         <script src="assets/plugins/daterangepicker/moment.min.js"></script>
+        <script>
+          function exportsMail() {
+            const t = document.getElementsByTagName("td");
+            console.log(t);
+          }
+        </script>
 </body>
 
 </html>
