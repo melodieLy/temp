@@ -2,7 +2,7 @@ function getError(info) {
     switch(info.status){
         case 401 :
             deleteCookie();
-            alert('Une erreur à eu lieu, vous avez été déconnecter.')
+            alert('Un roblme a eu lieu lors du chargement. Veuillez étraindre et rallumé le navigateur.')
             break;
         default:
             break;
@@ -34,7 +34,7 @@ function deleteCookie() {
     document.username = "";
     document.asso = "";
     document.assoId = "";
-    window.location.replace("index.html");
+    // window.location.replace("index.html");
 }
 
 const cookies = getCookie();
