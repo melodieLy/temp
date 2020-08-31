@@ -201,7 +201,7 @@
         e.preventDefault();
       });
 
-      $("#members").submit(function(e) {
+      $("#test").submit(function(e) {
         e.preventDefault();
       });
 
@@ -222,9 +222,9 @@
     console.log(formData.firstname.value);
   }
 
-  function ModifyAcess() {
+  function ModifyAcess(data) {
     const t = document.getElementById("hoverable-data-table");
-    console.log(t);
+    console.log(data);
   }
 </script>
 </html>
