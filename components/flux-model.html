@@ -95,8 +95,7 @@
           {{/IsMaster}}
           <div class="control-indicator"></div>
         </label>
-        <label>
-          Dernier état
+        <label>Dernier état</label>
 
           {{#LastStatus}}
           <input type="text" class="form-control" value="Actif" disabled/>
@@ -105,10 +104,9 @@
           {{^LastStatus}}
           <input type="text" class="form-control" value="Non actif" disabled/>
           {{/LastStatus}}
-        </label>
-        <label>
-          Date du dernier envoi du flux : JJ/MM/YY
-        </label>
+        
+        <label>Date du dernier envoi du flux</label>
+          <input type="text" class="form-control" value="{{LastFlow}}" disabled/>
         <br>
           <label>Dernier message envoyé du flux</label>
           <input type="text" class="form-control" value="(DATA DATA DATA)" disabled>
