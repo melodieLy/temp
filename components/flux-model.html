@@ -59,13 +59,26 @@
         <label title="Inclure les bulletins sans e-mail lors de l'envoi du flux." class="control outlined control-checkbox">
           Inclure les bulletins sans e-mail
           <i class="mdi mdi-information-outline"></i>
-          <input type="checkbox" />
+          {{#IncludeFormsThatDoesNotContainEmail}}
+          <input type="checkbox" checked/>
+          {{/IncludeFormsThatDoesNotContainEmail}}
+
+          {{^IncludeFormsThatDoesNotContainEmail}}
+          <input type="checkbox"/>
+          {{/IncludeFormsThatDoesNotContainEmail}}
           <div class="control-indicator"></div>
         </label>
 
         <label title="Envoyer un fichier de livraison par mission." class="control outlined control-checkbox">Grouper les fichiers PDF par mission
           <i class="mdi mdi-information-outline"></i>
-          <input type="checkbox" />
+          {{#GroupFormsByMission}}
+          <input type="checkbox" checked/>
+          {{/GroupFormsByMission}}
+
+          {{^GroupFormsByMission}}
+          <input type="checkbox"/>
+          {{/GroupFormsByMission}}
+          <div class="control-indicator"></div>
           <div class="control-indicator"></div>
         </label>
       </div>
