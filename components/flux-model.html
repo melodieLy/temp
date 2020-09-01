@@ -47,11 +47,11 @@
           Envoyer les bulletins sans e-mail 
           <i class="mdi mdi-information-outline"></i>
           {{#SendFormsThatDoesNotContainEmail}}
-          <input type="checkbox" checked/>
+          <input type="checkbox" checked disabled/>
           {{/SendFormsThatDoesNotContainEmail}}
 
           {{^SendFormsThatDoesNotContainEmail}}
-          <input type="checkbox"/>
+          <input type="checkbox" disabled/>
           {{/SendFormsThatDoesNotContainEmail}}
           <div class="control-indicator"></div>
         </label>
@@ -60,11 +60,11 @@
           Inclure les bulletins sans e-mail
           <i class="mdi mdi-information-outline"></i>
           {{#IncludeFormsThatDoesNotContainEmail}}
-          <input type="checkbox" checked/>
+          <input type="checkbox" checked disabled/>
           {{/IncludeFormsThatDoesNotContainEmail}}
 
           {{^IncludeFormsThatDoesNotContainEmail}}
-          <input type="checkbox"/>
+          <input type="checkbox" disabled/>
           {{/IncludeFormsThatDoesNotContainEmail}}
           <div class="control-indicator"></div>
         </label>
@@ -72,13 +72,12 @@
         <label title="Envoyer un fichier de livraison par mission." class="control outlined control-checkbox">Grouper les fichiers PDF par mission
           <i class="mdi mdi-information-outline"></i>
           {{#GroupFormsByMission}}
-          <input type="checkbox" checked/>
+          <input type="checkbox" checked disabled/>
           {{/GroupFormsByMission}}
 
           {{^GroupFormsByMission}}
-          <input type="checkbox"/>
+          <input type="checkbox" disabled/>
           {{/GroupFormsByMission}}
-          <div class="control-indicator"></div>
           <div class="control-indicator"></div>
         </label>
       </div>
@@ -87,14 +86,27 @@
         <div class="form-group">
         <label class="control outlined control-checkbox">
           Flux principale ?
+          {{#IsMaster}}
           <input type="checkbox" checked disabled/>
+          {{.IsMaster}}
+
+          {{^IsMaster}}
+          <input type="checkbox" disabled/>
+          {{.IsMaster}}
           <div class="control-indicator"></div>
+        </label>
+        <label class="control outlined control-checkbox">
+          Dernier état
+          {{#LastStatus}}
+          <input type="text" value="Actif" disabled/>
+          {{.LastStatus}}
+
+          {{^LastStatus}}
+          <input type="text" value="Non actif" disabled>/>
+          {{.LastStatus}}
         </label>
         <label>
           Date du dernier envoi du flux : JJ/MM/YY
-        </label>
-        <label>
-          Date état du flux : Actif / non actif
         </label>
         <br>
           <label>Dernier message envoyé du flux</label>
