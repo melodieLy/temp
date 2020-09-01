@@ -1,16 +1,15 @@
 <script id="tpl-flux-pri" type="text/html">
   {{#.}}
   <h3 style="padding: 10px;">
-    Flux : {{ProviderId}}
+    Flux : {{Id}}
   </h3> 
-  {{/.}}
   
   <div class="row">
     <div class="col">
       <div class="card card-body">
         <div class="form-group">
         <label for="exampleFormControlInput1">Modèle de fichier de livraison</label>
-        <input type="text" class="form-control" value={{ProviderId}} disabled>
+        <input type="text" class="form-control" value="(DATA DATA DATA)" disabled>
         <span class="mt-2 d-block">Modèle du nom du fichier de livraison.</span>
         <br>
         
@@ -90,4 +89,5 @@
       </div>
     </div>
   </div>
+  {{/.}}
 </script>
