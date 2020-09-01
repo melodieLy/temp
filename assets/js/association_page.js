@@ -4,7 +4,7 @@ $.get('components/flux-model.html', function(templates) {
     $('#flux').append(Mustache.render(component,data));
 });
 
-get('GET /associations/{associationId}'+cookies.assoId + '/flows', retrieveFlows);
+get('associations/'+cookies.assoId + '/flows', retrieveFlows);
 
 function retrieveFlows(data) {
     $.get('components/flux-model.html', function(templates) {
