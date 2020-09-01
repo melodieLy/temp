@@ -95,15 +95,15 @@
           {{/IsMaster}}
           <div class="control-indicator"></div>
         </label>
-        <label class="control outlined control-checkbox">
+        <label>
           Dernier état
 
           {{#LastStatus}}
-          <input type="text" value="Actif" disabled/>
+          <input type="text" class="form-control" value="Actif" disabled/>
           {{/LastStatus}}
 
           {{^LastStatus}}
-          <input type="text" value="Non actif" disabled/>
+          <input type="text" class="form-control" value="Non actif" disabled/>
           {{/LastStatus}}
         </label>
         <label>
