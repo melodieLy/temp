@@ -4,6 +4,16 @@ $.get('components/flux-model.html', function(templates) {
     $('#flux').append(Mustache.render(component,data));
 });
 
+get('GET /associations/{associationId}'+cookies.assoId + '/flows', retrieveFlows);
+
+function retrieveFlows(data) {
+    $.get('components/flux-model.html', function(templates) {
+        var component = $(templates).filter('#tpl-flux-pri').html();
+        $('#flux').append(Mustache.render(component,data));
+    });
+}
+
+
 $.get('components/FTP-serv-model.html', function(templates) {
     var component = $(templates).filter('#tpl-ftp-serv').html();
     const data = {}
