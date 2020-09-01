@@ -9,8 +9,8 @@ get('associations/'+cookies.assoId + '/flows', retrieveFlows);
 function retrieveFlows(data) {
     $.get('components/flux-model.html', function(templates) {
         var component = $(templates).filter('#tpl-flux-pri').html();
-        console.log(data);
-        $('#flux').append(Mustache.render(component,data));
+        const result = data[0];
+        $('#flux').append(Mustache.render(component,result));
     });
 }
 
