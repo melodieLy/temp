@@ -10,6 +10,7 @@ function retrieveFlows(data) {
     $.get('components/flux-model.html', function(templates) {
         var component = $(templates).filter('#tpl-flux-pri').html();
         const result = data[1];
+        console.log(result.Id);
         $('#flux').append(Mustache.render(component,result));
     });
 }
