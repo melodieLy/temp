@@ -1,4 +1,4 @@
-get('associations/CCFD/flows', retrieveFlows);
+get('associations/'+cookies.assoId + '/flows', retrieveFlows);
 
 function retrieveFlows(data) {
     $.get('components/flux-model.html', function(templates) {
