@@ -88,16 +88,23 @@
           Flux principale ?
           {{#IsMaster}}
           <input type="checkbox" checked disabled/>
-          {{.IsMaster}}
+          {{/IsMaster}}
 
           {{^IsMaster}}
           <input type="checkbox" disabled/>
-          {{.IsMaster}}
+          {{/IsMaster}}
           <div class="control-indicator"></div>
         </label>
         <label class="control outlined control-checkbox">
           Dernier état
+
+          {{#LastStatus}}
           <input type="text" value="Actif" disabled/>
+          {{/LastStatus}}
+
+          {{^LastStatus}}
+          <input type="text" value="Non actif" disabled/>
+          {{/LastStatus}}
         </label>
         <label>
           Date du dernier envoi du flux : JJ/MM/YY
