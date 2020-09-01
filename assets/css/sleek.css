@@ -8533,7 +8533,7 @@ button {
 
 /*===== ALERT =====*/
 label {
-  text-transform: capitalize; }
+  text-transform: none; }
 
 .alert {
   font-size: 0.98rem;
