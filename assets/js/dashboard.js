@@ -6,7 +6,8 @@ get('mail/stats/counters/'+cookies.assoId, retrieveAssoMail);
 function retrieveAssoMail(data) {
     $.get('components/mails-summary.html', function(templates) {
         var component = $(templates).filter('#tpl-mails-sum').html();
-        $('#mailSummary').append(Mustache.render(component,data));
+        const result = data[0];
+        $('#mailSummary').append(Mustache.render(component,result));
     });
 }
 
