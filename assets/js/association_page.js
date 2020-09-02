@@ -9,7 +9,7 @@ function retrieveFlows(data) {
     $.get('components/FTP-serv-model.html', function(templates) {
         var component = $(templates).filter('#tpl-ftp-serv').html();
         const r = data.DropServers;
-        $('#serv').append(Mustache.render(component,r));
+        $('#serv').append(Mustache.render(component,data));
     });
 }
 
