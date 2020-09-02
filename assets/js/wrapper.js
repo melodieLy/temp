@@ -2,7 +2,7 @@ function getError(info) {
     switch(info.status){
         case 401 :
             deleteCookie();
-            alert('Un roblme a eu lieu lors du chargement. Veuillez étraindre et rallumé le navigateur.')
+            alert('Un problème a eu lieu lors du chargement. Veuillez étreindre et rallumer le navigateur.')
             break;
         default:
             break;
