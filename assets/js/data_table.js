@@ -9,9 +9,9 @@
 $.get('components/members_table.html', function(templates) {
     var component = $(templates).filter('#tpl-members-table').html();
     $.getJSON("assets/js/data_table.json", function (data){
-        $('#test').append(Mustache.render(component,data));
+        $('#members').append(Mustache.render(component,data));
     })
-    $('#test').DataTable({
+    $('#basic-data-table').DataTable({
         "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
     });
 });
