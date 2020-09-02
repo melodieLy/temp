@@ -8,7 +8,8 @@ function retrieveFlows(data) {
 
     $.get('components/FTP-serv-model.html', function(templates) {
         var component = $(templates).filter('#tpl-ftp-serv').html();
-        $('#serv').append(Mustache.render(component,data));
+        const r = data.DropServers;
+        $('#serv').append(Mustache.render(component,r));
     });
 }
 
