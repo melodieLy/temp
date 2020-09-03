@@ -13,6 +13,7 @@ $.get('components/members_table.html', function(templates) {
         $('#basic-data-table').DataTable({
             "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
         });
+        document.getElementById("basic-data-table_wrapper").style.width = "100%";
     })
    
 });
