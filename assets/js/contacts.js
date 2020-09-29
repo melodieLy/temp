@@ -5,8 +5,8 @@ function retrieveContacts(data) {
         var component = $(templates).filter('#tpl-contacts-table').html();
         $('#contacts').append(Mustache.render(component,data));
         $('#basic-data-table').DataTable({
-            "aLengthMenu": [[20, 30, 50, 75, -1], [20, 30, 50, 75, "All"]],
-            "pageLength": 20,
+            "aLengthMenu": [[5, 30, 50, 75, -1], [20, 30, 50, 75, "All"]],
+            "pageLength": 5,
             "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
         });
         document.getElementById("basic-data-table_wrapper").style.width = "100%";
