@@ -64,20 +64,20 @@
               <!--Title of the content-->
               <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
                   <div class="mr-auto p-2">
-                      <h1>Membres de l'association</h1>
+                      <h1>Contacts de l'association</h1>
                   </div>
                   
                   <button type="button" id="addBtn" class="btn btn-outline-primary" onclick="showForm()" >Ajouter</button>
                   <button type="submit" form="test" class="btn btn-outline-danger">Modifier les droits d'accès</button>
               </div>
-              <div class="row" id="addMember" style="display: none;">
+              <div class="row" id="addContact" style="display: none;">
                 <div class="col">
                   <div class="card card-default">
                       <div class="card-header card-header-border-bottom">
-                          <h2>Ajouter un membres</h2>
+                          <h2>Ajouter un contacts/h2>
                       </div>
                       <div class="card-body">
-                          <form id="addNewMember" onsubmit="addNewMember(this)">
+                          <form id="addNewContact" onsubmit="addNewContact(this)">
                               <div class="form-row">
                                   <div class="col-md-3 mb-3">
                                       <label for="firstname">Prénom</label>
@@ -176,7 +176,7 @@
                 </div>
               </div>
               <!--The content FIRST ROW -->
-              <div class="row" id="members">
+              <div class="row" id="contacts">
               </div>
 
               <!-- Configuration of the website UI (necessary ?)-->
@@ -195,7 +195,7 @@
 
 <script>
 
-      $("#addNewMember").submit(function(e) {
+      $("#addNewContact").submit(function(e) {
         e.preventDefault();
       });
 
@@ -205,7 +205,7 @@
 
   function showForm() {
     const btn = document.querySelector('#addBtn');
-    const form = document.getElementById("addMember");
+    const form = document.getElementById("addContact");
     if (form.style.display === "none") {
       form.style.display = "block";
       btn.textContent = "Annuler";
@@ -215,7 +215,7 @@
     }
   };
 
-  function addNewMember(formData) {
+  function addNewContact(formData) {
     console.log(formData);
     console.log(formData.firstname.value);
   }
