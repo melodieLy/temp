@@ -21,7 +21,6 @@
             //     var component = $(templates).filter('#tpl-contacts-table').html();
             //     $('#contacts').append(Mustache.render(component,data)); 
             // });
-            document.getElementById("basic-data-table_wrapper").style.width = "100%";
         });
     // });
 // };
