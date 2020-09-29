@@ -6,9 +6,9 @@ function retrieveContacts(data) {
         $('#contacts').append(Mustache.render(component,data));
         $(document).ready(function() {
             $('#basic-data-table').DataTable({
-                // "aLengthMenu": [[10, 30, 50, 75, -1], [10, 30, 50, 75, "All"]],
-                // "pageLength": 10,
-                // "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
+                "aLengthMenu": [[10, 30, 50, 75, -1], [10, 30, 50, 75, "All"]],
+                "pageLength": 10,
+                "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
             });
             document.getElementById("basic-data-table_wrapper").style.width = "100%";
         });
