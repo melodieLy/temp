@@ -21,6 +21,16 @@
                         });
                     }
                 },
+                "columns": [
+                    { "data": "CivilityId" },
+                    { "data": "FirstName" + " " + "LastName" },
+                    { "data": "Function" },
+                    { "data": "MailAddress" },
+                    { "data": "ContactDashboard" },
+                    { "data": "ContactBilling" },
+                    { "data": "ContactLogistics" },
+                    { "data": "ContactFormUpdates" }
+                ],
                 "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
             });
             // $.get('components/contacts_table.html', function(templates) {
