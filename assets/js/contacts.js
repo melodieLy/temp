@@ -13,7 +13,11 @@
                         "Accept":"application/json",
                         "Authorization": cookies.token
                     },
-                    method: "GET"
+                    method: "GET",
+                    "data": function ( d ) {
+                        var component = $(templates).filter('#tpl-contacts-table').html();
+                        $('#contacts').append(Mustache.render(component,data)); 
+                    }
                 },
                 "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
             });
