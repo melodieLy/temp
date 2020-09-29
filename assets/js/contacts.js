@@ -1,6 +1,5 @@
-get(, retrieveContacts);
 
-function retrieveContacts(data) {
+// function retrieveContacts(data) {
         $(document).ready(function() {
             $('#basic-data-table').DataTable({
                 // "aLengthMenu": [[10, 30, 50, 75, -1], [10, 30, 50, 75, "All"]],
@@ -24,8 +23,8 @@ function retrieveContacts(data) {
             // });
             document.getElementById("basic-data-table_wrapper").style.width = "100%";
         });
-    });
-};
+    // });
+// };
 // $(document).ready(function() {
 //     jQuery('#hoverable-data-table').DataTable({
 //      "aLengthMenu": [[20, 30, 50, 75, -1], [20, 30, 50, 75, "All"]],
