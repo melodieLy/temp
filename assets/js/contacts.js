@@ -15,9 +15,10 @@
                     },
                     method: "GET",
                     "data": function ( d ) {
-                        console.log("att");
-                        var component = $(templates).filter('#tpl-contacts-table').html();
-                        $('#contacts').append(Mustache.render(component,d)); 
+                        $.get('components/contacts_table.html', function(templates) {
+                            var component = $(templates).filter('#tpl-contacts-table').html();
+                            $('#contacts').append(Mustache.render(component,d)); 
+                        });
                     }
                 },
                 "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
