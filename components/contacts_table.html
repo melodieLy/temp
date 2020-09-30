@@ -12,20 +12,18 @@
                 <th>Maj</th>
             </tr>
         </thead>
-        {{ #. }}
+        <!-- {{ #. }} -->
         <tbody>
             <tr>        
-                <td>{{CivilityId}}</td>
-                <td>{{FirstName}} {{LastName}}</td>
-                <td>{{Function}}</td>
-                <td>{{MailAddress}}</td>
-                {{#ContactDashboard}}
-                <td><i class="mdi mdi-checkbox-marked-outline"></i></td>
-                {{/ContactDashboard}}
-                {{^ContactDashboard}}
-                <td><i class="mdi mdi-checkbox-blank-outline"></i></td>
-                {{/ContactDashboard}}
-                {{#ContactBilling}}
+                <td>CivilityId</td>
+                <td>FirstName LastName</td>
+                <td>Function</td>
+                <td>MailAddress</td>
+                <td>ContactDashboard<i class="mdi mdi-checkbox-marked-outline"></i></td>
+                <td>ContactBilling</td>
+                <td>ContactLogistics</td>
+                <td>ContactFormUpdates</td>
+                <!-- {{#ContactBilling}}
                 <td><i class="mdi mdi-checkbox-marked-outline"></i></td>
                 {{/ContactBilling}}
                 {{^ContactBilling}}
@@ -42,10 +40,10 @@
                 {{/ContactFormUpdates}}
                 {{^ContactFormUpdates}}
                 <td><i class="mdi mdi-checkbox-blank-outline"></i></td>
-                {{/ContactFormUpdates}}
+                {{/ContactFormUpdates}} -->
             </tr>
         </tbody>
-        {{ /. }}
+        <!-- {{ /. }} -->
     </table>
 
 </script>
