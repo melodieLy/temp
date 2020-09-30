@@ -16,6 +16,8 @@
                     },
                     method: "GET",
                     "data": function ( d ) {
+                        console.log(d);
+                        console.log('tet');
                         $.get('components/contacts_table.html', function(templates) {
                             var component = $(templates).filter('#tpl-contacts-table').html();
                             $('#contacts').append(Mustache.render(component,d)); 
