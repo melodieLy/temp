@@ -224,5 +224,16 @@
     const t = document.getElementById("basic-data-table");
     console.log(data);
   }
+
+  $(document).ready(function () {
+    console.log("hola")
+    $("#mySearch").on("keyup", function(){
+        console.log("test")
+        var value = $(this).val().toLowerCase()
+        $("#myTable tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});
 </script>
 </html>
