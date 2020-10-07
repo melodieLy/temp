@@ -5,10 +5,14 @@ function retrieveContacts(data) {
     $.get('components/contacts_table.html', function(templates) {
         var component = $(templates).filter('#tpl-contacts-table').html();
         $('#contacts').append(Mustache.render(component,data));
-        console.log("finish"); 
     });
 
     $(document).ready(function () {
-        console.log("ready");
-    })
+        $("#mySearch").on("keyup", function(){
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
 };
