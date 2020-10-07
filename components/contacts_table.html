@@ -1,5 +1,5 @@
 <script id="tpl-contacts-table" type="text/html">
-    <table id="basic-data-table" class="table nowrap">
+    <table id="basic-contacts-table" class="table nowrap">
         <thead>
             <tr>
                 <th>Civilité</th>
@@ -13,7 +13,7 @@
             </tr>
         </thead>
         {{ #. }}
-        <tbody>
+        <tbody id="myTable">
             <tr>        
                 <td>{{CivilityId}}</td>
                 <td>{{FirstName}} {{LastName}}</td>
