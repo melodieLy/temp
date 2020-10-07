@@ -28,7 +28,7 @@ function retrieveContacts(data) {
         //     });
             $.get('components/contacts_table.html', function(templates) {
                 var component = $(templates).filter('#tpl-contacts-table').html();
-                $('#tpl-contacts-table').append(Mustache.render(component,data)); 
+                $('#contacts').append(Mustache.render(component,data)); 
             });
         };
     // });
