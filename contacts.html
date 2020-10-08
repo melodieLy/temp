@@ -177,6 +177,8 @@
               </div>
               <!--The content FIRST ROW -->
               <div class="row" id="contacts">
+              <input id="mySearch" type="text" placeholder="Search...">
+
               </div>
 
               <!-- Configuration of the website UI (necessary ?)-->
@@ -225,7 +227,7 @@
     console.log(data);
   }
 
-  $("#mySearch").visible(function () {
+  $("#mySearch").ready(function () {
     console.log("hola")
     $("#mySearch").on("keyup", function(){
         console.log("test")
