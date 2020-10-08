@@ -6,7 +6,7 @@ function retrieveContacts(data) {
         var component = $(templates).filter('#tpl-contacts-table').html();
         $('#contacts').append(Mustache.render(component,data));
         $('#basic-contacts-table').show()
-        $('#basic-data-table').DataTable({
+        $('#basic-contacts-table').DataTable({
             "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
           });
     });
