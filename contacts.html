@@ -197,13 +197,13 @@
 
 <script>
 
-      $("#addNewContact").submit(function(e) {
-        e.preventDefault();
-      });
+  $("#addNewContact").submit(function(e) {
+    e.preventDefault();
+  });
 
-      $("#test").submit(function(e) {
-        e.preventDefault();
-      });
+  $("#test").submit(function(e) {
+    e.preventDefault();
+  });
 
   function showForm() {
     const btn = document.querySelector('#addBtn');
@@ -228,14 +228,16 @@
   }
 
   $("#mySearch").ready(function () {
-    console.log("hola")
     $("#mySearch").on("keyup", function(){
-        console.log("test")
-        var value = $(this).val().toLowerCase()
-        $("#myTable tr").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
+      // var value = $(this).val().toLowerCase()
+      // $("#myTable tr").filter(function () {
+      //     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      // });
+      $('#basic-data-table').DataTable({
+        "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
+      });
     });
-});
+  });
+  
 </script>
 </html>
