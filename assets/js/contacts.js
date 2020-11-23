@@ -1,5 +1,5 @@
 
-get('associations/'+cookies.assoId + '/contacts',retrieveContacts);
+// get('associations/'+cookies.assoId + '/contacts',retrieveContacts);
 
 function retrieveContacts(data) {
     $.get('components/contacts_table.html', function(templates) {
