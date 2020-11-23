@@ -1,5 +1,5 @@
 
-// get('associations/'+cookies.assoId + '/contacts',retrieveContacts);
+get('associations/'+cookies.assoId + '/contacts',retrieveContacts);
 
 function retrieveContacts(data) {
     $.get('components/contacts_table.html', function(templates) {
@@ -11,26 +11,4 @@ function retrieveContacts(data) {
         //   });
     });
 };
-
-$(document).ready(function(){
-    $('#myTable').DataTable({
-        "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">',
-        "ajax": {
-            "url": "https://recette-api.song-fr.com/associations/AIDES/contacts",
-            "type": "GET",
-            "headers": {
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Accept":"application/json",
-                "Authorization": cookies.token
-            },
-            "columns": [
-                { "data": "CivilityId" },
-                { "data": "FirstName" },
-                { "data": "LastName" },
-                { "data": "Function" },
-                { "data": "MailAddress" }
-            ]
-        }
-    })
-})
 
