@@ -227,13 +227,12 @@
     console.log(data);
   }
 
-  $("#mySearch").ready(function () {
+  $("#mySearch").ready(function() {
     $("#mySearch").on("keyup", function(){
       var value = $(this).val().toLowerCase()
       console.log(value)
-      $("#myTable").filter(function () {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-          
+      $("#myTable tr").filter(function () {
+          $(this).parent().toggle($(this).text().toLowerCase().indexOf(value) > -1) 
       });
       
     });
