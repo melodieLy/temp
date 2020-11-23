@@ -12,18 +12,18 @@ function retrieveContacts(data) {
     });
 };
 
-// $document.ready(function(){
-//     $('#myTable').DataTable({
-//         "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">',
-//         "ajax": {
-//             "url": "https://recette-api.song-fr.com/associations/Aides/contacts",
-//             "type": "GET",
-//             "headers": {
-//                 "Content-Type": "application/x-www-form-urlencoded",
-//                 "Accept":"application/json",
-//                 "Authorization": cookies.token
-//             }
-//         }
-//     })
-// })
+$document.ready(function(){
+    $('#myTable').DataTable({
+        "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">',
+        "ajax": {
+            "url": "https://recette-api.song-fr.com/associations/Aides/contacts",
+            "type": "GET",
+            "headers": {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Accept":"application/json",
+                "Authorization": cookies.token
+            }
+        }
+    })
+})
 
