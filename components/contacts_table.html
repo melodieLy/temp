@@ -7,42 +7,16 @@
                 <th>Fonction</th>
                 <th>Mail</th>
                 <th>Tdb</th>
-                <th>Facture</th>
-                <th>Log.</th>
-                <th>Maj</th>
             </tr>
         </thead>
         {{ #. }}
         <tbody id="myTable">
             <tr>        
                 <td>{{CivilityId}}</td>
-                <td>{{FirstName}} {{LastName}}</td>
+                <td>{{FirstName}}</td><td>{{LastName}}</td>
                 <td>{{Function}}</td>
                 <td>{{MailAddress}}</td>
-                {{#ContactDashboard}}
-                <td><i class="mdi mdi-checkbox-marked-outline"></i></td>
-                {{/ContactDashboard}}
-                {{^ContactDashboard}}
-                <td><i class="mdi mdi-checkbox-blank-outline"></i></td>
-                {{/ContactDashboard}}
-                {{#ContactBilling}}
-                <td><i class="mdi mdi-checkbox-marked-outline"></i></td>
-                {{/ContactBilling}}
-                {{^ContactBilling}}
-                <td><i class="mdi mdi-checkbox-blank-outline"></i></td>
-                {{/ContactBilling}}
-                {{#ContactLogistics}}
-                <td><i class="mdi mdi-checkbox-marked-outline"></i></td>
-                {{/ContactLogistics}}
-                {{^ContactLogistics}}
-                <td><i class="mdi mdi-checkbox-blank-outline"></i></td>
-                {{/ContactLogistics}}
-                {{#ContactFormUpdates}}
-                <td><i class="mdi mdi-checkbox-marked-outline"></i></td>
-                {{/ContactFormUpdates}}
-                {{^ContactFormUpdates}}
-                <td><i class="mdi mdi-checkbox-blank-outline"></i></td>
-                {{/ContactFormUpdates}}
+                
             </tr>
         </tbody>
         {{ /. }}
