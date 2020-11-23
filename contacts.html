@@ -228,11 +228,12 @@
   }
 
   $("#mySearch").ready(function () {
-    console.log("hello")
     $("#mySearch").on("keyup", function(){
       var value = $(this).val().toLowerCase()
-      $("#myTable tr").filter(function () {
+      console.log(value)
+      $("#myTable").filter(function () {
           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          
       });
       
     });
