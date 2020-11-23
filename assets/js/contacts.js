@@ -12,7 +12,7 @@ function retrieveContacts(data) {
     });
 };
 
-$document.ready(function(){
+$(document).ready(function(){
     $('#myTable').DataTable({
         "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">',
         "ajax": {
