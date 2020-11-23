@@ -7,7 +7,8 @@ function retrieveContacts(data) {
         $('#contacts').append(Mustache.render(component,data));
         $('#basic-contacts-table').DataTable({
             "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">',
-            "initComplete": () => {$("#basic-contacts-table").show();}
+            "initComplete": () => {$("#basic-contacts-table").show();},
+            "deferLoading": 100
           });
     });
 };
