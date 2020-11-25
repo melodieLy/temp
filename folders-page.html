@@ -62,9 +62,26 @@
               <!--Title of the content-->
               <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
                   <div>
-                      <h1>Flux de l'association</h1>
+                      <h1>Dossiers</h1>
                   </div>
               </div>
+
+              <table id="basic-folders-table" class="table nowrap">
+                <thead>
+                    <tr>
+                        <th>Dossiers</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                {{ #. }}
+                <tbody id="folders">
+                    <tr>        
+                        <td>{{RelativePath}}</td>
+                        <td>{{DisplayName}}</td>
+                    </tr>
+                </tbody>
+                {{ /. }}
+            </table>
 
               <!-- Configuration of the website UI (necessary ?)-->
               <div class="right-sidebar-2" id="sidebarConfig"></div>
@@ -79,8 +96,15 @@
         <script src="assets/plugins/circle-progress/circle-progress.js"></script>
         <script src="assets/js/sleek.bundle.js"></script>
 
-        
-
 </body>
+
+<script>
+get("folders/AIDES", getAccessibleFolders);
+
+function getAccessibleFolders(data) {
+  var component = $(templates).filter('#basic-folders-table').html();
+  $('#folders').append(Mustache.render(component,data));
+}
+</script>
 
 </html>
