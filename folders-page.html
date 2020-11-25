@@ -103,6 +103,7 @@
 get('folders/AIDES', getAccessibleFolders);
 
 function getAccessibleFolders(data) {
+  console.log(data)
   $.get('folders-page.html', function(templates) {
     var component = $(templates).filter('#basic-folders-table').html();
     $('#folders').append(Mustache.render(component,data));
