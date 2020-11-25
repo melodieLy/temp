@@ -9,6 +9,7 @@ function retrieveContacts(data) {
             "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">',
             "initComplete": () => {$("#basic-contacts-table").show();}
           });
+        $('basic-contacts-table_wrapper').css("width","100%");
     });
 };
 
