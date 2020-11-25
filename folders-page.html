@@ -99,11 +99,13 @@
 </body>
 
 <script>
-get("folders/AIDES", getAccessibleFolders);
+get('folders/AIDES', getAccessibleFolders);
 
 function getAccessibleFolders(data) {
-  var component = $(templates).filter('#basic-folders-table').html();
-  $('#folders').append(Mustache.render(component,data));
+  $.get('folder-page.html', function(templates) {
+    var component = $(templates).filter('#basic-folders-table').html();
+    $('#folders').append(Mustache.render(component,data));
+  })
 }
 </script>
 
