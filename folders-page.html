@@ -35,6 +35,7 @@
 
     <script src="assets/js/wrapper.js"></script>
     <script src="assets/js/base.js"></script>
+    <script src="assets/js/folders_page.js"></script>
 
 </head>
 
@@ -66,23 +67,9 @@
                   </div>
               </div>
 
-              <table id="basic-folders-table" class="table nowrap">
-                <thead>
-                    <tr>
-                        <th>Dossiers</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                
-                <tbody id="folders">
-                  {{ #. }}
-                    <tr>        
-                        <td>{{RelativePath}}</td>
-                        <td>{{DisplayName}}</td>
-                    </tr>
-                {{ /. }}
-                </tbody>
-            </table>
+              <div class='row' id='folders'>
+
+              </div>
 
               <!-- Configuration of the website UI (necessary ?)-->
               <div class="right-sidebar-2" id="sidebarConfig"></div>
@@ -98,17 +85,5 @@
         <script src="assets/js/sleek.bundle.js"></script>
 
 </body>
-
-<script>
-get('folders/AIDES', getAccessibleFolders);
-
-function getAccessibleFolders(data) {
-  console.log(data)
-  $.get('folders-page.html', function(templates) {
-    var component = $(templates).filter('#basic-folders-table').html();
-    $('#folders').append(Mustache.render(component,data));
-  })
-}
-</script>
 
 </html>
