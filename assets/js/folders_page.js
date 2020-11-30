@@ -12,6 +12,6 @@ function getAccessibleFolders(data) {
   })
 }
 
-function hello(id) {
-  console.log(id)
+function hello(lol) {
+  console.log(lol)
 }
