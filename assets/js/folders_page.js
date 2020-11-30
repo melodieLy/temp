@@ -11,3 +11,7 @@ function getAccessibleFolders(data) {
     //   });
   })
 }
+
+function hello(id) {
+  console.log(id)
+}
