@@ -1,4 +1,4 @@
-let path = window.location.pathname
+let path = window.location.href
 console.log("'"+path+"'")
 
 get('folders/'+cookies.assoId, getAccessibleFolders);
