@@ -10,7 +10,7 @@ function getAccessibleFolders(data) {
   })
 }
 
-function hello(lol) {
+function hello() {
   console.log('hi');
-  console.log(lol);
+  console.log(arguments);
 }
