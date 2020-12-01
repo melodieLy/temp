@@ -9,6 +9,6 @@ function getAccessibleFolders(data) {
 }
 
 function hello(lol) {
-  console.log('hi')
-  alert(lol)
+  console.log('hi');
+  console.log(lol);
 }
