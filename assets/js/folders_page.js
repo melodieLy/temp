@@ -2,10 +2,11 @@ $(document).ready(function() {
   let path = window.location.search;
 
   if (path != "") {
-    console.log('something')
+    path = path.replace('id?', '');
+    // get('folder/'+cookies.assoId+'/'+path)
+    console.log(path)
   } 
   else {
-    console.log("notghing")
     get('folders/'+cookies.assoId, getAccessibleFolders);
   }
 });
