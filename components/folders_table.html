@@ -1,5 +1,5 @@
 <script id="tpl-folders-table" type="text/html">
-    <table id="basic-folders-table" >
+    <table id="basic-folders-table" class="table nowrap">
         <thead>
             <tr>
                 <th>Dossiers</th>
@@ -10,7 +10,7 @@
         <tbody id="folders">
         {{ #. }}
             <tr>        
-                <td><a onclick="hello({{Id}})" href="#" > {{RelativePath}} </a></td>
+                <td><a onclick="hello()" href="#" > {{RelativePath}} </a></td>
                 <td>{{DisplayName}}</td>
             </tr>
         {{ /. }}
