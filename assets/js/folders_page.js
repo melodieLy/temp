@@ -1,7 +1,14 @@
-let path = window.location.href
-console.log("'"+path+"'")
+$(document).ready(function() {
+  let path = window.location.search;
 
-get('folders/'+cookies.assoId, getAccessibleFolders);
+  if (path != "") {
+    console.log('something')
+  } 
+  else {
+    console.log("notghing")
+    get('folders/'+cookies.assoId, getAccessibleFolders);
+  }
+});
 
 var test;
 
@@ -11,9 +18,4 @@ function getAccessibleFolders(data) {
     var component = $(templates).filter('#tpl-folders-table').html();
     $('#folders').append(Mustache.render(component,test));
   })
-}
-
-function hello() {
-  console.log('hi');
-  console.log(arguments);
 }
