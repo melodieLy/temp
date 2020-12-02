@@ -24,7 +24,7 @@ function getAccesibleFiles(data) {
   $.get('components/files_table.html', function(templates) {
     var component = $(templates).filter('#tpl-folders-table').html();
     data.forEach(element => {
-      if(element.MimeType.includes(text)) element.MimeType = element.MimeType.replace('text/','');
+      if(element.MimeType.includes('text')) element.MimeType = element.MimeType.replace('text/','');
     });
     $('#folders').append(Mustache.render(component,data));
   })
