@@ -14,8 +14,8 @@ $(document).ready(function() {
 
 function getAccessibleFolders(data) {
   $.get('components/folders_table.html', function(templates) {
-    var component = $(templates).filter('#tpl-folders-table').html();
-    $('#folders').append(Mustache.render(component,data));
+    var component = $(templates).filter('#tpl-folders-table').html()
+    $('#folders').append(Mustache.render(component,data))
   })
 }
 
@@ -24,14 +24,17 @@ function getAccesibleFiles(data) {
   let type = ['text/', 'image/', 'application/'];
 
   $.get('components/files_table.html', function(templates) {
-    var component = $(templates).filter('#tpl-folders-table').html();
+    var component = $(templates).filter('#tpl-folders-table').html()
     data.forEach(element => {
       type.forEach(type => {
-        element.MimeType = element.MimeType.replace(type,'');
-        if(element.MimeType === "plain") element.MimeType.replace('plain','txt');
+        element.MimeType = element.MimeType.replace(type,'')
+        if(element.MimeType === "plain") {
+          element.MimeType.replace('plain','txt')
+          break
+        }
       });
     });
-    $('#folders').append(Mustache.render(component,data));
+    $('#folders').append(Mustache.render(component,data))
   })
 }
 
