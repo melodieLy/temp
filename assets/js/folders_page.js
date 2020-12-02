@@ -4,7 +4,7 @@ $(document).ready(function() {
   if (path != "") {
     console.log("somethong")
     path = path.replace('?id=', '');
-    get('folder/'+cookies.assoId+'/'+ path,getAccesibleFiles);
+    get('folders/'+cookies.assoId+'/'+ path,getAccesibleFiles);
   } 
   else {
     console.log("nonthing")
