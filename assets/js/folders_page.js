@@ -31,7 +31,6 @@ function getAccesibleFiles(data) {
           element.MimeType = element.MimeType.replace(type,'')
           if(element.MimeType === "plain") {
             element.MimeType.replace('plain','txt')
-            break;
           }
         }
       });
