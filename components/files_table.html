@@ -1,0 +1,19 @@
+<script id="tpl-folders-table" type="text/html">
+    <table id="basic-folders-table" class="table nowrap">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fichiers</th>
+            </tr>
+        </thead>
+        
+        <tbody id="folders">
+        {{ #. }}
+            <tr>        
+                <td>{{MimeType}}</td>
+                <td>{{name}}</td>
+            </tr>
+        {{ /. }}
+        </tbody>
+    </table>
+</script>
