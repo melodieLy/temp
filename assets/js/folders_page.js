@@ -28,12 +28,8 @@ function getAccesibleFiles(data) {
     data.forEach(element => {
       type.forEach(type => {
         element.MimeType = element.MimeType.replace(type,'');
-        
-      });
-
-      if(element.MimeType.includes('text')) {
         if(element.MimeType === "plain") element.MimeType.replace('plain','txt');
-      } 
+      });
     });
     $('#folders').append(Mustache.render(component,data));
   })
