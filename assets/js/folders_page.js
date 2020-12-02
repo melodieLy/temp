@@ -27,10 +27,12 @@ function getAccesibleFiles(data) {
     var component = $(templates).filter('#tpl-folders-table').html()
     data.forEach(element => {
       type.forEach(type => {
-        element.MimeType = element.MimeType.replace(type,'')
-        if(element.MimeType === "plain") {
-          element.MimeType.replace('plain','txt')
-          break
+        if(element.MimeType.includes(type)) {
+          element.MimeType = element.MimeType.replace(type,'')
+          if(element.MimeType === "plain") {
+            element.MimeType.replace('plain','txt')
+            break;
+          }
         }
       });
     });
