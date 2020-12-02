@@ -29,9 +29,7 @@ function getAccesibleFiles(data) {
       type.forEach(type => {
         if(element.MimeType.includes(type)) {
           element.MimeType = element.MimeType.replace(type,'')
-          if(element.MimeType === "plain") {
-            element.MimeType.replace('plain','txt')
-          }
+          if(element.MimeType === "plain") element.MimeType = element.MimeType.replace('plain','txt')
         }
       });
     });
