@@ -21,10 +21,19 @@ function getAccessibleFolders(data) {
 
 function getAccesibleFiles(data) {
   var result = data;
+  let type = ['text/', 'image/', 'application/'];
+
   $.get('components/files_table.html', function(templates) {
     var component = $(templates).filter('#tpl-folders-table').html();
     data.forEach(element => {
-      if(element.MimeType.includes('text')) element.MimeType = element.MimeType.replace('text/','');
+      type.forEach(type => {
+        element.MimeType = element.MimeType.replace(type,'');
+        
+      });
+
+      if(element.MimeType.includes('text')) {
+        if(element.MimeType === "plain") element.MimeType.replace('plain','txt');
+      } 
     });
     $('#folders').append(Mustache.render(component,data));
   })
