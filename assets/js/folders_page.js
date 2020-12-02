@@ -2,10 +2,12 @@ $(document).ready(function() {
   var path = window.location.search;
 
   if (path != "") {
+    console.log("somethong")
     path = path.replace('?id=', '');
     get('folder/'+cookies.assoId+'/'+path,getAccesibleFiles);
   } 
   else {
+    console.log("nonthing")
     get('folders/'+cookies.assoId, getAccessibleFolders);
   }
 });
