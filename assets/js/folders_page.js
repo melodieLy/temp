@@ -4,7 +4,7 @@ $(document).ready(function() {
   if (path != "") {
     console.log("somethong")
     path = path.replace('?id=', '');
-    get('folder/'+cookies.assoId+'/'+path,getAccesibleFiles);
+    get('folder/'+cookies.assoId+'/'+ path,getAccesibleFiles);
   } 
   else {
     console.log("nonthing")
@@ -13,14 +13,14 @@ $(document).ready(function() {
 });
 
 function getAccessibleFolders(data) {
-  $.get('components/files_table.html', function(templates) {
+  $.get('components/folders_table.html', function(templates) {
     var component = $(templates).filter('#tpl-folders-table').html();
     $('#folders').append(Mustache.render(component,data));
   })
 }
 
 function getAccesibleFiles(data) {
-  $.get('components/folders_table.html', function(templates) {
+  $.get('components/files_table.html', function(templates) {
     var component = $(templates).filter('#tpl-folders-table').html();
     data.forEach(element => {
       if(element.MimeType === "image/png") console.log("img")
