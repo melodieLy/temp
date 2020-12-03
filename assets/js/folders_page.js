@@ -38,5 +38,6 @@ function getAccesibleFiles(data) {
 }
 
 function getFiles(id) {
-  alert("message : " + id)
+  data = get('folders/'+cookies.assoId+'/'+ path + '/' +id);
+  
 }
