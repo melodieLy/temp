@@ -4,6 +4,7 @@
             <tr>
                 <th>ID</th>
                 <th>Fichiers</th>
+                <th></th>
             </tr>
         </thead>
         
@@ -11,7 +12,8 @@
         {{ #. }}
             <tr>        
                 <td><img src="https://recette-api.song-fr.com/app-file/{{MimeType}}/icon" class="icons"></td>
-                <td>{{name}}</td>
+                <td>{{DisplayName}}</td>
+                <td><button class="btn btn-pill">Télécharger</button></td>
             </tr>
         {{ /. }}
         </tbody>
