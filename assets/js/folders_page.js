@@ -1,5 +1,5 @@
+var path = window.location.search;
 $(document).ready(function() {
-  var path = window.location.search;
 
   if (path != "") {
     console.log("somethong")
@@ -39,5 +39,5 @@ function getAccesibleFiles(data) {
 
 function getFiles(id) {
   data = get('folders/'+cookies.assoId+'/'+ path + '/' +id);
-  
+
 }
