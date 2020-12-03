@@ -37,3 +37,6 @@ function getAccesibleFiles(data) {
   })
 }
 
+function getFiles(id) {
+  alert("message : " + id)
+}

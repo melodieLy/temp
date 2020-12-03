@@ -13,7 +13,9 @@
             <tr>        
                 <td><img src="https://recette-api.song-fr.com/app-file/{{MimeType}}/icon" class="icons"></td>
                 <td>{{DisplayName}}</td>
-                <td><button class="btn mb-1 btn btn-pill btn-primary">Télécharger</button></td>
+                <td>
+                    <button  onclick="getFiles('{{Id}}')" class="btn mb-1 btn btn-pill btn-primary">Télécharger</button>
+                </td>
             </tr>
         {{ /. }}
         </tbody>
