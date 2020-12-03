@@ -39,7 +39,7 @@ function getAccesibleFiles(data) {
 
 function getFiles(id) {
   
-  var lol = 'https://recette-api.song-fr.com/folders/'+cookies.assoId+'/'+ path + '/'+id
+  return 'https://recette-api.song-fr.com/folders/'+cookies.assoId+'/'+ path + '/'+id
   alert(lol)
   alert("ehhh")
 }
