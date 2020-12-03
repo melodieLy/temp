@@ -33,12 +33,13 @@ function getAccesibleFiles(data) {
         }
       });
     });
+    data.lol =" hello"
     $('#folders').append(Mustache.render(component,data))
   })
 }
 
 function getFiles(id) {
-  
+  $()
   return 'https://recette-api.song-fr.com/folders/'+cookies.assoId+'/'+ path + '/'+id
   alert(lol)
   alert("ehhh")
