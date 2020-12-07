@@ -8,7 +8,7 @@ $(document).ready(function() {
   } 
   else {
     console.log("nonthing")
-    fetch('folders/'+cookies.assoId, getAccessibleFolders);
+    get('folders/'+cookies.assoId, getAccessibleFolders);
   }
 });
 

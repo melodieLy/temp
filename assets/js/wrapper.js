@@ -139,7 +139,7 @@ async function fecthTest (path,funct) {
     })
     .then(function(response){
         if(response.ok) {
-            funct(response);
+            funct;
         }
     })
     .catch(function(error){
