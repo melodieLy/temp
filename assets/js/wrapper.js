@@ -83,12 +83,58 @@ function get(path,funct) {
     });
 };
 
+function download(path, param) {
+    $.ajax({
+        url: "https://recette-api.song-fr.com/"+path,
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept":"application/json",
+            "Authorization": cookies.token
+        },
+        method: "GET",
+        success: function (data, statut) {
+            const jsonBlob = new Blob([data])
+            const blobUrl = window.URL.createObjectURL(jsonBlob);
+                //Create a link element
+            const link = document.createElement("a");
+
+            //Set link's href to point to the blob URL
+            link.href = blobUrl;
+            link.download = param
+
+            //Append link tot he body
+            document.body.appendChild(link);
+
+            //Dispatch click event ont he link
+            // This is necessary as link.click() does not work on the latest firefox
+            link.dispatchEvent(
+                new MouseEvent('click', { 
+                bubbles: true, 
+                cancelable: true, 
+                view: window 
+                })
+            );
+            
+            // Remove link from body
+            document.body.removeChild(link);
+        },
+        error: function (result, statut, error) {
+            console.error(result + '- code : ' + statut + 'message : ' +error)
+        }
+    })
+
+    .fail(function(xhr) {
+        getError(xhr);
+    });
+}
+
 async function fecthTest (path,funct) {
     await fetch('https://recette-api.song-fr.com/'+path, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Accept':'application/json',
+            "Authorization": cookies.token
         }
     })
     .then(function(response){

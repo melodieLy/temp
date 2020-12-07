@@ -8,7 +8,7 @@ $(document).ready(function() {
   } 
   else {
     console.log("nonthing")
-    get('folders/'+cookies.assoId, getAccessibleFolders);
+    fetch('folders/'+cookies.assoId, getAccessibleFolders);
   }
 });
 
@@ -39,13 +39,14 @@ function getAccesibleFiles(data) {
 
 function test (data) {
   const jsonBlob = new Blob([data])
+  console.log(jsonBlob)
   const blobUrl = window.URL.createObjectURL(jsonBlob);
     //Create a link element
   const link = document.createElement("a");
 
   //Set link's href to point to the blob URL
   link.href = blobUrl;
-  link.download = name;
+  link.download = document.getElementById("");
 
   //Append link tot he body
   document.body.appendChild(link);
@@ -67,29 +68,5 @@ function test (data) {
 function downloadBlob(blob, name) {
   // Convert your blob into a Blob URL (a special url that points to an object in the browser's memory)
   const url = 'folders/'+cookies.assoId+'/'+ path+ '/' +blob;
-
-  const jsonBlob = new Blob([url]);
-  const blobUrl = window.URL.createObjectURL(jsonBlob);
-    //Create a link element
-  const link = document.createElement("a");
-
-  //Set link's href to point to the blob URL
-  link.href = blobUrl;
-  link.download = name;
-
-  //Append link tot he body
-  document.body.appendChild(link);
-
-  //Dispatch click event ont he link
-  // This is necessary as link.click() does not work on the latest firefox
-  link.dispatchEvent(
-    new MouseEvent('click', { 
-      bubbles: true, 
-      cancelable: true, 
-      view: window 
-    })
-  );
-  
-  // Remove link from body
-  document.body.removeChild(link);
+  let data = download(url, name);
 }
