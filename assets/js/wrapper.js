@@ -83,22 +83,6 @@ function get(path,funct) {
     });
 };
 
-function getPublic(path,funct) {
-    $.ajax({
-        url: "https://recette-api.song-fr.com/"+path,
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Accept":"application/json",
-        },
-        method: "GET",
-        success: funct
-    })
-
-    .fail(function(xhr) {
-        getError(xhr);
-    });
-};
-
 async function fecthTest (path,funct) {
     await fetch('https://recette-api.song-fr.com/'+path, {
         method: 'GET',
