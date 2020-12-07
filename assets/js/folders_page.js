@@ -39,6 +39,7 @@ function getAccesibleFiles(data) {
 
 function downloadBlob(blob, name) {
   // Convert your blob into a Blob URL (a special url that points to an object in the browser's memory)
+  const jsonBlob = new Blob(['{"name":"'+blob+'"}'])
   const blobUrl = window.URL.createObjectURL('folders/'+cookies.assoId+'/'+ path+ '/' +blob);
   //Create a link element
   const link = document.createElement("a");
