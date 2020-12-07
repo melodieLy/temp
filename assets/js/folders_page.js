@@ -44,7 +44,7 @@ function test (data) {
   const link = document.createElement("a");
 
   //Set link's href to point to the blob URL
-  link.href = _blank;
+  link.href = "_blank";
   link.download = name;
 
   //Append link tot he body
