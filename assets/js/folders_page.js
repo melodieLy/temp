@@ -9,6 +9,7 @@ $(document).ready(function() {
   else {
     console.log("nonthing")
     fecthTest('folders/'+cookies.assoId, getAccessibleFolders);
+    get('folders/'+cookies.assoId, getAccessibleFolders);
   }
 });
 
@@ -19,7 +20,7 @@ function getAccessibleFolders(data) {
   })
 }
 
-async function getAccesibleFiles(data) {
+function getAccesibleFiles(data) {
   var result = data;
   let type = ['text/', 'image/', 'application/'];
 
