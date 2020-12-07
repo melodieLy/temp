@@ -14,8 +14,8 @@
                 <td><img src="https://recette-api.song-fr.com/app-file/{{MimeType}}/icon" class="icons"></td>
                 <td>{{DisplayName}}</td>
                 <td>
-                    <a href='{{link}}{{Id}}' download>
-                        <button class="btn mb-1 btn btn-pill btn-primary" type="submit">Télécharger</button>
+                    <a onclick="return getFiles('{{Id}}')">
+                        <button class="btn mb-1 btn btn-pill btn-primary">Télécharger</button>
                         
                     </a>
                 </td>

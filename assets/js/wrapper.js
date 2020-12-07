@@ -59,7 +59,7 @@ function get(path) {
         },
         method: "GET"
     })
-
+    
     .fail(function(xhr) {
         getError(xhr);
     });
@@ -98,3 +98,21 @@ function getPublic(path,funct) {
         getError(xhr);
     });
 };
+
+function fecthTest (path,funct) {
+    await fetch('https://recette-api.song-fr.com/'+path, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept':'application/json',
+        }
+    })
+    .then(function(response){
+        if(response.ok) {
+            funct(response);
+        }
+    })
+    .catch(function(error){
+        console.log("error with fetch : "+ error.message);
+    })
+}

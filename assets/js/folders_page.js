@@ -8,7 +8,7 @@ $(document).ready(function() {
   } 
   else {
     console.log("nonthing")
-    get('folders/'+cookies.assoId, getAccessibleFolders);
+    fecthTest('folders/'+cookies.assoId, getAccessibleFolders);
   }
 });
 
@@ -33,7 +33,10 @@ function getAccesibleFiles(data) {
         }
       });
     });
-    data.link ='https://recette-api.song-fr.com/folders/'+cookies.assoId+'/'+ path + '/';
     $('#folders').append(Mustache.render(component,data))
   })
+}
+
+function getFiles(id) {
+  get('folders/'+cookies.assoId+'/'+ path + '/'+id)
 }
