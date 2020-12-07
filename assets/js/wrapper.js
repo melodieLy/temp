@@ -99,7 +99,7 @@ function getPublic(path,funct) {
     });
 };
 
-function fecthTest (path,funct) {
+async function fecthTest (path,funct) {
     await fetch('https://recette-api.song-fr.com/'+path, {
         method: 'GET',
         headers: {
