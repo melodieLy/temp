@@ -19,7 +19,7 @@ function getAccessibleFolders(data) {
   })
 }
 
-function getAccesibleFiles(data) {
+async function getAccesibleFiles(data) {
   var result = data;
   let type = ['text/', 'image/', 'application/'];
 
