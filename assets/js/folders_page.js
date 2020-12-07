@@ -9,7 +9,7 @@ $(document).ready(function() {
   else {
     console.log("nonthing")
     fecthTest('folders/'+cookies.assoId, getAccessibleFolders);
-    get('folders/'+cookies.assoId, getAccessibleFolders);
+    // get('folders/'+cookies.assoId, getAccessibleFolders);
   }
 });
 

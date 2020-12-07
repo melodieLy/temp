@@ -105,6 +105,8 @@ async function fecthTest (path,funct) {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Accept':'application/json',
+            'www-authenticate':'Bearer',
+            'content-encoding': 'gzip'
         }
     })
     .then(function(response){
