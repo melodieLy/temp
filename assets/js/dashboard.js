@@ -24,7 +24,7 @@ function changeWeek() {
     let lastDate = date.getDate+month+year;
 
     $(document).ready(function() {
-        document.getElementById('assoDay').innerHTML("<h3>Statistique de l'association du :"+firstDate+" - "+lastDate+"</h3>")
+        document.getElementById('assoDay').innerHTML = "<h3>Statistique de l'association du :"+firstDate+" - "+lastDate+"</h3>";
     })
 }
 
