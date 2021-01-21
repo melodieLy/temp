@@ -19,13 +19,17 @@ function retrieveAssoMail(data) {
 function changeWeek() {
     let date = new Date();
     let month = date.getMonth()+1;
-    let year = date.getFullYear();
-    let firstDate = "01/"+month+"/"+year;
-    let lastDate = date.getDate()+"/"+month+"/"+year;
+    if(month < 10) month = "0"+month;
+
+    let firstDate = "01/"+month+"/"+date.getFullYear();
+    let lastDate = date.getDate()+"/"+month+"/"+date.getFullYear();
 
     $(document).ready(function() {
         document.getElementById('assoDay').innerHTML = "<h3>Statistique de l'association du :"+firstDate+" - "+lastDate+"</h3>";
     })
+}
+
+function checkmonth(month) {
 }
 
 //Get association data (Volume réalisé, %, etc)
