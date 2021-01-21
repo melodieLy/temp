@@ -6,7 +6,7 @@ function retrieveFlows(data) {
         $('#flux').append(Mustache.render(component,data));
     });
 
-    $.get('components/FTP_serv-_model.html', function(templates) {
+    $.get('components/FTP_serv_model.html', function(templates) {
         var component = $(templates).filter('#tpl-ftp-serv').html();
         const r = data.DropServers;
         $('#serv').append(Mustache.render(component,data));
