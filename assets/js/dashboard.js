@@ -26,7 +26,7 @@ function changeWeek() {
     $(document).ready(function() {
         let titleDay = document.getElementById('assoDay');
         titleDay.innerHTML("<h3>Statistique de l'association du :"+firstDate+" - "+lastDate+"</h3>")
-    }
+    })
 }
 
 //Get association data (Volume réalisé, %, etc)
