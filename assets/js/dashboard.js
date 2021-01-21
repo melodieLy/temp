@@ -15,16 +15,16 @@ function retrieveAssoMail(data) {
         }
     });
 }
+let date = new Date();
+let month = date.getMonth()+1;
+let year = date.getFullYear();
+let firstDate = "01/"+month+year;
+let lastDate = date.getDate+month+year;
+
+let titleDay = document.getElementById('assoDay');
+titleDay.innerHTML("<h3>Statistique de l'association du :"+firstDate+" - "+lastDate+"</h3>")
 
 function changeWeek() {
-    let date = new Date();
-    let month = date.getMonth()+1;
-    let year = date.getFullYear();
-    let firstDate = "01/"+month+year;
-    let lastDate = date.getDate+month+year;
-
-    let titleDay = document.getElementById('assoDay');
-    titleDay.innerHTML("<h3>Statistique de l'association du :"+firstDate+" - "+lastDate+"</h3>")
 
 }
 
