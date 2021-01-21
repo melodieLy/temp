@@ -1,5 +1,5 @@
 get('mail/stats/counters/'+cookies.assoId, retrieveAssoMail);
-
+changeWeek()
 
 //From here, we call specifics components
 // * Call the mails summary 
