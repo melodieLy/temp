@@ -23,7 +23,7 @@ function changeWeek() {
     let firstDate = "01/"+month+year;
     let lastDate = date.getDate+month+year;
 
-    let element = document.getElementById('assoDate').getElementsByTagName('h3');
+    let element = document.getElementById('assoDate');
     element.inerHTML("<h3>Statistique de l'association du :"+firstDate+" - "+lastDate+"</h3>")
 
 }
