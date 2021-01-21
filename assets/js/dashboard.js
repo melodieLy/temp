@@ -6,8 +6,26 @@ get('mail/stats/counters/'+cookies.assoId, retrieveAssoMail);
 function retrieveAssoMail(data) {
     $.get('components/mails-summary.html', function(templates) {
         var component = $(templates).filter('#tpl-mails-sum').html();
-        $('#mailSummary').append(Mustache.render(component,data));
+        try {
+            $('#mailSummary').append(Mustache.render(component,data));
+        }
+        catch(e) {
+             alert("hello");
+            $('#mailSummary').append(Mustache.render(component,data));
+        }
     });
+}
+
+function changeWeek() {
+    let date = new Date();
+    let month = date.getMonth()+1;
+    let year = date.getFullYear();
+    let firstDate = "01/"+month+year;
+    let lastDate = date.getDate+month+year;
+
+    let element = document.getElementById('assoDate').getElementsByTagName('h3');
+    element.inerHTML("<h3>Statistique de l'association du :"+firstDate+" - "+lastDate+"</h3>")
+
 }
 
 //Get association data (Volume réalisé, %, etc)
