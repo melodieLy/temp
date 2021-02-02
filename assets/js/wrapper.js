@@ -3,8 +3,16 @@ function getError(info) {
         case 401 :
             deleteCookie();
             alert('Un problème a eu lieu lors du chargement. Veuillez étreindre et rallumer le navigateur.')
+            console.log(info.Text)
+            break;
+        case 403 :
+            alert('Text')
+            break;
+        case 404 :
+            alert('Text')
             break;
         default:
+            
             break;
     }
 
@@ -126,23 +134,4 @@ function download(path, param) {
     .fail(function(xhr) {
         getError(xhr);
     });
-}
-
-async function fecthTest (path,funct) {
-    await fetch('https://recette-api.song-fr.com/'+path, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept':'application/json',
-            "Authorization": cookies.token
-        }
-    })
-    .then(function(response){
-        if(response.ok) {
-            funct;
-        }
-    })
-    .catch(function(error){
-        console.log("error with fetch : "+ error.message);
-    })
 }

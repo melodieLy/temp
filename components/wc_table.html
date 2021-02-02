@@ -1,0 +1,35 @@
+<script id="tpl-wc-table" type="text/html">
+    <table id="basic-wc-table" class="table nowrap" style="width:100%">
+        <thead>
+            <tr>
+                <th>ID ONG Conseil</th>
+                <th>RUM</th>
+                <th>Code mission asso.</th>
+                <th>Email as ID</th>
+                <th>Prénom initial</th>
+                <th>Nom initial</th>
+                <th>Date de contact</th>
+                <th>Etat d'appel</th>
+                <th>Issue conversation</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+        {{ #. }}
+            <tr>        
+                <td>{{Id}}</td>
+                <td>{{UMR}}</td>
+                <td>{{MissionId}}</td>
+                <td>{{Email}}</td>
+                <td>{{OriginalFirstName}}</td>
+                <td>{{OriginalLastName}}</td>
+                {{#Calls}}
+                <td>{{CallDate}}</td>
+                <td>{{AnswerType}}</td>
+                {{/Calls}}
+                <td>{{Email}}</td>
+            </tr>
+        {{ /. }}
+    </tbody>
+    </table>
+
+</script>
