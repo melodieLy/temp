@@ -1,15 +1,15 @@
 
-get('associations/'+cookies.assoId + '/contacts',retrieveContacts);
+get('calls/called/'+cookies.assoId , retrieveWelcomeCalls);
 
-function retrieveContacts(data) {
+function retrieveWelcomeCalls(data) {
     $.get('components/wc_table.html', function(templates) {
         var component = $(templates).filter('#tpl-wv-table').html();
         $('#welcome-call').append(Mustache.render(component,data));
-        $('#basic-contacts-table').DataTable({
+        $('#basic-wc-table').DataTable({
             "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">',
-            "initComplete": () => {$("#basic-contacts-table").show();}
+            "initComplete": () => {$("#basic-wc-table").show();}
           });
-        $('#basic-contacts-table_wrapper').css("width","100%");
+        $('#basic-wc-table_wrapper').css("width","100%");
     });
 };
 
