@@ -5,10 +5,6 @@ $(function(){
   }))
 });
 
-$(function(){
-  $("#association").append(Mustache.render('<span class="brand-name text-truncate">{{Name}}</span>',{Name: cookies.asso}))
-});
-
 function retrieveAssoLogo() {
-  return get('public/associations/'+cookies.assoId + '/logo');
+  return 'https://recette-api.song-fr.com/public/associations/'+cookies.assoId + '/logo'
 }
