@@ -1,12 +1,14 @@
-// get("public/associations/"+cookies.assoId+"/logo", retrieveAssoLogo);
+$(function(){
+  $("#association").append(Mustache.render('<img src="{{img_src}}" class="brand-icon" width="30" id="logo" /><span class="brand-name text-truncate">{{Name}}</span>',{
+    img_src:retrieveAssoLogo(),
+    Name: cookies.asso
+  }))
+});
 
 $(function(){
-    $("#association").append(Mustache.render('<span class="brand-name text-truncate">{{Name}}</span>',{Name: cookies.asso}))
-  });
+  $("#association").append(Mustache.render('<span class="brand-name text-truncate">{{Name}}</span>',{Name: cookies.asso}))
+});
 
-// function retrieveAssoLogo(data) {
-//     $.get('components/logo.html', function(templates) {
-//         var component = $(templates).filter('#association').html();
-//         $('#logo').append(Mustache.render(component,{img_src:data}));
-//     });
-// }
+function retrieveAssoLogo() {
+  return get('public/associations/'+cookies.assoId + '/logo');
+}
