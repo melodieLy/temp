@@ -3,7 +3,6 @@ function getError(info) {
         case 401 :
             deleteCookie();
             alert('Un problème a eu lieu lors du chargement. Veuillez étreindre et rallumer le navigateur.')
-            console.log(info.Text)
             break;
         case 403 :
             alert('Text')
@@ -50,10 +49,10 @@ const cookies = getCookie();
 $(document).ready(function() {
         if(cookies === undefined) {
         //window.location.replace("index.html");
-        alert("cookies not found");
+        alert("Vous n'êtes pas connecter. Redirection");
 
     } else if (cookies.expires < $.now()) {
-        console.log("cookies expired");
+        console.log("Connexion expiré. Veuillez-vous reconnecter");
     }
 });
 
@@ -68,8 +67,8 @@ function get(path) {
         method: "GET"
     })
     
-    .fail(function(xhr) {
-        getError(xhr);
+    .fail(function(xhr,textStatus, errorThrown) {
+        getError(xhr,textStatus, errorThrown);
     });
 };
 
@@ -86,8 +85,8 @@ function get(path,funct) {
         success: funct
     })
 
-    .fail(function(xhr) {
-        getError(xhr);
+    .fail(function(xhr,textStatus, errorThrown) {
+        getError(xhr,textStatus, errorThrown);
     });
 };
 
@@ -131,7 +130,7 @@ function download(path, param) {
         }
     })
 
-    .fail(function(xhr) {
-        getError(xhr);
+    .fail(function(xhr,textStatus, errorThrown) {
+        getError(xhr,textStatus, errorThrown);
     });
 }
