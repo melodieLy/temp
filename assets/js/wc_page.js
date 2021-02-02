@@ -9,7 +9,6 @@ function retrieveWelcomeCalls(data) {
             "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">',
             "initComplete": () => {$("#basic-wc-table").show();}
           });
-        $('#basic-wc-table_wrapper').css("width","100%");
     });
 };
 

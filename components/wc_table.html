@@ -15,6 +15,7 @@
         </thead>
         <tbody id="myTable">
         {{ #. }}
+        {{#Calls}}
             <tr>        
                 <td>{{Id}}</td>
                 <td>{{UMR}}</td>
@@ -22,12 +23,11 @@
                 <td>{{Email}}</td>
                 <td>{{OriginalFirstName}}</td>
                 <td>{{OriginalLastName}}</td>
-                {{#Calls}}
                 <td>{{CallDate}}</td>
                 <td>{{AnswerType}}</td>
-                {{/Calls}}
                 <td>{{Email}}</td>
             </tr>
+        {{/Calls}}
         {{ /. }}
     </tbody>
     </table>
