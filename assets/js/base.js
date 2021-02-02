@@ -1,9 +1,3 @@
-
-//Get element with Jquery
-$(function(){
-  $("#sidebar").load("sidebar.html");
-});
-
 get("context/current-user",callheader);
 
 
@@ -21,9 +15,20 @@ $.get('footer.html', function(templates) {
     $('#footer').append(Mustache.render(footer, footerData));
 });
 
-$.get('sidebar-configuration.html', function(templates) {
-    var sidebarConfig = $(templates).filter('#tpl-sidebar-config').html();
-    let sidebarConfigData = {};
-    $('#sidebarConfig').append(Mustache.render(sidebarConfig, sidebarConfigData));
-});
+if(environnement == "prod") {
+    $(function(){
+        $("#sidebar").load("sidebar.html");
+    });
+}
+else {
+    $(function(){
+        $("#sidebar").load("sidebar.recette.html");
+    });
+}
+
+// $.get('sidebar-configuration.html', function(templates) {
+//     var sidebarConfig = $(templates).filter('#tpl-sidebar-config').html();
+//     let sidebarConfigData = {};
+//     $('#sidebarConfig').append(Mustache.render(sidebarConfig, sidebarConfigData));
+// });    
 

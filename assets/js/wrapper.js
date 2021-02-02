@@ -1,3 +1,5 @@
+const environnement = "recette"
+
 function getError(info) {
     switch(info.status){
         case 401 :
