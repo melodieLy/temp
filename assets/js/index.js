@@ -57,7 +57,7 @@ function findAsso(param) {
   })
   .done(function(result) {
     createCookieAsso(result);
-    window.location.replace("dashboard.html");
+    checkEnvironnement();
   })
 
   .fail(function(xhr, status, error) {

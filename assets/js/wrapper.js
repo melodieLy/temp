@@ -1,4 +1,4 @@
-const environnement = "recette"
+const environnement = "prod";
 
 function getError(info) {
     switch(info.status){
@@ -16,7 +16,6 @@ function getError(info) {
             
             break;
     }
-
 }
 
 function getCookie() {
@@ -48,14 +47,23 @@ function deleteCookie() {
 
 const cookies = getCookie();
 
+function checkEnvironnement () {
+    if(environnement == "prod") {
+      window.location.replace("welcome-call.html");
+    }
+    else {
+      window.location.replace("dashboard.html");
+    }
+  }
+
 $(document).ready(function() {
-        if(cookies === undefined) {
-        //window.location.replace("index.html");
-        alert("Vous n'êtes pas connecter. Redirection");
+    if(cookies === undefined) {
+        alert("Vous n'êtes pas connecté. Redirection");
 
     } else if (cookies.expires < $.now()) {
         console.log("Connexion expiré. Veuillez-vous reconnecter");
     }
+    checkEnvironnement();
 });
 
 function get(path) {
