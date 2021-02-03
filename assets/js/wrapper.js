@@ -47,16 +47,6 @@ function deleteCookie() {
 
 const cookies = getCookie();
 
-$(document).ready(function() {
-    if(cookies === undefined) {
-        alert("Vous n'êtes pas connecté. Redirection");
-
-    } else if (cookies.expires < $.now()) {
-        console.log("Connexion expiré. Veuillez-vous reconnecter");
-    }
-    EnvironmentRedirection();
-});
-
 function get(path) {
     $.ajax({
         url: "https://recette-api.song-fr.com/"+path,
