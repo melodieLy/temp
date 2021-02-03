@@ -1,6 +1,6 @@
 get('calls/called/'+cookies.assoId+'?Page=1' , retrieveWelcomeCalls);
 
-function retrieveWelcomeCalls(data) {
+function retrieveWelcomeCalls(data, textStatus, XMLHttpRequest) {
     $.get('components/wc_table.html', function(templates) {
         var component = $(templates).filter('#tpl-wc-table').html();
         $('#welcome-call').append(Mustache.render(component,data));
@@ -13,6 +13,9 @@ function retrieveWelcomeCalls(data) {
         //     }
         //   });
     });
+
+    console.log(textStatus);
+    console.log(XMLHttpRequest);
 
     $.get('components/pagination.html', function(templates) {
         var component = $(templates).filter('#pagination-comp').html();
