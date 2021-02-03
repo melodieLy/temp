@@ -1,19 +1,17 @@
-$.getScript("assets/js/config.js", function () {});
-
-console.log(environment)
-
-if(environment == "prod") {
-    $(function(){
-        $("#sidebar").load("sidebar.html");
-        get("context/current-user",callheader);
-    });
-}
-else {
-    $(function(){
-        $("#sidebar").load("sidebar.recette.html");
-        get("context/current-user",callheaderDev);
-    });
-}
+$.getScript("assets/js/config.js", function () {
+    if(environment == "prod") {
+        $(function(){
+            $("#sidebar").load("sidebar.html");
+            get("context/current-user",callheader);
+        });
+    }
+    else {
+        $(function(){
+            $("#sidebar").load("sidebar.recette.html");
+            get("context/current-user",callheaderDev);
+        });
+    }
+});
 
 //Get element with Jquery + moustache
 function callheader(result){
