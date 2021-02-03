@@ -4,11 +4,6 @@ function retrieveWelcomeCalls(data) {
     $.get('components/wc_table.html', function(templates) {
         var component = $(templates).filter('#tpl-wc-table').html();
         $('#welcome-call').append(Mustache.render(component,data));
-
-
-        const totalPage = paginationSetup.totalPage;
-        pm.environment.set("nextPageLink", nextPageLink);
-
         // $('#basic-wc-table').DataTable({
         //     "pageLength":20,
         //     "serverSide": true,
