@@ -28,6 +28,15 @@ function Auth(theForm) {
     })
 }
 
+function checkEnvironnement () {
+  if(environnement == "prod") {
+    window.location.replace("welcome-call.html");
+  }
+  else {
+    window.location.replace("dashboard.html");
+  }
+}
+
 function createCookieAuth(setup,time,username) {
   document.cookie = "expires=" + time +";"; 
   document.cookie = "token="+setup.access_token+";";
