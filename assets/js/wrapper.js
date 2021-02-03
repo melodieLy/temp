@@ -1,5 +1,3 @@
-$.getScript("assets/js/config.js", function () {});
-
 $(document).ready(function() {
     if(cookies === undefined) {
         alert("Vous n'êtes pas connecté. Redirection");
