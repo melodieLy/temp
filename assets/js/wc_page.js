@@ -4,6 +4,7 @@ function retrieveWelcomeCalls(data) {
     $.get('components/wc_table.html', function(templates) {
         var component = $(templates).filter('#tpl-wc-table').html();
         $('#welcome-call').append(Mustache.render(component,data));
+
         // $('#basic-wc-table').DataTable({
         //     "pageLength":20,
         //     "serverSide": true,
@@ -16,7 +17,7 @@ function retrieveWelcomeCalls(data) {
     $.get('components/pagination.html', function(templates) {
         var component = $(templates).filter('#pagination-comp').html();
         
-        const paginationSetup = JSON.parse(data.response.headers.get("X-Pagination"));
+        const paginationSetup = JSON.parse(data.getResponseHeader("X-Pagination"));
         const totalsArrayPage = Array.from({length: paginationSetup.totalPage}, (v, i) => i+1);
         paginationSetup.totalArrayPage = totalsArrayPage;
         paginationSetup.previousPage = function () {
