@@ -1,14 +1,4 @@
 $.getScript("assets/js/config.js", function () {
-    $(document).ready(function() {
-        if(cookies === undefined) {
-            alert("Vous n'êtes pas connecté. Redirection");
-    
-        } else if (cookies.expires < $.now()) {
-            console.log("Connexion expiré. Veuillez-vous reconnecter");
-        }
-        EnvironmentRedirection();
-    });
-
     if(environment == "prod") {
         $(function(){
             $("#sidebar").load("sidebar.html");

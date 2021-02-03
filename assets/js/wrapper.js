@@ -1,5 +1,16 @@
 $.getScript("assets/js/config.js", function () {});
 
+$(document).ready(function() {
+    if(cookies === undefined) {
+        alert("Vous n'êtes pas connecté. Redirection");
+
+    } else if (cookies.expires < $.now()) {
+        console.log("Connexion expiré. Veuillez-vous reconnecter");
+    }
+    window.location.replace("index.html");
+    
+});
+
 function getError(info) {
     switch(info.status){
         case 401 :
@@ -42,7 +53,6 @@ function deleteCookie() {
     document.username = "";
     document.asso = "";
     document.assoId = "";
-    // window.location.replace("index.html");
 }
 
 const cookies = getCookie();
