@@ -1,4 +1,4 @@
-$.getScript("config.js", function () {});
+$.getScript("./config.js", function () {});
 
 function Auth(theForm) {
   $.ajax({
@@ -43,7 +43,6 @@ function createCookieAsso(setup) {
       document.cookie = "assoId=" + element.Association.Id;
     }
   });
-  console.log(document.cookie);
 };
 
 function findAsso(param) {
