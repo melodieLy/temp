@@ -1,7 +1,7 @@
-const environnement = "prod";
+const environment = "prod";
 
 function EnvironmentRedirection () {
-    if(environnement == "prod") {
+    if(environment == "prod") {
       window.location.replace("welcome-call.html");
     }
     else {

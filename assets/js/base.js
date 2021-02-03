@@ -1,6 +1,8 @@
 $.getScript("assets/js/config.js", function () {});
 
-if(environnement == "prod") {
+console.log(environment)
+
+if(environment == "prod") {
     $(function(){
         $("#sidebar").load("sidebar.html");
         get("context/current-user",callheader);
