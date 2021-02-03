@@ -25,7 +25,7 @@ function Auth(theForm) {
     .fail(function(xhr, status, error) {
       var errorMessage = xhr.status + ': ' + xhr.statusText
       if(xhr.status === 400) {
-        alert('Connexion imposible. Veuillez vérifier votre nom et mot de passe.');
+        alert('Connexion impossible. Veuillez vérifier votre nom et mot de passe.');
       }
     })
 }
