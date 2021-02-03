@@ -5,7 +5,7 @@ function retrieveWelcomeCalls(data) {
         var component = $(templates).filter('#tpl-wc-table').html();
         $('#welcome-call').append(Mustache.render(component,data));
 
-        var paginationSetup = JSON.parse(pm.response.headers.get("X-Pagination"));
+
         const totalPage = paginationSetup.totalPage;
         pm.environment.set("nextPageLink", nextPageLink);
 
@@ -17,4 +17,25 @@ function retrieveWelcomeCalls(data) {
         //     }
         //   });
     });
+
+    $.get('components/pagination.html', function(templates) {
+        var component = $(templates).filter('#pagination-comp').html();
+        
+        const paginationSetup = JSON.parse(data.response.headers.get("X-Pagination"));
+        const totalsArrayPage = Array.from({length: paginationSetup.totalPage}, (v, i) => i+1);
+        paginationSetup.totalArrayPage = totalsArrayPage;
+        paginationSetup.previousPage = function () {
+            const result = this.PageNumber - 1;
+            if(result == 0) return undefined;
+            else return result;
+        }
+
+        paginationSetup.nextPage = function () {
+            const result = this.PageNumber - 1;
+            if(result > this.totalPage) return undefined;
+            else return result;
+        }
+
+        $('#welcome-call').append(Mustache.render(component,paginationSetup));
+    })
 };
