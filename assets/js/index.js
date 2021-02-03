@@ -1,4 +1,4 @@
-$.getScript("./config.js", function () {});
+$.getScript("assets/js/config.js", function () {});
 
 function Auth(theForm) {
   $.ajax({
