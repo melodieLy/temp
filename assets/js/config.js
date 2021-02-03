@@ -1,6 +1,6 @@
 const environnement = "prod";
 
-function checkEnvironnement () {
+function EnvironmentRedirection () {
     if(environnement == "prod") {
       window.location.replace("welcome-call.html");
     }

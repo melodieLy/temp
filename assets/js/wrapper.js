@@ -54,7 +54,7 @@ $(document).ready(function() {
     } else if (cookies.expires < $.now()) {
         console.log("Connexion expiré. Veuillez-vous reconnecter");
     }
-    checkEnvironnement();
+    EnvironmentRedirection();
 });
 
 function get(path) {

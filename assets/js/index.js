@@ -58,7 +58,7 @@ function findAsso(param) {
   })
   .done(function(result) {
     createCookieAsso(result);
-    checkEnvironnement();
+    EnvironmentRedirection();
   })
 
   .fail(function(xhr, status, error) {
