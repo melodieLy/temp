@@ -3,12 +3,10 @@ $.getScript("assets/js/config.js", function () {});
 $(document).ready(function() {
     if(cookies === undefined) {
         alert("Vous n'êtes pas connecté. Redirection");
-
+        window.location.replace("index.html");
     } else if (cookies.expires < $.now()) {
         console.log("Connexion expiré. Veuillez-vous reconnecter");
     }
-    window.location.replace("index.html");
-    
 });
 
 function getError(info) {
