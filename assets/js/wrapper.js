@@ -1,4 +1,4 @@
-const environnement = "prod";
+$.getScript("config.js", function () {});
 
 function getError(info) {
     switch(info.status){
@@ -46,15 +46,6 @@ function deleteCookie() {
 }
 
 const cookies = getCookie();
-
-function checkEnvironnement () {
-    if(environnement == "prod") {
-      window.location.replace("welcome-call.html");
-    }
-    else {
-      window.location.replace("dashboard.html");
-    }
-  }
 
 $(document).ready(function() {
     if(cookies === undefined) {

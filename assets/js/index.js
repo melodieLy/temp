@@ -1,3 +1,5 @@
+$.getScript("config.js", function () {});
+
 function Auth(theForm) {
   $.ajax({
     url: "https://recette-api.song-fr.com/swatoken",
@@ -26,15 +28,6 @@ function Auth(theForm) {
         alert('Connexion imposible. Veuillez vérifier votre nom et mot de passe.');
       }
     })
-}
-
-function checkEnvironnement () {
-  if(environnement == "prod") {
-    window.location.replace("welcome-call.html");
-  }
-  else {
-    window.location.replace("dashboard.html");
-  }
 }
 
 function createCookieAuth(setup,time,username) {
