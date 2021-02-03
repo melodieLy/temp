@@ -15,7 +15,6 @@
         </thead>
         <tbody id="myTable">
         {{ #. }}
-        {{#Calls}}
             <tr>        
                 <td>{{Id}}</td>
                 <td>{{UMR}}</td>
@@ -23,11 +22,22 @@
                 <td>{{Email}}</td>
                 <td>{{OriginalFirstName}}</td>
                 <td>{{OriginalLastName}}</td>
-                <td>{{CallDate}}</td>
-                <td>{{AnswerType}}</td>
-                <td>{{Email}}</td>
+                <td>{{LastContact}}</td>
+
+                {{#ReachedOnce}}
+                <td>Répondu</td>
+                {{/ReachedOnce}}
+                {{^ReachedOnce}}
+                <td>Pas de réponse</td>
+                {{/ReachedOnce}}
+                
+                {{#IsCancelled}}
+                <td>Don annulé</td>
+                {{/IsCancelled}}
+                {{^IsCancelled}}
+                <td>Don en cours</td>
+                {{/IsCancelled}}
             </tr>
-        {{/Calls}}
         {{ /. }}
     </tbody>
     </table>

@@ -4,6 +4,9 @@ $.getScript("assets/js/config.js", function () {
             $("#sidebar").load("sidebar.html");
             get("context/current-user",callheader);
         });
+        if(!window.location.pathname.includes("welcome-call")) {
+            window.location.replace("welcome-call.html");
+        }
     }
     else {
         $(function(){
