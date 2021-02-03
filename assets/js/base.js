@@ -1,5 +1,6 @@
-get("context/current-user",callheader);
+$.getScript("assets/js/config.js", function () {});
 
+get("context/current-user",callheader);
 
 //Get element with Jquery + moustache
 function callheader(result){
