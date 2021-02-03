@@ -1,6 +1,6 @@
 get('calls/called/'+cookies.assoId+'?Page=1' , retrieveWelcomeCalls);
 
-function retrieveWelcomeCalls(data, textStatus, XMLHttpRequest) {
+function retrieveWelcomeCalls(data, Status,XMLHttpRequest) {
     $.get('components/wc_table.html', function(templates) {
         var component = $(templates).filter('#tpl-wc-table').html();
         $('#welcome-call').append(Mustache.render(component,data));
@@ -14,13 +14,10 @@ function retrieveWelcomeCalls(data, textStatus, XMLHttpRequest) {
         //   });
     });
 
-    console.log(textStatus);
-    console.log(XMLHttpRequest);
-
     $.get('components/pagination.html', function(templates) {
         var component = $(templates).filter('#pagination-comp').html();
         
-        const paginationSetup = JSON.parse(data.getResponseHeader("X-Pagination"));
+        const paginationSetup = JSON.parse(XMLHttpRequest.getResponseHeader("X-Pagination"));
         const totalsArrayPage = Array.from({length: paginationSetup.totalPage}, (v, i) => i+1);
         paginationSetup.totalArrayPage = totalsArrayPage;
         paginationSetup.previousPage = function () {
