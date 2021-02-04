@@ -1,5 +1,12 @@
 $.getScript("assets/js/config.js", function () {});
 
+function showAlert(){
+  $.get("./components/alert-danger.html", function(data) {
+      $(this).children("body").html(data);
+  })
+}
+showAlert();
+
 function Auth(theForm) {
   $.ajax({
     url: "https://recette-api.song-fr.com/swatoken",

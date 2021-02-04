@@ -1,9 +1,3 @@
-function showAlert(){
-    $.get("./components/alert-danger.html", function(data) {
-        $(this).children("body").html(data);
-    })
-}
-showAlert();
 
 $(document).ready(function() {
     if(cookies === undefined) {
