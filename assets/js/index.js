@@ -7,7 +7,6 @@ function showAlert(){
     $('#body').append(Mustache.render(footer, footerData));
 });
 }
-showAlert();
 
 function Auth(theForm) {
   $.ajax({
