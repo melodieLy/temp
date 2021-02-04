@@ -1,8 +1,8 @@
 $.getScript("assets/js/config.js", function () {});
 
 function showAlert(){
-  $.get("./components/alert-danger.html", function(data) {
-      $(this).children("body").html(data);
+  $.get("components/alert-danger.html", function(data) {
+      $('#body')[0].html(data);
   })
 }
 showAlert();
