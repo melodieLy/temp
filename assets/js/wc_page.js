@@ -5,8 +5,7 @@ $.ajax({
     headers: {
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept":"application/json",
-        "Authorization": cookies.token,
-        "Access-Control-Expose-Headers" : "X-Pagination"
+        "Authorization": cookies.token
     },
     method: "GET",
     success: function (data, textStatus, request) {
@@ -17,8 +16,7 @@ $.ajax({
 
         $.get('components/pagination.html', function(templates) {
             var component = $(templates).filter('#pagination-comp').html();
-            console.log("pargination: " + request.getResponseHeader("X-Pagination"));
-            console.log("content" + request.getResponseHeader("Content-Type"));
+            console.log("pargination: " + request.getAllResponseHeaders());
             // const paginationSetup = JSON.parse(request.getResponseHeader("Content-Type"));
     
             // console.log(paginationSetup);
