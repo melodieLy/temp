@@ -2,7 +2,7 @@ $.getScript("assets/js/config.js", function () {});
 
 function showAlert(){
   $(document).ready(function(){
-    $('.copyright pl-0').prepend('components/alert-danger.html');
+    $('.card-body p-5').prepend('components/alert-danger.html');
   })
 }
 showAlert();
