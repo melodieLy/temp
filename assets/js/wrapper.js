@@ -19,8 +19,6 @@ $(document).ready(function() {
     }
 });
 
-showAlert("hello");
-
 function getError(info) {
     switch(info.status){
         case 401 :
