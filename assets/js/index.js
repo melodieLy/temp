@@ -2,7 +2,7 @@ $.getScript("assets/js/config.js", function () {});
 
 function showAlert(){
   $(document).ready(function(){
-    $('.card-body p-5').prepend('<h1>lol</1>');
+    $(this).children('card-body p-5').prepend('<h1>lol</1>');
   })
 }
 showAlert();
