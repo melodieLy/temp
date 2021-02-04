@@ -1,13 +1,25 @@
+function showAlert(errorInfo) {
+    $.get('components/alert-danger.html', function(templates) {
+      var alert = $(templates).filter('#tpl-alert-danger').html();
+      let data = {"error" : errorInfo};
+      $('#body').append(Mustache.render(alert, data));
+    });
+  }
+  
 
 $(document).ready(function() {
     if(cookies === undefined) {
-        alert("Vous n'êtes pas connecté. Redirection");
         window.location.replace("index.html");
-    } else if (cookies.expires < $.now()) {
-        console.log("Connexion expirée. Veuillez-vous reconnecter");
+        alert("Aucune connexion trouvé. Veuillez-vous authentifier");
         
+    } else if (cookies.expires < $.now()) {
+        deleteCookie();
+        window.location.replace('index.html');
+        showAlert("Connexion expirée. Veuillez-vous reconnecter");
     }
 });
+
+showAlert("hello");
 
 function getError(info) {
     switch(info.status){

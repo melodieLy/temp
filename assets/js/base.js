@@ -16,8 +16,6 @@ $.getScript("assets/js/config.js", function () {
     }
 });
 
-showAlert();
-
 //Get element with Jquery + moustache
 function callheader(result){
     $.get('header.html', function(templates) {
