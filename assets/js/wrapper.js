@@ -5,6 +5,7 @@ $(document).ready(function() {
         window.location.replace("index.html");
     } else if (cookies.expires < $.now()) {
         console.log("Connexion expirée. Veuillez-vous reconnecter");
+        
     }
 });
 

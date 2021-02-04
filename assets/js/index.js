@@ -1,13 +1,5 @@
 $.getScript("assets/js/config.js", function () {});
 
-function showAlert(){
-  $.get('components/alert-danger.html', function(templates) {
-    var footer = $(templates).filter('#tpl-alert-danger').html();
-    let footerData = {};
-    $('#body').append(Mustache.render(footer, footerData));
-});
-}
-
 function Auth(theForm) {
   $.ajax({
     url: "https://recette-api.song-fr.com/swatoken",
