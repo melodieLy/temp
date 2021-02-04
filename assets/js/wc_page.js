@@ -5,8 +5,7 @@ $.ajax({
     headers: {
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept":"application/json",
-        "Authorization": cookies.token,
-        "Access-Control-Expose-Headers": "X-Pagination"
+        "Authorization": cookies.token
     },
     method: "GET",
     success: function (data, textStatus, request) {
