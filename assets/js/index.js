@@ -1,9 +1,11 @@
 $.getScript("assets/js/config.js", function () {});
 
 function showAlert(){
-  $(document).ready(function(){
-    $(this).children('card-body p-5').prepend('<h1>lol</1>');
-  })
+  $.get('component/alert-danger.html', function(templates) {
+    var footer = $(templates).filter('#tpl-alert-danger').html();
+    let footerData = {};
+    $('#body').append(Mustache.render(footer, footerData));
+});
 }
 showAlert();
 
