@@ -17,6 +17,7 @@ $.ajax({
         $.get('components/pagination.html', function(templates) {
             var component = $(templates).filter('#pagination-comp').html();
             console.log("pargination" + request.getResponseHeader("X-Pagination"));
+            console.log("pargination" + request.getResponseHeader("x-Pagination"));
             console.log("content" + request.getResponseHeader("Content-Type"));
             const paginationSetup = JSON.parse(request.getResponseHeader("Content-Type"));
     
