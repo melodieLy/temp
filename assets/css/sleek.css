@@ -13566,3 +13566,9 @@ html[dir="rtl"] .github-link svg {
   width: 43px;
   height: auto;
 }
+
+#information {
+  font-size: small;
+  font-style: italic;
+  text-align: center;
+}

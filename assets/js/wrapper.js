@@ -1,9 +1,16 @@
+function showAlert(){
+    $.get("./components/alert-danger.html", function(data) {
+        $(this).children("body").html(data);
+    })
+}
+showAlert();
+
 $(document).ready(function() {
     if(cookies === undefined) {
         alert("Vous n'êtes pas connecté. Redirection");
         window.location.replace("index.html");
     } else if (cookies.expires < $.now()) {
-        console.log("Connexion expiré. Veuillez-vous reconnecter");
+        console.log("Connexion expirée. Veuillez-vous reconnecter");
     }
 });
 
