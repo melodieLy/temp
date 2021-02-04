@@ -1,7 +1,7 @@
 $.getScript("assets/js/config.js", function () {});
 
 function showAlert(){
-  $.get('component/alert-danger.html', function(templates) {
+  $.get('components/alert-danger.html', function(templates) {
     var footer = $(templates).filter('#tpl-alert-danger').html();
     let footerData = {};
     $('#body').append(Mustache.render(footer, footerData));
