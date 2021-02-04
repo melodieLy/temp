@@ -4,7 +4,7 @@ $.ajax({
     url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page=1',
     headers: {
         "Content-Type": "application/x-www-form-urlencoded",
-        "Accept":"application/json",
+        "Accept":"jsonp",
         "Authorization": cookies.token
     },
     method: "GET",
@@ -17,7 +17,7 @@ $.ajax({
         $.get('components/pagination.html', function(templates) {
             var component = $(templates).filter('#pagination-comp').html();
             console.log("pargination" + request.getResponseHeader("X-Pagination"));
-            console.log("pargination" + request.getResponseHeader("x-Pagination"));
+            console.log("pargination" + request.getResponseHeader(X-Pagination));
             console.log("content" + request.getResponseHeader("Content-Type"));
             const paginationSetup = JSON.parse(request.getResponseHeader("Content-Type"));
     
