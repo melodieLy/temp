@@ -18,8 +18,7 @@ $.ajax({
             var component = $(templates).filter('#pagination-comp').html();
             let paginationSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
             let totalsArrayPage = Array.from({length: paginationSetup.TotalPages}, (v, i) => i+1);
-            totalsArrayPage.map(x => x);
-            paginationSetup.totalArrayPage = totalsArrayPage;
+            paginationSetup.totalArrayPage = totalsArrayPage.map(x => x);
 
             paginationSetup.pagpreviousPage = function () {
                 const result = this.PageNumber - 1;
