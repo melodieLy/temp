@@ -17,8 +17,8 @@ $.ajax({
         $.get('components/pagination.html', function(templates) {
             var component = $(templates).filter('#pagination-comp').html();
             let paginationSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
-            let totalsArrayPage = Array.from({length: paginationSetup.TotalPages}, (v, i) => i+1);
-            paginationSetup.totalArrayPage = totalsArrayPage.map(x => x);
+            //let totalsArrayPage = Array.from({length: paginationSetup.TotalPages}, (v, i) => i+1);
+            paginationSetup.totalArrayPage = [1,2];
 
             const dataResult = JSON.stringify(paginationSetup);
 
