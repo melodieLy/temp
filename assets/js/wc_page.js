@@ -1,5 +1,5 @@
 // get('calls/called/'+cookies.assoId+'?Page=1' , retrieveWelcomeCalls);
-
+if(window.Location.)
 $.ajax({
     url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page=1',
     headers: {
@@ -17,7 +17,7 @@ $.ajax({
         $.get('components/pagination.html', function(templates) {
             var component = $(templates).filter('#pagination-comp').html();
             let paginSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
-            data.totalArrayPage = Array.from({length: paginationSetup.TotalPages}, (v, i) => i+1);
+            data.totalArrayPage = Array.from({length: paginSetup.TotalPages}, (v, i) => i+1);
             $('#welcome-call').append(Mustache.render(component, {
                 "PageSize":paginSetup.PageSize,
                 "PageNumber":paginSetup.PageNumber,
