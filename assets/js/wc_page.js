@@ -35,7 +35,7 @@ $.ajax({
 
             const dataResult = JSON.stringify(obj);
             console.log(obj);
-            $('#welcome-call').append(Mustache.render(component,obj));
+            $('#welcome-call').append(Mustache.render(component,dataResult));
         });
     }
 })
