@@ -88,10 +88,12 @@
 </html>
 
 <script>
+$(document).ready(function() {
   $("#pagenumber").keypress(function(e) {
     if(e.key === 'Enter') {
       e.preventDefault();
       alert("good : " + this.value);
     }
-  });
+  })
+});
 </script>
