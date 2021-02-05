@@ -26,7 +26,7 @@ $.ajax({
                 "TotalCount":paginSetup.TotalCount,
                 "TotalPages":data.totalArrayPage,
                 "nextPage": function () {
-                    const result = this.PageNumber - 1;
+                    const result = this.PageNumber + 1;
                     if(result > this.totalPage) return undefined;
                     else return result;
                 },
