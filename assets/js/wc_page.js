@@ -20,7 +20,7 @@ $.ajax({
 
             const obj = {
                 paginationSetup,
-                totalArrayPage: createNumberPage(paginationSetup.totalPages),
+                totalArrayPage: createNumberPage(paginationSetup),
                 previousPage:  function () {
                     const result = this.PageNumber - 1;
                     if(result == 0) return undefined;
@@ -43,7 +43,7 @@ $.ajax({
     getError(xhr,textStatus, errorThrown);
 });
 
-function createNumberPage(totalPage) {
-    const totalsArrayPage = Array.from({length: totalPage}, (v, i) => i+1);
+function createNumberPage(pagination) {
+    const totalsArrayPage = Array.from({length: pagination.totalPages}, (v, i) => i+1);
     return totalsArrayPage.map(x => x);
 }
