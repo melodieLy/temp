@@ -19,7 +19,7 @@ $.ajax({
             let paginSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
             //let totalsArrayPage = Array.from({length: paginationSetup.TotalPages}, (v, i) => i+1);
             data.totalArrayPage = [1,2];
-            const dataResult = JSON.stringify(paginationSetup);
+            // const dataResult = JSON.stringify(paginationSetup);
             console.log(dataResult);
             $('#welcome-call').append(Mustache.render(component, {
                 "PageSize":paginSetup.PageSize,
