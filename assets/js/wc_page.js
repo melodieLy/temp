@@ -19,6 +19,7 @@ $.ajax({
             let paginationSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
 
             const obj = {
+                paginationSetup,
                 totalArrayPage: createNumberPage(paginationSetup.totalPages),
                 previousPage:  function () {
                     const result = this.PageNumber - 1;
@@ -32,10 +33,9 @@ $.ajax({
                 }    
             };
 
-            paginationSetup.push(obj);
-            const dataResult = JSON.stringify(paginationSetup);
-            console.log(dataResult);
-            $('#welcome-call').append(Mustache.render(component,dataResult));
+            const dataResult = JSON.stringify(obj);
+            console.log(obj);
+            $('#welcome-call').append(Mustache.render(component,obj));
         });
     }
 })
