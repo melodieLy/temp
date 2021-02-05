@@ -39,12 +39,11 @@ $.ajax({
         });
     }
 })
+.fail(function(xhr,textStatus, errorThrown) {
+    getError(xhr,textStatus, errorThrown);
+});
 
 function createNumberPage(totalPage) {
     const totalsArrayPage = Array.from({length: totalPage}, (v, i) => i+1);
     return totalsArrayPage.map(x => x);
 }
-
-.fail(function(xhr,textStatus, errorThrown) {
-    getError(xhr,textStatus, errorThrown);
-});
