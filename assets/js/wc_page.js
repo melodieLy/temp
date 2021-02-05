@@ -41,6 +41,7 @@ $.ajax({
     getError(xhr,textStatus, errorThrown);
 });
 
-$("#pagenumber").keyup(function(){
+$("#pagenumber").keyup(function(e){
+    e.preventDefault();
     alert("good : " + this.value);
 })
