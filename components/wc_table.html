@@ -25,18 +25,18 @@
                 <td>{{LastContact}}</td>
 
                 {{#ReachedOnce}}
-                <td>Répondu</td>
+                <td>Joint</td>
                 {{/ReachedOnce}}
                 {{^ReachedOnce}}
-                <td>Pas de réponse</td>
+                <td>Non joint</td>
                 {{/ReachedOnce}}
                 
-                {{#IsCancelled}}
+                {{#Cancelled}}
                 <td>Don annulé</td>
-                {{/IsCancelled}}
-                {{^IsCancelled}}
+                {{/Cancelled}}
+                {{^Cancelled}}
                 <td>Don en cours</td>
-                {{/IsCancelled}}
+                {{/Cancelled}}
             </tr>
         {{ /. }}
     </tbody>
