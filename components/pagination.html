@@ -1,16 +1,15 @@
 <script id="pagination-comp" type="text/html">
     <nav aria-label="...">
     <ul class="pagination">
-        <li class="page-item disabled"><a class="page-link" href="#1" tabindex="-1">Previous</a></li>
+        <li class="page-item disabled"><a class="page-link" href="#{{Page-1}}" tabindex="-1">Previous</a></li>
         {{Page}}
         {{#totalArrayPage}}
         <li class="page-item">
             <a class="page-link" href="#{{.}}">{{.}}</a>
         </li>
         {{/totalArrayPage}}
-        <li class="page-item"><a class="page-link" href="#2">Next</a></li>
+        <li class="page-item"><a class="page-link" href="#{{Page+1}}">Next</a></li>
     </ul>
     </nav>
-    <div>{{totalArrayPage}}</div>
 </script>
 
