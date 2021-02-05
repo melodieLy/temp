@@ -19,7 +19,7 @@ $.ajax({
             let paginationSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
 
             const obj = {
-                totalArrayPages: createNumberPage(paginationSetup.totalPages),
+                totalArrayPage: createNumberPage(paginationSetup.totalPages),
                 previousPage:  function () {
                     const result = this.PageNumber - 1;
                     if(result == 0) return undefined;
