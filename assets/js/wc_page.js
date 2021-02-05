@@ -18,7 +18,7 @@ $.ajax({
             var component = $(templates).filter('#pagination-comp').html();
             let paginationSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
             //let totalsArrayPage = Array.from({length: paginationSetup.TotalPages}, (v, i) => i+1);
-            paginationSetup.totalArrayPage = [1,2];
+            data.totalArrayPage = [1,2];
             // paginationSetup += {
             //     "nextPage": function () {
             //         const result = this.PageNumber - 1;
@@ -33,7 +33,7 @@ $.ajax({
             // };
             const dataResult = JSON.stringify(paginationSetup);
             console.log(dataResult);
-            $('#welcome-call').append(Mustache.render(component, dataResult));
+            $('#welcome-call').append(Mustache.render(component, data));
         });
     }
 })
