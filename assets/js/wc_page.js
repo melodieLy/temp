@@ -40,10 +40,3 @@ $.ajax({
 .fail(function(xhr,textStatus, errorThrown) {
     getError(xhr,textStatus, errorThrown);
 });
-
-$("#pagenumber").keypress(function(e) {
-    if(e.key === 'Enter') {
-      e.preventDefault();
-      alert("good : " + this.value);
-    }
-  });

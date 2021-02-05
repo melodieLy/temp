@@ -86,3 +86,12 @@
         <script src="assets/js/sleek.bundle.js"></script>
 </body>
 </html>
+
+<script>
+  $("#pagenumber").keypress(function(e) {
+    if(e.key === 'Enter') {
+      e.preventDefault();
+      alert("good : " + this.value);
+    }
+  });
+</script>
