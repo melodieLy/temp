@@ -17,24 +17,21 @@ $.ajax({
         $.get('components/pagination.html', function(templates) {
             var component = $(templates).filter('#pagination-comp').html();
             let paginationSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
+            paginationSetup.totalArrayPage = createNumberPage(paginationSetup);
 
-            const obj = {
-                paginationSetup,
-                totalArrayPage: createNumberPage(paginationSetup),
-                previousPage:  function () {
-                    const result = this.PageNumber - 1;
-                    if(result == 0) return undefined;
-                    else return result;
-                },
-                nextPage: function () {
-                    const result = this.PageNumber - 1;
-                    if(result > this.totalPage) return undefined;
-                    else return result;
-                }    
-            };
+            paginationSetup.pagpreviousPage = function () {
+                const result = this.PageNumber - 1;
+                if(result == 0) return undefined;
+                else return result;
+            },
+            paginationSetup.nextPage = function () {
+                const result = this.PageNumber - 1;
+                if(result > this.totalPage) return undefined;
+                else return result;
+            }    
 
-            const dataResult = JSON.stringify(obj);
-            console.log(obj);
+            const dataResult = JSON.stringify(paginationSetup);
+            console.log(dataResult);
             $('#welcome-call').append(Mustache.render(component,dataResult));
         });
     }
