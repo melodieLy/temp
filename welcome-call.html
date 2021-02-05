@@ -88,11 +88,7 @@
 </html>
 
 <script>
-$(document).ready(function() {
-  $("#form").keypress(function(e) {
-    if(e.key === 'Enter') {
-      e.preventDefault();
-    }
-  })
-});
+  $("#form").submit(function(e) {
+    e.preventDefault();
+  });
 </script>
