@@ -23,7 +23,6 @@ $.ajax({
 
             console.log(dataResult);
             $('#welcome-call').append(Mustache.render(component, {
-                dataResult,
                 nextPage: function () {
                     const result = this.PageNumber - 1;
                     if(result > this.totalPage) return undefined;
@@ -33,7 +32,8 @@ $.ajax({
                     const result = this.PageNumber - 1;
                     if(result == 0) return undefined;
                     else return result;
-                }
+                },
+                paginationSetup
             }));
         });
     }
