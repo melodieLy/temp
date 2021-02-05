@@ -33,7 +33,7 @@ $.ajax({
             };
             const dataResult = JSON.stringify(paginationSetup);
 
-            $('#welcome-call').append(Mustache.render(component, paginationSetup));
+            $('#welcome-call').append(Mustache.render(component, dataResult));
         });
     }
 })
