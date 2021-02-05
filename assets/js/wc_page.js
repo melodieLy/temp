@@ -41,7 +41,9 @@ $.ajax({
     getError(xhr,textStatus, errorThrown);
 });
 
-$("#pagenumber").keyup(function(e){
-    e.preventDefault();
-    alert("good : " + this.value);
-})
+$("#pagenumber").keypress(function(e) {
+    if(e.key === 'Enter') {
+      e.preventDefault();
+      alert("good : " + this.value);
+    }
+  });
