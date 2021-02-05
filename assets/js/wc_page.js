@@ -19,22 +19,21 @@ $.ajax({
             let paginationSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
             //let totalsArrayPage = Array.from({length: paginationSetup.TotalPages}, (v, i) => i+1);
             paginationSetup.totalArrayPage = [1,2];
-            const dataResult = JSON.stringify(paginationSetup);
-
-            console.log(dataResult);
-            $('#welcome-call').append(Mustache.render(component, {
-                nextPage: function () {
+            paginationSetup += {
+                "nextPage": function () {
                     const result = this.PageNumber - 1;
                     if(result > this.totalPage) return undefined;
                     else return result;
                 },
-                pagpreviousPage: function () {
+                "pagpreviousPage": function () {
                     const result = this.PageNumber - 1;
                     if(result == 0) return undefined;
                     else return result;
-                },
-                paginationSetup
-            }));
+                }
+            };
+            const dataResult = JSON.stringify(paginationSetup);
+
+            $('#welcome-call').append(Mustache.render(component, paginationSetup));
         });
     }
 })
