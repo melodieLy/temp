@@ -16,31 +16,30 @@ $.ajax({
 
         $.get('components/pagination.html', function(templates) {
             var component = $(templates).filter('#pagination-comp').html();
-            let paginationSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
+            let paginSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
             //let totalsArrayPage = Array.from({length: paginationSetup.TotalPages}, (v, i) => i+1);
             data.totalArrayPage = [1,2];
-            // paginationSetup += {
-            //     "nextPage": function () {
-            //         const result = this.PageNumber - 1;
-            //         if(result > this.totalPage) return undefined;
-            //         else return result;
-            //     },
-            //     "pagpreviousPage": function () {
-            //         const result = this.PageNumber - 1;
-            //         if(result == 0) return undefined;
-            //         else return result;
-            //     }
-            // };
             const dataResult = JSON.stringify(paginationSetup);
             console.log(dataResult);
-            $('#welcome-call').append(Mustache.render(component, data));
+            $('#welcome-call').append(Mustache.render(component, {
+                "PageSize":paginSetup.PageSize,
+                "PageNumber":paginSetup.PageNumber,
+                "TotalCount":paginSetup.TotalCount,
+                "TotalPages":data.totalArrayPage,
+                "nextPage": function () {
+                    const result = this.PageNumber - 1;
+                    if(result > this.totalPage) return undefined;
+                    else return result;
+                },
+                "previousPage": function () {
+                    const result = this.PageNumber - 1;
+                    if(result == 0) return undefined;
+                    else return result;
+                }
+            }));
         });
     }
 })
 .fail(function(xhr,textStatus, errorThrown) {
     getError(xhr,textStatus, errorThrown);
 });
-
-function createNumberPage(pagination) {
-
-}
