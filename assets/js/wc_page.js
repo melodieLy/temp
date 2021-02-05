@@ -32,7 +32,7 @@ $.ajax({
             //     }
             // };
             const dataResult = JSON.stringify(paginationSetup);
-
+            console.log(dataResult);
             $('#welcome-call').append(Mustache.render(component, dataResult));
         });
     }
