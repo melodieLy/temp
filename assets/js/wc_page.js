@@ -18,7 +18,10 @@ function getWCPage (data) {
             $.get('components/wc_table.html', function(templates) {
                 var component = $(templates).filter('#tpl-wc-table').html();
                 data.forEach(element => {
-                    element.LastContact = moment().format(element.LastContact,'L');
+                    if(element.LastContact) element.LastContact = moment().format(element.LastContact,"DD/MM/YYYY");
+                    else{
+                        element.LastContact = moment().format("2020-06-18T10:59:36.327","DD/MM/YYYY");
+                    }
                 });
                 $('#welcome-call').append(Mustache.render(component,data));
             });
