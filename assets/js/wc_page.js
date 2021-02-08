@@ -2,17 +2,19 @@
 
 if(!window.location.hash.includes("#")) {
     let data = {};
-    data.pagenumber = 1; 
+    data.numberpage = {};
+    data.pagenumber.value = 1; 
     getWCPage(data);
 }
 
 function getWCPage (data) {
-    if(data.pagenumber < 0 || data.pagenumber > data.max) {
+    console.log(data.max.value);
+    if(data.pagenumber.value < 0 || data.pagenumber.value > data.max.value) {
         return showAlert("La page demandé est hors limite du nombre de page existant.")
     }
 
     $.ajax({
-        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page='+data.pagenumber,
+        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page='+data.pagenumber.value,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
