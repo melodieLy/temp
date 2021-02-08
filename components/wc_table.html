@@ -39,6 +39,9 @@
                 {{/Cancelled}}
             </tr>
         {{ /. }}
+        {{ ^. }}
+            <td>Aucune donnée n'a été trouvée. Veuillez retourner à la page précédente.</td>
+        {{ /. }}
     </tbody>
     </table>
 </script>
