@@ -1,14 +1,13 @@
 // get('calls/called/'+cookies.assoId+'?Page=1' , retrieveWelcomeCalls);
 
 if(!window.location.hash.includes("#")) {
-    let data = {};
-    data.value = 1; 
+    let data = 1;
     getWCPage(data);
 }
 
 function getWCPage (data) {
     $.ajax({
-        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page='+data.value,
+        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page='+data,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
