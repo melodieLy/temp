@@ -1,5 +1,3 @@
-get('calls/called/'+cookies.assoId+'?Page=1' , retrieveWelcomeCalls);
-
 if(!window.location.hash.includes("#")) {
     let data = 1;
     getWCPage(data);
@@ -11,7 +9,7 @@ function getWCPage (data) {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
-            // "Authorization": cookies.token
+            "Authorization": cookies.token
         },
         method: "GET",
         success: function (data, textStatus, request) {
