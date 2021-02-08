@@ -58,6 +58,15 @@ function removeOldTable() {
     }
 }
 
+function copyId(ongId) {
+    const el = document.createElement('textarea');
+    el.value = ongId;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+  }
+
 // function disabledPaginationButton(totalPages) {
 //     let pageButton = document.getElementById("nav-page");
 //     let navText = pageButton.getElementsByTagName('li');

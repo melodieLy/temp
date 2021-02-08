@@ -4,19 +4,20 @@
             <tr>
                 <th>ID ONG Conseil</th>
                 <th>RUM</th>
-                <th>Code mission asso.</th>
-                <th>Email as ID</th>
+                <th>Code mission</th>
+                <th>Email initial</th>
                 <th>Prénom initial</th>
                 <th>Nom initial</th>
                 <th>Date de contact</th>
                 <th>Etat d'appel</th>
-                <th>Issue conversation</th>
             </tr>
         </thead>
         <tbody id="myTable">
         {{ #. }}
             <tr>        
-                <td>{{Id}}</td>
+                <td>
+                    <a href="javascript:void(0);" onclick="copyId({{Id}})"><span class="mdi mdi-content-copy"></span></a>
+                </td>
                 <td>{{UMR}}</td>
                 <td>{{MissionId}}</td>
                 <td>{{Email}}</td>
@@ -30,13 +31,6 @@
                 {{^ReachedOnce}}
                 <td>Non joint</td>
                 {{/ReachedOnce}}
-                
-                {{#Cancelled}}
-                <td>Don annulé</td>
-                {{/Cancelled}}
-                {{^Cancelled}}
-                <td>Don en cours</td>
-                {{/Cancelled}}
             </tr>
         {{ /. }}
         {{ ^. }}
