@@ -7,12 +7,6 @@ if(!window.location.hash.includes("#")) {
 }
 
 function getWCPage (data) {
-    if(data.value != 1) {
-        if(data.value < 0 || data.value > data.max) {
-            return showAlert("La page demandé est hors limite du nombre de page existant.")
-        }
-    }
-
     $.ajax({
         url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page='+data.value,
         headers: {
@@ -39,15 +33,16 @@ function getWCPage (data) {
                     "TotalPages":paginSetup.TotalPages,
                     "nextPage": function () {
                         const result = this.PageNumber + 1;
-                        if(result > this.totalPage) return undefined;
+                        if(result > this.totalPage) return this.totalPages;
                         else return result;
                     },
                     "previousPage": function () {
                         const result = this.PageNumber - 1;
-                        if(result == 0) return undefined;
+                        if(result == 0) return 1;
                         else return result;
                     }
                 }));
+
             });
         }
     })
@@ -62,3 +57,24 @@ function removeOldTable() {
         $('nav#nav-page').remove();
     }
 }
+
+// function disabledPaginationButton(totalPages) {
+//     let pageButton = document.getElementById("nav-page");
+//     let navText = pageButton.getElementsByTagName('li');
+
+//     for (let i = 0; i < navText.length; i++) {
+//         let hash = navText[i].children[0].hash.replace('#','');
+//         hash = parseInt(hash);
+//         if(hash ) {
+
+//         }
+//         for (let j = 0; j < navText.length; j++) {
+//             if(element.) {
+
+//                 element[i].classList.toggle('active');
+//                 let t = element[i].getElementsByTagName('ul');
+//                 t[0].classList.toggle('show');
+//             }
+//         }
+//     }
+// }
