@@ -8,9 +8,10 @@ if(!window.location.hash.includes("#")) {
 }
 
 function getWCPage (data) {
-    console.log(data.max.value);
-    if(data.pagenumber.value < 0 || data.pagenumber.value > data.max.value) {
-        return showAlert("La page demandé est hors limite du nombre de page existant.")
+    if(data.pagenumber.value != 1) {
+        if(data.pagenumber.value < 0 || data.pagenumber.value > data.max.value) {
+            return showAlert("La page demandé est hors limite du nombre de page existant.")
+        }
     }
 
     $.ajax({
