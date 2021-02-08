@@ -44,7 +44,7 @@ function getWCPage (data) {
         }
     })
     .fail(function(xhr) {
-        showAlert(xhr);
+        getError(xhr);
     });
 }
 
