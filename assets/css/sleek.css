@@ -13572,3 +13572,9 @@ html[dir="rtl"] .github-link svg {
   font-style: italic;
   text-align: center;
 }
+
+.error404 {
+  background: -webkit-linear-gradient(#ffff66 18%, #8ab400);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
