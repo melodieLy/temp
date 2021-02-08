@@ -2,7 +2,7 @@
 
 if(!window.location.hash.includes("#")) {
     let data = {};
-    data.numberpage = {};
+    data.pagenumber = {};
     data.pagenumber.value = 1; 
     getWCPage(data);
 }
@@ -32,7 +32,6 @@ function getWCPage (data) {
             $.get('components/pagination.html', function(templates) {
                 var component = $(templates).filter('#pagination-comp').html();
                 let paginSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
-                // data.totalArrayPage = Array.from({length: paginSetup.TotalPages}, (v, i) => i+1);
                 $('#welcome-call').append(Mustache.render(component, {
                     "PageSize":paginSetup.PageSize,
                     "PageNumber":paginSetup.PageNumber,
