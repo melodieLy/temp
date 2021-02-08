@@ -18,7 +18,9 @@ function getWCPage (data) {
                 var component = $(templates).filter('#tpl-wc-table').html();
                 $('#welcome-call').append(Mustache.render(component,data));
             });
-    
+            
+            removeOldTable();
+
             $.get('components/pagination.html', function(templates) {
                 var component = $(templates).filter('#pagination-comp').html();
                 let paginSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
@@ -45,4 +47,11 @@ function getWCPage (data) {
     .fail(function(xhr,textStatus, errorThrown) {
         getError(xhr,textStatus, errorThrown);
     });
+}
+
+function removeOldTable() {
+    if($('table')) {
+        $('table').remove();
+        $('nav#nav-page').remove();
+    }
 }
