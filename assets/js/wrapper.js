@@ -20,19 +20,31 @@ $(document).ready(function() {
 });
 
 function getError(info) {
-    switch(info.status){
+    switch(info.status) {
         case 401 :
             deleteCookie();
-            alert('Un problème a eu lieu lors du chargement. Veuillez étreindre et rallumer le navigateur.')
+            showAlert("401 : Erreur lors de l'authentification Veuillez redémarrer le navigateur.")
             break;
         case 403 :
-            alert('Text')
+            showAlert("403 : Vous n'avez pas les authorisations nécessaires.");
             break;
         case 404 :
-            alert('Text')
+            showAlert("404 : La ressource n'a pas été trouvé.");
+            break;
+        case 408 :
+            showAlert("408 : Une connexion ouverte n'est pas utilisé. Fermeture du la connexion.");
+            break;
+        case 413 :
+            showAlert("413 : La requête au serveur dépasse la limite définie. Veuillez réessayer.");
+            break;
+        case 415 :
+            showAlert("415 : Le format média demandées n'est pas supporté apr le serveur.");
+            break;
+        case 429 :
+            showAlert("429 : Nombre de requêtes émis trop important. Veuillez patientez avant de lancer une nouvelle requête.");
             break;
         default:
-            
+            showAlert(info.status + " : " + info.textStatus)
             break;
     }
 }
@@ -76,8 +88,8 @@ function get(path) {
         method: "GET"
     })
     
-    .fail(function(xhr,textStatus, errorThrown) {
-        getError(xhr,textStatus, errorThrown);
+    .fail(function(xhr) {
+        getError(xhr);
     });
 };
 
@@ -94,8 +106,8 @@ function get(path,funct) {
         success: funct
     })
 
-    .fail(function(xhr,textStatus, errorThrown) {
-        getError(xhr,textStatus, errorThrown);
+    .fail(function(xhr) {
+        getError(xhr);
     });
 };
 
@@ -139,7 +151,7 @@ function download(path, param) {
         }
     })
 
-    .fail(function(xhr,textStatus, errorThrown) {
-        getError(xhr,textStatus, errorThrown);
+    .fail(function(xhr) {
+        getError(xhr);
     });
 }
