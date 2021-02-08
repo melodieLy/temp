@@ -31,12 +31,12 @@ function getWCPage (data) {
                     "TotalCount":paginSetup.TotalCount,
                     "TotalPages":paginSetup.TotalPages,
                     "nextPage": function () {
-                        const result = this.PageNumber + 1;
-                        if(result >= this.TotalPages) return this.totalPages;
+                        const result = paginSetup.PageNumber + 1;
+                        if(result >= paginSetup.TotalPages) return paginSetup.totalPages;
                         else return result;
                     },
                     "previousPage": function () {
-                        const result = this.PageNumber - 1;
+                        const result = paginSetup.PageNumber - 1;
                         if(result == 0) return 1;
                         else return result;
                     }
