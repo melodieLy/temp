@@ -1,6 +1,6 @@
 // get('calls/called/'+cookies.assoId+'?Page=1' , retrieveWelcomeCalls);
 
-if(window.location.hash.includes("#")) {
+if(!window.location.hash.includes("#")) {
     getWCPage(1);
 }
 
