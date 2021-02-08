@@ -11,7 +11,7 @@ function getWCPage (data) {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
-            "Authorization": cookies.token
+            // "Authorization": cookies.token
         },
         method: "GET",
         success: function (data, textStatus, request) {
@@ -46,6 +46,7 @@ function getWCPage (data) {
         }
     })
     .fail(function(xhr) {
+        showAlert(xhr);
     });
 }
 
