@@ -1,12 +1,18 @@
 // get('calls/called/'+cookies.assoId+'?Page=1' , retrieveWelcomeCalls);
 
 if(!window.location.hash.includes("#")) {
-    getWCPage(1);
+    const data;
+    data.pagenumber = 1; 
+    getWCPage(data);
 }
 
 function getWCPage (data) {
+    if(data.pagenumber < 0 || data.pagenumber > data.max) {
+        return showAlert("La page demandé est hors limite du nombre de page existant.")
+    }
+
     $.ajax({
-        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page='+data,
+        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page='+data.pagenumber,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
