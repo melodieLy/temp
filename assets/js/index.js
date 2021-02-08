@@ -1,3 +1,5 @@
+$.getScript("assets/js/config.js", function () {});
+
 function Auth(theForm) {
   $.ajax({
     url: "https://recette-api.song-fr.com/swatoken",
