@@ -32,7 +32,7 @@ function getWCPage (data) {
                     "TotalPages":paginSetup.TotalPages,
                     "nextPage": function () {
                         const result = this.PageNumber + 1;
-                        if(result >= this.totalPage) return this.totalPages;
+                        if(result >= this.TotalPages) return this.totalPages;
                         else return result;
                     },
                     "previousPage": function () {
