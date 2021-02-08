@@ -15,13 +15,13 @@ function getWCPage (data) {
         },
         method: "GET",
         success: function (data, textStatus, request) {
+            removeOldTable();
+
             $.get('components/wc_table.html', function(templates) {
                 var component = $(templates).filter('#tpl-wc-table').html();
                 $('#welcome-call').append(Mustache.render(component,data));
             });
             
-            removeOldTable();
-
             $.get('components/pagination.html', function(templates) {
                 var component = $(templates).filter('#pagination-comp').html();
                 let paginSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
