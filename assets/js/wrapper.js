@@ -1,12 +1,3 @@
-function showAlert(errorInfo) {
-    $.get('components/alert-danger.html', function(templates) {
-      var alert = $(templates).filter('#tpl-alert-danger').html();
-      let data = {"error" : errorInfo};
-      $('#body').append(Mustache.render(alert, data));
-    });
-  }
-  
-
 $(document).ready(function() {
     if(cookies === undefined) {
         window.location.replace("index.html");

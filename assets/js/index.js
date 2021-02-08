@@ -1,5 +1,7 @@
 $.getScript("assets/js/config.js", function () {});
 
+showAlert('test');
+
 function Auth(theForm) {
   $.ajax({
     url: "https://recette-api.song-fr.com/swatoken",
@@ -22,10 +24,9 @@ function Auth(theForm) {
       findAsso(result);
     })
 
-    .fail(function(xhr, status, error) {
-      var errorMessage = xhr.status + ': ' + xhr.statusText
+    .fail(function(xhr) {
       if(xhr.status === 400) {
-        alert('Connexion impossible. Veuillez vérifier votre nom et mot de passe.');
+        showAlert('Connexion impossible. Veuillez vérifier votre identifiant et mot de passe.');
       }
     })
 }
@@ -61,9 +62,8 @@ function findAsso(param) {
     EnvironmentRedirection();
   })
 
-  .fail(function(xhr, status, error) {
-      var errorMessage = xhr.status + ': ' + xhr.statusText
-      alert('Fail to get association - ' + errorMessage);
-      return xhr;
+  .fail(function(xhr) {
+      window.location.reload();
+      showAlert(xhr.status + ' : Erreur lors du chargement des données. Veuillez-vous authentifier de nouveau. ');
   });
 }
