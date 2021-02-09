@@ -17,16 +17,18 @@ function getWCPage (data) {
 
             $.get('components/wc_table.html', function(templates) {
                 var component = $(templates).filter('#tpl-wc-table').html();
-                data.forEach(element => {
-                    if(element.LastContact) element.LastContact = moment(element.LastContact).format("YYYY-MM-DD");
-                });
+                if(!data) {
+                    data.forEach(element => {
+                        if(element.LastContact) element.LastContact = moment(element.LastContact).format("YYYY-MM-DD");
+                    });
+                }
                 $('#welcome-call').append(Mustache.render(component,data));
             });
             
             $.get('components/pagination.html', function(templates) {
                 var component = $(templates).filter('#pagination-comp').html();
                 let paginSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
-                $('#test').append(Mustache.render(component, {
+                $('#welcome-call').append(Mustache.render(component, {
                     "PageSize":paginSetup.PageSize,
                     "PageNumber":paginSetup.PageNumber,
                     "TotalCount":paginSetup.TotalCount,
