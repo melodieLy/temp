@@ -66,6 +66,7 @@ function getCookie() {
             } 
         }
     });
+    console.log(result);
     return result;
 };
 
