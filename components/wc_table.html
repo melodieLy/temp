@@ -2,7 +2,6 @@
     <table id="basic-wc-table" class="table nowrap">
         <thead>
             <tr>
-                <th>ID ONG Conseil</th>
                 <th>RUM</th>
                 <th>Code mission</th>
                 <th>Email initial</th>
@@ -10,14 +9,12 @@
                 <th>Nom initial</th>
                 <th>Date de contact</th>
                 <th>Etat d'appel</th>
+                <th>ID ONG.C</th>
             </tr>
         </thead>
         <tbody id="myTable">
         {{ #. }}
             <tr>        
-                <td>
-                    <a href="javascript:void(0);" onclick="copyId({{Id}})"><span class="mdi mdi-24px mdi-content-copy"></span></a>
-                </td>
                 <td>{{UMR}}</td>
                 <td>{{MissionId}}</td>
                 <td>{{Email}}</td>
@@ -31,6 +28,9 @@
                 {{^ReachedOnce}}
                 <td>Non joint</td>
                 {{/ReachedOnce}}
+                <td>
+                    <a href="javascript:void(0);" onclick="copyId('{{Id}}')"><span class="mdi mdi-24px mdi-content-copy"></span></a>
+                </td>
             </tr>
         {{ /. }}
         {{ ^. }}
