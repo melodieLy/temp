@@ -53,25 +53,25 @@ function getCookie() {
         return undefined;
     }
 
-    let cookieData = document.cookie.split(";");
+    let array = document.cookie.split(";");
     let result = new Array();
-    const names = ["username", "token","assoName", "assoId", "expires"]
 
-    cookieData.forEach(element => {
-        for (let i = 0; i < names.length; i++) {
-            const actualName = names[i];
-            if(element.includes(actualName)) {
-                result[actualName] = (element.split('=').pop());
-                break;
-            } 
-        }
-    });
-    console.log(result);
+    result.expires = (array[0].split('=').pop());
+    result.token = "bearer " + (array[1].split('=').pop());
+    result.username = (array[2].split('=').pop());
+    result.asso = (array[3].split('=').pop());
+    result.assoId = (array[4].split('=').pop());
+
     return result;
 };
 
 function deleteCookie() {
-    document.cookie = "expires=Thu Jan 01 1970 00:00:00 UTC; token=; username=; asso=; assoId=;";
+    var t = new Date();
+    document.cookie = "expires=" + t.setTime(00)+';';
+    document.token = "";
+    document.username = "";
+    document.asso = "";
+    document.assoId = "";
 }
 
 const cookies = getCookie();
