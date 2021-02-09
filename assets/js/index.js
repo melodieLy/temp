@@ -16,9 +16,9 @@ function Auth(theForm) {
   })
     .done(function(result) {
       const time = 1000;
-      let expire = new Date();
-      expire.setTime(expire.getTime()+ (result.expires_in * time));
-      createCookieAuth(result,expire, theForm.email.value);
+      let actualDate = new Date();
+      actualDate.setTime(actualDate.getTime()+ (result.expires_in * time));
+      createCookieAuth(result, actualDate, theForm.email.value);
       findAsso(result);
     })
 

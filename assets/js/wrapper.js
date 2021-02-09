@@ -66,7 +66,7 @@ function getCookie() {
 };
 
 function deleteCookie() {
-    document.cookie = "expires=Thu Jan 01 1970 00:00:00 UTC; token=; username=; asso=; assoId=; path=/;";
+    document.cookie = "expires=Thu Jan 01 1970 00:00:00 UTC; token=; username=; asso=; assoId=;";
 }
 
 const cookies = getCookie();
