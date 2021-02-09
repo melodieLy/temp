@@ -66,7 +66,7 @@ function getCookie() {
 };
 
 function deleteCookie() {
-    document.cookie = "expires=0;";
+    document.cookie = "expires=;";
     document.token = "";
     document.username = "";
     document.asso = "";
