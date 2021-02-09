@@ -154,7 +154,7 @@
           "UpdatedData": "[{\"Id\":\"civility\",\"OldValue\":\"MME\",\"NewValue\":\"MME\"},{\"Id\":\"firstname\",\"OldValue\":\"Napoléon\",\"NewValue\":\"Napoléon\"},{\"Id\":\"lastname\",\"OldValue\":\"Bonaparte\",\"NewValue\":\"Bonaparte\"}]"
         }
       ]
-    }
+    },
     {
         "Id": "FR17LNCC08PAR000001369220170930185911",
         "UMR": "CIS17FR0906559",
@@ -179,7 +179,7 @@
             "UpdatedData": "[{\"Id\":\"civility\",\"OldValue\":\"MME\",\"NewValue\":\"MME\"},{\"Id\":\"lastname\",\"OldValue\":\"AUGUSTIN\",\"NewValue\":\"SYLVAIN\"}]"
           }
         ]
-      },
+    },
       {
         "Id": "FR17LNCC08PAR000000555020170930184624",
         "UMR": "CIS17FR0906558",
