@@ -13579,10 +13579,15 @@ html[dir="rtl"] .github-link svg {
   -webkit-text-fill-color: transparent;
 }
 
-
 #pagination-row{
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   flex-direction: row-reverse;
+}
+
+#flex-title-search{
+  display: flex; 
+  flex-direction: row; 
+  justify-content: space-between;
 }
