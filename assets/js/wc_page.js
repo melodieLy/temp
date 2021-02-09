@@ -26,7 +26,7 @@ function getWCPage (data) {
             $.get('components/pagination.html', function(templates) {
                 var component = $(templates).filter('#pagination-comp').html();
                 let paginSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
-                $('#welcome-call').append(Mustache.render(component, {
+                $('#test').append(Mustache.render(component, {
                     "PageSize":paginSetup.PageSize,
                     "PageNumber":paginSetup.PageNumber,
                     "TotalCount":paginSetup.TotalCount,
