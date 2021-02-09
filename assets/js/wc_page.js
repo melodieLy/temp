@@ -44,10 +44,8 @@ function getWCPage (data) {
                         else return result;
                     }
                 }));
-                $('#pagination-row').append(Mustache.render(
-                    '<a onclick="" href="#"><button class="btn mb-1 btn btn-pill btn-primary">Exporter</button></a>',
-                    {})); 
-            });           
+
+            });
         }
     })
     .fail(function(xhr) {
