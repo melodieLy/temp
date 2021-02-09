@@ -9,7 +9,7 @@ function getWCPage (data) {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
-            "Authorization": cookies.token
+            "Authorization": "bearer " + cookies.token
         },
         method: "GET",
         success: function (data, textStatus, request) {

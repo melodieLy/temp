@@ -53,25 +53,24 @@ function getCookie() {
         return undefined;
     }
 
-    let array = document.cookie.split(";");
+    let cookieData = document.cookie.split(";");
     let result = new Array();
+    const names = ["username", "token","assoName", "assoId", "expires"]
 
-    result.expires = (array[0].split('=').pop());
-    result.token = "bearer " + (array[1].split('=').pop());
-    result.username = (array[2].split('=').pop());
-    result.asso = (array[3].split('=').pop());
-    result.assoId = (array[4].split('=').pop());
-
+    cookieData.forEach(element => {
+        for (let i = 0; i < names.length; i++) {
+            const actualName = names[i];
+            if(element.includes(actualName)) {
+                result[actualName] = (element.split('=').pop());
+                break;
+            } 
+        }
+    });
     return result;
 };
 
 function deleteCookie() {
-    var t = new Date();
-    document.cookie = "expires=" + t.setTime(00)+';';
-    document.token = "";
-    document.username = "";
-    document.asso = "";
-    document.assoId = "";
+    document.cookie = "expires=Thu Jan 01 1970 00:00:00 UTC; token=; username=; asso=; assoId=;";
 }
 
 const cookies = getCookie();
@@ -82,7 +81,7 @@ function get(path) {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
-            "Authorization": cookies.token
+            "Authorization": "bearer " + cookies.token
         },
         method: "GET"
     })
@@ -99,7 +98,7 @@ function get(path,funct) {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
-            "Authorization": cookies.token
+            "Authorization": "bearer " + cookies.token
         },
         method: "GET",
         success: funct
@@ -116,7 +115,7 @@ function download(path, param) {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
-            "Authorization": cookies.token
+            "Authorization": "bearer " + cookies.token
         },
         method: "GET",
         success: function (data, statut) {
