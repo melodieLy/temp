@@ -17,12 +17,15 @@ function getWCPage (data) {
 
             $.get('components/wc_table.html', function(templates) {
                 var component = $(templates).filter('#tpl-wc-table').html();
-                if(!data) {
-                    data.forEach(element => {
-                        if(element.LastContact) element.LastContact = moment(element.LastContact).format('L');
-                    });
-                }
-                $('#welcome-call').append(Mustache.render(component,data));
+                //remove the first line $getjson after the end of the test please
+                    $.getJSON("assets/js/data_mailjet.json", function (data) {
+                    if(!data) {
+                        data.forEach(element => {
+                            if(element.LastContact) element.LastContact = moment(element.LastContact).format('L');
+                        });
+                    }
+                    $('#welcome-call').append(Mustache.render(component,data));
+                })
             });
             
             $.get('components/pagination.html', function(templates) {
