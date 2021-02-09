@@ -53,15 +53,19 @@ function getCookie() {
         return undefined;
     }
 
-    let array = document.cookie.split(";");
+    let cookieData = document.cookie.split(";");
     let result = new Array();
+    const names = ["username", "token","assoName", "assoId", "expires"]
 
-    result.expires = (array[0].split('=').pop());
-    result.token = "bearer " + (array[1].split('=').pop());
-    result.username = (array[2].split('=').pop());
-    result.asso = (array[3].split('=').pop());
-    result.assoId = (array[4].split('=').pop());
-
+    cookieData.forEach(element => {
+        for (let i = 0; i < names.length; i++) {
+            const actualName = names[i];
+            if(element.includes(actualName)) {
+                result[actualName] = (element.split('=').pop());
+                break;
+            } 
+        }
+    });
     return result;
 };
 

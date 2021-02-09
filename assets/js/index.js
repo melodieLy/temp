@@ -38,7 +38,7 @@ function createCookieAuth(setup,time,username) {
 function createCookieAsso(setup) {
   setup.forEach(element => {
     if(element.Role.Id === "asso-admin") {
-      document.cookie = "asso=" + element.Association.Name;
+      document.cookie = "assoName=" + element.Association.Name;
       document.cookie = "assoId=" + element.Association.Id;
     }
   });
