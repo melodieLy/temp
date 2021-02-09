@@ -28,7 +28,7 @@ function getWCPage (data) {
             $.get('components/pagination.html', function(templates) {
                 var component = $(templates).filter('#pagination-comp').html();
                 let paginSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
-                $('#pagination').append(Mustache.render(component, {
+                $('#pagination-row').append(Mustache.render(component, {
                     "PageSize":paginSetup.PageSize,
                     "PageNumber":paginSetup.PageNumber,
                     "TotalCount":paginSetup.TotalCount,
@@ -46,6 +46,10 @@ function getWCPage (data) {
                 }));
 
             });
+
+            $('#pagination-row').append(Mustache.render(
+                '<a onclick="" href="#"><button class="btn mb-1 btn btn-pill btn-primary">Exporter</button></a>',
+                {}));            
         }
     })
     .fail(function(xhr) {
