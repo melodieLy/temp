@@ -19,7 +19,7 @@ function getWCPage (data) {
                 var component = $(templates).filter('#tpl-wc-table').html();
                 //remove the first line $getjson after the end of the test please
                     $.getJSON("assets/js/wc_page.json", function (data) {
-                    if(!data) {
+                    if(data) {
                         data.forEach(element => {
                             if(element.LastContact) element.LastContact = moment(element.LastContact).format('L');
                         });
