@@ -94,45 +94,7 @@ function getWCPageWithParam (data) {
             "Accept":"application/json",
             "Authorization": "bearer " + cookies.token
         },
-        method: "GET",
-        success: function (data, textStatus, request) {
-            removeOldTable();
-
-            $.get('components/wc_table.html', function(templates) {
-                var component = $(templates).filter('#tpl-wc-table').html();
-                //remove the first line $getjson after the end of the test please
-                // $.getJSON("assets/js/wc_page.json", function (data) {
-                    if(data) {
-                        data.forEach(element => {
-                            if(element.LastContact) element.LastContact = moment(element.LastContact).format('L');
-                        });
-                    }
-                    $('#welcome-call').append(Mustache.render(component,data));
-                // })
-            });
-            
-            $.get('components/pagination.html', function(templates) {
-                var component = $(templates).filter('#pagination-comp').html();
-                let paginSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
-                $('#pagination-row').append(Mustache.render(component, {
-                    "PageSize":paginSetup.PageSize,
-                    "PageNumber":paginSetup.PageNumber,
-                    "TotalCount":paginSetup.TotalCount,
-                    "TotalPages":paginSetup.TotalPages,
-                    "nextPage": function () {
-                        const result = paginSetup.PageNumber + 1;
-                        if(result >= paginSetup.TotalPages) return paginSetup.TotalPages;
-                        else return result;
-                    },
-                    "previousPage": function () {
-                        const result = paginSetup.PageNumber - 1;
-                        if(result == 0) return 1;
-                        else return result;
-                    }
-                }));
-
-            });
-        }
+        method: "GET"
     })
     .fail(function(xhr) {
         getError(xhr);
@@ -156,7 +118,7 @@ function copyId(ongId) {
   }
 
 function getUrlParam (form) {
-    if(form != null || form != "") {
+    if(form != null) {
         const yourSelect = document.getElementById( "area-select" ).value;
         const input = form.getElementsByTagName("input");
     
