@@ -131,9 +131,9 @@ function getUrlParam (form) {
     const input = form.getElementsByTagName("input");
     const yourSelect = document.getElementById( "area-select" ).value;
 
-    let url = 'area='+yourSelect;
+    let url = 'area="'+yourSelect + '"';
     for(const element of input) {
-        url += '&' + element.name + "=" + element.value;
+        url += '&' + element.name + '="' + element.value + '"';
     };
     return url;
 }
