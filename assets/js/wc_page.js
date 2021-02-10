@@ -13,10 +13,13 @@ function getWCSearchbar(data) {
             let tagToHide = component.document.getElementById('area-select');
             tagToHide.setAttribute("style","display:none;");
         }
-        if(sessionStorage.length != 0) {
-        }
+        fillSearchPageWithSessionStorage(component);
         $('#welcome-call').append(Mustache.render(component,data));
     });
+}
+
+function fillSearchPageWithSessionStorage(component) {
+    let area = component.getElementById('area')
 }
 
 function getWCPage (data,param) {
@@ -147,7 +150,7 @@ function copyId(ongId) {
   }
 
 function getUrlParam (form) {
-    if(form != null || !form || form === "") {
+    if(form != null || form || form != "") {
         const yourSelect = document.getElementById( "area-select" ).value;
         const input = form.getElementsByTagName("input");
     
