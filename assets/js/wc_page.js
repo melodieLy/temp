@@ -18,14 +18,14 @@ function getWCPage (data) {
             $.get('components/wc_table.html', function(templates) {
                 var component = $(templates).filter('#tpl-wc-table').html();
                 //remove the first line $getjson after the end of the test please
-                    $.getJSON("assets/js/wc_page.json", function (data) {
+                // $.getJSON("assets/js/wc_page.json", function (data) {
                     if(data) {
                         data.forEach(element => {
                             if(element.LastContact) element.LastContact = moment(element.LastContact).format('L');
                         });
                     }
                     $('#welcome-call').append(Mustache.render(component,data));
-                })
+                // })
             });
             
             $.get('components/pagination.html', function(templates) {
@@ -57,10 +57,10 @@ function getWCPage (data) {
 }
 
 function getWCPageWithParam (data) {
-    const param = urlParam(data);
+    const param = getUrlParam(data);
 
     $.ajax({
-        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?='+data,
+        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?'+param,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
@@ -73,14 +73,14 @@ function getWCPageWithParam (data) {
             $.get('components/wc_table.html', function(templates) {
                 var component = $(templates).filter('#tpl-wc-table').html();
                 //remove the first line $getjson after the end of the test please
-                    $.getJSON("assets/js/wc_page.json", function (data) {
+                // $.getJSON("assets/js/wc_page.json", function (data) {
                     if(data) {
                         data.forEach(element => {
                             if(element.LastContact) element.LastContact = moment(element.LastContact).format('L');
                         });
                     }
                     $('#welcome-call').append(Mustache.render(component,data));
-                })
+                // })
             });
             
             $.get('components/pagination.html', function(templates) {
@@ -118,10 +118,6 @@ function removeOldTable() {
     }
 }
 
-function urlParam(data) {
-    
-}
-
 function copyId(ongId) {
     const el = document.createElement('textarea');
     el.value = ongId;
@@ -131,18 +127,13 @@ function copyId(ongId) {
     document.body.removeChild(el);
   }
 
-
-function test (t) {
-    const p = t.getElementsByTagName("input");
-    console.log(p);
-    for(const element of p) {
-        console.log(element.value);
-    };
+function getUrlParam (form) {
+    const input = form.getElementsByTagName("input");
     const yourSelect = document.getElementById( "area-select" ).value;
 
     let url = 'area='+yourSelect;
-    for(const element of p) {
+    for(const element of input) {
         url += '&' + element.name + "=" + element.value;
     };
-    alert(url);
+    return url;
 }

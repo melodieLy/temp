@@ -62,7 +62,7 @@
             <div class="mr-auto p-2">
                 <h1>Appels des donateurs</h1>
             </div>
-            <form action="/javascript:;" onsubmit="test(this)" id="search-form">
+            <form action="/javascript:;" onsubmit="getWCPageWithParam(this)" id="search-form">
               <div class="form-row">
                 <div class="col">
                   <label for="area-select">Comité</label>
@@ -115,12 +115,7 @@
 </html>
 
 <script>
-    $("#form").submit(function(e) {
+    $("#search-form").submit(function(e) {
         e.preventDefault();
       });
-
-      function test (t) {
-        alert(t);
-        console.log(t);
-      }
 </script>
