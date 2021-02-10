@@ -58,37 +58,10 @@
       <div class="content-wrapper">
         <div class="content">
           <!--Title of the content-->
-          <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
+          <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between" id="form-row">
             <div class="mr-auto p-2">
                 <h1>Appels des donateurs</h1>
             </div>
-            <form action="/javascript:;" onsubmit="getWCPageWithParam(this)" id="search-form">
-              <div class="form-row">
-                <div class="col">
-                  <label for="area-select">Comité</label>
-                  <select name="area" class="form-control form-control-sm" id="area-select">
-                    <option value="" seleted>--Aucun comité--</option>
-                    <option value="number1">1</option>
-                    <option value="number2">2</option>
-                  </select>
-                </div>
-                <div class="col">
-                  <label for="area-select">Début</label>
-                  <input type="date" class="form-control form-control-sm" name="from" id="from" value="">
-                </div>
-                <div class="col">                          
-                  <label for="area-select">Fin</label>
-                  <input type="date" class="form-control form-control-sm" name="to" id="to" value="">
-                </div>
-                <div class="col">
-                  <label for="area-select" >Recherche</label>
-                  <input type="text" name="search" id="search" class="form-control form-control-sm" style="min-width: 210px" value="" placeholder="ID, RUM, mail, nom, code mission...">
-                </div>
-                <div class="col">
-                  <button type="submit" class="btn btn-lg btn-primary btn-block mb-4 btn-sm" style="margin-top: 30px;">Filtrer</button>
-                </div>
-              </div>
-            </form>
           </div>
             <!--The content FIRST ROW -->
           <div class="row" id="welcome-call">

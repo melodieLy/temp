@@ -1,11 +1,29 @@
 if(!window.location.hash.includes("#")) {
     let data = 1;
-    getWCPage(data);
+    getWCPage(data, null);
 }
 
-function getWCPage (data) {
+// get("association"+cookies.assoId+"/areas", getWCSearchbar);
+get("association/LNCC/areas", getWCSearchbar);
+
+function getWCSearchbar(data) {
+    $.get('components/wc_searchbar.html', function(templates) {
+        var component = $(templates).filter('#tpl-wc-search').html();
+        if(data == null) {
+            let tagToHide = component.document.getElementById('area-select');
+            tagToHide.setAttribute("style","display:none;");
+        }
+        if(sessionStorage.length != 0) {
+        }
+        $('#welcome-call').append(Mustache.render(component,data));
+    });
+}
+
+function getWCPage (data,param) {
+    const param = getUrlParam(data);
+
     $.ajax({
-        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page='+data,
+        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page='+data + param,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
@@ -54,7 +72,8 @@ function getWCPage (data) {
     .fail(function(xhr) {
         getError(xhr);
     });
-}
+
+};
 
 function getWCPageWithParam (data) {
     const param = getUrlParam(data);
@@ -132,11 +151,19 @@ function getUrlParam (form) {
         const yourSelect = document.getElementById( "area-select" ).value;
         const input = form.getElementsByTagName("input");
     
-        let url = 'area='+yourSelect;
+        let url = '&area='+yourSelect;
         for(const element of input) {
             url += '&' + element.name + '=' + element.value;
         };
+        searchHistory(yourSelect,input);
         return url;
     }
     return "";
+}
+
+function searchHistory(select,inputs) {
+    if(select != "") sessionStorage.setItem("area", select.value);
+    for(const element of inputs) {
+        if(element.value) sessionStorage.setItem(element.name, element.value);
+    };
 }

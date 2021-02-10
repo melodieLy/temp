@@ -2,11 +2,11 @@
     <nav id="nav-page">
         <ul class="pagination">
             <li class="page-item">
-              <a class="page-link" onClick="getWCPage({{previousPage}})" href="#{{previousPage}}" tabindex="-1">Précédent</a>
+              <a class="page-link" onClick="getWCPage({{previousPage}},null)" href="#{{previousPage}}" tabindex="-1">Précédent</a>
             </li>
 
                 <li class="page-item">
-                <form action="javascript:void(0);" onsubmit="getWCPage(this.pagenumber.value)" id="form">
+                <form action="javascript:void(0);" onsubmit="getWCPage(this.pagenumber.value,null)" id="form">
                   <div class="form-group">
                     <input type="number" lass="form-control" id="pagenumber" value="{{PageNumber}}" 
                     min="1" max="{{TotalPages}}" class="page-link" style="max-width: 80px;">
@@ -14,7 +14,7 @@
                 </form>
                 </li>
                 <li class="page-item disabled"><a class="page-link">/ {{TotalPages}}</a></li>
-            <li class="page-item"><a class="page-link" onClick="getWCPage({{nextPage}})" href="#{{nextPage}}">Suivant</a></li>
+            <li class="page-item"><a class="page-link" onClick="getWCPage({{nextPage}},null)" href="#{{nextPage}}">Suivant</a></li>
         </ul>
     </nav>
 
