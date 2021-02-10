@@ -128,12 +128,15 @@ function copyId(ongId) {
   }
 
 function getUrlParam (form) {
-    const input = form.getElementsByTagName("input");
-    const yourSelect = document.getElementById( "area-select" ).value;
-
-    let url = 'area="'+yourSelect + '"';
-    for(const element of input) {
-        url += '&' + element.name + '="' + element.value + '"';
-    };
-    return url;
+    if(form != null || !form || form === "") {
+        const yourSelect = document.getElementById( "area-select" ).value;
+        const input = form.getElementsByTagName("input");
+    
+        let url = 'area="'+yourSelect + '"';
+        for(const element of input) {
+            url += '&' + element.name + '="' + element.value + '"';
+        };
+        return url;
+    }
+    return "";
 }
