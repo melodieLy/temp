@@ -42,73 +42,83 @@
 
 <body class="header-fixed sidebar-fixed sidebar-dark header-light" id="body">
 
-    <script>
-        NProgress.configure({ showSpinner: false });
-        NProgress.start();
-    </script>
+  <script>
+      NProgress.configure({ showSpinner: false });
+      NProgress.start();
+  </script>
 
-    <div class="wrapper">
+  <div class="wrapper">
+    <!-- <link href="sidebar.html" rel="import" /> -->
+    <aside class="left-sidebar bg-sidebar" id="sidebar"> 
+    </aside>
 
-        <!-- <link href="sidebar.html" rel="import" /> -->
-        <aside class="left-sidebar bg-sidebar" id="sidebar"> 
-        </aside>
+    <div class="page-wrapper">
+      <!-- Header are include here -->
+      <header class="main-header " id="header"></header>
 
-
-        <div class="page-wrapper">
-          <!-- Header are include here -->
-          <header class="main-header " id="header"></header>
-
-          <div class="content-wrapper">
-            <div class="content">
-              <!--Title of the content-->
-              <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
-                  <div class="mr-auto p-2">
-                      <h1>Appels des donateurs</h1>
-                  </div>
-                  <form>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="area-select">Comité</label>
-                                        <select name="area" class="form-control form-control-sm" id="area-select">
-                                            <option value="" selected>--Aucun comité--</option>
-                                            <option value="number1">1</option>
-                                        </select>
-                                    </div>
-                                    <div class="col">
-                                        <label for="area-select">Début</label>
-                                        <input type="date" class="form-control form-control-sm" >
-                                    </div>
-                                    <div class="col">                          
-                                        <label for="area-select">Fin</label>
-                                        <input type="date" class="form-control form-control-sm">
-                                    </div>
-                                    <div class="col">
-                                        <label for="area-select">Recherche</label>
-                                        <input type="text" class="form-control form-control-sm" style="width: 210px" placeholder="ID, RUM, mail, nom, code mission...">
-                                    </div>
-                                </div>
-                            </form>
-              </div>
-              <!--The content FIRST ROW -->
-              <div class="row" id="welcome-call">
-              </div>
-              
-              <div class="row" id="pagination-row">
-                <a onclick="" href="#">
-                  <button class="btn mb-1 btn btn-pill btn-primary">Exporter</button>
-                </a>
-              </div>
+      <div class="content-wrapper">
+        <div class="content">
+          <!--Title of the content-->
+          <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
+            <div class="mr-auto p-2">
+                <h1>Appels des donateurs</h1>
             </div>
+            <form action="/javascript:;" onsubmit="test(this)" id="form">
+              <div class="form-row">
+                <div class="col">
+                  <label for="area-select">Comité</label>
+                  <select name="area" class="form-control form-control-sm" id="area-select">
+                    <option value="" selected>--Aucun comité--</option>
+                    <option value="number1">1</option>
+                    <option value="number2">2</option>
+                  </select>
+                </div>
+                <div class="col">
+                  <label for="area-select">Début</label>
+                  <input type="date" class="form-control form-control-sm" name="from" id="from" >
+                </div>
+                <div class="col">                          
+                  <label for="area-select">Fin</label>
+                  <input type="date" class="form-control form-control-sm" name="to" id="to" >
+                </div>
+                <div class="col">
+                  <label for="area-select" name="search" id="search">Recherche</label>
+                  <input type="text" class="form-control form-control-sm" style="width: 210px" placeholder="ID, RUM, mail, nom, code mission...">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-lg btn-primary btn-block mb-4 btn-sm">Filtrer</button>
+            </form>
           </div>
-
-          <footer class="footer mt-auto" id="footer"></footer>
+            <!--The content FIRST ROW -->
+          <div class="row" id="welcome-call">
+          </div>
+          
+          <div class="row" id="pagination-row">
+            <a onclick="" href="#">
+              <button class="btn mb-1 btn btn-pill btn-primary">Exporter</button>
+            </a>
+          </div>
         </div>
 
-        <script src="assets/plugins/slimscrollbar/jquery.slimscroll.min.js"></script>
-        <script src="assets/plugins/jekyll-search.min.js"></script>
-        <script src="assets/plugins/circle-progress/circle-progress.js"></script>
-        <script src="assets/js/sleek.bundle.js"></script>
+        <footer class="footer mt-auto" id="footer"></footer>
+      </div>
 
-        <script src="assets/plugins/daterangepicker/moment.min.js"></script>
+    <script src="assets/plugins/slimscrollbar/jquery.slimscroll.min.js"></script>
+    <script src="assets/plugins/jekyll-search.min.js"></script>
+    <script src="assets/plugins/circle-progress/circle-progress.js"></script>
+    <script src="assets/js/sleek.bundle.js"></script>
+
+    <script src="assets/plugins/daterangepicker/moment.min.js"></script>
 </body>
 </html>
+
+<script>
+    $("#form").submit(function(e) {
+        e.preventDefault();
+      });
+
+      function test (t) {
+        alert(t);
+        console.log(t);
+      }
+</script>
