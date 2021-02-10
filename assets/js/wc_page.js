@@ -19,7 +19,8 @@ function getWCSearchbar(data) {
 }
 
 function fillSearchPageWithSessionStorage(component) {
-    let area = component.getElementById('area')
+    let area = component.getElementById('area');
+    area.value = localStorage.
 }
 
 function getWCPage (data,param) {
@@ -150,7 +151,7 @@ function copyId(ongId) {
   }
 
 function getUrlParam (form) {
-    if(form != null || form || form != "") {
+    if(form != null || form != "") {
         const yourSelect = document.getElementById( "area-select" ).value;
         const input = form.getElementsByTagName("input");
     
