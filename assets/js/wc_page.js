@@ -20,10 +20,10 @@ function getWCSearchbar(data) {
 }
 
 function getWCPage (data,param) {
-    const param = getUrlParam(data);
+    const urlParam = getUrlParam(data);
 
     $.ajax({
-        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page='+data + param,
+        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page='+data + urlParam,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
