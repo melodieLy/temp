@@ -57,8 +57,10 @@ function getWCPage (data) {
 }
 
 function getWCPageWithParam (data) {
+    const param = urlParam(data);
+
     $.ajax({
-        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page='+data,
+        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?='+data,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
@@ -116,6 +118,10 @@ function removeOldTable() {
     }
 }
 
+function urlParam(data) {
+    
+}
+
 function copyId(ongId) {
     const el = document.createElement('textarea');
     el.value = ongId;
@@ -124,3 +130,19 @@ function copyId(ongId) {
     document.execCommand('copy');
     document.body.removeChild(el);
   }
+
+
+function test (t) {
+    const p = t.getElementsByTagName("input");
+    console.log(p);
+    for(const element of p) {
+        console.log(element.value);
+    };
+    const yourSelect = document.getElementById( "area-select" ).value;
+
+    let url = 'area='+yourSelect;
+    for(const element of p) {
+        url += '&' + element.name + "=" + element.value;
+    };
+    alert(url);
+}

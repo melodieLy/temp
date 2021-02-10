@@ -41,7 +41,6 @@
 
 
 <body class="header-fixed sidebar-fixed sidebar-dark header-light" id="body">
-
   <script>
       NProgress.configure({ showSpinner: false });
       NProgress.start();
@@ -63,30 +62,32 @@
             <div class="mr-auto p-2">
                 <h1>Appels des donateurs</h1>
             </div>
-            <form action="/javascript:;" onsubmit="test(this)" id="form">
+            <form action="/javascript:;" onsubmit="test(this)" id="search-form">
               <div class="form-row">
                 <div class="col">
                   <label for="area-select">Comité</label>
                   <select name="area" class="form-control form-control-sm" id="area-select">
-                    <option value="" selected>--Aucun comité--</option>
+                    <option value="">--Aucun comité--</option>
                     <option value="number1">1</option>
                     <option value="number2">2</option>
                   </select>
                 </div>
                 <div class="col">
                   <label for="area-select">Début</label>
-                  <input type="date" class="form-control form-control-sm" name="from" id="from" >
+                  <input type="date" class="form-control form-control-sm" name="from" id="from" value="">
                 </div>
                 <div class="col">                          
                   <label for="area-select">Fin</label>
-                  <input type="date" class="form-control form-control-sm" name="to" id="to" >
+                  <input type="date" class="form-control form-control-sm" name="to" id="to" value="">
                 </div>
                 <div class="col">
-                  <label for="area-select" name="search" id="search">Recherche</label>
-                  <input type="text" class="form-control form-control-sm" style="width: 210px" placeholder="ID, RUM, mail, nom, code mission...">
+                  <label for="area-select" >Recherche</label>
+                  <input type="text" name="search" id="search" class="form-control form-control-sm" style="width: 210px" value="" placeholder="ID, RUM, mail, nom, code mission...">
+                </div>
+                <div class="col">
+                  <button type="submit" class="btn btn-lg btn-primary btn-block mb-4 btn-sm">Filtrer</button>
                 </div>
               </div>
-              <button type="submit" class="btn btn-lg btn-primary btn-block mb-4 btn-sm">Filtrer</button>
             </form>
           </div>
             <!--The content FIRST ROW -->
@@ -102,6 +103,7 @@
 
         <footer class="footer mt-auto" id="footer"></footer>
       </div>
+    </div>
 
     <script src="assets/plugins/slimscrollbar/jquery.slimscroll.min.js"></script>
     <script src="assets/plugins/jekyll-search.min.js"></script>
