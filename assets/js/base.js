@@ -2,7 +2,6 @@ $.getScript("assets/js/config.js", function () {
     if(environment == "prod") {
         $(function(){
             // $("#sidebar").load("sidebar.html");
-            callsidebar();
             get("context/current-user",callheaderDev);
         });
         if(!window.location.pathname.includes("welcome-call")) {
@@ -17,18 +16,11 @@ $.getScript("assets/js/config.js", function () {
     }
 });
 
-function callsidebar(){
-    $.get('sidebar.html', function(templates) {
-        var header = $(templates).filter('#tpl-sidebar').html();
-        $('#sidebar').append(Mustache.render(header, {}));
-    });
-}
-
 //Get element with Jquery + moustache
 function callheader(result){
     $.get('header.html', function(templates) {
         var header = $(templates).filter('#tpl-header').html();
-        $('#header').append(Mustache.render(header, result));
+        $('#sidebar').append(Mustache.render(header, result));
     });
 }
 
