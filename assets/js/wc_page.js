@@ -26,7 +26,7 @@ function fillSearchPageWithSessionStorage() {
     let area = document.getElementById('area-select');
     area.value = localStorage.getItem("area");
 
-    let inputs = document.getElementsByTagName('input');
+    let inputs = document.getElementById("form-row").getElementsByTagName('input');
     for(const element of inputs) {
         element.value = localStorage.getItem(element.name);
     };

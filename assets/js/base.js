@@ -3,7 +3,7 @@ $.getScript("assets/js/config.js", function () {
         $(function(){
             // $("#sidebar").load("sidebar.html");
             callsidebar();
-            get("context/current-user",callheader);
+            get("context/current-user",callheaderDev);
         });
         if(!window.location.pathname.includes("welcome-call")) {
             window.location.replace("welcome-call.html");
@@ -20,7 +20,7 @@ $.getScript("assets/js/config.js", function () {
 function callsidebar(){
     $.get('sidebar.html', function(templates) {
         var header = $(templates).filter('#tpl-sidebar').html();
-        $('#sidebar').append(Mustache.render(header, result));
+        $('#sidebar').append(Mustache.render(header, {}));
     });
 }
 
