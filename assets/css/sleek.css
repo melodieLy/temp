@@ -10745,7 +10745,7 @@ div.copied {
     line-height: 75px;
     width: 250px;
     transition: width 0.3s ease-in-out;
-    padding-left: 1.56rem; }
+    padding-left: 1.00rem; }
     @media (prefers-reduced-motion: reduce) {
       .app-brand a {
         transition: none; } }
