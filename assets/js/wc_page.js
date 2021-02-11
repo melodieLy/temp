@@ -3,8 +3,8 @@ if(!window.location.hash.includes("#")) {
     getWCPage(data, null);
 }
 
-get("associations/"+cookies.assoId+"/areas", getWCSearchbar);
-// get("associations/LNCC/areas", getWCSearchbar);
+// get("associations/"+cookies.assoId+"/areas", getWCSearchbar);
+get("associations/LNCC/areas", getWCSearchbar);
 
 function getWCSearchbar(data) {
     $.get('components/wc_searchbar.html', function(templates) {
