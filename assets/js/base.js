@@ -32,11 +32,9 @@ function callheaderDev(result){
     });
 }
 
-$.get('footer.html', function(templates) {
-    var footer = $(templates).filter('#tpl-footer').html();
-    let footerData = {};
-    $('#footer').append(Mustache.render(footer, footerData));
-});
+var d = new Date();
+var year = d.getFullYear();
+document.getElementById("copy-year").innerHTML = year;
 
 // $.get('sidebar-configuration.html', function(templates) {
 //     var sidebarConfig = $(templates).filter('#tpl-sidebar-config').html();
