@@ -1,8 +1,8 @@
 $.getScript("assets/js/config.js", function () {
     if(environment == "prod") {
         $(function(){
-            // $("#sidebar").load("sidebar.html");
-            get("context/current-user",callheaderDev);
+            $("#sidebar").load("sidebar.html");
+            get("context/current-user",callheader);
         });
         if(!window.location.pathname.includes("welcome-call")) {
             window.location.replace("welcome-call.html");
@@ -20,7 +20,7 @@ $.getScript("assets/js/config.js", function () {
 function callheader(result){
     $.get('header.html', function(templates) {
         var header = $(templates).filter('#tpl-header').html();
-        $('#sidebar').append(Mustache.render(header, result));
+        $('#header').append(Mustache.render(header, result));
     });
 }
 
