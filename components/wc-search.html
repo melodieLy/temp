@@ -1,6 +1,6 @@
 <script id="tpl-wc-search" type="text/html">
 
-<form action="javascript:void(0);" onsubmit="getWCPage(document.getElementById('pagenumber').value,this)" id="search-form">
+  <form action="javascript:void(0);" onsubmit="getWCPage(document.getElementById('pagenumber').value,this)" id="search-form">
     <div class="form-row">
       <div class="col">
         <label id="area-label" for="area-select">Comité</label>
@@ -26,11 +26,13 @@
       <div class="col">
         <button type="submit" class="btn btn-lg btn-primary btn-block mb-4 btn-sm" style="margin-top: 30px;">Filtrer</button>
       </div>
+      <div class="col">
+        <a class="btn btn-lg btn-primary btn-block mb-4 btn-sm" style="color:white;" onclick="deleteSeachHistory()" style="margin-top: 30px;">
+          Effacer
+        </a>
+      </div> 
     </div>
-</form>
-<div style="margin:5px;">
-  <button class="btn btn-lg btn-primary btn-block mb-4 btn-sm" onclick="deleteSeachHistory()" style="margin-top: 30px;">Effacer</button>
-</div>
+  </form>
 
 
 </script>
