@@ -19,7 +19,7 @@ function getWCSearchbar(data) {
 }
 
 function fillSearchPageWithSessionStorage(component) {
-    let area = component.getElementsByTagName('select');
+    let area = component.document.getElementById('area-select');
     area.value = localStorage.getItem("area");
 
     let inputs = component.getElementsByTagName('input');
