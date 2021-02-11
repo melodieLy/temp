@@ -34,6 +34,7 @@ function fillSearchPageWithSessionStorage() {
 
 function getWCPage (data,param) {
     const urlParam = getUrlParam(param);
+    if(data == null) data = document.getElementById("pagenumber").value;
 
     $.ajax({
         url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page='+data + urlParam,
