@@ -9,17 +9,19 @@ get("associations/LNCC/areas", getWCSearchbar);
 function getWCSearchbar(data) {
     $.get('components/wc-search.html', function(templates) {
         var component = $(templates).filter('#tpl-wc-search').html();
+        $('#welcome-call').append(Mustache.render(component,data));
+
         if(data == null) {
-            let tagToHide = component.document.getElementById('area-select');
+            let tagToHide = document.getElementById('area-select');
             tagToHide.setAttribute("style","display:none;");
         }
-        fillSearchPageWithSessionStorage(component);
-        $('#welcome-call').append(Mustache.render(component,data));
+
+        fillSearchPageWithSessionStorage();
     });
 }
 
-function fillSearchPageWithSessionStorage(component) {
-    let area = component.document.getElementById('area-select');
+function fillSearchPageWithSessionStorage() {
+    let area = document.getElementById('area-select');
     area.value = localStorage.getItem("area");
 
     let inputs = component.getElementsByTagName('input');
