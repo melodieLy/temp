@@ -7,7 +7,7 @@ if(!window.location.hash.includes("#")) {
 get("associations/LNCC/areas", getWCSearchbar);
 
 function getWCSearchbar(data) {
-    $.get('components/wc_searchbar.html', function(templates) {
+    $.get('components/wc-search.html', function(templates) {
         var component = $(templates).filter('#tpl-wc-search').html();
         if(data == null) {
             let tagToHide = component.document.getElementById('area-select');
