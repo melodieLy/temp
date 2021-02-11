@@ -18,6 +18,7 @@ for (let i = 0; i < element.length; i++) {
         if(navText[j].href == url) {
 
             element[i].classList.toggle('active');
+            element[i].classList.toggle('expand');
             let t = element[i].getElementsByTagName('ul');
             t[0].classList.toggle('show');
         }
