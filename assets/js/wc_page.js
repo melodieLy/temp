@@ -142,3 +142,13 @@ function searchHistory(select,inputs) {
         if(element.value) sessionStorage.setItem(element.name, element.value);
     };
 }
+
+function deleteSeachHistory() {
+    sessionStorage.clear();
+    document.getElementById( "area-select" ).value = "";
+
+    let input = form.getElementsByTagName("input");
+    for(const element of input) {
+        element.value = "";
+    };
+}
