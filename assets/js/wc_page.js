@@ -22,10 +22,14 @@ function getWCSearchbar(data) {
 
 function fillSearchPageWithSessionStorage() {
     let area = document.getElementById('area-select');
+    localStorage.setItem("area","56881226-bdf2-45d0-94db-a7ca1b761624");
     area.value = localStorage.getItem("area");
 
     let inputs = document.getElementsByTagName('input');
     for(const element of inputs) {
+        if(element.name == 'to' ) localStorage.setItem(element.name, "2021-01-01");
+        if(element.name == 'from' ) localStorage.setItem(element.name, "2021-03-03");
+        if(element.name == 'search') localStorage.setItem(element.name, "work");
         element.value = localStorage.getItem(element.name);
     };
 }
