@@ -11,6 +11,9 @@ function getWCSearchbar(data) {
         $('#form-row').append(Mustache.render(component,data));
 
         if(data == null) {
+            let labelToHide = document.getElementById("area-label");
+            labelToHide.setAttribute("style","display:none;");
+
             let tagToHide = document.getElementById('area-select');
             tagToHide.setAttribute("style","display:none;");
         }
