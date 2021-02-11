@@ -32,9 +32,11 @@ function callheaderDev(result){
     });
 }
 
-var d = new Date();
-var year = d.getFullYear();
-document.getElementById("copy-year").innerHTML = year;
+$(document).ready(function() {
+    var d = new Date();
+    var year = d.getFullYear();
+    document.getElementById("copy-year").innerHTML = year;
+});
 
 // $.get('sidebar-configuration.html', function(templates) {
 //     var sidebarConfig = $(templates).filter('#tpl-sidebar-config').html();
