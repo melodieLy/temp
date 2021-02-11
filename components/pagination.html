@@ -2,7 +2,9 @@
     <nav id="nav-page">
         <ul class="pagination">
             <li class="page-item">
-              <a class="page-link" onClick="getWCPage({{previousPage}}, document.getElementById('search-form'))" href="#{{previousPage}}" tabindex="-1">Précédent</a>
+              <a class="page-link" onClick="getWCPage({{previousPage}}, document.getElementById('search-form'))" href="#{{previousPage}}" tabindex="-1">
+                <span class="mdi mdi-chevron-left"></span>
+              </a>
             </li>
 
                 <li class="page-item">
@@ -13,8 +15,12 @@
                   </div>
                 </form>
                 </li>
-                <li class="page-item disabled"><a class="page-link">/ {{TotalPages}}</a></li>
-            <li class="page-item"><a class="page-link" onClick="getWCPage({{nextPage}}, document.getElementById('search-form'))" href="#{{nextPage}}">Suivant</a></li>
+                <li class="page-item disabled"><a class="page-link">/{{TotalPages}}</a></li>
+            <li class="page-item">
+              <a class="page-link" onClick="getWCPage({{nextPage}}, document.getElementById('search-form'))" href="#{{nextPage}}">
+                <span class="mdi mdi-chevron-right"></span>
+              </a>
+            </li>
         </ul>
     </nav>
 
