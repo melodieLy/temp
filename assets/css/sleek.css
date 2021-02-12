@@ -10757,7 +10757,7 @@ div.copied {
       vertical-align: middle; }
   .app-brand .brand-name {
     color: #ffffff;
-    font-size: 1.12rem;
+    font-size: 100%;
     margin-left: 0.94rem;
     max-width: 170px; }
 
