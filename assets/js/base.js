@@ -38,9 +38,3 @@ $(document).ready(function() {
     document.getElementById("copy-year").innerHTML = year;
 });
 
-// $.get('sidebar-configuration.html', function(templates) {
-//     var sidebarConfig = $(templates).filter('#tpl-sidebar-config').html();
-//     let sidebarConfigData = {};
-//     $('#sidebarConfig').append(Mustache.render(sidebarConfig, sidebarConfigData));
-// });    
-
