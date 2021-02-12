@@ -73,6 +73,14 @@ function deleteCookie() {
     document.cookie = "expires=Thu Jan 01 1970 00:00:00 UTC; token=; username=; asso=; assoId=;";
 }
 
+function removeOldTable() {
+    if($('table')) {
+        $('table').remove();
+        $('nav#nav-page').remove();
+    }
+}
+
+
 const cookies = getCookie();
 
 function get(path) {
