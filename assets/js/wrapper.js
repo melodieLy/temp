@@ -4,7 +4,7 @@ function showAlert(errorInfo) {
       let data = {"error" : errorInfo};
       $('#body').append(Mustache.render(alert, data));
     });
-  }
+}
 
 $(document).ready(function() {
     if(cookies === undefined) {
@@ -149,6 +149,58 @@ function download(path, param) {
         }
     })
 
+    .fail(function(xhr) {
+        getError(xhr);
+    });
+}
+
+function getWelcomeCall(path) {
+    $.ajax({
+        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page='+path,
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept":"application/json",
+            "Authorization": "bearer " + cookies.token
+        },
+        method: "GET",
+        success: function (data, textStatus, request) {
+            removeOldTable();
+
+            $.get('components/wc_table.html', function(templates) {
+                var component = $(templates).filter('#tpl-wc-table').html();
+                if(data) {
+                    data.forEach(element => {
+                        if(element.LastContact) element.LastContact = moment(element.LastContact).format('L');
+                    });
+                }
+                $('#welcome-call').append(Mustache.render(component,data));
+            });
+            
+            $.get('components/pagination.html', function(templates) {
+                var component = $(templates).filter('#pagination-comp').html();
+                let paginSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
+                if(paginSetup.TotalPages == 0) paginSetup.TotalPages = 1;
+                $('#pagination-row').append(Mustache.render(component, {
+                    "PageSize":paginSetup.PageSize,
+                    "PageNumber":paginSetup.PageNumber,
+                    "TotalCount":paginSetup.TotalCount,
+                    "TotalPages":paginSetup.TotalPages,
+                    "nextPage": function () {
+                        const result = paginSetup.PageNumber + 1;
+                        if(result == 0) return result;
+                        else if(result >= paginSetup.TotalPages) return paginSetup.TotalPages;
+                        else return result;
+                    },
+                    "previousPage": function () {
+                        const result = paginSetup.PageNumber - 1;
+                        if(result == 0) return 1;
+                        else return result;
+                    }
+                }));
+
+            });
+        }
+    })
     .fail(function(xhr) {
         getError(xhr);
     });
