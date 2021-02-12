@@ -62,6 +62,7 @@ function getWCPage (data,param) {
             $.get('components/pagination.html', function(templates) {
                 var component = $(templates).filter('#pagination-comp').html();
                 let paginSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
+                if(paginSetup.TotalPages == 0) paginSetup.TotalPages = 1;
                 $('#pagination-row').append(Mustache.render(component, {
                     "PageSize":paginSetup.PageSize,
                     "PageNumber":paginSetup.PageNumber,
@@ -69,7 +70,8 @@ function getWCPage (data,param) {
                     "TotalPages":paginSetup.TotalPages,
                     "nextPage": function () {
                         const result = paginSetup.PageNumber + 1;
-                        if(result >= paginSetup.TotalPages) return paginSetup.TotalPages;
+                        if(result == 0) return result;
+                        else if(result >= paginSetup.TotalPages) return paginSetup.TotalPages;
                         else return result;
                     },
                     "previousPage": function () {
