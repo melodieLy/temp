@@ -31,10 +31,3 @@ function callheaderDev(result){
         $('#header').append(Mustache.render(header, result));
     });
 }
-
-// $(document).ready(function() {
-//     var d = new Date();
-//     var year = d.getFullYear();
-//     document.getElementById("copy-year").innerHTML = year;
-// });
-
