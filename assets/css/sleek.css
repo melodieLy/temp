@@ -10760,6 +10760,12 @@ div.copied {
     font-size: 100%;
     margin-left: 0.94rem;
     max-width: 170px; }
+  .app-brand .brand-title {
+    color: #ffffff;
+    font-size: 1.55em;
+    margin-left: 0.94rem;
+    max-width: 170px;
+    vertical-align: middle; }
 
 /*  Nav menus Icon Styles */
 .sidebar .nav > li > a i {
