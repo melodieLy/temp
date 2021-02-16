@@ -32,9 +32,9 @@ function callheaderDev(result){
     });
 }
 
-$(document).ready(function() {
-    var d = new Date();
-    var year = d.getFullYear();
-    document.getElementById("copy-year").innerHTML = year;
-});
+// $(document).ready(function() {
+//     var d = new Date();
+//     var year = d.getFullYear();
+//     document.getElementById("copy-year").innerHTML = year;
+// });
 
