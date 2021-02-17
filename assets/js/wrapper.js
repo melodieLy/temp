@@ -172,7 +172,7 @@ function download(path, param) {
 
 function getWelcomeCall(path) {
     $.ajax({
-        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId+'?Page='+path,
+        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId[cookies.actualAsso]+'?Page='+path,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",

@@ -3,7 +3,8 @@ if(!window.location.hash.includes("#")) {
     getWCPage(data, null);
 }
 
-get("associations/"+cookies.assoId+"/areas", getWCSearchbar);
+// Rempli la combo-box "comité" de la searchbar. Appel la requête et rends visible ou non l'élement selon le résulat 
+get("associations/"+cookies.assoId[cookies.actualAsso]+"/areas", getWCSearchbar);
 
 function getWCSearchbar(data) {
     $.get('components/wc-search.html', function(templates) {
@@ -18,6 +19,7 @@ function getWCSearchbar(data) {
         fillSearchPageWithSessionStorage();
     });
 }
+
 
 function getWCPage (data,param) {
     const urlParam = getUrlParam(param);
