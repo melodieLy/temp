@@ -40,16 +40,16 @@ function createCookieAsso(setup) {
   let assoIdList = "";
   
   for ( i = 0; i < setup.length; i++) {
-    if(setup.Role.Id === "FORMS-MANAGER") {
+    if(setup[i].Role.Id === "FORMS-MANAGER") {
       if(i < 1) {
-        assoNameList = setup.Association.Name +",";
-        assoIdList = setup.Association.Id +",";
+        assoNameList = setup[i].Association.Name +",";
+        assoIdList = setup[i].Association.Id +",";
       } else if (i == setup.length - 1) {
-        assoNameList += setup.Association.Name;
-        assoIdList += setup.Association.Id ;
+        assoNameList += setup[i].Association.Name;
+        assoIdList += setup[i].Association.Id ;
       } else {
-        assoNameList += setup.Association.Name +",";
-        assoIdList += setup.Association.Id +",";
+        assoNameList += setup[i].Association.Name +",";
+        assoIdList += setup[i].Association.Id +",";
       }
     }
   }
