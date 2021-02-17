@@ -39,14 +39,23 @@ function createCookieAsso(setup) {
   let assoNameList = "";
   let assoIdList = "";
   
-  setup.forEach(element => {
+  for ( i = 0; i < setup.length; i++) {
     if(element.Role.Id === "FORMS-MANAGER") {
-      assoNameList += element.Association.Name +",";
-      assoIdList += element.Association.Id +",";
+      if(i < 1) {
+        assoNameList = element.Association.Name +",";
+        assoIdList = element.Association.Id +",";
+      } else if (i == setup.length - 1) {
+        assoNameList += element.Association.Name;
+        assoIdList += element.Association.Id ;
+      } else {
+        assoNameList += element.Association.Name +",";
+        assoIdList += element.Association.Id +",";
+      }
     }
-  });
+  }
   document.cookie = "assoName=" + assoNameList +";";
   document.cookie = "assoId=" + assoIdList + ";";
+  document.cookie = "actualAsso=" + 1 + ';' 
 };
 
 function findAsso(param) {
