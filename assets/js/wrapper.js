@@ -55,7 +55,7 @@ function getCookie() {
 
     let cookieData = document.cookie.split(";");
     let result = new Array();
-    const names = ["username", "token","assoName", "assoId", "expires"]
+    const names = ["username", "token","assoName", "assoId", "expires","actualAsso"]
 
     cookieData.forEach(element => {
         for (let i = 0; i < names.length; i++) {
@@ -78,7 +78,7 @@ function getCookie() {
 };
 
 function deleteCookie() {
-    document.cookie = "expires=Thu Jan 01 1970 00:00:00 UTC; token=; username=; asso=; assoId=;";
+    document.cookie = "expires=Thu Jan 01 1970 00:00:00 UTC; token=; username=; asso=; assoId=; actualAsso=;";
 }
 
 function removeOldTable() {
