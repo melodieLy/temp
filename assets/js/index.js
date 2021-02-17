@@ -36,16 +36,17 @@ function createCookieAuth(setup,time,username) {
 };
 
 function createCookieAsso(setup) {
+  let assoNameList = "";
+  let assoIdList = "";
+  
   setup.forEach(element => {
-    let assoNameList;
-    let assoIdList;
     if(element.Role.Id === "FORMS-MANAGER") {
       assoNameList += element.Association.Name +",";
       assoIdList += element.Association.Id +",";
     }
-    document.cookie = "assoName=" + assoNameList +";";
-    document.cookie = "assoId=" + assoIdList + ";";
   });
+  document.cookie = "assoName=" + assoNameList +";";
+  document.cookie = "assoId=" + assoIdList + ";";
 };
 
 function findAsso(param) {
