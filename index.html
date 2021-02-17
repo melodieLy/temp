@@ -89,6 +89,14 @@
       $("#form").submit(function(e) {
         e.preventDefault();
       });
+
+      $(document).ready(function() {
+        const v1 = false;
+        const v2 = true;
+        if(v1 || v2) {
+          alert('pass');
+        }
+      });
     </script>
 </body>
 </html>

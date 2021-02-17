@@ -37,10 +37,14 @@ function createCookieAuth(setup,time,username) {
 
 function createCookieAsso(setup) {
   setup.forEach(element => {
+    let assoNameList = null;
+    let assoIdList = null;
     if(element.Role.Id === "FORMS-MANAGER") {
-      document.cookie = "assoName=" + element.Association.Name;
-      document.cookie = "assoId=" + element.Association.Id;
+      assoNameList += element.Association.Name +",";
+      assoIdList += element.Association.Id +",";
     }
+    document.cookie = "assoName=" + assoNameList +";";
+    document.cookie = "assoId=" + assoIdList + ";";
   });
 };
 
