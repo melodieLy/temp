@@ -61,11 +61,9 @@ function getCookie() {
         for (let i = 0; i < names.length; i++) {
             const actualName = names[i];
             if(element.includes(actualName)) {
-                if(actualName == "AssoName" || actualName == "assoId") {
+                if(actualName == "assoName" || actualName == "assoId") {
                     let toSplit = (element.split('=').pop());
-                    console.log("toSPlit : " + toSplit);
                     const arrayAsso = toSplit.split(',');
-                    console.log("array asso : " + arrayAsso);
                     result[actualName] = arrayAsso;
                     console.log("resultat : " + result[actualName])
                 } 
