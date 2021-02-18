@@ -10858,7 +10858,7 @@ div.copied {
   .sidebar .sidenav-item-link .nav-text {
     margin-right: auto;
     overflow: hidden;
-    max-width: 130px;
+    max-width: 150px;
     text-overflow: ellipsis;
     white-space: nowrap; }
   .sidebar .sidenav-item-link .badge {

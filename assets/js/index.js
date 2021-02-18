@@ -55,7 +55,7 @@ function createCookieAsso(setup) {
   }
   document.cookie = "assoName=" + assoNameList +";";
   document.cookie = "assoId=" + assoIdList + ";";
-  document.cookie = "actualAsso=" + 1 + ';' 
+  document.cookie = "actualAsso=" + 0 + ';' 
 };
 
 function findAsso(param) {
