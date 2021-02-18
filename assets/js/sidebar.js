@@ -2,21 +2,19 @@ $(function(){
   $("#association").append(Mustache.render(
     template,{
     img_src:retrieveAssoLogo(),
-    name : function () {
-      return hardCopy(cookies.assoName);
-    },
-    id : function () {
-      return hardCopy(cookies.assoId);
+    associations : function () {
+      return createAssoData(cookies.assoName, cookies.assoId);
     },
     actualName: cookies.assoName[cookies.actualAsso]
   }))
 });
 
-function hardCopy(originalArray) {
+function createAssoData(assoName, assoId) {
   let copy = [];
-  for (let i = 0; i < originalArray.length; i++) {
-    if(cookies.actualAsso != i) {
-      const element = originalArray[i];
+  for (let i = 0; i < assoName.length; i++) {
+    if(!cookies.actualAsso != i) {
+      const element = '{name:' + assoName[i] + ', id:'+ assoId[i] +'}';
+
       copy.push(element);
     }
   }
@@ -50,8 +48,8 @@ const template =
 <form class="brand-flex">
   <select class="brand-association">
   <option value="">{{actualName}}</option>
-  {{#name}}
+  {{#associations}}
   <option value="{{id}}">{{name}}</option>
-  {{/name}}  
+  {{/associations}}  
   </select>
 </form>`
