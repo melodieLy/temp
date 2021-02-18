@@ -15,7 +15,7 @@ $(function(){
 function hardCopy(originalArray) {
   let copy = [];
   for (let i = 0; i < originalArray.length; i++) {
-    if(!cookies.actualAsso == i) {
+    if(cookies.actualAsso != i) {
       const element = originalArray[i];
       copy.push(element);
     }
