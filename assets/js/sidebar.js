@@ -1,10 +1,11 @@
 $(function(){
+  console.log(createAssoData(cookies.assoName,cookies.assoId));
   $("#association").append(Mustache.render(
     template,{
     img_src:retrieveAssoLogo(),
-    associations : function () {
-      return createAssoData(cookies.assoName, cookies.assoId);
-    },
+    associations : [
+      createAssoData(cookies.assoName,cookies.assoId)
+    ],
     actualName: cookies.assoName[cookies.actualAsso]
   }))
 });
@@ -12,9 +13,11 @@ $(function(){
 function createAssoData(assoName, assoId) {
   let copy = [];
   for (let i = 0; i < assoName.length; i++) {
-    if(!cookies.actualAsso != i) {
-      const element = '{name:' + assoName[i] + ', id:'+ assoId[i] +'}';
-
+    if(!cookies.actualAsso != i && i < assoName.length - 2) {
+      const element = '{"name":' + assoName[i] + ', "id":'+ assoId[i] +'},';
+      copy.push(element);
+    } else {
+      const element = '{"name":' + assoName[i] + ', "id":'+ assoId[i] +'}';
       copy.push(element);
     }
   }
@@ -48,9 +51,8 @@ const template =
 <form class="brand-flex">
   <select class="brand-association">
   <option value="">{{actualName}}</option>
-  {{#.}}
-  {{associations}}
-  <option value="{{id}}">{{associations.name}}</option>
-  {{/.}}  
+  {{#associations}}
+  <option value="{{id}}">{{name}}</option>
+  {{/associations}}  
   </select>
 </form>`
