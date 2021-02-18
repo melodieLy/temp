@@ -10766,6 +10766,13 @@ div.copied {
     margin-left: 0.94rem;
     max-width: 170px;
     vertical-align: middle; }
+    .app-brand .brand-association {
+      color: #ffffff;
+      background-color: #666666;
+      font-weight:bold; 
+      border: none; 
+      font-size: 100%;
+      }
 
 /*  Nav menus Icon Styles */
 .sidebar .nav > li > a i {

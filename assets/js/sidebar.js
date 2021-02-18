@@ -28,7 +28,7 @@ for (let i = 0; i < element.length; i++) {
 
 const template = 
 `<img src="{{img_src}}" class="brand-icon" width="56px;" id="logo" />
-<select style="background-color: #666666; border: none; font-size: 100%;">
+<select class="brand-association">
 <option value="">League contre le cancer</option>
 <option value="">Medecin du monde</option>
 </select>`
