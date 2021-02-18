@@ -2,9 +2,26 @@ $(function(){
   $("#association").append(Mustache.render(
     template,{
     img_src:retrieveAssoLogo(),
-    // Name: cookies.assoName[cookies.actualAsso]
+    name : function () {
+      let resultList = hardCopy(cookies.assoName);
+      resultList.splice(cookies.actualAsso,1);
+      return resultList;
+    },
+    id : function () {
+      let resultList = hardCopy(cookies.assoId);
+      resultList.splice(cookies.actualAsso,1);
+      return resultList;
+    },
+    actualName: cookies.assoName[actualAsso]
   }))
 });
+
+function hardCopy(originalArray) {
+  let copy = [];
+  originalArray.forEach(element => {
+    copy.push(element);
+  });
+}
 
 function retrieveAssoLogo() {
   return 'https://recette-api.song-fr.com/public/associations/'+cookies.assoId[cookies.actualAsso] + '/logo'
@@ -32,8 +49,9 @@ const template =
 </a>
 <form class="brand-flex">
   <select class="brand-association">
+  <option value="">{{actualName}}</option>
   {{#.}}
-  <option value="{{cookies.assoId}}">{{cookies.assoName}}</option>
+  <option value="{{id}}">{{name}}</option>
   {{/.}}  
   </select>
 </form>`
