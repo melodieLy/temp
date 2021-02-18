@@ -10773,6 +10773,10 @@ div.copied {
       border: none; 
       font-size: 100%;
       }
+      .brand-flex {
+        display: flex;
+        flex-direction: row;
+      }
 
 /*  Nav menus Icon Styles */
 .sidebar .nav > li > a i {

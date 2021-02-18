@@ -28,11 +28,11 @@ for (let i = 0; i < element.length; i++) {
 
 const template = 
 `<a href="welcome-call.html" title="ONG Conseil Dashboard" >
-<img src="{{img_src}}" class="brand-icon" width="56px;" id="logo" />    
+  <img src="{{img_src}}" class="brand-icon" width="56px;" id="logo" />    
 </a>
-<form>
-<select class="brand-association">
-<option value="" selected>League contre le cancer</option>
-<option value="">Medecin du monde</option>
-</select>
+<form class="brand-flex">
+  <select class="brand-association">
+  <option value="" selected>League contre le cancer</option>
+  <option value="">Medecin du monde</option>
+  </select>
 </form>`
