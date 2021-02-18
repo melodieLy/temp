@@ -6,9 +6,6 @@ $(function(){
     associations : [
       createAssoData(cookies.assoName,cookies.assoId)
     ],
-    "options" : function () {
-      return '<option value="'+this.id + '">'+ this.name + '</option>'
-    },
     actualName: cookies.assoName[cookies.actualAsso]
   }))
 });
@@ -17,8 +14,7 @@ function createAssoData(assoName, assoId) {
   let copy = [];
   for (let i = 0; i < assoName.length; i++) {
     if(!cookies.actualAsso != i) {
-      let element = '{"name":' + assoName[i] + ', "id":'+ assoId[i] +'}';
-      if(i < assoName.length - 2) element += ','
+      let element = {name: assoName[i], id: assoId[i]}
       copy.push(element);
     }
   }
@@ -53,7 +49,7 @@ const template =
   <select class="brand-association">
   <option value="">{{actualName}}</option>
   {{#associations}}
-    {{option}}
+    <option value="{{id}}">{{name}}</option>
   {{/associations}}  
   </select>
 </form>`
