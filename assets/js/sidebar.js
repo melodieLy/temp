@@ -21,6 +21,7 @@ function hardCopy(originalArray) {
   originalArray.forEach(element => {
     copy.push(element);
   });
+  return copy;
 }
 
 function retrieveAssoLogo() {

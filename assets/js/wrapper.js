@@ -65,7 +65,6 @@ function getCookie() {
                     let toSplit = (element.split('=').pop());
                     const arrayAsso = toSplit.split(',');
                     result[actualName] = arrayAsso;
-                    console.log("resultat : " + result[actualName])
                 } 
                 else {
                     result[actualName] = (element.split('=').pop());
