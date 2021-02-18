@@ -28,7 +28,9 @@ for (let i = 0; i < element.length; i++) {
 
 const template = 
 `<img src="{{img_src}}" class="brand-icon" width="56px;" id="logo" />
+<form>
 <select class="brand-association">
 <option value="">League contre le cancer</option>
 <option value="">Medecin du monde</option>
-</select>`
+</select>
+</form>`
