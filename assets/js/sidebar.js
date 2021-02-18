@@ -1,11 +1,9 @@
 $(function(){
-  console.log(createAssoData(cookies.assoName,cookies.assoId));
+  const t = createAssoData(cookies.assoName, cookies.assoId);
   $("#association").append(Mustache.render(
     template,{
     img_src:retrieveAssoLogo(),
-    associations : [
-      createAssoData(cookies.assoName,cookies.assoId)
-    ],
+    associations : t,
     actualName: cookies.assoName[cookies.actualAsso]
   }))
 });
