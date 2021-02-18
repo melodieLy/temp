@@ -48,8 +48,9 @@ const template =
 <form class="brand-flex">
   <select class="brand-association">
   <option value="">{{actualName}}</option>
-  {{#associations}}
-  <option value="{{id}}">{{name}}</option>
-  {{/associations}}  
+  {{#.}}
+  {{associations}}
+  <option value="{{id}}">{{associations.name}}</option>
+  {{/.}}  
   </select>
 </form>`
