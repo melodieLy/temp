@@ -53,6 +53,7 @@ const template =
   <select class="brand-association">
   <option value="">{{actualName}}</option>
   {{#associations}}
+    {{option}}
   {{/associations}}  
   </select>
 </form>`
