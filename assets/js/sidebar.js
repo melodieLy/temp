@@ -10,6 +10,7 @@ $(function(){
     id : function () {
       let resultList = hardCopy(cookies.assoId);
       resultList.splice(cookies.actualAsso,1);
+      console.log(resultList[0])
       return resultList;
     },
     actualName: cookies.assoName[cookies.actualAsso]
