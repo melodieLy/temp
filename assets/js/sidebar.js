@@ -32,7 +32,8 @@ const template =
 </a>
 <form class="brand-flex">
   <select class="brand-association">
-  <option value="" selected>League contre le cancer</option>
-  <option value="">Medecin du monde</option>
+  {{#.}}
+  <option value="{{cookies.assoId}}">{{cookies.assoName}}</option>
+  {{/.}}  
   </select>
 </form>`
