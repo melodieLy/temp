@@ -51,8 +51,8 @@ const template =
 <form class="brand-flex">
   <select class="brand-association">
   <option value="">{{actualName}}</option>
-  {{#.}}
+  {{#name}}
   <option value="{{id}}">{{name}}</option>
-  {{/.}}  
+  {{/name}}  
   </select>
 </form>`
