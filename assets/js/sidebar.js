@@ -3,15 +3,10 @@ $(function(){
     template,{
     img_src:retrieveAssoLogo(),
     name : function () {
-      let resultList = hardCopy(cookies.assoName);
-      resultList.splice(cookies.actualAsso,1);
-      return resultList;
+      return hardCopy(cookies.assoName);
     },
     id : function () {
-      let resultList = hardCopy(cookies.assoId);
-      resultList.splice(cookies.actualAsso,1);
-      console.log(resultList[0])
-      return resultList;
+      return hardCopy(cookies.assoId);
     },
     actualName: cookies.assoName[cookies.actualAsso]
   }))
@@ -19,9 +14,12 @@ $(function(){
 
 function hardCopy(originalArray) {
   let copy = [];
-  originalArray.forEach(element => {
-    copy.push(element);
-  });
+  for (let i = 0; i < originalArray.length; i++) {
+    if(!cookies.actualAsso == i) {
+      const element = array[i];
+      copy.push(element);
+    }
+  }
   return copy;
 }
 
