@@ -12,7 +12,7 @@ $(function(){
       resultList.splice(cookies.actualAsso,1);
       return resultList;
     },
-    actualName: cookies.assoName[actualAsso]
+    actualName: cookies.assoName[cookies.actualAsso]
   }))
 });
 
