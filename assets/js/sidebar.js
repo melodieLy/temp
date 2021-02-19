@@ -15,7 +15,7 @@ function changeActualAssociation() {
   if(newAsso === cookies.assoId[cookies.actualAsso]) return;
   else {
     changeAssociationPage(newAsso);
-    document.location.reload();
+    document.location.replace("welcome-call.html");
   }
 }
 
