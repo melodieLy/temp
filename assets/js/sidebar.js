@@ -14,13 +14,12 @@ function changeActualAssociation() {
 
   if(newAsso === cookies.assoId[cookies.actualAsso]) return;
   else {
-    changeActualAssociation(newAsso);
+    changeAssociationPage(newAsso);
     document.location.reload();
   }
 }
 
 function changeAssociationPage(newAsso) {
-  console.log('next asso : '+ newAsso);
   for (let i = 0; i < cookies.assoId.length; i++) {
     const element = cookies.assoId[i];
     if(element === newAsso) {
