@@ -1,11 +1,15 @@
 $(function(){
   const t = createAssoData(cookies.assoName, cookies.assoId);
-  $("#association").append(Mustache.render(
-    template,{
-    img_src:retrieveAssoLogo(),
-    associations : t,
-    actualName: cookies.assoName[cookies.actualAsso]
-  }))
+  $.get('components/sidebar_header.html', function(templates) {
+    var component = $(templates).filter('#tpl-sidebar-header').html()
+    $("#association").append(Mustache.render(
+      component, {
+        img_src:retrieveAssoLogo(),
+        associations : t,
+        actualName: cookies.assoName[cookies.actualAsso]
+      }
+    ))
+  })
 });
 
 function createAssoData(assoName, assoId) {
@@ -18,6 +22,10 @@ function createAssoData(assoName, assoId) {
   }
   return copy;
 }
+
+$(".brand-association").change(function(){
+  alert(this);
+})
 
 function retrieveAssoLogo() {
   return 'https://recette-api.song-fr.com/public/associations/'+cookies.assoId[cookies.actualAsso] + '/logo'
@@ -38,16 +46,3 @@ for (let i = 0; i < element.length; i++) {
         }
     }
 }
-
-const template = 
-`<a href="welcome-call.html" title="ONG Conseil Dashboard" >
-  <img src="{{img_src}}" class="brand-icon" width="56px;" id="logo" />    
-</a>
-<form class="brand-flex">
-  <select class="brand-association">
-  <option value="">{{actualName}}</option>
-  {{#associations}}
-    <option value="{{id}}">{{name}}</option>
-  {{/associations}}  
-  </select>
-</form>`
