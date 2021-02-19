@@ -23,9 +23,9 @@ function createAssoData(assoName, assoId) {
   return copy;
 }
 
-$(".brand-association").change(function(){
-  alert(this);
-})
+function changeAssociationPage(event) {
+  alert(this.options[this.selectedIndex].value);
+}
 
 function retrieveAssoLogo() {
   return 'https://recette-api.song-fr.com/public/associations/'+cookies.assoId[cookies.actualAsso] + '/logo'

@@ -87,7 +87,6 @@ function removeOldTable() {
     }
 }
 
-
 const cookies = getCookie();
 
 function get(path) {
