@@ -1,7 +1,7 @@
 function createAssoData(assoName, assoId) {
   let copy = [];
   for (let i = 0; i < assoName.length; i++) {
-    console.log("name : " + assoName[cookies.actualAsso]);
+    console.log("name : " + assoName[i]);
     if(!cookies.actualAsso != i) {
       let element = {name: assoName[i], id: assoId[i]}
       copy.push(element);
@@ -10,8 +10,7 @@ function createAssoData(assoName, assoId) {
   return copy;
 }
 
-function getsidebarHeader(){
-  console.log("test");
+$(document).ready(function(){
   const t = createAssoData(cookies.assoName, cookies.assoId);
   $.get('components/sidebar_header.html', function(templates) {
     var component = $(templates).filter('#tpl-sidebar-header').html()
@@ -24,9 +23,7 @@ function getsidebarHeader(){
       }
     ))
   })
-};
-
-getsidebarHeader();
+});
 
 function changeActualAssociation() {
   const newAsso = this.options[this.selectedIndex].value;
