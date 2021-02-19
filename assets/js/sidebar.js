@@ -35,7 +35,7 @@ function changeAssociationPage(newAsso) {
   });
 }
 
-$(function(){
+$(document).ready(function(){
   const t = createAssoData(cookies.assoName, cookies.assoId);
   $.get('components/sidebar_header.html', function(templates) {
     var component = $(templates).filter('#tpl-sidebar-header').html()
