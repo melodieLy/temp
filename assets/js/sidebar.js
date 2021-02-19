@@ -10,11 +10,11 @@ function createAssoData(assoName, assoId) {
 }
 
 function changeActualAssociation() {
-  alert('nice');
   const newAsso = this.options[this.selectedIndex].value;
 
   if(newAsso === cookies.assoId[cookies.actualAsso]) return;
   else {
+    console.log('else enter : ' + newAsso);
     changeActualAssociation(newAsso);
     document.location.reload();
   }
@@ -25,7 +25,10 @@ function changeAssociationPage(newAsso) {
     const element = cookies.assoId[i];
     if(element === newAsso) {
       document.cookie.replace("actualAsso="+cookies.actualAsso, "actualAsso="+i);
+      console.log(document.cookie);
       cookies.actualAsso = i;
+      alert("new asso : " +cookies.actualAsso);
+
     }
   }
 }
