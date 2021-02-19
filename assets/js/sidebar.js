@@ -9,7 +9,8 @@ function createAssoData(assoName, assoId) {
   return copy;
 }
 
-function changeActualAssociation(newAsso) {
+function changeActualAssociation() {
+  alert('nice');
   const newAsso = this.options[this.selectedIndex].value;
 
   if(newAsso === cookies.assoId[cookies.actualAsso]) return;
