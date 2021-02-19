@@ -10743,7 +10743,7 @@ div.copied {
     align-items: center;
     height: 75px;
     line-height: 75px;
-    width: 250px;
+    /* width: 250px; */
     transition: width 0.3s ease-in-out;
     padding-left: 1.00rem; }
     @media (prefers-reduced-motion: reduce) {

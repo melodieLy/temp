@@ -1,13 +1,21 @@
 <script id="tpl-sidebar-header" type="text/html">
-    <a href="welcome-call.html" title="ONG Conseil Dashboard" >
-        <img src="{{img_src}}" class="brand-icon" width="56px;" id="logo" />    
-    </a>
-    <form class="brand-flex">
-        <select class="brand-association" onchange='changeActualAssociation.call(this,event)'>
-            <option value="{{actualId}}">{{actualName}}</option>
-            {{#associations}}
-            <option value="{{id}}">{{name}}</option>
-            {{/associations}}  
-        </select>
-    </form>
+    <table>
+        <tr>
+            <td>
+                <a href="welcome-call.html" title="ONG Conseil Dashboard" >
+                    <img src="{{img_src}}" class="brand-icon" width="56px;" id="logo" />    
+                </a>
+            </td>
+            <td>
+                <form class="brand-flex">
+                    <select class="brand-association" onchange='changeActualAssociation.call(this,event)'>
+                        <option value="{{actualId}}">{{actualName}}</option>
+                        {{#associations}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/associations}}  
+                    </select>
+                </form>
+            </td>
+        </tr>
+    </table>
 </script>
