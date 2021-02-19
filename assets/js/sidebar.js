@@ -1,7 +1,7 @@
 function createAssoData(assoName, assoId) {
   let copy = [];
   for (let i = 0; i < assoName.length; i++) {
-    console.log("name : " + assoName[i]);
+    console.log("name : " + cookies.actualName[cookies.actualAsso ] );
     if(!cookies.actualAsso != i) {
       let element = {name: assoName[i], id: assoId[i]}
       copy.push(element);
@@ -33,6 +33,7 @@ function changeActualAssociation() {
   if(newAsso === cookies.assoId[cookies.actualAsso]) return;
   else {
     changeAssociationPage(newAsso);
+    getsidebarHeader();
     document.location.replace("welcome-call.html");
   }
 }
