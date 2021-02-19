@@ -1,17 +1,3 @@
-$(function(){
-  const t = createAssoData(cookies.assoName, cookies.assoId);
-  $.get('components/sidebar_header.html', function(templates) {
-    var component = $(templates).filter('#tpl-sidebar-header').html()
-    $("#association").append(Mustache.render(
-      component, {
-        img_src:retrieveAssoLogo(),
-        associations : t,
-        actualName: cookies.assoName[cookies.actualAsso]
-      }
-    ))
-  })
-});
-
 function createAssoData(assoName, assoId) {
   let copy = [];
   for (let i = 0; i < assoName.length; i++) {
@@ -23,9 +9,40 @@ function createAssoData(assoName, assoId) {
   return copy;
 }
 
-function changeAssociationPage(event) {
-  alert(this.options[this.selectedIndex].value);
+function changeActualAssociation(newAsso) {
+  const newAsso = this.options[this.selectedIndex].value;
+
+  if(newAsso === cookies.assoId[cookies.actualAsso]) return;
+  else {
+    changeActualAssociation(newAsso);
+    document.location.reload();
+  }
 }
+
+function changeAssociationPage(newAsso) {
+  for (let i = 0; i < cookies.assoId.length; i++) {
+    const element = cookies.assoId[i];
+    if(element === newAsso) {
+      document.cookie.replace("actualAsso="+cookies.actualAsso, "actualAsso="+i);
+      cookies.actualAsso = i;
+    }
+  }
+}
+
+$(function(){
+  const t = createAssoData(cookies.assoName, cookies.assoId);
+  $.get('components/sidebar_header.html', function(templates) {
+    var component = $(templates).filter('#tpl-sidebar-header').html()
+    $("#association").append(Mustache.render(
+      component, {
+        img_src:retrieveAssoLogo(),
+        associations : t,
+        actualName: cookies.assoName[cookies.actualAsso],
+        actualId: cookies.assoId[cookies.actualAsso]
+      }
+    ))
+  })
+});
 
 function retrieveAssoLogo() {
   return 'https://recette-api.song-fr.com/public/associations/'+cookies.assoId[cookies.actualAsso] + '/logo'

@@ -3,8 +3,8 @@
         <img src="{{img_src}}" class="brand-icon" width="56px;" id="logo" />    
     </a>
     <form class="brand-flex">
-        <select class="brand-association" onchange='changeAssociationPage.call(this,event)'>
-            <option value="">{{actualName}}</option>
+        <select class="brand-association" onchange='changeActualAssociation.call(this,event)'>
+            <option value="{{actualId}}">{{actualName}}</option>
             {{#associations}}
             <option value="{{id}}">{{name}}</option>
             {{/associations}}  
