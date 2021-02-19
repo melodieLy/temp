@@ -11,6 +11,7 @@ function createAssoData(assoName, assoId) {
 }
 
 function getsidebarHeader(){
+  console.log("test");
   const t = createAssoData(cookies.assoName, cookies.assoId);
   $.get('components/sidebar_header.html', function(templates) {
     var component = $(templates).filter('#tpl-sidebar-header').html()
@@ -33,7 +34,6 @@ function changeActualAssociation() {
   if(newAsso === cookies.assoId[cookies.actualAsso]) return;
   else {
     changeAssociationPage(newAsso);
-    getsidebarHeader();
     document.location.replace("welcome-call.html");
   }
 }
