@@ -76,6 +76,34 @@ function getCookie() {
     return result;
 };
 
+function createNewCookie() {
+    if(!document.cookie){
+        return undefined;
+    }
+
+    let cookieData = document.cookie.split(";");
+    let result = new Array();
+    const names = ["username", "token","assoName", "assoId", "expires","actualAsso"]
+
+    cookieData.forEach(element => {
+        for (let i = 0; i < names.length; i++) {
+            const actualName = names[i];
+            if(element.includes(actualName)) {
+                if(actualName == "assoName" || actualName == "assoId") {
+                    let toSplit = (element.split('=').pop());
+                    const arrayAsso = toSplit.split(',');
+                    result[actualName] = arrayAsso;
+                } 
+                else {
+                    result[actualName] = (element.split('=').pop());
+                }
+                break;
+            } 
+        }
+    });
+    return result;
+};
+
 function deleteCookie() {
     document.cookie = "expires=Thu Jan 01 1970 00:00:00 UTC; token=; username=; asso=; assoId=; actualAsso=;";
 }

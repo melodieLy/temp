@@ -20,15 +20,19 @@ function changeActualAssociation() {
 }
 
 function changeAssociationPage(newAsso) {
+  const names = ["username", "token","assoName", "assoId", "expires","actualAsso"];
+
   for (let i = 0; i < cookies.assoId.length; i++) {
     const element = cookies.assoId[i];
     if(element === newAsso) {
-      document.cookie.replace("actualAsso="+cookies.actualAsso, "actualAsso="+i);
       cookies.actualAsso = i;
-      alert("new asso : " +cookies.actualAsso);
-
+      break;
     }
   }
+
+  names.forEach(element => {
+    document.cookie = element+"="+ cookies[element] +";";
+  });
 }
 
 $(function(){
