@@ -14,9 +14,8 @@ $.getScript("assets/js/config.js", function () {
             get("context/current-user",callheaderDev);
         });
     }
-});
-
-$.getScript("assets/js/sidebar.js", function () {
+    $.getScript("assets/js/sidebar.js", function () {
+    });
 });
 
 //Get element with Jquery + moustache
