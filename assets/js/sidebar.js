@@ -1,6 +1,7 @@
 function createAssoData(assoName, assoId) {
   let copy = [];
   for (let i = 0; i < assoName.length; i++) {
+    console.log("name : " + assoName[i]);
     if(!cookies.actualAsso != i) {
       let element = {name: assoName[i], id: assoId[i]}
       copy.push(element);
