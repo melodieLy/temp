@@ -2,6 +2,8 @@ $.getScript("assets/js/config.js", function () {
     if(environment == "prod") {
         $(function(){
             $("#sidebar").load("sidebar.html");
+            $.getScript("assets/js/sidebar.js", function () {
+            });
             get("context/current-user",callheader);
         });
         if(!window.location.pathname.includes("welcome-call")) {
@@ -11,11 +13,12 @@ $.getScript("assets/js/config.js", function () {
     else {
         $(function(){
             $("#sidebar").load("sidebar.recette.html");
+            $.getScript("assets/js/sidebar.js", function () {
+            });
             get("context/current-user",callheaderDev);
         });
     }
-    $.getScript("assets/js/sidebar.js", function () {
-    });
+   
 });
 
 //Get element with Jquery + moustache
