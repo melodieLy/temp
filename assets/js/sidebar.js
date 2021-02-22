@@ -2,21 +2,16 @@ function createAssoData(assoName, assoId) {
   let copy = [];
   for (let i = 0; i < assoName.length; i++) {
     if(!cookies.actualAsso != i) {
-      console.log("name : " + assoName[i]);
       let element = {name: assoName[i], id: assoId[i]}
       copy.push(element);
-      console.log('copy : ' + copy);
     }
   }
   return copy;
 }
 
-let t = createAssoData(cookies.assoName, cookies.assoId);
-console.log("hors :" + t);
-
-loadSidebarHeader();
-
 function loadSidebarHeader(){
+  let t = createAssoData(cookies.assoName, cookies.assoId);
+
   $.get('components/sidebar_header.html', function(templates) {
     var component = $(templates).filter('#tpl-sidebar-header').html();
     $("#association").append(Mustache.render(
@@ -50,8 +45,6 @@ function changeAssociationPage(newAsso) {
     const element = cookies.assoId[i];
     if(element === newAsso) {
       cookies.actualAsso = i;
-      t = createAssoData(cookies.assoName, cookies.assoId);
-      console.log("dans changeasso: " + t);
       break;
     }
   }

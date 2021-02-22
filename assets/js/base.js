@@ -2,6 +2,9 @@ $.getScript("assets/js/config.js", function () {
     if(environment == "prod") {
         $(function(){
             $("#sidebar").load("sidebar.html");
+            $.getScript("assets/js/sidebar.js", function () {
+                loadSidebarHeader();
+            });
             get("context/current-user",callheader);
         });
         if(!window.location.pathname.includes("welcome-call")) {
