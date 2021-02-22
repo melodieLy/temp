@@ -62,7 +62,7 @@ function createAssoData(assoName, assoId) {
         }
       ))
     })
-  });
+  };
   
   function changeActualAssociation() {
     const newAsso = this.options[this.selectedIndex].value;
