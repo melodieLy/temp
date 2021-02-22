@@ -2,7 +2,7 @@ $.getScript("assets/js/config.js", function () {
     if(environment == "prod") {
         $(function(){
             $("#sidebar").load("sidebar.html");
-            test();
+            getPublic('public/associations/'+cookies.assoId[cookies.actualAsso] + '/logo', test);
             get("context/current-user",callheader);
         });
         if(!window.location.pathname.includes("welcome-call")) {
@@ -50,12 +50,12 @@ function createAssoData(assoName, assoId) {
     return copy;
   }
   
-  function test(){
+  function test(data){
     $.get('components/sidebar_header.html', function(templates) {
       var component = $(templates).filter('#tpl-sidebar-header').html()
       $("#association").append(Mustache.render(
         component, {
-          img_src:retrieveAssoLogo(),
+          img_src:data,
           associations : createAssoData(cookies.assoName, cookies.assoId),
           actualName: cookies.assoName[cookies.actualAsso],
           actualId: cookies.assoId[cookies.actualAsso]
@@ -90,9 +90,9 @@ function createAssoData(assoName, assoId) {
     });
   }
   
-  function retrieveAssoLogo() {
-    return 'https://recette-api.song-fr.com/public/associations/'+cookies.assoId[cookies.actualAsso] + '/logo'
-  }
+//   function retrieveAssoLogo() {
+//     return 'https://recette-api.song-fr.com/public/associations/'+cookies.assoId[cookies.actualAsso] + '/logo'
+//   }
   
   var url = window.location.href;
   let element = document.getElementsByClassName("has-sub");

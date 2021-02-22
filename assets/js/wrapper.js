@@ -48,6 +48,7 @@ function getError(info) {
     }
 }
 
+
 function getCookie() {
     if(!document.cookie){
         return undefined;
@@ -117,6 +118,18 @@ function removeOldTable() {
 
 const cookies = getCookie();
 
+function getPublic(path, funct) {
+    $.ajax({
+        url: "https://recette-api.song-fr.com/"+path,
+        method: "GET"
+    })
+    
+    .fail(function(xhr) {
+        getError(xhr);
+    });
+}
+
+
 function get(path) {
     $.ajax({
         url: "https://recette-api.song-fr.com/"+path,
@@ -125,7 +138,8 @@ function get(path) {
             "Accept":"application/json",
             "Authorization": "bearer " + cookies.token
         },
-        method: "GET"
+        method: "GET",
+        success: funct
     })
     
     .fail(function(xhr) {
