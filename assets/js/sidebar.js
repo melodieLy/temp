@@ -10,12 +10,14 @@ function createAssoData(assoName, assoId) {
 }
 
 function loadSimplySidebarHeader() {
+  $.get('components/sidebar_header_simply.html', function(templates) {
   var component = $(templates).filter('.brand-association').html();
-  $("#association").append(Mustache.render(
-    component,{
-    img_src:retrieveAssoLogo(),
-    Name: cookies.assoName[cookies.actualAsso]
-  }))
+    $("#association").append(Mustache.render(
+      component,{
+      img_src:retrieveAssoLogo(),
+      Name: cookies.assoName[cookies.actualAsso]
+    }))
+  })
 }
 
 function loadSidebarHeader(){
