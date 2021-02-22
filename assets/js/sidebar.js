@@ -11,13 +11,15 @@ function createAssoData(assoName, assoId) {
   return copy;
 }
 
+let t = createAssoData(cookies.assoName, cookies.assoId);
+
 $(document).ready(function(){
   $.get('components/sidebar_header.html', function(templates) {
     var component = $(templates).filter('#tpl-sidebar-header').html()
     $("#association").append(Mustache.render(
       component, {
         img_src:retrieveAssoLogo(),
-        associations : createAssoData(cookies.assoName, cookies.assoId),
+        associations : t,
         actualName: cookies.assoName[cookies.actualAsso],
         actualId: cookies.assoId[cookies.actualAsso]
       }

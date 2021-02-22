@@ -118,18 +118,6 @@ function removeOldTable() {
 
 const cookies = getCookie();
 
-function getPublic(path, funct) {
-    $.ajax({
-        url: "https://recette-api.song-fr.com/"+path,
-        method: "GET"
-    })
-    
-    .fail(function(xhr) {
-        getError(xhr);
-    });
-}
-
-
 function get(path) {
     $.ajax({
         url: "https://recette-api.song-fr.com/"+path,
