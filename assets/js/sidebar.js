@@ -10,8 +10,9 @@ function createAssoData(assoName, assoId) {
 }
 
 function loadSimplySidebarHeader() {
+  var component = $(templates).filter('.brand-association').html();
   $("#association").append(Mustache.render(
-    '<img src="{{img_src}}" class="brand-icon" width="56px;" id="logo" /><span class="brand-name text-truncate">{{Name}}</span>',{
+    component,{
     img_src:retrieveAssoLogo(),
     Name: cookies.assoName[cookies.actualAsso]
   }))
