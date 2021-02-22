@@ -11,7 +11,7 @@ function createAssoData(assoName, assoId) {
 
 function loadSimplySidebarHeader() {
   $.get('components/sidebar_header_simply.html', function(templates) {
-  var component = $(templates).filter('.brand-association').html();
+  var component = $(templates).filter('#tpl-sidebar-simply').html();
     $("#association").append(Mustache.render(
       component,{
       img_src:retrieveAssoLogo(),
