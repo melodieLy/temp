@@ -110,8 +110,8 @@ function deleteCookie() {
 }
 
 function removeOldTable() {
-    if($('table')) {
-        $('table').remove();
+    if($('#basic-wc-table')) {
+        $('#basic-wc-table').remove();
         $('nav#nav-page').remove();
     }
 }
