@@ -3,7 +3,8 @@ $.getScript("assets/js/config.js", function () {
         $(function(){
             $("#sidebar").load("sidebar.html");
             $.getScript("assets/js/sidebar.js", function () {
-                loadSidebarHeader();
+                if(cookies.assoName.length <= 1) loadSimplySidebarHeader();
+                else loadSidebarHeader();
             });
             get("context/current-user",callheader);
         });
@@ -15,6 +16,8 @@ $.getScript("assets/js/config.js", function () {
         $(function(){
             $("#sidebar").load("sidebar.recette.html");
             $.getScript("assets/js/sidebar.js", function () {
+                if(cookies.assoName.length <= 1) loadSimplySidebarHeader();
+                else loadSidebarHeader();
             });
             get("context/current-user",callheaderDev);
         });

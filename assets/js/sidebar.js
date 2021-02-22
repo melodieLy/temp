@@ -9,6 +9,14 @@ function createAssoData(assoName, assoId) {
   return copy;
 }
 
+function loadSimplySidebarHeader() {
+  $("#association").append(Mustache.render(
+    '<img src="{{img_src}}" class="brand-icon" width="56px;" id="logo" /><span class="brand-name text-truncate">{{Name}}</span>',{
+    img_src:retrieveAssoLogo(),
+    Name: cookies.assoName[cookies.actualAsso]
+  }))
+}
+
 function loadSidebarHeader(){
   let t = createAssoData(cookies.assoName, cookies.assoId);
 
