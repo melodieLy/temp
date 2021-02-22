@@ -2,7 +2,7 @@ $.getScript("assets/js/config.js", function () {});
 
 function Auth(theForm) {
   $.ajax({
-    url: "https://api.song-fr.com/swatoken",
+    url: "https://recette-api.song-fr.com/swatoken",
     headers: {
       'content-Type': "application/x-www-form-urlencoded"
     },
@@ -61,7 +61,7 @@ function createCookieAsso(setup) {
 function findAsso(param) {
   const token ="bearer " + param.access_token;
   $.ajax({
-    url: "https://api.song-fr.com/context/current-roles",
+    url: "https://recette-api.song-fr.com/context/current-roles",
     headers: {
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept":"application/json",
