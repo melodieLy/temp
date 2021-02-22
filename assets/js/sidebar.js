@@ -12,8 +12,9 @@ function createAssoData(assoName, assoId) {
 }
 
 let t = createAssoData(cookies.assoName, cookies.assoId);
+test();
 
-$(document).ready(function(){
+function test(){
   $.get('components/sidebar_header.html', function(templates) {
     var component = $(templates).filter('#tpl-sidebar-header').html()
     $("#association").append(Mustache.render(
@@ -25,7 +26,7 @@ $(document).ready(function(){
       }
     ))
   })
-});
+};
 
 function changeActualAssociation() {
   const newAsso = this.options[this.selectedIndex].value;
@@ -33,6 +34,7 @@ function changeActualAssociation() {
   if(newAsso === cookies.assoId[cookies.actualAsso]) return;
   else {
     changeAssociationPage(newAsso);
+    test();
     document.location.replace("welcome-call.html");
   }
 }
