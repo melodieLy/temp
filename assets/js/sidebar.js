@@ -20,7 +20,7 @@ function test(){
     $("#association").append(Mustache.render(
       component, {
         img_src:retrieveAssoLogo(),
-        associations : t,
+        associations : t, 
         actualName: cookies.assoName[cookies.actualAsso],
         actualId: cookies.assoId[cookies.actualAsso]
       }
@@ -46,6 +46,7 @@ function changeAssociationPage(newAsso) {
     const element = cookies.assoId[i];
     if(element === newAsso) {
       cookies.actualAsso = i;
+      t = createAssoData(cookies.assoName, cookies.assoId);
       break;
     }
   }
