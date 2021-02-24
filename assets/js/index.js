@@ -40,7 +40,7 @@ function createCookieAsso(setup) {
   let assoIdList = "";
   
   for ( i = 0; i < setup.length; i++) {
-    if(setup[i].Role.Id.toUpperCase === "FORMS-MANAGER") {
+    if(setup[i].Role.Id.toUpperCase() === "FORMS-MANAGER") {
       if(i < 1) {
         assoNameList = setup[i].Association.Name +",";
         assoIdList = setup[i].Association.Id +",";
