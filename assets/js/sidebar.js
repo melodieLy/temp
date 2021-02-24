@@ -10,7 +10,7 @@ function createAssoData(assoName, assoId) {
 }
 
 function loadSimplySidebarHeader() {
-  $.get('components/sidebar_header_simply.html', function(templates) {
+  $.get('components/sidebar_header_simple.html', function(templates) {
   var component = $(templates).filter('#tpl-sidebar-simply').html();
     $("#association").append(Mustache.render(
       component,{
