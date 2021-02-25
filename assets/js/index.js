@@ -70,6 +70,7 @@ function findAsso(param) {
     method: "GET"
   })
   .done(function(result) {
+    if(!result) return alert(xhr.status + ": vous n'avez pas les droits pour accéder au site.");
     createCookieAsso(result);
     EnvironmentRedirection();
   })
