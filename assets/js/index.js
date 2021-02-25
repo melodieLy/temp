@@ -53,6 +53,9 @@ function createCookieAsso(setup) {
       }
     }
   }
+
+  if(assoIdList.length == 0) return false;
+
   document.cookie = "assoName=" + assoNameList +";";
   document.cookie = "assoId=" + assoIdList + ";";
   document.cookie = "actualAsso=" + 0 + ';' 
@@ -70,9 +73,9 @@ function findAsso(param) {
     method: "GET"
   })
   .done(function(result) {
-    if(!result) return alert(xhr.status + ": vous n'avez pas les droits pour accéder au site.");
-    createCookieAsso(result);
-    EnvironmentRedirection();
+    const rights = createCookieAsso(result);
+    if(!rights) alert(xhr.status + "Vous n'avez pas les droits pour accéder aux sites. ");
+    else EnvironmentRedirection();
   })
 
   .fail(function(xhr) {
