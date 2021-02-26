@@ -74,7 +74,7 @@ function findAsso(param) {
   })
   .done(function(result) {
     const rights = createCookieAsso(result);
-    if(!rights) alert("Vous n'avez pas les droits pour accéder au site. ");
+    if(rights === false) alert("Vous n'avez pas les droits pour accéder au site. ");
     else EnvironmentRedirection();
   })
 
