@@ -13608,3 +13608,7 @@ html[dir="rtl"] .github-link svg {
   flex-direction: row; 
   justify-content: space-between;
 }
+
+.card-body-smaller {
+  padding: 10px 50px 10px 50px;
+}

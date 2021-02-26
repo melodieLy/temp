@@ -1,3 +1,6 @@
+const pageSize = 10;
+const apiPath = "https://recette-api.song-fr.com/"
+
 function showAlert(errorInfo) {
     $.get('components/alert-danger.html', function(templates) {
       var alert = $(templates).filter('#tpl-alert-danger').html();
@@ -120,7 +123,7 @@ const cookies = getCookie();
 
 function get(path) {
     $.ajax({
-        url: "https://recette-api.song-fr.com/"+path,
+        url: apiPath + path,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
@@ -138,7 +141,7 @@ function get(path) {
 
 function get(path,funct) {
     $.ajax({
-        url: "https://recette-api.song-fr.com/"+path,
+        url: apiPath + path,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
@@ -155,7 +158,7 @@ function get(path,funct) {
 
 function download(path, param) {
     $.ajax({
-        url: "https://recette-api.song-fr.com/"+path,
+        url: apiPath + path,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
@@ -200,7 +203,7 @@ function download(path, param) {
 
 function getWelcomeCall(path) {
     $.ajax({
-        url: "https://recette-api.song-fr.com/calls/called/"+cookies.assoId[cookies.actualAsso]+'?Page='+path,
+        url: apiPath + "calls/called/" + cookies.assoId[cookies.actualAsso]+'?Page='+path + '&PageSize=' + pageSize,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
