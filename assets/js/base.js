@@ -3,7 +3,7 @@
 $.getScript("assets/js/config.js", function () {
     if(environment == "prod") {
         $(function(){
-            $.getJSON("data_mailjet.json", callSidebar);
+            $.getJSON("sidebar_data.json", callSidebar);
             $.getScript("assets/js/sidebar.js", function () {
                 if(cookies.assoName.length <= 1) loadSimplySidebarHeader();
                 else loadSidebarHeader();
