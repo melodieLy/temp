@@ -3,9 +3,7 @@
 $.getScript("assets/js/config.js", function () {
     if(environment == "prod") {
         $(function(){
-            $.getJSON("sidebar_data.json", function(data) {
-                callSidebar(data);
-            });
+            callSidebar(data);
             $.getScript("assets/js/sidebar.js", function () {
                 if(cookies.assoName.length <= 1) loadSimplySidebarHeader();
                 else loadSidebarHeader();
@@ -29,10 +27,12 @@ $.getScript("assets/js/config.js", function () {
    
 });
 
-function callSidebar(result){
+function callSidebar(){
     $.get('sidebar.html', function(templates) {
         var sidebar = $(templates).filter('#tpl-sidebar').html();
-        $('#sidebar').append(Mustache.render(sidebar, result));
+        $.getJSON("sidebar_data.json", function(data) {
+            $('#sidebar').append(Mustache.render(sidebar, data));
+        })
     });
 }
 
