@@ -30,7 +30,7 @@ $.getScript("assets/js/config.js", function () {
 function callSidebar(){
     $.get('sidebar.html', function(templates) {
         var sidebar = $(templates).filter('#tpl-sidebar').html();
-        $.getJSON("sidebar_data.json", function(data) {
+        $.getJSON("assets/js/sidebar_data.json", function(data) {
             $('#sidebar').append(Mustache.render(sidebar, data));
         })
     });
