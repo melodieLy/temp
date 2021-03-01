@@ -3,6 +3,8 @@
 ——— LEFT SIDEBAR WITH FOOTER
 =====================================
 -->
+<script id="tpl-sidebar" type="text/html"></script>
+
 <div id="sidebar" class="sidebar sidebar-with-footer">
     <!-- Aplication Brand -->
     <div class="app-brand" id="association">
@@ -12,23 +14,27 @@
 
         <!-- sidebar menu -->
         <ul class="nav sidebar-inner" id="sidebar-menu">
+            {{#.}}
             <li class="has-sub">
                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
                     aria-expanded="false" aria-controls="app">
                     <i class="mdi mdi-pencil-box-multiple"></i>
-                    <span class="nav-text">Vos données</span> <b class="caret"></b>
+                    <span class="nav-text">{{title}}</span> <b class="caret"></b>
                 </a>
                 <ul class="collapse" id="app"
                     data-parent="#sidebar-menu">
                     <div class="sub-menu">
+                        {{#category}}
                         <li>
-                            <a class="sidenav-item-link" href="welcome-call.html">
-                                <span class="nav-text">Appels des donateurs</span>
+                            <a class="sidenav-item-link" href="{{URL}}">
+                                <span class="nav-text">{{name}}</span>
                             </a>
                         </li>
+                        {{/category}}
                     </div>
                 </ul>
             </li>
+            {{/.}}
         </ul>
     </div>
 </div>
