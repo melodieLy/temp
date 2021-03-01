@@ -3,7 +3,9 @@
 $.getScript("assets/js/config.js", function () {
     if(environment == "prod") {
         $(function(){
-            $.getJSON("sidebar_data.json", callSidebar);
+            $.getJSON("sidebar_data.json", function(data) {
+                callSidebar(data);
+            });
             $.getScript("assets/js/sidebar.js", function () {
                 if(cookies.assoName.length <= 1) loadSimplySidebarHeader();
                 else loadSidebarHeader();
@@ -29,8 +31,8 @@ $.getScript("assets/js/config.js", function () {
 
 function callSidebar(result){
     $.get('sidebar.html', function(templates) {
-        var header = $(templates).filter('#tpl-sidebar').html();
-        $('#sidebar').append(Mustache.render(header, result));
+        var sidebar = $(templates).filter('#tpl-sidebar').html();
+        $('#sidebar').append(Mustache.render(sidebar, result));
     });
 }
 
