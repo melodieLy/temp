@@ -9,18 +9,6 @@ function showAlert(errorInfo) {
     });
 }
 
-$(document).ready(function() {
-    if(cookies === undefined) {
-        window.location.replace("index.html");
-        alert("Aucune connexion trouvé. Veuillez-vous authentifier");
-        
-    } else if (cookies.expires < $.now()) {
-        deleteCookie();
-        window.location.replace('index.html');
-        showAlert("Connexion expirée. Veuillez-vous reconnecter");
-    }
-});
-
 function getError(info) {
     switch(info.status) {
         case 401 :

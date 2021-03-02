@@ -1,6 +1,18 @@
 //Call the new sidebar function for the recette version
 
 $.getScript("assets/js/config.js", function () {
+    $(document).ready(function() {
+        if(cookies === undefined) {
+            window.location.replace("index.html");
+            alert("Aucune connexion trouvé. Veuillez-vous authentifier");
+            
+        } else if (cookies.expires < $.now()) {
+            deleteCookie();
+            window.location.replace('index.html');
+            showAlert("Connexion expirée. Veuillez-vous reconnecter");
+        }
+    });
+
     if(environment == "prod") {
         $(function(){
             callSidebar();
