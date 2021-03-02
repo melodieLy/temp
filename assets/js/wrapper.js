@@ -47,7 +47,7 @@ function createCookieAsso(setup) {
     for ( i = 0; i < setup.length; i++) {
       if(setup[i].Role.Id.toUpperCase() === "FORMS-MANAGER") {
         if(i < 1) {
-          permissions.push(setup[i].Role.Id.toUpperCase());
+          permissions.push("FORMS-MANAGER");
           assoNameList = setup[i].Association.Name +",";
           assoIdList = setup[i].Association.Id +",";
         } else if (i == setup.length - 1) {
