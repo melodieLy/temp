@@ -3,6 +3,7 @@
 $.getScript("assets/js/config.js", function () {
     if(environment == "prod") {
         $(function(){
+            console.log("before : " + rights);
             callSidebar(rights);
             $.getScript("assets/js/sidebar.js", function () {
                 if(cookies.assoName.length <= 1) loadSimplySidebarHeader();
@@ -28,7 +29,7 @@ $.getScript("assets/js/config.js", function () {
 });
 
 function callSidebar(rights){
-    alert(rights);
+    console.log(rights);
     $.get('sidebar.html', function(templates) {
         var sidebar = $(templates).filter('#tpl-sidebar').html();
         $.getJSON("assets/js/sidebar_data.json", function(data) {
