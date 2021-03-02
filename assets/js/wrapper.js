@@ -1,6 +1,5 @@
 const pageSize = 10;
 const apiPath = "https://recette-api.song-fr.com/";
-let permissions = [];
 
 function showAlert(errorInfo) {
     $.get('components/alert-danger.html', function(templates) {
@@ -47,7 +46,7 @@ function createCookieAsso(setup) {
     for ( i = 0; i < setup.length; i++) {
       if(setup[i].Role.Id.toUpperCase() === "FORMS-MANAGER") {
         if(i < 1) {
-          permissions.push("FORMS-MANAGER");
+          sessionStorage.setItem('rights', 'FORMS-MANAGER');
           assoNameList = setup[i].Association.Name +",";
           assoIdList = setup[i].Association.Id +",";
         } else if (i == setup.length - 1) {
@@ -60,7 +59,6 @@ function createCookieAsso(setup) {
       }
     }
     if(assoIdList.length == 0) return false;
-  
     document.cookie = "assoName=" + assoNameList +";";
     document.cookie = "assoId=" + assoIdList + ";";
     document.cookie = "actualAsso=" + 0 + ';' 

@@ -1,6 +1,7 @@
 //Call the new sidebar function for the recette version
 
 $.getScript("assets/js/config.js", function () {
+    //Verify if the user did the authentification
     $(document).ready(function() {
         if(cookies === undefined) {
             window.location.replace("index.html");
@@ -13,6 +14,7 @@ $.getScript("assets/js/config.js", function () {
         }
     });
 
+    
     if(environment == "prod") {
         $(function(){
             callSidebar();
@@ -22,6 +24,7 @@ $.getScript("assets/js/config.js", function () {
             });
             get("context/current-user",callheader);
         });
+        //to remove
         if(!window.location.pathname.includes("welcome-call")) {
             window.location.replace("welcome-call.html");
         }
@@ -43,6 +46,7 @@ function callSidebar(){
     $.get('sidebar.html', function(templates) {
         var sidebar = $(templates).filter('#tpl-sidebar').html();
         $.getJSON("assets/js/sidebar_data.json", function(data) {
+            console.log(data.id);
             $('#sidebar').append(Mustache.render(sidebar, data));
         })
     });
