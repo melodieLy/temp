@@ -48,7 +48,7 @@ function callSidebar(){
         $.getJSON("assets/js/sidebar_data.json", function(data) {
             let result = [];
             data.forEach(element => {
-                if(element.rights == sessionStorage.getItem(rights)) result.push(element);
+                if(element.rights == sessionStorage.getItem("rights")) result.push(element);
             });
             $('#sidebar').append(Mustache.render(sidebar, result));
         })
