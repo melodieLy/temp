@@ -1,5 +1,6 @@
 const pageSize = 10;
-const apiPath = "https://recette-api.song-fr.com/"
+const apiPath = "https://recette-api.song-fr.com/";
+let permissions = [];
 
 function showAlert(errorInfo) {
     $.get('components/alert-danger.html', function(templates) {
@@ -46,6 +47,7 @@ function createCookieAsso(setup) {
     for ( i = 0; i < setup.length; i++) {
       if(setup[i].Role.Id.toUpperCase() === "FORMS-MANAGER") {
         if(i < 1) {
+          permissions.push(setup[i].Role.Id.toUpperCase());
           assoNameList = setup[i].Association.Name +",";
           assoIdList = setup[i].Association.Id +",";
         } else if (i == setup.length - 1) {
@@ -57,7 +59,6 @@ function createCookieAsso(setup) {
         }
       }
     }
-  
     if(assoIdList.length == 0) return false;
   
     document.cookie = "assoName=" + assoNameList +";";
@@ -279,6 +280,7 @@ function findAsso(param) {
     })
     .done(function(result) {
         const rights = createCookieAsso(result);
+        alert(permissions[0]);
         if(rights === false) alert("Vous n'avez pas les droits pour accéder au site. ");
         else EnvironmentRedirection();
     })
