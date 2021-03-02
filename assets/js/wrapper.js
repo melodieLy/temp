@@ -280,7 +280,6 @@ function findAsso(param) {
     })
     .done(function(result) {
         const rights = createCookieAsso(result);
-        alert(permissions[0]);
         if(rights === false) alert("Vous n'avez pas les droits pour accéder au site. ");
         else EnvironmentRedirection();
     })
