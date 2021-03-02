@@ -69,6 +69,7 @@ function retrieveAssoLogo() {
   return 'https://recette-api.song-fr.com/public/associations/'+cookies.assoId[cookies.actualAsso] + '/logo'
 }
 
+
 var url = window.location.href;
 let element = document.getElementsByClassName("has-sub");
 for (let i = 0; i < element.length; i++) {

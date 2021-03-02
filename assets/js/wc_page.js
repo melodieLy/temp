@@ -35,7 +35,7 @@ function getUrlParam (form) {
         const yourSelect = document.getElementById( "area-select" ).value;
         const input = form.getElementsByTagName("input");
     
-        let url = '&area='+yourSelect;
+        let url = '&Area='+yourSelect;
         for(const element of input) {
             url += '&' + element.name + '=' + element.value;
         };

@@ -2,6 +2,7 @@
     {
        "rights":"FORMS-MANAGER",
        "title":"Vos données",
+       "id":"data",
        "category":[
           {
              "URL":"welcome-call.html",
@@ -16,6 +17,7 @@
     {
        "rights":"SUPER-ADMIN",
        "title":"supadmintitle",
+       "id":"admin",
        "category":[
           {
              "URL":"sup.html",

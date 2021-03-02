@@ -217,7 +217,7 @@ function getWelcomeCall(path) {
                 var component = $(templates).filter('#tpl-wc-table').html();
                 if(data) {
                     data.forEach(element => {
-                        if(element.LastContact) element.LastContact = moment(element.LastContact).format('L');
+                        if(element.LastContact) element.LastContact = moment(element.LastContact).format('DD/MM/YYYY');
                     });
                 }
                 $('#welcome-call').append(Mustache.render(component,data));
