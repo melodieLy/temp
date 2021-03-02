@@ -46,8 +46,11 @@ function callSidebar(){
     $.get('sidebar.html', function(templates) {
         var sidebar = $(templates).filter('#tpl-sidebar').html();
         $.getJSON("assets/js/sidebar_data.json", function(data) {
-            console.log(data.id);
-            $('#sidebar').append(Mustache.render(sidebar, data));
+            let result = [];
+            data.forEach(element => {
+                if(element.rights == sessionStorage.getItem(rights)) result.push(element);
+            });
+            $('#sidebar').append(Mustache.render(sidebar, result));
         })
     });
 }
