@@ -278,8 +278,6 @@ function getWelcomeCall(path) {
     });
 }
 
-
-  
 function findAsso(param) {
     const token ="bearer " + param.access_token;
     $.ajax({

@@ -1,4 +1,5 @@
 $.getScript("assets/js/config.js", function () {});
+$.getScript("assets/js/wrapper.js", function () {});
 
 function Auth(theForm) {
   $.ajax({
