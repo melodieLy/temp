@@ -1,5 +1,4 @@
 const environment = "prod";
-let userRights = [];
 
 function EnvironmentRedirection () {
   if(environment == "prod") {
