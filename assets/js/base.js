@@ -50,7 +50,7 @@ function callSidebar(){
             data.forEach(element => {
                 if(element.rights == sessionStorage.getItem("rights")) result.push(element);
             });
-            $('#sidebar').append(Mustache.render(sidebar, result));
+            $('#sidebar').append(Mustache.render(sidebar, JSON.stringify(result)));
         })
     });
 }
