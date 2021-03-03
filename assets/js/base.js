@@ -37,7 +37,7 @@ function checkRightForthePage() {
         data.forEach(element => {
             if(element.rights == userRights) {
                 for (let i = 0; i < data.length; i++) {
-                    const url = "/temp/" + element.category[i].url;
+                    const url = "/temp/" + element.category[i].URL;
                     if(url.includes(window.pathname)) return true;
                 }
             }
