@@ -25,7 +25,7 @@ $.getScript("assets/js/config.js", function () {
             get("context/current-user",callheaderDev);
         });
     }
-    checkRightForthePage();
+   
 });
 //
 //Please be careful of the path for the prod
@@ -37,7 +37,7 @@ function checkRightForthePage() {
             if(element.rights == userRights) {
                 for (let i = 0; i < data.length; i++) {
                     const url = "/temp/" + element.category[i].URL;
-                    if(url.includes(window.pathname)) return true;
+                    if(url.includes(window.location.pathname)) return true;
                 }
             }
         })
