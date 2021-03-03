@@ -41,8 +41,7 @@ function checkRightForthePage() {
                 }
             }
         })
-        console.log(false);
-        //window.location.replace("404.html")
+        window.location.replace("404.html");
     })
 };
 
