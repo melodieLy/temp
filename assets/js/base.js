@@ -3,7 +3,6 @@ $.getScript("assets/js/config.js", function () {
     //Verify if the user did the authentification
     $(document).ready(function() {
         checkValidateCookie();
-        checkRightForthePage();
     });
 
     if(environment == "prod") {
@@ -26,7 +25,7 @@ $.getScript("assets/js/config.js", function () {
             get("context/current-user",callheaderDev);
         });
     }
-   
+    checkRightForthePage();
 });
 //
 //Please be careful of the path for the prod
