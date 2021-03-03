@@ -1,20 +1,11 @@
 //Call the new sidebar function for the recette version
-
 $.getScript("assets/js/config.js", function () {
     //Verify if the user did the authentification
     $(document).ready(function() {
-        if(cookies === undefined) {
-            window.location.replace("index.html");
-            alert("Aucune connexion trouvé. Veuillez-vous authentifier");
-            
-        } else if (cookies.expires < $.now()) {
-            deleteCookie();
-            window.location.replace('index.html');
-            showAlert("Connexion expirée. Veuillez-vous reconnecter");
-        }
+        checkValidateCookie();
+        checkRightForthePage();
     });
 
-    
     if(environment == "prod") {
         $(function(){
             callSidebar();
@@ -24,10 +15,6 @@ $.getScript("assets/js/config.js", function () {
             });
             get("context/current-user",callheader);
         });
-        //to remove
-        if(!window.location.pathname.includes("welcome-call")) {
-            window.location.replace("welcome-call.html");
-        }
     }
     else {
         $(function(){
@@ -41,6 +28,35 @@ $.getScript("assets/js/config.js", function () {
     }
    
 });
+//
+//Please be careful of the path for the prod
+//
+function checkRightForthePage() {
+    const userRights = sessionStorage.getItem('rights');
+    $.getJSON("assets/js/sidebar_data.json", function(data) {
+        data.forEach(element => {
+            if(element.rights == userRights) {
+                for (let i = 0; i < data.length; i++) {
+                    const url = "/temp/" + element.category[i].url;
+                    if(url.includes(window.pathname)) return true;
+                }
+            }
+        })
+        window.location.replace("404.html")
+    })
+};
+
+function checkValidateCookie() {
+    if(cookies === undefined) {
+        window.location.replace("index.html");
+        alert("Aucune connexion trouvé. Veuillez-vous authentifier");
+        
+    } else if (cookies.expires < $.now()) {
+        deleteCookie();
+        window.location.replace('index.html');
+        showAlert("Connexion expirée. Veuillez-vous reconnecter");
+    }
+}
 
 function callSidebar(){
     $.get('sidebar.html', function(templates) {
