@@ -56,13 +56,26 @@ function checkValidateCookie() {
         showAlert("Connexion expirée. Veuillez-vous reconnecter");
     }
 }
+const t  = JSON.parse($.getJSON("assets/js/sidebar_data.json"));
+var app = {
+    data : t,
+    displayData: function () {
+        app.renderTemplate('sidebar', app.data, function(returnValue) {
+            $('#sidebar').append(returnValue);
+        })
+    },
 
-var callSidebartest = function(template, viewModel, callback)
-{
-    Mustache.render(template, viewModel);
-    if(typeof callback === "function")
-        callback();
-}
+    renderTemplate: function (templateFile, data, callback) {
+        var tpl = templateFile + '.html';
+        $.ajax(tpl, {
+            dataType: "text",
+            sucess: function (template) {
+                var rendered = Mustache.render(template, data);
+                callback(rendered);
+            }
+        });
+    }
+};
 
 function callSidebar(){
     $.get('sidebar.html', function(templates) {
@@ -72,23 +85,7 @@ function callSidebar(){
             data.forEach(element => {
                 if(element.rights == sessionStorage.getItem("rights")) result.push(element);
             });
-            callSidebartest(sidebar, result, function(){
-                var url = window.location.href;
-                let element = document.getElementsByClassName("has-sub");
-                for (let i = 0; i < element.length; i++) {
-              
-                    let navText = element[i].getElementsByTagName('a');
-                    for (let j = 0; j < navText.length; j++) {
-                        if(navText[j].href == url) {
-              
-                            element[i].classList.toggle('active');
-                            element[i].classList.toggle('expand');
-                            let t = element[i].getElementsByTagName('ul');
-                            t[0].classList.toggle('show');
-                        }
-                    }
-                }
-            });
+            $('#sidebar').append(Mustache.render(sidebar, result));
         })
     });
 }
