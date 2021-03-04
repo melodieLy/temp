@@ -107,9 +107,9 @@ function callheaderDev(result){
         $('#header').append(Mustache.render(header, result));
     });
 }
-app.displayData();
+
 $(document).ready(function() {
-    
+    app.displayData();
     var url = window.location.href;
     let element = document.getElementsByClassName("has-sub");
     for (let i = 0; i < element.length; i++) {
