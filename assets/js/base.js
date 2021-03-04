@@ -7,7 +7,7 @@ $.getScript("assets/js/config.js", function () {
 
     if(environment == "prod") {
         $(function(){
-            callSidebar();
+            // callSidebar();
             $.getScript("assets/js/sidebar.js", function () {
                 if(cookies.assoName.length <= 1) loadSimplySidebarHeader();
                 else loadSidebarHeader();
@@ -56,9 +56,11 @@ function checkValidateCookie() {
         showAlert("Connexion expirée. Veuillez-vous reconnecter");
     }
 }
-const t  = JSON.parse($.getJSON("assets/js/sidebar_data.json"));
+
+const t  = $.getJSON("assets/js/sidebar_data.json");
+const obj = JSON.parse(t);
 var app = {
-    data : t,
+    data : obj,
     displayData: function () {
         app.renderTemplate('sidebar', app.data, function(returnValue) {
             $('#sidebar').append(returnValue);
@@ -105,3 +107,23 @@ function callheaderDev(result){
         $('#header').append(Mustache.render(header, result));
     });
 }
+app.displayData();
+$(document).ready(function() {
+    
+    var url = window.location.href;
+    let element = document.getElementsByClassName("has-sub");
+    for (let i = 0; i < element.length; i++) {
+  
+        let navText = element[i].getElementsByTagName('a');
+        for (let j = 0; j < navText.length; j++) {
+            if(navText[j].href == url) {
+  
+                element[i].classList.toggle('active');
+                element[i].classList.toggle('expand');
+                let t = element[i].getElementsByTagName('ul');
+                t[0].classList.toggle('show');
+            }
+        }
+    }
+  });
+  
