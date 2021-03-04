@@ -33,8 +33,6 @@ function loadSidebarHeader(){
         actualId: cookies.assoId[cookies.actualAsso]
       }
     ))
-    console.log("loadSiebar :" + t);
-
   })
 };
 

@@ -9,9 +9,9 @@
             <td>
                 <form class="brand-flex">
                     <select class="brand-association" onchange='changeActualAssociation.call(this,event)'>
-                        <option value="{{actualId}}">{{actualName}}</option>
+                        <option value="{{actualId}}">{{actualId}}</option>
                         {{#associations}}
-                        <option value="{{id}}">{{name}}</option>
+                        <option value="{{id}}">{{id}}</option>
                         {{/associations}}  
                     </select>
                 </form>

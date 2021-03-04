@@ -48,7 +48,7 @@ function checkRightForthePage() {
 function checkValidateCookie() {
     if(cookies === undefined) {
         window.location.replace("index.html");
-        alert("Aucune connexion trouvé. Veuillez-vous authentifier");
+        alert("Aucune connexion trouvée. Veuillez-vous authentifier");
         
     } else if (cookies.expires < $.now()) {
         deleteCookie();
