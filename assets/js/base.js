@@ -7,7 +7,30 @@ $.getScript("assets/js/config.js", function () {
 
     if(environment == "prod") {
         $(function(){
-            callSidebar();
+            // callSidebar();
+            const t = $.get('sidebar.html');
+            const a = $.getJSON("assets/js/sidebar_data.json");
+            let result = [];
+            a.forEach(element => {
+                if(element.rights == sessionStorage.getItem("rights")) result.push(element);
+            });
+            callSidebartest(t,model,function () {
+                var url = window.location.href;
+                let element = document.getElementsByClassName("has-sub");
+                for (let i = 0; i < element.length; i++) {
+                
+                    let navText = element[i].getElementsByTagName('a');
+                    for (let j = 0; j < navText.length; j++) {
+                        if(navText[j].href == url) {
+                
+                            element[i].classList.toggle('active');
+                            element[i].classList.toggle('expand');
+                            let t = element[i].getElementsByTagName('ul');
+                            t[0].classList.toggle('show');
+                        }
+                    }
+                }
+            })
             $.getScript("assets/js/sidebar.js", function () {
                 if(cookies.assoName.length <= 1) loadSimplySidebarHeader();
                 else loadSidebarHeader();
