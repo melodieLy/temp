@@ -8,13 +8,16 @@ $.getScript("assets/js/config.js", function () {
     if(environment == "prod") {
         $(function(){
             // callSidebar();
-            const t = $.get('sidebar.html');
-            const a = $.getJSON("assets/js/sidebar_data.json");
             let result = [];
-            a.forEach(element => {
-                if(element.rights == sessionStorage.getItem("rights")) result.push(element);
-            });
-            callSidebartest(t,model,function () {
+
+            const t = $.get('sidebar.html');
+            const a = $.getJSON("assets/js/sidebar_data.json")
+            .done(function(data) {
+                data.forEach(element => {
+                    if(element.rights == sessionStorage.getItem("rights")) result.push(element);
+                });
+            })
+            callSidebartest(t,result,function () {
                 var url = window.location.href;
                 let element = document.getElementsByClassName("has-sub");
                 for (let i = 0; i < element.length; i++) {
