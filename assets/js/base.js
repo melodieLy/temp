@@ -58,7 +58,7 @@ function checkValidateCookie() {
 }
 
 const t  = $.getJSON("assets/js/sidebar_data.json");
-const obj = JSON.parse(t);
+const obj = JSON.stringify(t);
 var app = {
     data : obj,
     displayData: function () {
