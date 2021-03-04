@@ -57,28 +57,6 @@ function checkValidateCookie() {
     }
 }
 
-const t  = $.getJSON("assets/js/sidebar_data.json");
-const obj = JSON.stringify(t);
-var app = {
-    data : obj,
-    displayData: function () {
-        app.renderTemplate('sidebar', app.data, function(returnValue) {
-            $('#sidebar').append(returnValue);
-        })
-    },
-
-    renderTemplate: function (templateFile, data, callback) {
-        var tpl = templateFile + '.html';
-        $.ajax(tpl, {
-            dataType: "text",
-            sucess: function (template) {
-                var rendered = Mustache.render(template, data);
-                callback(rendered);
-            }
-        });
-    }
-};
-
 function callSidebar(){
     $.get('sidebar.html', function(templates) {
         var sidebar = $(templates).filter('#tpl-sidebar').html();
@@ -87,7 +65,24 @@ function callSidebar(){
             data.forEach(element => {
                 if(element.rights == sessionStorage.getItem("rights")) result.push(element);
             });
-            $('#sidebar').append(Mustache.render(sidebar, result));
+            var rendered = Mustache.render(sidebar, result);
+            $('#sidebar').html(rendered).promise().done(function() {
+                var url = window.location.href;
+                let element = document.getElementsByClassName("has-sub");
+                for (let i = 0; i < element.length; i++) { 
+              
+                    let navText = element[i].getElementsByTagName('a');
+                    for (let j = 0; j < navText.length; j++) {
+                        if(navText[j].href == url) {
+              
+                            element[i].classList.toggle('active');
+                            element[i].classList.toggle('expand');
+                            let t = element[i].getElementsByTagName('ul');
+                            t[0].classList.toggle('show');
+                        }
+                    }
+                }
+            });
         })
     });
 }
@@ -107,23 +102,3 @@ function callheaderDev(result){
         $('#header').append(Mustache.render(header, result));
     });
 }
-
-$(document).ready(function() {
-    app.displayData();
-    var url = window.location.href;
-    let element = document.getElementsByClassName("has-sub");
-    for (let i = 0; i < element.length; i++) {
-  
-        let navText = element[i].getElementsByTagName('a');
-        for (let j = 0; j < navText.length; j++) {
-            if(navText[j].href == url) {
-  
-                element[i].classList.toggle('active');
-                element[i].classList.toggle('expand');
-                let t = element[i].getElementsByTagName('ul');
-                t[0].classList.toggle('show');
-            }
-        }
-    }
-  });
-  
