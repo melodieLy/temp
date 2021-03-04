@@ -1,4 +1,4 @@
-const pageSize = 10;
+const pageSize = '10';
 const apiPath = "https://recette-api.song-fr.com/";
 
 function showAlert(errorInfo) {
@@ -35,7 +35,7 @@ function getError(info) {
             break;
         default:
             console.log(info)
-            showAlert(info.status + " : " + info.textStatus)
+            showAlert(info.status + " : " + info.responseJSON.ExceptionMessage)
             break;
     }
 }
