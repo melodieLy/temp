@@ -10,6 +10,7 @@ function createAssoData(assoName, assoId) {
 }
 
 function loadSimplySidebarHeader() {
+  test();
   $.get('components/sidebar_header_simple.html', function(templates) {
   var component = $(templates).filter('#tpl-sidebar-simply').html();
     $("#association").append(Mustache.render(
@@ -22,6 +23,7 @@ function loadSimplySidebarHeader() {
 
 function loadSidebarHeader(){
   let t = createAssoData(cookies.assoName, cookies.assoId);
+  test();
 
   $.get('components/sidebar_header.html', function(templates) {
     var component = $(templates).filter('#tpl-sidebar-header').html();
@@ -67,8 +69,7 @@ function retrieveAssoLogo() {
   return 'https://recette-api.song-fr.com/public/associations/'+cookies.assoId[cookies.actualAsso] + '/logo'
 }
 
-
-$(document).ready(function() {
+function test() {
   var url = window.location.href;
   let element = document.getElementsByClassName("has-sub");
   for (let i = 0; i < element.length; i++) {

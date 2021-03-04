@@ -18,8 +18,7 @@ function getWCSearchbar(data) {
 
         fillSearchPageWithSessionStorage();
     });
-}
-
+};
 
 function getWCPage (data,param) {
     const urlParam = getUrlParam(param);
