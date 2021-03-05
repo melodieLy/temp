@@ -8,10 +8,6 @@ $.getScript("assets/js/config.js", function () {
     if(environment == "prod") {
         $(function(){
             callSidebar();
-            $.getScript("assets/js/sidebar.js", function () {
-                if(cookies.assoName.length <= 1) loadSimplySidebarHeader();
-                else loadSidebarHeader();
-            });
             get("context/current-user",callheader);
         });
     }
@@ -84,6 +80,11 @@ function callSidebar(){
                 }
             });
         })
+
+        $.getScript("assets/js/sidebar.js", function () {
+            if(cookies.assoName.length <= 1) loadSimplySidebarHeader();
+            else loadSidebarHeader();
+        });
     });
 }
 
