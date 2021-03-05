@@ -25,6 +25,8 @@ function loadSidebarHeader(){
 
   $.get('components/sidebar_header.html', function(templates) {
     var component = $(templates).filter('#tpl-sidebar-header').html();
+    const a = $("#association");
+    console.log(a);
     $("#association").append(Mustache.render(
       component, {
         img_src:retrieveAssoLogo(),
