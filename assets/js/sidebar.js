@@ -85,5 +85,5 @@ function changeAssociationPage(newAsso) {
 }
 
 function retrieveAssoLogo() {
-  return 'https://recette-api.song-fr.com/public/associations/'+cookies.assoId[cookies.actualAsso] + '/logo';
+  return 'https://api.song-fr.com/public/associations/'+cookies.assoId[cookies.actualAsso] + '/logo';
 }
