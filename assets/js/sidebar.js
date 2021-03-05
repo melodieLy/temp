@@ -32,7 +32,21 @@ function loadSidebarHeader(){
         actualName: cookies.assoName[cookies.actualAsso],
         actualId: cookies.assoId[cookies.actualAsso]
       })
-    $("#association").html(rendered);
+    $('#association').html(rendered).promise().done(function() {
+      var url = window.location.href;
+      let element = document.getElementsByClassName("has-sub");
+      for (let i = 0; i < element.length; i++) { 
+        let navText = element[i].getElementsByTagName('a');
+        for (let j = 0; j < navText.length; j++) {
+          if(navText[j].href == url) {
+            element[i].classList.toggle('active');
+            element[i].classList.toggle('expand');
+            let t = element[i].getElementsByTagName('ul');
+            t[0].classList.toggle('show');
+          }
+        }
+      }
+    });
   })
 };
 
