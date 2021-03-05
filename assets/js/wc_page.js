@@ -38,7 +38,7 @@ function getUrlParam (form) {
         for(const element of input) {
             url += '&' + element.name + '=' + element.value;
         };
-        searchHistory(yourSelect,input);
+        createSearchHistory(yourSelect,input);
         return url;
     }
     return "";
@@ -63,11 +63,20 @@ function fillSearchPageWithSessionStorage() {
     };
 }
 
-function searchHistory(select,inputs) {
+function createSearchHistory(select,inputs) {
     if(select != "") sessionStorage.setItem("area", select.value);
     for(const element of inputs) {
         if(element.value) sessionStorage.setItem(element.name, element.value);
     };
+}
+
+function getSearchHistory() {
+    const name = ["area","from", "to","search"];
+    let obj = [];
+    for(const name of names) {
+        obj.push(sessionStorage.getItem(name));
+    }
+    return obj;
 }
 
 function deleteSeachHistory() {
@@ -79,3 +88,16 @@ function deleteSeachHistory() {
         element.value = "";
     };
 }
+
+function downloadcalls(pageNumber) {
+    const names = ["Area","from", "to","search"];
+    const param = getSearchHistory();
+    let urlParam = '';
+    for (let i = 0; i < names.length; i++) {
+        const element = param[i];
+        urlParam += '&' + names[i] + '=' +element;
+    }
+    const url = 'calls/called/'+cookies.assoId[cookies.actualAsso]+'/download?Page='+pageNumber+urlParam;
+    // let data = download(url, name);
+    console.log(url);
+};
