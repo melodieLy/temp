@@ -11,16 +11,17 @@ function createAssoData(assoName, assoId) {
 
 function loadSimplySidebarHeader() {
   $.get('components/sidebar_header_simple.html', function(templates) {
-  var component = $(templates).filter('#tpl-sidebar-simply').html();
-  const rendered = Mustache.render(
-    component,{
-    img_src:retrieveAssoLogo(),
-    Name: cookies.assoName[cookies.actualAsso]
-  });
-  $("#association").html(rendered).promise().done(function() {
-    showSelectedNavElement();
+    var component = $(templates).filter('#tpl-sidebar-simply').html();
+    const rendered = Mustache.render(
+      component,{
+      img_src:retrieveAssoLogo(),
+      Name: cookies.assoName[cookies.actualAsso]
+    });
+    $("#association").html(rendered).promise().done(function() {
+      showSelectedNavElement();
+    })
   })
-});
+};
 
 function loadSidebarHeader(){
   let t = createAssoData(cookies.assoName, cookies.assoId);
@@ -96,5 +97,5 @@ function changeAssociationPage(newAsso) {
 }
 
 function retrieveAssoLogo() {
-  return 'https://recette-api.song-fr.com/public/associations/'+cookies.assoId[cookies.actualAsso] + '/logo'
+  return 'https://recette-api.song-fr.com/public/associations/'+cookies.assoId[cookies.actualAsso] + '/logo';
 }
