@@ -78,34 +78,36 @@ function checkAdminRight(data) {
     return false;
 };
 
-function getAllExistingAsso(token) {
-    let assoNameList = "";
-    let assoIdList = "";
-
+function getAllAso(param){
     $.ajax({
         url: apiPath + "associations/digest-list",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
-            "Authorization": token
+            "Authorization": param
         },
         method: "GET"
-    }).done(function(result) {
-        const test = JSON.stringify(result);
-        alert(test[1].Value);
-        for (let i = 0; i < result.length; i++) {
-            if(i < 1) {
-                assoNameList = result[i].Value +",";
-                assoIdList = result[i].Id +",";
-            } else if (i == setup.length - 1) {
-                assoNameList += result[i].Name;
-                assoIdList += result[i].Id ;
-            } else {
-                assoNameList += result[i].Name +",";
-                assoIdList += result[i].Id +",";
-            }
+    }.done(function(result) {
+        getAllExistingAsso(result);
+    }));
+};
+
+function getAllExistingAsso(result) {
+    let assoNameList = "";
+    let assoIdList = "";
+
+    for (let i = 0; i < result.length; i++) {
+        if(i < 1) {
+            assoNameList = result[i].Value +",";
+            assoIdList = result[i].Id +",";
+        } else if (i == setup.length - 1) {
+            assoNameList += result[i].Name;
+            assoIdList += result[i].Id ;
+        } else {
+            assoNameList += result[i].Name +",";
+            assoIdList += result[i].Id +",";
         }
-    })
+    }
 
     document.cookie = "assoName=" + assoNameList +";";
     document.cookie = "assoId=" + assoIdList + ";";
@@ -383,7 +385,7 @@ function findAsso(param) {
     .done(function(result) {
         const checkAdmin = checkAdminRight(result);
         if(checkAdmin) {
-            getAllExistingAsso(token);
+            getAllAsso(token);
             EnvironmentRedirection();
         }
 
