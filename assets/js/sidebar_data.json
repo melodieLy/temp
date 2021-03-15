@@ -1,6 +1,6 @@
 [
    {
-      "rights":"FORMS-MANAGER",
+      "rights":["FORMS-MANAGER", "ADMIN"],
       "title":"Vos données",
       "id":"data",
       "category":[
@@ -15,7 +15,7 @@
       ]
    },
    {
-      "rights":"SUPER-ADMIN",
+      "rights":"ADMIN",
       "title":"supadmintitle",
       "id":"admin",
       "category":[

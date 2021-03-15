@@ -49,6 +49,7 @@ function createCookieAsso(setup) {
         for (let j = 0; j < rightName.length; j++) {
             if(setup[i].Role.Id.toUpperCase() === rightName[j]) {
                 if(sesssionRights.indexOf(rightName[j]) == -1) sesssionRights.push(rightName[j]);
+                if(su)
                 if(i < 1) {
                     assoNameList = setup[i].Association.Name +",";
                     assoIdList = setup[i].Association.Id +",";
@@ -67,8 +68,38 @@ function createCookieAsso(setup) {
     if(assoIdList.length == 0) return false;
     document.cookie = "assoName=" + assoNameList +";";
     document.cookie = "assoId=" + assoIdList + ";";
-    document.cookie = "actualAsso=" + 0 + ';' 
-  };
+    document.cookie = "actualAsso=" + 0 + ';';
+};
+
+function checkAdminRight(data) {
+    for (let j = 0; j < data.length; j++) {
+        if(setup[i].Role.Id.toUpperCase() === "ADMIN") return true;
+    }
+    return false;
+};
+
+function getAllExistingAsso() {
+    let assoNameList = "";
+    let assoIdList = "";
+
+    const assos = get("/associations/digest-list");
+    assos.forEach(association => {
+        if(i < 1) {
+            assoNameList = association.Name +",";
+            assoIdList = association.Id +",";
+        } else if (i == setup.length - 1) {
+            assoNameList += association.Name;
+            assoIdList += association.Id ;
+        } else {
+            assoNameList += association.Name +",";
+            assoIdList += association.Id +",";
+        }
+    });
+
+    document.cookie = "assoName=" + assoNameList +";";
+    document.cookie = "assoId=" + assoIdList + ";";
+    document.cookie = "actualAsso=" + 0 + ';';
+};
 
 function getCookie() {
     if(!document.cookie){
@@ -150,14 +181,13 @@ function get(path) {
             "Authorization": "bearer " + cookies.token
         },
         method: "GET",
-        success: funct
+        success
     })
     
     .fail(function(xhr) {
         getError(xhr);
     });
 };
-
 
 function get(path,funct) {
     $.ajax({
@@ -341,6 +371,12 @@ function findAsso(param) {
         method: "GET"
     })
     .done(function(result) {
+        const checkAdmin = checkAdminRight(result);
+        if(checkAdmin) {
+            getAllExistingAsso();
+            EnvironmentRedirection();
+        }
+        
         const rights = createCookieAsso(result);
         if(rights === false) alert("Vous n'avez pas les droits pour accéder au site. ");
         else EnvironmentRedirection();
