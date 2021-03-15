@@ -42,22 +42,28 @@ function getError(info) {
 function createCookieAsso(setup) {
     let assoNameList = "";
     let assoIdList = "";
+    let sesssionRights = [];
     
+    const rightName = ["FORMS-MANAGER", "QUALITY-WATCH", "ADMIN"];
     for ( i = 0; i < setup.length; i++) {
-      if(setup[i].Role.Id.toUpperCase() === "FORMS-MANAGER") {
-        if(!sessionStorage.getItem("right")) sessionStorage.setItem("rights", "FORMS-MANAGER");
-        if(i < 1) {
-          assoNameList = setup[i].Association.Name +",";
-          assoIdList = setup[i].Association.Id +",";
-        } else if (i == setup.length - 1) {
-          assoNameList += setup[i].Association.Name;
-          assoIdList += setup[i].Association.Id ;
-        } else {
-          assoNameList += setup[i].Association.Name +",";
-          assoIdList += setup[i].Association.Id +",";
+        for (let j = 0; j < rightName.length; j++) {
+            if(setup[i].Role.Id.toUpperCase() === rightName[j]) {
+                if(sesssionRights.indexOf(rightName[j]) == -1) sesssionRights.push(rightName[j]);
+                if(i < 1) {
+                    assoNameList = setup[i].Association.Name +",";
+                    assoIdList = setup[i].Association.Id +",";
+                } else if (i == setup.length - 1) {
+                    assoNameList += setup[i].Association.Name;
+                    assoIdList += setup[i].Association.Id ;
+                } else {
+                    assoNameList += setup[i].Association.Name +",";
+                    assoIdList += setup[i].Association.Id +",";
+                }
+            }
         }
-      }
     }
+    if(!sessionStorage.getItem("right")) sessionStorage.setItem("rights", JSON.stringify(sesssionRights));
+
     if(assoIdList.length == 0) return false;
     document.cookie = "assoName=" + assoNameList +";";
     document.cookie = "assoId=" + assoIdList + ";";
@@ -120,8 +126,10 @@ function createNewCookie() {
     return result;
 };
 
-function deleteCookie() {
+function deleteSession() {
     document.cookie = "expires=Thu Jan 01 1970 00:00:00 UTC; token=; username=; asso=; assoId=; actualAsso=;";
+    sessionStorage.clear();
+    localStorage.clear();
 }
 
 function removeOldTable() {
@@ -181,6 +189,62 @@ function download(path, param) {
             const jsonBlob = new Blob([data])
             const blobUrl = window.URL.createObjectURL(jsonBlob);
                 //Create a link element
+            const link = document.createElement("a");
+
+            //Set link's href to point to the blob URL
+            link.href = blobUrl;
+            link.download = param
+
+            //Append link tot he body
+            document.body.appendChild(link);
+
+            //Dispatch click event ont he link
+            // This is necessary as link.click() does not work on the latest firefox
+            link.dispatchEvent(
+                new MouseEvent('click', { 
+                bubbles: true, 
+                cancelable: true, 
+                view: window 
+                })
+            );
+            
+            // Remove link from body
+            document.body.removeChild(link);
+        },
+        error: function (result, statut, error) {
+            console.error(result + '- code : ' + statut + 'message : ' +error)
+        }
+    })
+
+    .fail(function(xhr) {
+        getError(xhr);
+    });
+}
+
+function downloadTest(path, param) {
+    $.ajax({
+        url: apiPath + path,
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept":"application/json",
+            "Authorization": "bearer " + cookies.token
+        },
+        method: "GET",
+        success: function (data, statut) {
+            const d = [data].join('\n');
+            var contentType = 'text/csv';
+            var csvFile = new Blob([CSV], {type: contentType});
+            var a = document.createElement('a');
+            a.download = 'my.csv';
+            a.href = window.URL.createObjectURL(csvFile);
+
+            a.dataset.downloadurl = [contentType, a.download, a.href].join(',');
+
+            document.body.appendChild(a);
+
+            const jsonBlob = new Blob([data]);
+            const blobUrl = window.URL.createObjectURL(jsonBlob);
+            //Create a link element
             const link = document.createElement("a");
 
             //Set link's href to point to the blob URL

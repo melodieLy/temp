@@ -71,10 +71,11 @@ function createSearchHistory(select,inputs) {
 }
 
 function getSearchHistory() {
-    const name = ["area","from", "to","search"];
+    const names = ["area","from", "to","search"];
     let obj = [];
     for(const name of names) {
-        obj.push(sessionStorage.getItem(name));
+        if(sessionStorage.getItem(name) == null) obj.push('');
+        else obj.push(sessionStorage.getItem(name));
     }
     return obj;
 }
@@ -98,6 +99,5 @@ function downloadcalls(pageNumber) {
         urlParam += '&' + names[i] + '=' +element;
     }
     const url = 'calls/called/'+cookies.assoId[cookies.actualAsso]+'/download?Page='+pageNumber+urlParam;
-    // let data = download(url, name);
-    console.log(url);
+    let data = downloadCSV(url, "test");
 };
