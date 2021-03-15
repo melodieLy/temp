@@ -93,7 +93,7 @@ function getAllExistingAsso(token) {
     }).done(function(result) {
         result.forEach(association => {
             if(i < 1) {
-                assoNameList = association.Name +",";
+                assoNameList = association.Value +",";
                 assoIdList = association.Id +",";
             } else if (i == setup.length - 1) {
                 assoNameList += association.Name;
