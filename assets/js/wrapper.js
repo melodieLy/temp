@@ -78,7 +78,7 @@ function checkAdminRight(data) {
     return false;
 };
 
-function getAllAso(param){
+function getAllAsso(param){
     $.ajax({
         url: apiPath + "associations/digest-list",
         headers: {
