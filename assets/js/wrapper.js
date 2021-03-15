@@ -91,18 +91,18 @@ function getAllExistingAsso(token) {
         },
         method: "GET"
     }).done(function(result) {
-        result.forEach(association => {
+        for (let i = 0; i < result.length; i++) {
             if(i < 1) {
-                assoNameList = association.Value +",";
-                assoIdList = association.Id +",";
+                assoNameList = result[i].Value +",";
+                assoIdList = result[i].Id +",";
             } else if (i == setup.length - 1) {
-                assoNameList += association.Name;
-                assoIdList += association.Id ;
+                assoNameList += result[i].Name;
+                assoIdList += result[i].Id ;
             } else {
-                assoNameList += association.Name +",";
-                assoIdList += association.Id +",";
+                assoNameList += result[i].Name +",";
+                assoIdList += result[i].Id +",";
             }
-        });
+        }
     })
 
     document.cookie = "assoName=" + assoNameList +";";
