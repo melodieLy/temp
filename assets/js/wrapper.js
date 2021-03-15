@@ -73,7 +73,7 @@ function createCookieAsso(setup) {
 
 function checkAdminRight(data) {
     for (let j = 0; j < data.length; j++) {
-        if(setup[i].Role.Id.toUpperCase() === "ADMIN") return true;
+        if(data[j].Role.Id.toUpperCase() === "ADMIN") return true;
     }
     return false;
 };
@@ -376,7 +376,7 @@ function findAsso(param) {
             getAllExistingAsso();
             EnvironmentRedirection();
         }
-        
+
         const rights = createCookieAsso(result);
         if(rights === false) alert("Vous n'avez pas les droits pour accéder au site. ");
         else EnvironmentRedirection();
