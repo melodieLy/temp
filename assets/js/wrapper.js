@@ -82,8 +82,7 @@ function getAllExistingAsso(token) {
     let assoNameList = "";
     let assoIdList = "";
 
-
-    const assos = $.ajax({
+    $.ajax({
         url: apiPath + "associations/digest-list",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -91,19 +90,20 @@ function getAllExistingAsso(token) {
             "Authorization": token
         },
         method: "GET"
-    });
-    assos.forEach(association => {
-        if(i < 1) {
-            assoNameList = association.Name +",";
-            assoIdList = association.Id +",";
-        } else if (i == setup.length - 1) {
-            assoNameList += association.Name;
-            assoIdList += association.Id ;
-        } else {
-            assoNameList += association.Name +",";
-            assoIdList += association.Id +",";
-        }
-    });
+    }).success(function(result) {
+        result.forEach(association => {
+            if(i < 1) {
+                assoNameList = association.Name +",";
+                assoIdList = association.Id +",";
+            } else if (i == setup.length - 1) {
+                assoNameList += association.Name;
+                assoIdList += association.Id ;
+            } else {
+                assoNameList += association.Name +",";
+                assoIdList += association.Id +",";
+            }
+        });
+    })
 
     document.cookie = "assoName=" + assoNameList +";";
     document.cookie = "assoId=" + assoIdList + ";";
