@@ -90,7 +90,7 @@ function getAllExistingAsso(token) {
             "Authorization": token
         },
         method: "GET"
-    }).success(function(result) {
+    }).done(function(result) {
         result.forEach(association => {
             if(i < 1) {
                 assoNameList = association.Name +",";
@@ -189,8 +189,7 @@ function get(path) {
             "Accept":"application/json",
             "Authorization": "bearer " + cookies.token
         },
-        method: "GET",
-        success
+        method: "GET"
     })
     
     .fail(function(xhr) {
