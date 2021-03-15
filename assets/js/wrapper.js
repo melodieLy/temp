@@ -91,7 +91,8 @@ function getAllExistingAsso(token) {
         },
         method: "GET"
     }).done(function(result) {
-        alert(result);
+        const test = JSON.stringify(result);
+        alert(test[1].Value);
         for (let i = 0; i < result.length; i++) {
             if(i < 1) {
                 assoNameList = result[i].Value +",";
