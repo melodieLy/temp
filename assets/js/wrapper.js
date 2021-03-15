@@ -78,11 +78,20 @@ function checkAdminRight(data) {
     return false;
 };
 
-function getAllExistingAsso() {
+function getAllExistingAsso(token) {
     let assoNameList = "";
     let assoIdList = "";
 
-    const assos = get("/associations/digest-list");
+
+    const assos = $.ajax({
+        url: apiPath + "associations/digest-list",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept":"application/json",
+            "Authorization": token
+        },
+        method: "GET"
+    });
     assos.forEach(association => {
         if(i < 1) {
             assoNameList = association.Name +",";
@@ -373,7 +382,7 @@ function findAsso(param) {
     .done(function(result) {
         const checkAdmin = checkAdminRight(result);
         if(checkAdmin) {
-            getAllExistingAsso();
+            getAllExistingAsso(token);
             EnvironmentRedirection();
         }
 
