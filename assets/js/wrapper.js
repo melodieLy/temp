@@ -12,7 +12,7 @@ function showAlert(errorInfo) {
 function getError(info) {
     switch(info.status) {
         case 401 :
-            deleteSession();
+            //deleteSession();
             showAlert("401 : Erreur lors de l'authentification Veuillez redémarrer le navigateur.")
             break;
         case 403 :

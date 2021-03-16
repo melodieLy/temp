@@ -19,11 +19,11 @@ function checkValidateCookie() {
   const expiration = new Date(cookies.expires);
   const today = new Date();
   if(cookies === undefined) {
-      window.location.replace("");
+      //window.location.replace("");
       alert("Aucune connexion trouvée. Veuillez-vous authentifier");
   } else if (expiration < today) {
       deleteSession();
-      window.location.replace("");
+      //window.location.replace("");
       showAlert("Connexion expirée. Veuillez-vous reconnecter");
   } else {
     checkRightForthePage();
