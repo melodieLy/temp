@@ -16,11 +16,12 @@ $(document).ready(function() {
 });
 
 function checkValidateCookie() {
+  const expiration = new Date(cookies.expires);
+  const today = new Date();
   if(cookies === undefined) {
       window.location.replace("index.html");
       alert("Aucune connexion trouvée. Veuillez-vous authentifier");
-      
-  } else if (cookies.expires < $.now()) {
+  } else if (expiration < today) {
       deleteCookie();
       window.location.replace('index.html');
       showAlert("Connexion expirée. Veuillez-vous reconnecter");
