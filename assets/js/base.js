@@ -52,7 +52,7 @@ function callSidebar(){
         $.getJSON("assets/js/sidebar_data.json", function(data) {
             let result = [];
             data.forEach(element => {
-                console.log(element.rights[1]);
+                console.log(element.rights.length);
 
                 if(element.rights == sessionStorage.getItem("rights")) result.push(element);
             });
