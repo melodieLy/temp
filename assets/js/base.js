@@ -2,8 +2,7 @@
 $.getScript("assets/js/config.js", function () {
     //Verify if the user did the authentification
     $(document).ready(function() {
-        checkValidateCookie();
-        checkRightForthePage();
+        if(!checkValidateCookie()) checkRightForthePage();
     });
 
     if(environment == "prod") {
