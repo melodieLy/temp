@@ -23,7 +23,7 @@ function checkValidateCookie() {
       alert("Aucune connexion trouvée. Veuillez-vous authentifier");
   } else if (expiration < today) {
       //deleteSession();
-      window.location.replace("/index.html");
+      window.location.replace("/temp/index.html");
       showAlert("Connexion expirée. Veuillez-vous reconnecter");
   } else {
     checkRightForthePage();
