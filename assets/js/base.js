@@ -34,6 +34,7 @@ function checkRightForthePage() {
     const userRights = sessionStorage.getItem('rights');
     $.getJSON("assets/js/sidebar_data.json", function(data) {
         data.forEach(element => {
+            console.log(element.rights[1]);
             if(element.rights == userRights) {
                 for (let i = 0; i < data.length; i++) {
                     const url = "/temp/" + element.category[i].URL;
