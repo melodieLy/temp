@@ -18,7 +18,7 @@ $(document).ready(function() {
 function checkValidateCookie() {
   const expiration = new Date(cookies.expires);
   const today = new Date();
-  const link = window.location.hostname + '/index.html'
+  const link = window.location.hostname;
   if(cookies === undefined) {
       window.location.replace("");
       alert("Aucune connexion trouvée. Veuillez-vous authentifier");
