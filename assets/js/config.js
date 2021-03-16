@@ -21,12 +21,9 @@ function checkValidateCookie() {
   if(cookies === undefined) {
       window.location.replace("");
       alert("Aucune connexion trouvée. Veuillez-vous authentifier");
-      return false;
   } else if (expiration < today) {
       deleteSession();
       window.location.replace("");
       showAlert("Connexion expirée. Veuillez-vous reconnecter");
-      return false;
   }
-  return true;
 }
