@@ -102,7 +102,7 @@ function getAllExistingAsso(result) {
         if(i < 1) {
             assoNameList = result[i].Value +",";
             assoIdList = result[i].Id +",";
-        } else if (i == setup.length - 1) {
+        } else if (i == result.length - 1) {
             assoNameList += result[i].Name;
             assoIdList += result[i].Id ;
         } else {
