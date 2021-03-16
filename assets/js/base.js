@@ -3,8 +3,9 @@ $.getScript("assets/js/config.js", function () {
     //Verify if the user did the authentification
     $(document).ready(function() {
         checkValidateCookie();
-        if(window.location.pathname == '/temp/')
-        checkRightForthePage();
+        if(window.location.pathname != '/temp/') {
+            checkRightForthePage();
+        }
     });
 
     if(environment == "prod") {
