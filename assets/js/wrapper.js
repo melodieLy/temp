@@ -63,7 +63,7 @@ function createCookieAsso(setup) {
             }
         }
     }
-    if(!sessionStorage.getItem("right")) sessionStorage.setItem("rights", JSON.stringify(sesssionRights));
+    if(!sessionStorage.getItem("rights")) sessionStorage.setItem("rights", JSON.stringify(sesssionRights));
 
     if(assoIdList.length == 0) return false;
     document.cookie = "assoName=" + assoNameList +";";
@@ -90,6 +90,7 @@ function getAllAsso(param) {
     })
     .done(function(result) {
         getAllExistingAsso(result);
+        EnvironmentRedirection();
     });
 };
 
@@ -109,6 +110,8 @@ function getAllExistingAsso(result) {
             assoIdList += result[i].Id +",";
         }
     }
+
+    if(!sessionStorage.getItem("rights")) sessionStorage.setItem("rights", "ADMIN");
 
     document.cookie = "assoName=" + assoNameList +";";
     document.cookie = "assoId=" + assoIdList + ";";
@@ -387,12 +390,12 @@ function findAsso(param) {
         const checkAdmin = checkAdminRight(result);
         if(checkAdmin) {
             getAllAsso(token);
-            EnvironmentRedirection();
         }
-
-        const rights = createCookieAsso(result);
-        if(rights === false) alert("Vous n'avez pas les droits pour accéder au site. ");
-        else EnvironmentRedirection();
+        else {
+            const rights = createCookieAsso(result);
+            if(rights === false) alert("Vous n'avez pas les droits pour accéder au site. ");
+            else EnvironmentRedirection();
+        }
     })
 
     .fail(function(xhr) {
