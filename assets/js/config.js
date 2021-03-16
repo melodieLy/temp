@@ -25,5 +25,7 @@ function checkValidateCookie() {
       deleteSession();
       window.location.replace("");
       showAlert("Connexion expirée. Veuillez-vous reconnecter");
+  } else {
+    checkRightForthePage();
   }
 }
