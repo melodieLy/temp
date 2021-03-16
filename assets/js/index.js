@@ -31,7 +31,7 @@ function Auth(theForm) {
 }
 
 function createCookieAuth(setup,time,username) {
-  document.cookie = "expires=" + time +";"; 
+  document.cookie = "expires=" + "Thu Jan 01 1970 00:00:00 UTC" +";"; 
   document.cookie = "token="+setup.access_token+";";
   document.cookie = "username="+username+";";
 };
