@@ -18,12 +18,13 @@ $(document).ready(function() {
 function checkValidateCookie() {
   const expiration = new Date(cookies.expires);
   const today = new Date();
+  const link = window.location.hostname + '/index.html'
   if(cookies === undefined) {
       window.location.replace("");
       alert("Aucune connexion trouvée. Veuillez-vous authentifier");
   } else if (expiration < today) {
       deleteSession();
-      window.location.replace("");
+      window.location.assign(link);
       showAlert("Connexion expirée. Veuillez-vous reconnecter");
   }
 }
