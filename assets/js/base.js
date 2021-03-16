@@ -3,6 +3,7 @@ $.getScript("assets/js/config.js", function () {
     //Verify if the user did the authentification
     $(document).ready(function() {
         checkValidateCookie();
+        checkRightForthePage();
     });
 
     if(environment == "prod") {
@@ -34,7 +35,6 @@ function checkRightForthePage() {
     const userRights = sessionStorage.getItem('rights');
     $.getJSON("assets/js/sidebar_data.json", function(data) {
         data.forEach(element => {
-            console.log(element.rights[1]);
             if(element.rights == userRights) {
                 for (let i = 0; i < data.length; i++) {
                     const url = "/temp/" + element.category[i].URL;
@@ -52,6 +52,8 @@ function callSidebar(){
         $.getJSON("assets/js/sidebar_data.json", function(data) {
             let result = [];
             data.forEach(element => {
+                console.log(element.rights[1]);
+
                 if(element.rights == sessionStorage.getItem("rights")) result.push(element);
             });
             $('#sidebar').append(Mustache.render(sidebar, result));
