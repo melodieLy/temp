@@ -33,9 +33,9 @@ $.getScript("assets/js/config.js", function () {
 function checkRightForthePage() {
     const userRights = sessionStorage.getItem('rights');
     let datas;
-    $.getJSON("assets/js/sidebar_data.json"), function(json) {
+    $.getJSON("assets/js/sidebar_data.json", function(json) {
         datas = json;
-    };
+    });
     datas.forEach( sidebarElement => {
         sidebarElement.rights.forEach(sidebarRight => {
             if( userRights == sidebarRight ) {
