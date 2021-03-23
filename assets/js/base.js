@@ -32,11 +32,11 @@ $.getScript("assets/js/config.js", function () {
 //
 function checkRightForthePage() {
     const userRights = sessionStorage.getItem('rights');
-    let datas;
-    $.getJSON("assets/js/sidebar_data.json", function(json) {
-        datas = json;
-    });
-    datas.forEach( sidebarElement => {
+    $.getJSON("assets/js/sidebar_data.json", searchRights);
+};
+
+function searchRights(data) {
+    data.forEach( sidebarElement => {
         sidebarElement.rights.forEach(sidebarRight => {
             if( userRights == sidebarRight ) {
                 for (let j = 0; j < sidebarElement.category.length; j++) {
@@ -47,7 +47,7 @@ function checkRightForthePage() {
         })
         return false;
     });
-};
+}
 
 function callSidebar(){
     $.get('sidebar.html', function(templates) {
@@ -60,7 +60,7 @@ function callSidebar(){
                     console.log(element);
                     if(element.rights[i] == sessionStorage.getItem("rights")) result.push(element);
                     i = i + 1;
-                } while (i < element.right.length-1);
+                } while (i < element.rights.length-1);
             });
             $('#sidebar').append(Mustache.render(sidebar, result));
         })

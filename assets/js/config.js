@@ -26,7 +26,6 @@ function checkValidateCookie() {
       window.location.replace("/temp/index.html");
       alert("Connexion expirée. Veuillez-vous reconnecter");
   } else {
-    if(!checkRightForthePage()) console.log('404');
-    //window.location.replace("404.html") 
+    if(!checkRightForthePage()) window.location.replace("404.html") 
   }
 }
