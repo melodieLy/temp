@@ -34,10 +34,13 @@ function checkRightForthePage() {
     const userRights = sessionStorage.getItem('rights');
     $.getJSON("assets/js/sidebar_data.json", function(data) {
         data.forEach(element => {
-            if(element.rights == userRights) {
-                for (let i = 0; i < data.length; i++) {
-                    const url = "/temp/" + element.category[i].URL;
-                    if(url.includes(window.location.pathname)) return true;
+            for (let i = 0; i < element.rights.length; i++) {
+                const element = array[i];
+                if( userRights == element) {
+                    for (let j = 0; j < data.length; j++) {
+                        const url = "/temp/" + element.category[j].URL;
+                        if(url.includes(window.location.pathname)) return true;
+                    }
                 }
             }
         })
