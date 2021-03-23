@@ -46,8 +46,8 @@ function checkRightForthePage() {
                 })
             }
         });
-        return result;
     })
+    return result;
 };
 
 function callSidebar(){
