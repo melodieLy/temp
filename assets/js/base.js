@@ -54,7 +54,7 @@ function searchRights(data) {
 function callSidebar(){
     $.get('sidebar.html', function(templates) {
         var sidebar = $(templates).filter('#tpl-sidebar').html();
-        $.getJSON("assets/js/sidebar_data.json", function(data) {
+        $.getJSON("assets/data/sidebar_data.json", function(data) {
             let result = [];
             data.forEach(element => {
                 console.log(element);
