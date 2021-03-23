@@ -31,12 +31,12 @@ $.getScript("assets/js/config.js", function () {
 //Please be careful of the path for the prod
 //
 function checkRightForthePage() {
-    console.log(sessionStorage.getItem('rights'))
     const userRights = sessionStorage.getItem('rights');
+
     $.getJSON("assets/js/sidebar_data.json", function(datas) {
         datas.forEach( sidebarElement => {
             for (let i = 0; i < sidebarElement.rights.length; i++) {
-                const right = sidebarElement.right[i];
+                const right = sidebarElement.rights[i];
                 if( userRights == right ) {
                     for (let j = 0; j < sidebarElement.category.length; j++) {
                         const url = "/temp/" + sidebarElement.category[j].URL;
