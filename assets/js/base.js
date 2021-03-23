@@ -35,17 +35,19 @@ function checkRightForthePage() {
     let result = false;
     $.getJSON("assets/js/sidebar_data.json", function(datas) {
         datas.forEach( sidebarElement => {
-            sidebarElement.rights.forEach(sidebarRight => {
-                if( userRights == sidebarRight ) {
-                    for (let j = 0; j < sidebarElement.category.length; j++) {
-                        const url = "/temp/" + sidebarElement.category[j].URL;
-                        if(url.includes(window.location.pathname)) result = true;
+            if(!result) {
+                sidebarElement.rights.forEach(sidebarRight => {
+                    if( userRights == sidebarRight ) {
+                        for (let j = 0; j < sidebarElement.category.length; j++) {
+                            const url = "/temp/" + sidebarElement.category[j].URL;
+                            if(url.includes(window.location.pathname)) result = true;
+                        }
                     }
-                }
-            })
-        })
+                })
+            }
+        });
+        return result;
     })
-    return result;
 };
 
 function callSidebar(){
