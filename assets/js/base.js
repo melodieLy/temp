@@ -31,12 +31,13 @@ $.getScript("assets/js/config.js", function () {
 //Please be careful of the path for the prod
 //
 function checkRightForthePage() {
-    const userRights = sessionStorage.getItem('rights');
     const r = $.getJSON("assets/js/sidebar_data.json", searchRights);
     return r;
 };
 
 function searchRights(data) {
+    const userRights = sessionStorage.getItem('rights');
+
     data.forEach( sidebarElement => {
         sidebarElement.rights.forEach(sidebarRight => {
             if( userRights == sidebarRight ) {
@@ -55,13 +56,15 @@ function callSidebar(){
         var sidebar = $(templates).filter('#tpl-sidebar').html();
         $.getJSON("assets/js/sidebar_data.json", function(data) {
             let result = [];
-            console.log(data);
             data.forEach(element => {
-                let i = 0;
-                do{
-                    if(element.rights[i] == sessionStorage.getItem("rights")) result.push(element);
-                    i = i + 1;
-                } while (i < element.rights.length-1);
+                console.log(element);
+                element.rights.forEach(right => {
+                    console.log("side : " + right + " / actual : " + sessionStorage.getItem("rights"));
+                    if(right== sessionStorage.getItem("rights")) {
+                        result.push(element);
+                        console.log("push : "  + result);
+                    } 
+                });
             });
             $('#sidebar').append(Mustache.render(sidebar, result));
         })
