@@ -32,19 +32,20 @@ $.getScript("assets/js/config.js", function () {
 //
 function checkRightForthePage() {
     const userRights = sessionStorage.getItem('rights');
+    let result = false;
     $.getJSON("assets/js/sidebar_data.json", function(datas) {
         datas.forEach( sidebarElement => {
             sidebarElement.rights.forEach(sidebarRight => {
                 if( userRights == sidebarRight ) {
                     for (let j = 0; j < sidebarElement.category.length; j++) {
                         const url = "/temp/" + sidebarElement.category[j].URL;
-                        if(url.includes(window.location.pathname)) return true;
+                        if(url.includes(window.location.pathname)) result = true;
                     }
                 }
             })
         })
-        return false;
     })
+    return result;
 };
 
 function callSidebar(){
