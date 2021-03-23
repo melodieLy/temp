@@ -32,7 +32,8 @@ $.getScript("assets/js/config.js", function () {
 //
 function checkRightForthePage() {
     const userRights = sessionStorage.getItem('rights');
-    $.getJSON("assets/js/sidebar_data.json", searchRights);
+    const r = $.getJSON("assets/js/sidebar_data.json", searchRights);
+    return r;
 };
 
 function searchRights(data) {
