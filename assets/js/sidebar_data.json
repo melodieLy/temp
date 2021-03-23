@@ -15,7 +15,7 @@
       ]
    },
    {
-      "rights":"ADMIN",
+      "rights":["ADMIN"],
       "title":"supadmintitle",
       "id":"admin",
       "category":[

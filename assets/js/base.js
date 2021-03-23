@@ -51,9 +51,11 @@ function callSidebar(){
         $.getJSON("assets/js/sidebar_data.json", function(data) {
             let result = [];
             data.forEach(element => {
-                console.log(element.rights.length);
-
-                if(element.rights == sessionStorage.getItem("rights")) result.push(element);
+                let i = 0;
+                do{
+                    if(element.rights[i] == sessionStorage.getItem("rights")) result.push(element);
+                    i = i + 1;
+                } while (i < element.rights.length-1)
             });
             $('#sidebar').append(Mustache.render(sidebar, result));
         })
