@@ -45,7 +45,7 @@ function checkRightForthePage() {
                 }
             }
         })
-        window.location.replace("404.html");
+        return false;
     })
 };
 
