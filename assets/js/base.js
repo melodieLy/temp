@@ -32,18 +32,16 @@ $.getScript("assets/js/config.js", function () {
 //
 function checkRightForthePage() {
     const userRights = sessionStorage.getItem('rights');
-
     $.getJSON("assets/js/sidebar_data.json", function(datas) {
         datas.forEach( sidebarElement => {
-            for (let i = 0; i < sidebarElement.rights.length; i++) {
-                const right = sidebarElement.rights[i];
-                if( userRights == right ) {
+            sidebarElement.rights.forEach(sidebarRight => {
+                if( userRights == sidebarRight ) {
                     for (let j = 0; j < sidebarElement.category.length; j++) {
                         const url = "/temp/" + sidebarElement.category[j].URL;
                         if(url.includes(window.location.pathname)) return true;
                     }
                 }
-            }
+            })
         })
         return false;
     })
