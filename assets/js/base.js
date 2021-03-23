@@ -57,9 +57,10 @@ function callSidebar(){
             data.forEach(element => {
                 let i = 0;
                 do{
+                    console.log(element);
                     if(element.rights[i] == sessionStorage.getItem("rights")) result.push(element);
                     i = i + 1;
-                } while (i < element.rights.length-1)
+                } while (i < element.right.length-1);
             });
             $('#sidebar').append(Mustache.render(sidebar, result));
         })
