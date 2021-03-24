@@ -279,7 +279,7 @@ function downloadCSV(path) {
         method: "GET",
         success: function (data, statut) {
             var contentType = 'text/csv';
-            var csv = CSVJSON.csv2json(data, {flatten: true});
+            var csv = CSVJSON.json2csv(data, {flatten: true});
             var csvFile = new Blob([csv], {type: contentType});
             var a = document.createElement('a');
             a.download = 'exports.csv';
