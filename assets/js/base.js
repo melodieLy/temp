@@ -31,7 +31,7 @@ $.getScript("assets/js/config.js", function () {
 //Please be careful of the path for the prod
 //
 function checkRightForthePage() {
-    const r = $.getJSON("assets/js/sidebar_data.json", searchRights);
+    const r = $.getJSON("assets/data/sidebar_data.json", searchRights);
     return r;
 };
 

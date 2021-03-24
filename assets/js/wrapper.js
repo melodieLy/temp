@@ -1,3 +1,4 @@
+import { json2csv } from './../plugin/csv2json.js';
 const pageSize = '10';
 const apiPath = "https://recette-api.song-fr.com/";
 
@@ -279,7 +280,7 @@ function downloadCSV(path) {
         method: "GET",
         success: function (data, statut) {
             var contentType = 'text/csv';
-            var csv = json2csv.json2csv(data, {flatten: true});
+            var csv = json2csv(data, {flatten: true});
             var csvFile = new Blob([csv], {type: contentType});
             var a = document.createElement('a');
             a.download = 'exports.csv';
