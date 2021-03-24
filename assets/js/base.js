@@ -57,7 +57,6 @@ function callSidebar(){
         $.getJSON("assets/data/sidebar_data.json", function(data) {
             let result = [];
             data.forEach(element => {
-                console.log(element);
                 element.rights.forEach(right => {
                     if(right== sessionStorage.getItem("rights")) result.push(element);
                 });
