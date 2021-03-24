@@ -1,5 +1,9 @@
 <script id="pagination-comp" type="text/html">
-    <nav id="nav-page">
+  <a onclick="return downloadcalls({{PageNumber}})">
+    <button class="btn mb-1 btn btn-pill btn-primary">Exporter</button>
+  </a>
+    
+  <nav id="nav-page">
         <ul class="pagination">
             <li class="page-item">
               <a class="page-link" onClick="getWCPage({{previousPage}}, document.getElementById('search-form'))" href="#{{previousPage}}" tabindex="-1">
@@ -24,8 +28,5 @@
         </ul>
     </nav>
 
-    <a onclick="return downloadcalls({{PageNumber}})">
-      <button class="btn mb-1 btn btn-pill btn-primary">Exporter</button>
-    </a>
 </script>
 
