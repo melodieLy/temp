@@ -268,7 +268,7 @@ function download(path, param) {
     });
 }
 
-function downloadTest(path, param) {
+function downloadCSV(path) {
     $.ajax({
         url: apiPath + path,
         headers: {
@@ -278,41 +278,43 @@ function downloadTest(path, param) {
         },
         method: "GET",
         success: function (data, statut) {
-            const d = [data].join('\n');
             var contentType = 'text/csv';
-            var csvFile = new Blob([CSV], {type: contentType});
+            var csv = CSVJSON.json2csv(data, {flatten: true});
+                console.log(csv);
+            var csvFile = new Blob([csv], {type: contentType});
             var a = document.createElement('a');
-            a.download = 'my.csv';
+            a.download = 'exports.csv';
             a.href = window.URL.createObjectURL(csvFile);
 
-            a.dataset.downloadurl = [contentType, a.download, a.href].join(',');
+            a.dataset.downloadurl = [contentType, a.download, a.href].join(':');
 
             document.body.appendChild(a);
 
-            const jsonBlob = new Blob([data]);
-            const blobUrl = window.URL.createObjectURL(jsonBlob);
-            //Create a link element
-            const link = document.createElement("a");
-
-            //Set link's href to point to the blob URL
-            link.href = blobUrl;
-            link.download = param
-
-            //Append link tot he body
-            document.body.appendChild(link);
-
-            //Dispatch click event ont he link
-            // This is necessary as link.click() does not work on the latest firefox
-            link.dispatchEvent(
-                new MouseEvent('click', { 
-                bubbles: true, 
-                cancelable: true, 
-                view: window 
+            a.dispatchEvent(
+                new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                view: window
                 })
             );
-            
+
+            a.dispatchEvent(
+                new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                view: window
+                })
+            );                   
+            a.dispatchEvent(
+                new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                view: window
+                })
+            );
+
             // Remove link from body
-            document.body.removeChild(link);
+            document.body.removeChild(a);
         },
         error: function (result, statut, error) {
             console.error(result + '- code : ' + statut + 'message : ' +error)
@@ -323,6 +325,7 @@ function downloadTest(path, param) {
         getError(xhr);
     });
 }
+
 
 function getWelcomeCall(path) {
     $.ajax({
