@@ -280,7 +280,6 @@ function downloadCSV(path) {
         success: function (data, statut) {
             var contentType = 'text/csv';
             var csv = CSVJSON.json2csv(data, {flatten: true});
-                console.log(csv);
             var csvFile = new Blob([csv], {type: contentType});
             var a = document.createElement('a');
             a.download = 'exports.csv';
@@ -290,21 +289,6 @@ function downloadCSV(path) {
 
             document.body.appendChild(a);
 
-            a.dispatchEvent(
-                new MouseEvent('click', {
-                bubbles: true,
-                cancelable: true,
-                view: window
-                })
-            );
-
-            a.dispatchEvent(
-                new MouseEvent('click', {
-                bubbles: true,
-                cancelable: true,
-                view: window
-                })
-            );                   
             a.dispatchEvent(
                 new MouseEvent('click', {
                 bubbles: true,
