@@ -180,10 +180,11 @@ function deleteSession() {
     localStorage.clear();
 }
 
-function removeOldTable() {
+function removeOldDOMElement() {
     if($('#basic-wc-table')) {
         $('#basic-wc-table').remove();
         $('nav#nav-page').remove();
+        $('btn-export').remove();
     }
 }
 
@@ -333,7 +334,7 @@ function getWelcomeCall(path) {
         },
         method: "GET",
         success: function (data, textStatus, request) {
-            removeOldTable();
+            removeOldDOMElement();
 
             $.get('components/wc_table.html', function(templates) {
                 var component = $(templates).filter('#tpl-wc-table').html();
