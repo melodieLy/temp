@@ -184,7 +184,7 @@ function removeOldDOMElement() {
     if($('#basic-wc-table')) {
         $('#basic-wc-table').remove();
         $('nav#nav-page').remove();
-        $('btn-export').remove();
+        $('a#btn-export').remove();
     }
 }
 
