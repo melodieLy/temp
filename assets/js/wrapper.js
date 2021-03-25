@@ -278,27 +278,32 @@ function downloadCSV(path) {
         },
         method: "GET",
         success: function (data, statut) {
-            var contentType = 'text/csv';
-            var csv = CSVJSON.json2csv(data, {flatten: true});
-            var csvFile = new Blob([csv], {type: contentType});
-            var a = document.createElement('a');
-            a.download = 'exports.csv';
-            a.href = window.URL.createObjectURL(csvFile);
+            console.log(data);
 
-            a.dataset.downloadurl = [contentType, a.download, a.href].join(':');
+            const jsonBlob = new Blob([data])
+            const blobUrl = window.URL.createObjectURL(jsonBlob);
+                //Create a link element
+            const link = document.createElement("a");
 
-            document.body.appendChild(a);
+            //Set link's href to point to the blob URL
+            link.href = blobUrl;
+            link.download = param
 
-            a.dispatchEvent(
-                new MouseEvent('click', {
-                bubbles: true,
-                cancelable: true,
-                view: window
+            //Append link tot he body
+            document.body.appendChild(link);
+
+            //Dispatch click event ont he link
+            // This is necessary as link.click() does not work on the latest firefox
+            link.dispatchEvent(
+                new MouseEvent('click', { 
+                bubbles: true, 
+                cancelable: true, 
+                view: window 
                 })
             );
-
+            
             // Remove link from body
-            document.body.removeChild(a);
+            document.body.removeChild(link);
         },
         error: function (result, statut, error) {
             console.error(result + '- code : ' + statut + 'message : ' +error)
