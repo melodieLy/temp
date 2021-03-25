@@ -283,7 +283,8 @@ function downloadCSV(path) {
                 //Create a link element
             const link = document.createElement("a");
             let fileInfo = request.getResponseHeader("content-disposition");
-            fileInfo = fileInfo.replace('attachment; filename=', '');
+            fileInfo = fileInfo.replace('attachment; ', '');
+            fileInfo = fileInfo.replace('filename=', '');
             //Set link's href to point to the blob URL
             link.href = blobUrl;
             link.download = fileInfo;
