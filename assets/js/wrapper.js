@@ -268,52 +268,51 @@ function download(path, param) {
     });
 }
 
-// function downloadCSV(path) {
-//     $.ajax({
-//         url: apiPath + path,
-//         headers: {
-//             "Content-Type": "application/x-www-form-urlencoded",
-//             "Accept":"application/json",
-//             "Authorization": "bearer " + cookies.token
-//         },
-//         method: "GET",
-//         success: function (data, statut) {
-//             console.log(data);
+function downloadCSV(path) {
+    $.ajax({
+        url: apiPath + path,
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept":"application/json",
+            "Authorization": "bearer " + cookies.token
+        },
+        method: "GET",
+        success: function (data, statut, request) {
+            const jsonBlob = new Blob([data])
+            const blobUrl = window.URL.createObjectURL(jsonBlob);
+                //Create a link element
+            const link = document.createElement("a");
+            let fileInfo = JSON.parse(request.getResponseHeader("content-disposition"));
+            console.log(fileInfo);
+            //Set link's href to point to the blob URL
+            link.href = blobUrl;
+            link.download = param
 
-//             const jsonBlob = new Blob([data])
-//             const blobUrl = window.URL.createObjectURL(jsonBlob);
-//                 //Create a link element
-//             const link = document.createElement("a");
+            //Append link tot he body
+            document.body.appendChild(link);
 
-//             //Set link's href to point to the blob URL
-//             link.href = blobUrl;
-//             link.download = param
-
-//             //Append link tot he body
-//             document.body.appendChild(link);
-
-//             //Dispatch click event ont he link
-//             // This is necessary as link.click() does not work on the latest firefox
-//             link.dispatchEvent(
-//                 new MouseEvent('click', { 
-//                 bubbles: true, 
-//                 cancelable: true, 
-//                 view: window 
-//                 })
-//             );
+            //Dispatch click event ont he link
+            // This is necessary as link.click() does not work on the latest firefox
+            link.dispatchEvent(
+                new MouseEvent('click', { 
+                bubbles: true, 
+                cancelable: true, 
+                view: window 
+                })
+            );
             
-//             // Remove link from body
-//             document.body.removeChild(link);
-//         },
-//         error: function (result, statut, error) {
-//             console.error(result + '- code : ' + statut + 'message : ' +error)
-//         }
-//     })
+            // Remove link from body
+            document.body.removeChild(link);
+        },
+        error: function (result, statut, error) {
+            console.error(result + '- code : ' + statut + 'message : ' +error)
+        }
+    })
 
-//     .fail(function(xhr) {
-//         getError(xhr);
-//     });
-// }
+    .fail(function(xhr) {
+        getError(xhr);
+    });
+}
 
 
 function getWelcomeCall(path) {
