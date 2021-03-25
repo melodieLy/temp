@@ -282,7 +282,7 @@ function downloadCSV(path) {
             const blobUrl = window.URL.createObjectURL(jsonBlob);
                 //Create a link element
             const link = document.createElement("a");
-            let fileInfo = JSON.parse(request.getResponseHeader("content-disposition"));
+            let fileInfo = request.getResponseHeader("content-disposition");
             console.log(fileInfo);
             //Set link's href to point to the blob URL
             link.href = blobUrl;
