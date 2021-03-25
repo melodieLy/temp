@@ -99,6 +99,6 @@ function downloadCalls(pageNumber) {
         urlParam += '&' + names[i] + '=' +element;
     }
     const url = 'calls/called/'+cookies.assoId[cookies.actualAsso]+'/download?Page='+pageNumber+urlParam;
-    let data = downloadCSV(url, name);
+    let data = downloadCSV(url);
 
 };
