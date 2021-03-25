@@ -90,7 +90,7 @@ function deleteSeachHistory() {
     };
 }
 
-function downloadCalls(pageNumber, name) {
+function downloadCalls(pageNumber) {
     const names = ["Area","from", "to","search"];
     const param = getSearchHistory();
     let urlParam = '';
