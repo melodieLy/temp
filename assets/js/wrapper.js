@@ -287,7 +287,7 @@ function downloadCSV(path) {
 
             //Set link's href to point to the blob URL
             link.href = blobUrl;
-            link.download = param
+            link.download = 'exports.csv';
 
             //Append link tot he body
             document.body.appendChild(link);
