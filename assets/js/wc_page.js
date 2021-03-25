@@ -90,7 +90,7 @@ function deleteSeachHistory() {
     };
 }
 
-function downloadCalls(pageNumber) {
+function downloadCalls(pageNumber, name) {
     const names = ["Area","from", "to","search"];
     const param = getSearchHistory();
     let urlParam = '';
@@ -99,6 +99,6 @@ function downloadCalls(pageNumber) {
         urlParam += '&' + names[i] + '=' +element;
     }
     const url = 'calls/called/'+cookies.assoId[cookies.actualAsso]+'/download?Page='+pageNumber+urlParam;
-    let data = downloadCSV(url);
+    let data = download(url, name);
 
 };
