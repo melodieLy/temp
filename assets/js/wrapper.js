@@ -333,6 +333,7 @@ function getWelcomeCall(path) {
                 if(data) {
                     data.forEach(element => {
                         if(element.LastContact) element.LastContact = moment(element.LastContact).format('DD/MM/YYYY');
+                        if(element.CompletionDate) element.LastContact = moment(element.LastContact).format('DD/MM/YYYY');
                     });
                 }
                 $('#welcome-call').append(Mustache.render(component,data));
