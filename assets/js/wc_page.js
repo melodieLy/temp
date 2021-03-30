@@ -33,8 +33,8 @@ function getUrlParam (form) {
     if(form != null) {
         const yourSelect = document.getElementById( "area-select" ).value;
         const input = form.getElementsByTagName("input");
-        
-        if(yourSelect != undefined) let url = '&Area='+yourSelect;
+        let url = '';
+        if(yourSelect != undefined) url += '&Area='+yourSelect;
         for(const element of input) {
             url += '&' + element.name + '=' + element.value;
         };
