@@ -3,6 +3,7 @@
       "rights":["FORMS-MANAGER", "ADMIN"],
       "title":"Vos données",
       "id":"data",
+      "icon":"mdi-pencil-box-multiple",
       "category":[
          {
             "URL":"welcome-call.html",
@@ -16,12 +17,13 @@
    },
    {
       "rights":["ADMIN"],
-      "title":"supadmintitle",
-      "id":"admin",
+      "title":"Calendriers",
+      "id":"debitCalendar",
+      "icon":"mdi-calendar",
       "category":[
          {
-            "URL":"sup.html",
-            "name":"Supr"
+            "URL":"debit-calendar.html",
+            "name":"Calendrier des débits"
          }
       ]
    }
