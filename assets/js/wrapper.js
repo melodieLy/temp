@@ -1,5 +1,5 @@
 const pageSize = '10';
-const apiPath = "https://localhost:2846/";
+const apiPath = "http://localhost:2846/";
 
 function showAlert(errorInfo) {
     $.get('components/alert-danger.html', function(templates) {
