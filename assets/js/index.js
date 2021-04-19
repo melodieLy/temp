@@ -3,7 +3,7 @@ $.getScript("assets/js/wrapper.js", function () {});
 
 function Auth(theForm) {
   $.ajax({
-    url: "http://localhost:2846/swatoken",
+    url: "http://recette-api.song-fr.com/swatoken",
     headers: {
       'content-Type': "application/x-www-form-urlencoded"
     },
