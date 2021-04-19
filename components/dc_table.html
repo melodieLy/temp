@@ -1,0 +1,35 @@
+<script id="tpl-dc-table" type="text/html">
+    <table id="basic-dc-table" class="table nowrap" style="width:100%">
+        <thead>
+            <tr>
+                <th>période : Début</th>
+                <th>Fin</th>
+                <th>Date de prélèvement</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+        {{ #. }}
+            <tr>        
+                <td>{{startDate}}</td>
+                <td>{{endDate}}</td>
+                <td>{{debitDate}}</td>
+                <td>
+                    <!-- <a href="" onclick="copyId('{{Id}}')" title="copie l'ID dans un presse-papier">
+                        <span class="mdi mdi-content-copy"></span>
+                    </a> -->
+                    <a href="" title="Modifier">
+                        <span class="mdi mdi-calendar-edit"></span>
+                    </a>
+                    <a href="" title="Supprimer">
+                        <span class="mdi mdi-delete-forever"></span>
+                    </a>
+                </td>
+            </tr>
+        {{ /. }}
+        {{ ^. }}
+            <td>Aucune donnée n'a été trouvée.</td>
+        {{ /. }}
+    </tbody>
+    </table>
+</script>

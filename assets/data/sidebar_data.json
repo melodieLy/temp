@@ -16,7 +16,7 @@
       ]
    },
    {
-      "rights":["ADMIN"],
+      "rights":["ADMIN","FORMS-MANAGER","ASSO-ADMIN","QUALITY-WATCH"],
       "title":"Calendriers",
       "id":"debitCalendar",
       "icon":"mdi-calendar",

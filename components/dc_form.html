@@ -1,0 +1,37 @@
+<script id="tpl-dc-form" type="text/html">
+    <form action="javascript:void(0);" onsubmit="checkModifiedData(this)">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Début de la période</th>
+                    <th scope="col">Fin de la période </th>
+                    <th scope="col">Date de prélèvement</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="date" class="form-control form-control-sm" name="startDate" id="startDate"
+                            value="2021-04-01">
+                    </td>
+                    <td>
+                        <input type="date" class="form-control form-control-sm" name="endDate" id="endDate"
+                            value="2021-04-16">
+                    </td>
+                    <td>
+                        <input type="date" class="form-control form-control-sm" name="debitDate" id="debitDate"
+                            value="2021-05-05">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>
+                        <button type="submit" class="btn btn-outline-primary btn-block">
+                            Valider les modifications
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</script>
