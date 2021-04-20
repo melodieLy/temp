@@ -1,40 +1,43 @@
 const pageSize = '10';
 const apiPath = "https://recette-api.song-fr.com/";
 
-function showAlert(errorInfo) {
-    $.get('components/alert-danger.html', function(templates) {
-      var alert = $(templates).filter('#tpl-alert-danger').html();
-      let data = {"error" : errorInfo};
+function showAlert(Info, type) {
+    $.get('components/alert.html', function(templates) {
+      var alert = $(templates).filter('#tpl-alert').html();
+      let data = {"info" : Info,
+    "type":type};
       $('#body').append(Mustache.render(alert, data));
     });
 }
 
 function getError(info) {
+    const type = 'danger';
     switch(info.status) {
         case 401 :
-            //deleteSession();
-            showAlert("401 : Erreur lors de l'authentification Veuillez redémarrer le navigateur.")
+            deleteSession();
+            window.location.replace("index.html");
+            showAlert("401 : Erreur lors de l'authentification Vous avez été rediriger.", type);
             break;
         case 403 :
-            showAlert("403 : Vous n'avez pas les authorisations nécessaires.");
+            showAlert("403 : Vous n'avez pas les authorisations nécessaires.", type);
             break;
         case 404 :
-            showAlert("404 : La ressource n'a pas été trouvé.");
+            showAlert("404 : La ressource n'a pas été trouvé.", type);
             break;
         case 408 :
-            showAlert("408 : Une connexion ouverte n'est pas utilisé. Fermeture du la connexion.");
+            showAlert("408 : Une connexion ouverte n'est pas utilisé. Fermeture du la connexion.", type);
             break;
         case 413 :
-            showAlert("413 : La requête au serveur dépasse la limite définie. Veuillez réessayer.");
+            showAlert("413 : La requête au serveur dépasse la limite définie. Veuillez réessayer.", type);
             break;
         case 415 :
-            showAlert("415 : Le format média demandées n'est pas supporté apr le serveur.");
+            showAlert("415 : Le format média demandées n'est pas supporté apr le serveur.", type);
             break;
         case 429 :
-            showAlert("429 : Nombre de requêtes émis trop important. Veuillez patientez avant de lancer une nouvelle requête.");
+            showAlert("429 : Nombre de requêtes émis trop important. Veuillez patientez avant de lancer une nouvelle requête.", type);
             break;
         default:
-            showAlert(info.status + " : " + info.responseJSON.ExceptionMessage)
+            showAlert(info.status + " : " + info.responseJSON.ExceptionMessage, type);
             break;
     }
 }
@@ -278,6 +281,9 @@ function downloadCSV(path) {
         },
         method: "GET",
         success: function (data, statut, request) {
+            showAlert("Téléchargement en cours.", info);
+            $('#alert').delay(5000).fadeOut("slow");
+
             const jsonBlob = new Blob([data])
             const blobUrl = window.URL.createObjectURL(jsonBlob);
                 //Create a link element
@@ -301,9 +307,11 @@ function downloadCSV(path) {
                 view: window 
                 })
             );
-            
+            $('#alert').fadeOut("slow");
+
             // Remove link from body
             document.body.removeChild(link);
+
         },
         error: function (result, statut, error) {
             console.error(result + '- code : ' + statut + 'message : ' +error)
