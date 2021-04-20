@@ -16,7 +16,7 @@ function getError(info) {
         case 401 :
             deleteSession();
             window.location.replace("index.html");
-            showAlert("401 : Erreur lors de l'authentification Vous avez été rediriger.", type);
+            showAlert("401 : Erreur lors de l'authentification Vous avez été redirigé.", type);
             break;
         case 403 :
             showAlert("403 : Vous n'avez pas les authorisations nécessaires.", type);
