@@ -282,7 +282,6 @@ function downloadCSV(path) {
         method: "GET",
         success: function (data, statut, request) {
             showAlert("Téléchargement en cours.", 'info');
-            $('#alert').delay(5000).fadeOut("slow");
 
             const jsonBlob = new Blob([data])
             const blobUrl = window.URL.createObjectURL(jsonBlob);

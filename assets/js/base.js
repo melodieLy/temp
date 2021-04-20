@@ -29,11 +29,10 @@ $.getScript("assets/js/config.js", function () {
 });
 
 setInterval(() => {
-    alert("test");
     $(document).ready(function () {
         checkValidateCookie();
     });
-}, /*60000 * 5*/ 10000);
+}, 60000 * 5);
 
 //
 //Please be careful of the path for the prod
