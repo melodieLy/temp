@@ -1,9 +1,12 @@
 //Call the new sidebar function for the recette version
 $.getScript("assets/js/config.js", function () {
     //Verify if the user did the authentification
+    let validCookie;
     $(document).ready(function() {
-        checkValidateCookie();
+        validCookie = isValidateCookie();
     });
+
+    if(!validCookie) return;
 
     if(environment == "prod") {
         $(function(){
@@ -25,14 +28,13 @@ $.getScript("assets/js/config.js", function () {
             get("context/current-user",callheaderDev);
         });
     }
-   
 });
 
 setInterval(() => {
     $(document).ready(function () {
-        checkValidateCookie();
+        isValidateCookie();
     });
-}, 60000 * 5);
+}, 60000 * 1);
 
 //
 //Please be careful of the path for the prod

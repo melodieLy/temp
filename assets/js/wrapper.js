@@ -281,8 +281,6 @@ function downloadCSV(path) {
         },
         method: "GET",
         success: function (data, statut, request) {
-            showAlert("Téléchargement lancé, veuillez patientez.", 'info');
-
             const jsonBlob = new Blob([data])
             const blobUrl = window.URL.createObjectURL(jsonBlob);
                 //Create a link element
@@ -309,14 +307,11 @@ function downloadCSV(path) {
 
             // Remove link from body
             document.body.removeChild(link);
-            showAlert("Téléchargement Terminée", 'info');
-            $('#alert').delay(5000).fadeOut("slow");
         },
         error: function (result, statut, error) {
             console.error(result + '- code : ' + statut + 'message : ' +error)
         }
     })
-
     .fail(function(xhr) {
         getError(xhr);
     });

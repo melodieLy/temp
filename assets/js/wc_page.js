@@ -91,6 +91,7 @@ function deleteSeachHistory() {
 }
 
 function downloadCalls(pageNumber) {
+    showAlert("Téléchargement lancé. Cela peut prendre quelques secondes.", 'info');
     const names = ["Area","from", "to","search"];
     const param = getSearchHistory();
     let urlParam = '';

@@ -15,17 +15,24 @@ $(document).ready(function() {
   document.getElementById("copy-year").innerHTML = year;
 });
 
-function checkValidateCookie() {
+function isValidateCookie() {
+  if (cookies === undefined) {
+    window.location.replace("");
+    alert("Aucune connexion trouvée. Veuillez-vous authentifier",'info');
+    return false;
+  }
   const expiration = new Date(cookies.expires);
   const today = new Date();
-  if(cookies === undefined) {
-      window.location.replace("");
-      alert("Aucune connexion trouvée. Veuillez-vous authentifier");
-  } else if (expiration < today) {
+  if (expiration < today) {
       deleteSession();
       window.location.replace("/temp/index.html");
-      alert("Connexion expirée. Veuillez-vous reconnecter");
+      alert("Connexion expirée. Veuillez-vous reconnecter",'danger');
+      return false;
   } else {
-    if(!checkRightForthePage()) window.location.replace("404.html") 
+    if(!checkRightForthePage()) {
+      window.location.replace("404.html") 
+      return false;
+    }
+    return true;
   }
 }
