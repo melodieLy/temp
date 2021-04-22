@@ -1,38 +1,53 @@
 //Call the new sidebar function for the recette version
 $.getScript("assets/js/config.js", function () {
     //Verify if the user did the authentification
-    let validCookie = true;
+    let validCookie = false;
     $(document).ready(function() {
-        validCookie = isValidateCookie();
+        try {
+            validCookie = isValidateCookie();
+            if(!validCookie) throw "authentification invalide";
+            if (environment == "prod") {
+                $(function () {
+                    callSidebar();
+                    $.getScript("assets/js/sidebar.js", function () {
+                        if (cookies.assoName.length <= 1) loadSimplySidebarHeader();
+                        else loadSidebarHeader();
+                    });
+                    get("context/current-user", callheader);
+                });
+            }
+            else {
+                $(function () {
+                    $("#sidebar").load("sidebar.recette.html");
+                    $.getScript("assets/js/sidebar.js", function () {
+                        if (cookies.assoName.length <= 1) loadSimplySidebarHeader();
+                        else loadSidebarHeader();
+                    });
+                    get("context/current-user", callheaderDev);
+                });
+            }
+        }
+        catch (error) {
+            console.error(error);
+            document.cookie = "expires=Thu Jan 01 1970 00:00:00 UTC; token=; username=; asso=; assoId=; actualAsso=;";
+            sessionStorage.clear();
+            localStorage.clear();
+
+            window.location.replace("index.html");
+        }
     });
 
-    if(!validCookie) return;
-
-    if(environment == "prod") {
-        $(function(){
-            callSidebar();
-            $.getScript("assets/js/sidebar.js", function () {
-                if(cookies.assoName.length <= 1) loadSimplySidebarHeader();
-                else loadSidebarHeader();
-            });
-            get("context/current-user",callheader);
-        });
-    }
-    else {
-        $(function(){
-            $("#sidebar").load("sidebar.recette.html");
-            $.getScript("assets/js/sidebar.js", function () {
-                if(cookies.assoName.length <= 1) loadSimplySidebarHeader();
-                else loadSidebarHeader();
-            });
-            get("context/current-user",callheaderDev);
-        });
-    }
+    
 });
 
 setInterval(() => {
     $(document).ready(function () {
-        isValidateCookie();
+        try{
+            isValidateCookie();
+        }
+        catch (error) {
+
+        }
     });
 }, 60000 * 1);
 
