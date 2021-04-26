@@ -38,7 +38,15 @@ function getUrlParam (form) {
         for(const element of input) {
             url += '&' + element.name + '=' + element.value;
         };
-        createSearchHistory(yourSelect,input);
+
+        if(typeof(form) ==  "string") {
+            const allTypes = ["rnr", "rn", "r"];
+            allTypes.forEach(type => {
+                if (type == form) url += "&rnr=" + form;
+            });
+        }
+
+        createSearchHistory(yourSelect,input,form);
         return url;
     }
     return "";
@@ -57,21 +65,26 @@ function fillSearchPageWithSessionStorage() {
     let area = document.getElementById('area-select');
     area.value = localStorage.getItem("area");
 
-    let inputs = document.getElementById("form-row").getElementsByTagName('input');
+    let inputs = document.getElementById("search-form").getElementsByTagName('input');
     for(const element of inputs) {
         element.value = localStorage.getItem(element.name);
     };
+
+    chooseOption(localStorage.getItem("rnr"));
 }
 
-function createSearchHistory(select,inputs) {
+function createSearchHistory(select,inputs,form) {
     if(select != "") sessionStorage.setItem("area", select.value);
     for(const element of inputs) {
         if(element.value) sessionStorage.setItem(element.name, element.value);
     };
+
+    if(typeof(form)== "string") sessionStorage.setItem("rnr", form);
+    else sessionStorage.setItem("rnr","rnr");
 }
 
 function getSearchHistory() {
-    const names = ["area","from", "to","search"];
+    const names = ["area","from", "to","search","rnr"];
     let obj = [];
     for(const name of names) {
         if(sessionStorage.getItem(name) == null) obj.push('');
@@ -84,7 +97,7 @@ function deleteSeachHistory() {
     sessionStorage.clear();
     document.getElementById( "area-select" ).value = "";
 
-    let input = document.getElementById("form-row").getElementsByTagName('input');
+    let input = document.getElementById("search-form").getElementsByTagName('input');
     for(const element of input) {
         element.value = "";
     };
@@ -99,6 +112,8 @@ function chooseOption(idType) {
         }
     });
     $('#' + idType).removeClass('btn-outline-primary').addClass('btn-primary').blur();
+
+
 };
 
 function downloadCalls(pageNumber) {
