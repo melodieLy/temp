@@ -19,14 +19,22 @@ function saveMainData(data) {
 function getAllCalendar(data) {
     $.get('components/dc_table.html', function (templates) {
         var component = $(templates).filter('#tpl-dc-table').html();
-        $('#debit-calendar').append(Mustache.render(component, data));
+        $('#debit-calendar').append(Mustache.render(component, {
+            "startDate": moment(data.startDate).format('DD/MM/YYYY'),
+            "endDate": moment(data.endDate).format('DD/MM/YYYY'),
+            "debitDate": moment(data.debitDate).format('DD/MM/YYYY')
+        }));
     });
 }
 
 function getCalendarById(data) {
     $.get('components/dc_form.html', function (templates) {
         var component = $(templates).filter('#tpl-dc-form').html();
-        $('#dc-update').append(Mustache.render(component, data));
+        $('#dc-update').append(Mustache.render(component, {
+            "startDate": moment(data.startDate).format('DD/MM/YYYY'),
+            "endDate": moment(data.endDate).format('DD/MM/YYYY'),
+            "debitDate": moment(data.debitDate).format('DD/MM/YYYY')
+        }));
     });
 
     saveMainData(data);
