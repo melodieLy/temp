@@ -30,26 +30,27 @@ function getWCPage (data,param) {
 };
 
 function getUrlParam (form) {
-    if(form != null) {
-        const yourSelect = document.getElementById( "area-select" ).value;
-        const input = form.getElementsByTagName("input");
-        let url = '';
-        if(yourSelect !== "") url += '&Area='+yourSelect;
-        for(const element of input) {
-            url += '&' + element.name + '=' + element.value;
-        };
-
-        if(typeof(form) ==  "string") {
-            const allTypes = ["rnr", "rn", "r"];
-            allTypes.forEach(type => {
-                if (type == form) url += "&rnr=" + form;
-            });
-        }
-
-        createSearchHistory(yourSelect,input,form);
-        return url;
+    if(form == null) {
+        return "";
     }
-    return "";
+   
+    let url = '';
+    const yourSelect = document.getElementById("area-select").value;
+    const input = document.getElementById("search-form").getElementsByTagName("input");
+    if (yourSelect !== "") url += '&Area=' + yourSelect;
+    for (const element of input) {
+        url += '&' + element.name + '=' + element.value;
+    };
+
+    if(typeof(form) ==  "string") {
+        const allTypes = ["rnr", "rn", "r"];
+        allTypes.forEach(type => {
+            if (type == form) url += "&rnr=" + form;
+        });
+    }
+    
+    createSearchHistory(yourSelect,input,form);
+    return url;
 }
 
 function copyId(ongId) {
