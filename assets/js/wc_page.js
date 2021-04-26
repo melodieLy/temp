@@ -9,7 +9,7 @@ get("associations/"+cookies.assoId[cookies.actualAsso]+"/areas", getWCSearchbar)
 function getWCSearchbar(data) {
     $.get('components/wc-search.html', function(templates) {
         var component = $(templates).filter('#tpl-wc-search').html();
-        $('#form-row').append(Mustache.render(component,data));
+        $('#search-zone').append(Mustache.render(component,data));
 
         if(data == null) {
             let selectToHide = document.getElementsByClassName("col");
@@ -89,6 +89,17 @@ function deleteSeachHistory() {
         element.value = "";
     };
 }
+
+function chooseOption(idType) {
+    $('.btn-group').children().each(function (index, element) {
+        if (element.classList.contains('btn-primary')) {
+            element.removeAttribute('class');
+            element.setAttribute('class', 'btn btn-outline-primary');
+            return;
+        }
+    });
+    $('#' + idType).removeClass('btn-outline-primary').addClass('btn-primary').blur();
+};
 
 function downloadCalls(pageNumber) {
     showAlert("Téléchargement lancé. Cela peut prendre quelques secondes.", 'info');
