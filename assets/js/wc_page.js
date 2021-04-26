@@ -43,7 +43,7 @@ function getUrlParam (form) {
     };
 
     if(typeof(form) ==  "string") {
-        const allTypes = ["rnr", "rn", "r"];
+        const allTypes = ["rnr", "nr", "r"];
         allTypes.forEach(type => {
             if (type == form) url += "&rnr=" + form;
         });
