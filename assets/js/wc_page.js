@@ -94,7 +94,7 @@ function chooseOption(idType) {
     $('.btn-group').children().each(function (index, element) {
         if (element.classList.contains('btn-primary')) {
             element.removeAttribute('class');
-            element.setAttribute('class', 'btn btn-outline-primary');
+            element.setAttribute('class', 'btn btn-sm btn-outline-primary');
             return;
         }
     });
