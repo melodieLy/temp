@@ -17,7 +17,7 @@ function getWCSearchbar(data) {
             selectToHide[0].setAttribute("style","display:none;");
         }
 
-        fillSearchPageWithSessionStorage();
+        //fillSearchPageWithSessionStorage();
     });
 };
 
@@ -25,7 +25,7 @@ function getWCPage (data,param) {
     const urlParam = getUrlParam(param);
     try {
         getWelcomeCall(data + urlParam);
-        chooseOption(localStorage.getItem("rnr"));
+        chooseOption(sessionStorage.getItem("rnr"));
     } catch (e) {
         console.error(e);
     }
@@ -66,14 +66,14 @@ function copyId(ongId) {
 
 function fillSearchPageWithSessionStorage() {
     let area = document.getElementById('area-select');
-    area.value = localStorage.getItem("area");
+    area.value = sessionStorage.getItem("area");
 
     let inputs = document.getElementById("search-form").getElementsByTagName('input');
     for(const element of inputs) {
-        element.value = localStorage.getItem(element.name);
+        element.value = sessionStorage.getItem(element.name);
     };
 
-    chooseOption(localStorage.getItem("rnr"));
+    chooseOption(sessionStorage.getItem("rnr"));
 }
 
 function createSearchHistory(select,inputs,form) {
