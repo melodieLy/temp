@@ -1,6 +1,7 @@
 if(!window.location.hash.includes("#")) {
     let data = 1;
     getWCPage(data, null);
+    chooseOption("rnr");
 }
 
 // Rempli la combo-box "comité" de la searchbar. Appel la requête et rends visible ou non l'élement selon le résulat 
