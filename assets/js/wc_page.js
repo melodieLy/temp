@@ -24,6 +24,7 @@ function getWCPage (data,param) {
     const urlParam = getUrlParam(param);
     try {
         getWelcomeCall(data + urlParam);
+        chooseOption(localStorage.getItem("rnr"));
     } catch (e) {
         console.error(e);
     }
