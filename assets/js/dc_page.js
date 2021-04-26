@@ -19,11 +19,14 @@ function saveMainData(data) {
 function getAllCalendar(data) {
     $.get('components/dc_table.html', function (templates) {
         var component = $(templates).filter('#tpl-dc-table').html();
-        $('#debit-calendar').append(Mustache.render(component, {
-            "startDate": moment(data.startDate).format('DD/MM/YYYY'),
-            "endDate": moment(data.endDate).format('DD/MM/YYYY'),
-            "debitDate": moment(data.debitDate).format('DD/MM/YYYY')
-        }));
+        if (data) {
+            data.forEach(element => {
+                if (element.startDate) element.startDate = moment(element.startDate).format('DD/MM/YYYY');
+                if (element.endDate) element.endDate = moment(element.endDate).format('DD/MM/YYYY');
+                if (element.debitDate) element.debitDate = moment(element.debitDate).format('DD/MM/YYYY');
+            });
+        }
+        $('#debit-calendar').append(Mustache.render(component, data));
     });
 }
 
