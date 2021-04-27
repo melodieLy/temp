@@ -67,8 +67,8 @@
                     <button id="sidebar-toggler" class="sidebar-toggle">
                         <span class="sr-only">Toggle navigation</span>
                     </button>
-                    <!-- search form -->
-                    <div class="search-form d-none d-lg-inline-block">
+                    <!-- Debit calendar form -->
+                    <div class="dc-form d-none d-lg-inline-block">
                     </div>
                 </nav>
 
@@ -111,3 +111,8 @@
 </body>
 
 </html>
+<script>
+    $("#dc-form").submit(function (e) {
+        e.preventDefault();
+    });
+</script>

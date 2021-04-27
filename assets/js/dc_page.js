@@ -43,10 +43,9 @@ function getCalendarById(data) {
     saveMainData(data);
 }
 
-// function checkModifiedData(form) {
-//     const inputs = form.getElementsByTagName("input");
-//     if(isDateAnteriorTo(inputs[0].value, inputs[1].value))
-// }
+function checkModifiedData(form) {
+    console.log(form);
+}
 
 function isDateAnteriorTo(date1, date2) {
     if(date1 > date2) return false;
