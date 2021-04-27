@@ -46,12 +46,12 @@ function getCalendarById(data) {
 function checkModifiedData(form) {
     const modified = form.getElementsByTagName("input");
     var data = {};
+    var id = modified.id.value;
     data.startDate = modified.startDate.value;
     data.endDate = modified.endDate.value;
     data.debitDate = modified.debitDate.value;
-    data.Id = modified.Id.value;
 
-    put("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar/", data);
+    put("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar/", data, id);
 }
 
 function isDateAnteriorTo(date1, date2) {
