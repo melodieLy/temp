@@ -51,7 +51,7 @@ function checkModifiedData(form) {
     data.endDate = modified.endDate.value;
     data.debitDate = modified.debitDate.value;
 
-    put("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar/", data, id);
+    put("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", data, id);
 }
 
 function isDateAnteriorTo(date1, date2) {
