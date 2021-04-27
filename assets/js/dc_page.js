@@ -3,13 +3,18 @@ const names = ['startDate', 'endDate', 'debitDate'];
 if(window.location.pathname.includes("debit-calendar"))
     get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
 else 
-    get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar/"+ongId, getCalendarById);
+    get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar/"+sessionStorage.getItem('calendarId'), getCalendarById);
 
 function saveMainData(data) {
     names.forEach(name => {
         sessionStorage.setItem(name,data.name);
     });
 }
+
+function saveId(data) {
+    sessionStorage.setItem("calendarId", data);
+}
+
 
 function getAllCalendar(data) {
     $.get('components/dc_table.html', function (templates) {
