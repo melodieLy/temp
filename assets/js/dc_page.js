@@ -48,7 +48,6 @@ function checkModifiedData(form) {
     data.startDate = modified.startDate.value;
     data.endDate = modified.endDate.value;
     data.debitDate = modified.debitDate.value;
-    data.Id = modified.id.value;
 
     put("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", data);
 }
