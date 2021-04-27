@@ -21,7 +21,7 @@ function getAllCalendar(data) {
         var component = $(templates).filter('#tpl-dc-table').html();
         if (data) {
             data.forEach(element => {
-                if (element.startDate) element.startDate = moment(element.startDate).format('YYYY-MM-DDYY');
+                if (element.startDate) element.startDate = moment(element.startDate).format('YYYY-MM-DD');
                 if (element.endDate) element.endDate = moment(element.endDate).format('DD/MM/YYYY');
                 if (element.debitDate) element.debitDate = moment(element.debitDate).format('DD/MM/YYYY');
             });
@@ -33,11 +33,14 @@ function getAllCalendar(data) {
 function getCalendarById(data) {
     $.get('components/dc_form.html', function (templates) {
         var component = $(templates).filter('#tpl-dc-form').html();
-        $('#dc-update').append(Mustache.render(component, {
-            "startDate": moment(data.startDate).format('YYYY-MM-DD'),
-            "endDate": moment(data.endDate).format('YYYY-MM-DD'),
-            "debitDate": moment(data.debitDate).format('YYYY-MM-DD')
-        }));
+        if (data) {
+            data.forEach(element => {
+                if (element.startDate) element.startDate = moment(element.startDate).format('YYYY-MM-DD');
+                if (element.endDate) element.endDate = moment(element.endDate).format('YYYY-MM-DD');
+                if (element.debitDate) element.debitDate = moment(element.debitDate).format('YYYY-MM-DD');
+            });
+        }
+        $('#dc-update').append(Mustache.render(component,data));
     });
 
     saveMainData(data);
