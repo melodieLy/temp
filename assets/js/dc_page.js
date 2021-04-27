@@ -33,11 +33,7 @@ function getAllCalendar(data) {
 function getCalendarById(data) {
     $.get('components/dc_form.html', function (templates) {
         var component = $(templates).filter('#tpl-dc-form').html();
-        $('#dc-update').append(Mustache.render(component, {
-            "startDate": moment(data.startDate).format('DD/MM/YYYY'),
-            "endDate": moment(data.endDate).format('DD/MM/YYYY'),
-            "debitDate": moment(data.debitDate).format('DD/MM/YYYY')
-        }));
+        $('#dc-update').append(Mustache.render(component, data));
     });
 
     saveMainData(data);
