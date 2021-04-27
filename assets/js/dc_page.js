@@ -2,11 +2,10 @@ const names = ['startDate', 'endDate', 'debitDate'];
 
 if(window.location.pathname.includes("debit-calendar"))
     get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
-else 
-    get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar/"+ongId, getCalendarById);
 
 function calldcUpdatePage(ongId) {
     window.location.assign('./dc-update.html');
+    get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar/"+ongId, getCalendarById);
 }
 
 function saveMainData(data) {
