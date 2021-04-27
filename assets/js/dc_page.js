@@ -33,13 +33,9 @@ function getAllCalendar(data) {
 function getCalendarById(data) {
     $.get('components/dc_form.html', function (templates) {
         var component = $(templates).filter('#tpl-dc-form').html();
-        if (data) {
-            data.forEach(element => {
-                if (element.startDate) element.startDate = moment(element.startDate).format('YYYY-MM-DD');
-                if (element.endDate) element.endDate = moment(element.endDate).format('YYYY-MM-DD');
-                if (element.debitDate) element.debitDate = moment(element.debitDate).format('YYYY-MM-DD');
-            });
-        }
+        data.startDate = moment(element.startDate).format('YYYY-MM-DD');
+        data.endDate = moment(element.endDate).format('YYYY-MM-DD');
+        data.debitDate = moment(element.debitDate).format('YYYY-MM-DD');
         $('#dc-update').append(Mustache.render(component,data));
     });
 
