@@ -423,11 +423,10 @@ function put(path, form, id) {
     $.ajax({
         url: apiPath + path,
         headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": "bearer " + cookies.token
         },
-        associationID: id,
         data: JSON.stringify(form),
         method: "PUT",
         success: function (data, textStatus, request) {
