@@ -19,7 +19,7 @@ function saveId(data) {
 function getAllCalendar(data) {
     $.get('components/dc_table.html', function (templates) {
         var component = $(templates).filter('#tpl-dc-table').html();
-        if (datYYYY-MM-DD) {
+        if (data) {
             data.forEach(element => {
                 if (element.startDate) element.startDate = moment(element.startDate).format('YYYY-MM-DDYY');
                 if (element.endDate) element.endDate = moment(element.endDate).format('DD/MM/YYYY');
