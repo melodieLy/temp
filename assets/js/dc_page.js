@@ -6,7 +6,7 @@ if(window.location.pathname.includes("debit-calendar"))
 }
 
 function calldcUpdatePage(ongId) {
-    window.location.replace('./dc-update.html');
+    window.location.assign('./dc-update.html');
     get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar/"+ongId, getCalendarById);
 }
 
