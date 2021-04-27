@@ -44,7 +44,14 @@ function getCalendarById(data) {
 }
 
 function checkModifiedData(form) {
-    console.log(form);
+    const modified = form.getElementsByTagName("input");
+    var data = {};
+    data.startDate = modified.startDate.value;
+    data.endDate = modified.endDate.value;
+    data.debitDate = modified.debitDate.value;
+    data.Id = modified.Id.value;
+
+    put("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar/", data);
 }
 
 function isDateAnteriorTo(date1, date2) {

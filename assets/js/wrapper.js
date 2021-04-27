@@ -399,3 +399,24 @@ function findAsso(param) {
         alert(xhr.status + ' : Erreur lors du chargement des données. Veuillez-vous authentifier de nouveau. ');
     });
 }
+
+function put(path, form) {
+    
+    $.ajax ({
+        url: apiPath + path,
+        headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json",
+        "Authorization": "bearer " + cookies.token
+        },
+        Id: 
+        data : ,
+        method: "PUT",
+            success: function (data, textStatus, request) {
+                showAlert('Votre modificationà biené té prise en compte.','sucess')
+            }
+    })
+    .fail(function (xhr) {
+        getError(xhr)
+    }
+};
