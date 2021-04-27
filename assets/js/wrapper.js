@@ -430,7 +430,8 @@ function put(path, form, id) {
         data: JSON.stringify(form),
         method: "PUT",
         success: function (data, textStatus, request) {
-            showAlert('Votre modification à bien été prise en compte.', 'sucess')
+            window.location.reload()
+            showAlert('Votre modification à bien été prise en compte.', 'success')
         }
     })
         .fail(function (xhr) {
