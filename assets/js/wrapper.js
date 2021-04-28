@@ -409,6 +409,7 @@ function put(path, form) {
         "Accept": "application/json",
         "Authorization": "bearer " + cookies.token
         },
+        processData: false,
         data : JSON.stringify(form),
         method: "PUT",
             success: function (data, textStatus, request) {
