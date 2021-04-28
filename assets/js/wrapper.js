@@ -401,20 +401,19 @@ function findAsso(param) {
 };
 
 function put(path, form) {
-    
     $.ajax ({
-        url: apiPath + path + "?" + encodeURIComponent(form),
+        url: apiPath + path,
         method: "PUT",
         headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Type": "application/json",
             "Authorization": "bearer " + cookies.token
         },
-        // data : {
-        //     Id:form.Id,
-        //     startDate:form.startDate,
-        //     endDate: form.endDate,
-        //     debitDate: form.debitDate
-        // },
+        data : {
+            Id:form.Id,
+            startDate:form.startDate,
+            endDate: form.endDate,
+            debitDate: form.debitDate
+        },
         success: function (data, textStatus, request) {
             showAlert('Votre modification à bien été prise en compte.','success')
         }
