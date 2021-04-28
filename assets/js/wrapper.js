@@ -404,8 +404,9 @@ function put(path, form) {
     $.ajax ({
         url: apiPath + path,
         method: "PUT",
+        withCredentials: true,
         headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
             "Authorization": "bearer " + cookies.token
         },
         data : {
