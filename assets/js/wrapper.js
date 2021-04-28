@@ -1,5 +1,5 @@
 const pageSize = '10';
-const apiPath = "https://recette-api.song-fr.com/";
+const apiPath = "http://localhost:2846/";
 
 function showAlert(Info, type) {
     $.get('components/alert.html', function(templates) {
