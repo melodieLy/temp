@@ -401,41 +401,24 @@ function findAsso(param) {
 };
 
 function put(path, form) {
-    // $.ajax ({
-    //     url: apiPath + path,
-    //     method: "PUT",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //         "Authorization": "bearer " + cookies.token
-    //     },
-    //     data: "Id=eafa22ba-df83-441c-b358-c7b5562adc19&StartDate=2021-06-06&endDate=2021-06-06&debitDate=2021-06-06",
-    //         success: function (data, textStatus, request) {
-    //             showAlert('Votre modification à bien été prise en compte.','success')
-    //         }
-    // })
+    $.ajax ({
+        url: apiPath + path,
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "bearer " + cookies.token
+        },
+        data : JSON.stringify(form),
+            success: function (data, textStatus, request) {
+                showAlert('Votre modification à bien été prise en compte.','success')
+            }
+    })
 
-    // .done(function (response) {
-    //     console.log(response);
-    // })
+    .done(function (response) {
+        console.log(response);
+    })
 
-    // .fail(function (xhr) {
-    //     getError(xhr)
-    // })
-
-
-
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-
-    xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === 4) {
-            console.log(this.responseText);
-        }
-    });
-
-    xhr.open("PUT", apiPath + path);
-    xhr.setRequestHeader("Authorization", "Bearer " + cookies.token);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-    xhr.send(form);
+    .fail(function (xhr) {
+        getError(xhr)
+    })
 };

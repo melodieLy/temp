@@ -44,15 +44,13 @@ function getCalendarById(data) {
 
 function checkModifiedData(form) {
     const modified = form.getElementsByTagName("input");
-    // var data = {};
-    // data.Id = modified.id.value;
-    // data.startDate = modified.startDate.value;
-    // data.endDate = modified.endDate.value;
-    // data.debitDate = modified.debitDate.value;
-    // console.log(data);
-
-    var data = "Id="+modified.id.value+"&startDate="+modified.startDate.value+"&endDate="+modified.endDate.value+"&debitDate="+modified.debitDate.value;
-
+    var data = {};
+    data.Id = modified.id.value;
+    data.startDate = modified.startDate.value;
+    data.endDate = modified.endDate.value;
+    data.debitDate = modified.debitDate.value;
+    data.associationId = cookies.assoId[cookies.actualAsso];
+    console.log(data);
 
     put("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", data);
 }
