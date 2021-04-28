@@ -403,19 +403,21 @@ function findAsso(param) {
 function put(path, form) {
     $.ajax ({
         url: apiPath + path,
-        AssociationId : 'AIDES',
-        headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Accept": "application/json",
-        "Authorization": "bearer " + cookies.token
-        },
-        processData: false,
-        data : JSON.stringify(form),
         method: "PUT",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Authorization": "bearer " + cookies.token
+        },
+        data : JSON.stringify(form),
             success: function (data, textStatus, request) {
                 showAlert('Votre modification à bien été prise en compte.','sucess')
             }
     })
+
+    .done(function (response) {
+        console.log(response);
+    })
+
     .fail(function (xhr) {
         getError(xhr)
     })
