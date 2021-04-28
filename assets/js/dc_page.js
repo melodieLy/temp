@@ -44,7 +44,7 @@ function getCalendarById(data) {
 
 function checkModifiedData(form) {
     const modified = form.getElementsByTagName("input");
-    var data = "";
+    var data = {};
     data.Id = modified.id.value;
     data.startDate = modified.startDate.value;
     data.endDate = modified.endDate.value;
