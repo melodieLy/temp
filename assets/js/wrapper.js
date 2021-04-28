@@ -1,5 +1,5 @@
 const pageSize = '10';
-const apiPath = "http://localhost:2846/";
+const apiPath = "https://recette-api.song-fr.com/";
 
 function showAlert(Info, type) {
     $.get('components/alert.html', function(templates) {
@@ -408,10 +408,16 @@ function put(path, form) {
             "Content-Type": "application/json",
             "Authorization": "bearer " + cookies.token
         },
-        data : JSON.stringify(form),
-            success: function (data, textStatus, request) {
-                showAlert('Votre modification à bien été prise en compte.','success')
-            }
+        data : {
+            Id:form.Id,
+            startDate:form.startDate,
+            endDate: form.endDate,
+            debitDate: form.debitDate,
+            associationId: cookies.associationId
+        },
+        success: function (data, textStatus, request) {
+            showAlert('Votre modification à bien été prise en compte.','success')
+        }
     })
 
     .done(function (response) {
