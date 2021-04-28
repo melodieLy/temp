@@ -401,29 +401,49 @@ function findAsso(param) {
 };
 
 function put(path, form) {
-    $.ajax ({
-        url: apiPath + path,
-        method: "PUT",
-        headers: {
+    // $.ajax ({
+    //     url: apiPath + path,
+    //     method: "PUT",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //         "Authorization": "bearer " + cookies.token
+    //     },
+    //     data : {
+    //         Id:form.Id,
+    //         startDate:form.startDate,
+    //         endDate: form.endDate,
+    //         debitDate: form.debitDate
+    //     },
+    //     success: function (data, textStatus, request) {
+    //         showAlert('Votre modification à bien été prise en compte.','success')
+    //     }
+    // })
+
+    // .done(function (response) {
+    //     console.log(response);
+    // })
+
+    // .fail(function (xhr) {
+    //     getError(xhr)
+    // })
+
+    var settings = {
+        "url": "https://recette-api.song-fr.com/associations/AIDES/debitCalendar",
+        "method": "PUT",
+        "timeout": 0,
+        "headers": {
             "Content-Type": "application/json",
-            "Authorization": "bearer " + cookies.token
+            "Authorization": "Bearer " + cookies.token
         },
-        data : {
-            Id:form.Id,
-            startDate:form.startDate,
-            endDate: form.endDate,
-            debitDate: form.debitDate
-        },
-        success: function (data, textStatus, request) {
-            showAlert('Votre modification à bien été prise en compte.','success')
+        "data": {
+            "Id": "eafa22ba-df83-441c-b358-c7b5562adc19",
+            "startDate": "2021-05-01",
+            "endDate": "2021-05-15",
+            "debitDate": "2021-07-05"
         }
-    })
+    };
 
-    .done(function (response) {
+    $.ajax(settings).done(function (response) {
         console.log(response);
-    })
-
-    .fail(function (xhr) {
-        getError(xhr)
-    })
+    });
 };
