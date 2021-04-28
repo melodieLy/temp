@@ -46,10 +46,9 @@ function checkModifiedData(form) {
     const modified = form.getElementsByTagName("input");
     var data = {};
     data.Id = modified.id.value;
-    data.startDate = modified.startDate.value;
-    data.endDate = modified.endDate.value;
-    data.debitDate = modified.debitDate.value;
-    data.associationId = cookies.assoId[cookies.actualAsso];
+    data.startDate = new Date(modified.startDate.value);
+    data.endDate = new Date(modified.endDate.value);
+    data.debitDate = new Date(modified.debitDate.value);
     console.log(data);
 
     put("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", data);

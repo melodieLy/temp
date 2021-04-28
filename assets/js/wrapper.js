@@ -413,8 +413,7 @@ function put(path, form) {
             Id:form.Id,
             startDate:form.startDate,
             endDate: form.endDate,
-            debitDate: form.debitDate,
-            associationId: cookies.associationId
+            debitDate: form.debitDate
         },
         success: function (data, textStatus, request) {
             showAlert('Votre modification à bien été prise en compte.','success')
