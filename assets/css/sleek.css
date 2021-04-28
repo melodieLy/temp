@@ -13618,3 +13618,11 @@ html[dir="rtl"] .github-link svg {
   flex-direction: column;
   align-items: flex-end;
 }
+
+#alertColumn{
+  display: flex; 
+  flex-direction: column; 
+  position: fixed; 
+  bottom: 2%; 
+  right: 3%;
+}

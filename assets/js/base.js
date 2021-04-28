@@ -26,6 +26,7 @@ $.getScript("assets/js/config.js", function () {
                     get("context/current-user", callheaderDev);
                 });
             }
+            addTheAlertColumn();
         }
         catch (error) {
             console.error(error);
@@ -73,6 +74,11 @@ function searchRights(data) {
         })
         return false;
     });
+};
+
+function addTheAlertColumn() {
+    document.getElementsByTagName('body').innerHTML += 
+    `<div id='alertColumn'></div>`;
 }
 
 function callSidebar(){

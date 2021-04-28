@@ -6,7 +6,7 @@ function showAlert(Info, type) {
       var alert = $(templates).filter('#tpl-alert').html();
       let data = {"info" : Info,
     "type":type};
-      $('#body').append(Mustache.render(alert, data));
+        $('#alertColumn').append(Mustache.render(alert, data));
     });
 }
 
