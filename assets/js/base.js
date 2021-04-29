@@ -26,7 +26,8 @@ $.getScript("assets/js/config.js", function () {
                     get("context/current-user", callheaderDev);
                 });
             }
-            addTheAlertColumn();
+
+            if(window.location.pathname != "") addTheAlertColumn();
         }
         catch (error) {
             console.error(error);
