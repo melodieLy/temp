@@ -26,8 +26,11 @@ $.getScript("assets/js/config.js", function () {
                     get("context/current-user", callheaderDev);
                 });
             }
-
-            if(window.location.pathname != "") addTheAlertColumn();
+            if(window.location.pathname != ""){
+                addTheAlertColumn();
+                console.log("e")
+            }
+                
         }
         catch (error) {
             console.error(error);
@@ -78,6 +81,7 @@ function searchRights(data) {
 };
 
 function addTheAlertColumn() {
+    console.log("t");
     document.getElementsByClassName('content').innerHTML += 
     `<div id='alertColumn'></div>`;
 }
