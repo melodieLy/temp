@@ -26,10 +26,7 @@ $.getScript("assets/js/config.js", function () {
                     get("context/current-user", callheaderDev);
                 });
             }
-            if(window.location.pathname != ""){
-                addTheAlertColumn();
-                console.log("e")
-            }
+            if(window.location.pathname != "") addTheAlertColumn();
                 
         }
         catch (error) {
@@ -81,9 +78,9 @@ function searchRights(data) {
 };
 
 function addTheAlertColumn() {
-    console.log("t");
-    document.getElementsByClassName('content').innerHTML += 
-    `<div id='alertColumn'></div>`;
+    var node = document.createElement("div").setAttribute("class","alertColumn");
+    var doc = document.getElementsByTagName('content');
+    doc.append(node);
 }
 
 function callSidebar(){
