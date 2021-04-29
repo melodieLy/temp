@@ -77,7 +77,7 @@ function searchRights(data) {
 };
 
 function addTheAlertColumn() {
-    document.getElementsByTagName('body').innerHTML += 
+    document.getElementsByClassName('content').innerHTML += 
     `<div id='alertColumn'></div>`;
 }
 
