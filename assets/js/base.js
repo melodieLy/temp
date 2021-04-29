@@ -26,8 +26,6 @@ $.getScript("assets/js/config.js", function () {
                     get("context/current-user", callheaderDev);
                 });
             }
-            //if(window.location.pathname != "") addTheAlertColumn();
-                
         }
         catch (error) {
             console.error(error);
@@ -78,7 +76,7 @@ function searchRights(data) {
 };
 
 function addTheAlertColumn() {
-    var node = document.createElement("div").setAttribute("class","alertColumn");
+    var node = document.createElement("div").setAttribute("id","alertColumn");
     var doc = document.getElementsByTagName('content');
     doc.append(node);
 }

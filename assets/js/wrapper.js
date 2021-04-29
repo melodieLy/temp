@@ -2,6 +2,8 @@ const pageSize = '10';
 const apiPath = "https://recette-api.song-fr.com/";
 
 function showAlert(Info, type) {
+    if (!document.getElementById("alertColumn")) addTheAlertColumn();
+
     $.get('components/alert.html', function(templates) {
       var alert = $(templates).filter('#tpl-alert').html();
       let data = {"info" : Info,
