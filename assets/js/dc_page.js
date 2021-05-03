@@ -54,8 +54,8 @@ function checkModifiedData(form) {
     put("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", data);
 }
 
-function isDateAnteriorTo(date1, date2) {
-    if(date1 > date2) return false;
-    else if (date1 = date2) return false;
-    else return true;
+function shouldBeDelete(dataId) {
+    if(confirm("Voulez-vous supprimer ce calendrier ?")) {
+        deleteData("associations/" + cookies.assoId[cookies.actualAsso] + "debitCalendar", dataId);
+    }
 }

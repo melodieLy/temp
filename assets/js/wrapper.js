@@ -417,15 +417,30 @@ function put(path, form) {
             debitDate: form.debitDate
         },
         success: function (data, textStatus, request) {
+            window.location.replace('debit-calendar.html');
             showAlert('Votre modification à bien été prise en compte.','success')
         }
     })
-
-    .done(function (response) {
-        console.log(response);
-    })
-
     .fail(function (xhr) {
         getError(xhr)
     })
 };
+
+function deleteData(path, data) {
+    $.ajax({
+        url: apiPath + path,
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Authorization": "bearer " + cookies.token
+        },
+        method: "DELETE",
+        data : {Id:data},
+        success: function (data, textStatus, request) {
+            window.location.reload();
+            showAlert('Votre suppression à bien été prise en compte.', 'success')
+        }
+    })
+    .fail(function (xhr) {
+        getError(xhr)
+    })
+}
