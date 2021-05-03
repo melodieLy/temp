@@ -435,7 +435,6 @@ function deleteData(path, data) {
         method: "DELETE",
         data : {Id:data},
         success: function (data, textStatus, request) {
-            window.location.reload();
             showAlert('Votre suppression à bien été prise en compte.', 'success')
         }
     })
