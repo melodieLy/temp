@@ -52,6 +52,9 @@ function checkModifiedData(form) {
     data.associationId = cookies.assoId[cookies.actualAsso];
 
     put("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", data);
+    $(document).ready(function(){
+        showAlert('Votre modification à bien été prise en compte.', 'success')
+    });
 }
 
 function shouldBeDelete(dataId) {
