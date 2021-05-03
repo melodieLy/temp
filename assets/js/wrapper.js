@@ -418,6 +418,7 @@ function put(path, form) {
         },
         success: function (data, textStatus, request) {
             window.location.replace('debit-calendar.html');
+            window.onload(showAlert('Votre modification à bien été prise en compte.', 'success'));
         }
     })
     .fail(function (xhr) {
