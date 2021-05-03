@@ -63,6 +63,6 @@ function checkModifiedData(form) {
 
 function shouldBeDelete(dataId) {
     if(confirm("Voulez-vous supprimer ce calendrier ?")) {
-        deleteData("associations/" + cookies.assoId[cookies.actualAsso] + "debitCalendar", dataId);
+        deleteData("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", dataId);
     }
 }
