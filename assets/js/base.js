@@ -76,9 +76,10 @@ function searchRights(data) {
 };
 
 function addTheAlertColumn() {
-    var node = document.createElement("div").setAttribute("id","alertColumn");
-    var doc = document.getElementsByTagName('content');
-    doc.append(node);
+    var node = document.createElement("div");
+    node.setAttribute("id","alertColumn");
+    var doc = document.getElementsById('content');
+    doc[0].append(node);
 }
 
 function callSidebar(){
