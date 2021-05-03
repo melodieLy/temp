@@ -78,7 +78,7 @@ function searchRights(data) {
 function addTheAlertColumn() {
     var node = document.createElement("div");
     node.setAttribute("id","alertColumn");
-    var doc = document.getElementsById('content');
+    var doc = document.getElementById('content');
     doc[0].append(node);
 }
 
