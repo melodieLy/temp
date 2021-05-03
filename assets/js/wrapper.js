@@ -417,8 +417,7 @@ function put(path, form) {
             debitDate: form.debitDate
         },
         success: function (data, textStatus, request) {
-            window.location.replace('debit-calendar.html');
-            window.onload(showAlert('Votre modification à bien été prise en compte.', 'success'));
+            window.location.replace('debit-calendar.html?updated=true');
         }
     })
     .fail(function (xhr) {
