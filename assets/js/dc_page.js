@@ -2,7 +2,11 @@ const names = ['startDate', 'endDate', 'debitDate'];
 
 if(window.location.pathname.includes("debit-calendar"))
     get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
-    if (window.location.search.includes("updated=true")) showAlert('Votre modification à bien été prise en compte.', 'success')
+    if (window.location.search.includes("updated=true")) {
+        document.addEventListener('DOMContentLoaded', (event) => {
+            showAlert('Votre modification à bien été prise en compte.', 'success');
+        })
+    }
 else 
     get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar/"+sessionStorage.getItem('calendarId'), getCalendarById);
 
