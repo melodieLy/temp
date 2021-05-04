@@ -185,14 +185,6 @@ function deleteSession() {
     localStorage.clear();
 }
 
-function removeOldDOMElement() {
-    if($('#basic-wc-table')) {
-        $('#basic-wc-table').remove();
-        $('nav#nav-page').remove();
-        $('a#btn-export').remove();
-    }
-}
-
 const cookies = getCookie();
 
 function get(path) {
@@ -425,6 +417,24 @@ function put(path, form) {
         getError(xhr)
     })
 };
+
+function create(path,data) {
+    $.ajax({
+        url: apiPath + path,
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Authorization": "bearer " + cookies.token
+        },
+        data: data,
+        success: function (data, textStatus, request) {
+            showAlert("L'élement a bien été créé", "success")
+        }
+    })
+    .fail(function (xhr) {
+        getError(xhr)
+    })
+}
 
 function deleteData(path, data) {
     $.ajax({

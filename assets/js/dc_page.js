@@ -14,7 +14,7 @@ if(window.location.pathname.includes("debit-calendar")) {
         })
         sessionStorage.setItem("deleted", false);
 
-    }
+    } 
 }
 else {
     get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar/"+sessionStorage.getItem('calendarId'), getCalendarById);
@@ -59,14 +59,18 @@ function getCalendarById(data) {
 
 function checkModifiedData(form) {
     const modified = form.getElementsByTagName("input");
-    var data = {};
-    data.Id = modified.id.value;
-    data.startDate = modified.startDate.value;
-    data.endDate = modified.endDate.value;
-    data.debitDate = modified.debitDate.value;
-    data.associationId = cookies.assoId[cookies.actualAsso];
+    const data = createDate(modified);
 
-    put("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", data);
+    put("associations/" + data.associationId + "/debitCalendar", data);
+}
+
+function checkNewCalendar(form) {
+    const newData = form.getElementsByTagName("input");
+    const data = createDate(newData);
+
+    create("associations/" + data.associationId + "/debitCalendar", data);
+    removeOldTable();
+    get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
 }
 
 function shouldBeDelete(dataId) {
@@ -77,4 +81,18 @@ function shouldBeDelete(dataId) {
     else {
         return false;
     }
+}
+
+function createDate(form) {
+    var data = {};
+    if(!form.Id) data.Id = form.id.value;
+    data.startDate = form.startDate.value;
+    data.endDate = form.endDate.value;
+    data.debitDate = form.debitDate.value;
+    data.associationId = cookies.assoId[cookies.actualAsso];
+    return data;
+}
+
+function removeOldTable() {
+    if ($('#basic-wc-table')) $('#basic-wc-table').remove();
 }

@@ -4,6 +4,14 @@ if(!window.location.hash.includes("#")) {
     sessionStorage.setItem("rnr","rnr");
 }
 
+function removeOldDOMElement() {
+    if ($('#basic-wc-table')) {
+        $('#basic-wc-table').remove();
+        $('nav#nav-page').remove();
+        $('a#btn-export').remove();
+    }
+}
+
 // Rempli la combo-box "comité" de la searchbar. Appel la requête et rends visible ou non l'élement selon le résulat 
 get("associations/"+cookies.assoId[cookies.actualAsso]+"/areas", getWCSearchbar);
 
