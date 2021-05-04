@@ -69,7 +69,7 @@ function checkNewCalendar(form) {
     const data = createDate(newData);
 
     create("associations/" + data.associationId + "/debitCalendar", data);
-    removeOldTable();
+    removeOldDom();
     get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
 }
 
@@ -93,6 +93,10 @@ function createDate(form) {
     return data;
 }
 
-function removeOldTable() {
-    if ($('#basic-wc-table')) $('#basic-wc-table').remove();
+function removeOldDom() {
+    if ($('#basic-wc-table')) {
+        $('#basic-wc-table').remove();
+        $('#dc-create-form').remove();
+    }
+
 }
