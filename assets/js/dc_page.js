@@ -98,5 +98,8 @@ function removeOldDom() {
         $('#basic-wc-table').remove();
         $('#dc-create-form').remove();
     }
-
 }
+
+$("#dc-create-form").submit(function (e) {
+    e.preventDefault();
+});
