@@ -99,7 +99,3 @@ function removeOldDom() {
         $('#dc-create-form').remove();
     }
 }
-
-$("#dc-create-form").submit(function (e) {
-    e.preventDefault();
-});
