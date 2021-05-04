@@ -427,13 +427,11 @@ function put(path, form) {
 
 function deleteData(path, data) {
     $.ajax({
-        url: apiPath + path,
+        url: apiPath + path + "?Id=" + data,
         headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
             "Authorization": "bearer " + cookies.token
         },
         method: "DELETE",
-        data : {Id:data},
         success: function (data, textStatus, request) {
             showAlert('Votre suppression à bien été prise en compte.', 'success')
         }
