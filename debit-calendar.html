@@ -114,5 +114,8 @@
 </html>
 
 <script>
-    $("#dc-form").submit(false);
+    $("#dc-form").submit(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    });
 </script>
