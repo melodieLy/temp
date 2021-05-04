@@ -2,10 +2,18 @@ const names = ['startDate', 'endDate', 'debitDate'];
 
 if(window.location.pathname.includes("debit-calendar")) {
     get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
-    if (window.location.search.includes("updated=true")) {
+    if (sessionStorage.getItem("updated") == "true") {
         document.addEventListener('DOMContentLoaded', (event) => {
             showAlert('Votre modification à bien été prise en compte.', 'success');
         })
+        sessionStorage.setItem("updated", false);
+    }
+    else if (sessionStorage.getItem("deleted") == "true") {
+        document.addEventListener('DOMContentLoaded', (event) => {
+            showAlert('Votre suppression à bien été prise en compte.', 'success')
+        })
+        sessionStorage.setItem("deleted", false);
+
     }
 }
 else {
@@ -64,5 +72,9 @@ function checkModifiedData(form) {
 function shouldBeDelete(dataId) {
     if(confirm("Voulez-vous supprimer ce calendrier ?")) {
         deleteData("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", dataId);
+        return true;
+    }
+    else {
+        return false;
     }
 }

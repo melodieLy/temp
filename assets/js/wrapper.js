@@ -417,7 +417,8 @@ function put(path, form) {
             debitDate: form.debitDate
         },
         success: function (data, textStatus, request) {
-            window.location.replace('debit-calendar.html?updated=true');
+            sessionStorage.setItem("updated", true);
+            window.location.replace('debit-calendar.html');
         }
     })
     .fail(function (xhr) {
@@ -433,7 +434,7 @@ function deleteData(path, data) {
         },
         method: "DELETE",
         success: function (data, textStatus, request) {
-            showAlert('Votre suppression à bien été prise en compte.', 'success')
+            sessionStorage.setItem("deleted", true);
         }
     })
     .fail(function (xhr) {
