@@ -1,4 +1,15 @@
 <script id="tpl-dc-table" type="text/html">
+    {{#.}}
+    <div>
+        <form style="display: flex;" onsubmit="checkNewCalendar(this)">
+            <input type="date" name="startDate" id="startDate" class="form-control form-control-sm">
+            <input type="date" name="endDate" id="endDate" class="form-control form-control-sm">
+            <input type="date" name="debitDate" id="debitDate" class="form-control form-control-sm">
+            <input type="submit" class="btn btn-outline-primary btn-block btn-sm" value="Ajouter un calendrier">
+        </form>
+    </div>
+    {{/.}}
+
     <table id="basic-dc-table" class="table nowrap" style="width:100%">
         <thead>
             <tr>
