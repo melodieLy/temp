@@ -114,8 +114,7 @@
 </html>
 
 <script>
-    $("#dc-form").submit(function (e) {
+    document.getElementById("dc-form").addEventListener("click",function(e) {
         e.preventDefault();
-        e.stopPropagation();
     });
 </script>
