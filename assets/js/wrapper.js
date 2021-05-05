@@ -428,11 +428,13 @@ function create(path,data) {
         },
         data: data,
         success: function (data, textStatus, request) {
-            showAlert("L'élement a bien été créé", "success")
+            showAlert("L'élement a bien été créé", "success");
+            return true;
         }
     })
     .fail(function (xhr) {
-        getError(xhr)
+        getError(xhr);
+        return false;
     })
 }
 

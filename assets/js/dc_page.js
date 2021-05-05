@@ -67,9 +67,11 @@ function checkNewCalendar(form) {
     const newData = form.getElementsByTagName("input");
     const data = createDate(newData);
 
-    create("associations/" + data.associationId + "/debitCalendar", data);
-    removeOldDom();
-    get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
+    const d = create("associations/" + data.associationId + "/debitCalendar", data);
+    if(d) {
+        removeOldDom();
+        get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
+    }
 }
 
 function shouldBeDelete(dataId) {
@@ -93,8 +95,7 @@ function createDate(form) {
 }
 
 function removeOldDom() {
-    if ($('#basic-wc-table')) {
-        $('#basic-wc-table').remove();
-        $('#dc-create-form').remove();
+    if ($('.basic-wc-table')) {
+        $('.basic-wc-table').remove();
     }
 }
