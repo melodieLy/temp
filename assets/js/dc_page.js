@@ -98,7 +98,7 @@ function createDate(form) {
 }
 
 function removeOldDom() {
-    if ($('.basic-wc-table')) {
-        $('.basic-wc-table').remove();
+    if ($('.basic-data-table')) {
+        $('.basic-data-table').remove();
     }
 }
