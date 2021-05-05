@@ -44,7 +44,7 @@ function getError(info) {
                 const exceptions = info.responseJSON.ExceptionsStack;
                 for (let i = 0; i < exceptions.length; i++) {
                     const element = exceptions[i];
-                    console.console.error(element);
+                    console.error(element);
                 }
             }
             break;
@@ -436,12 +436,11 @@ function create(path,data) {
         data: data,
         success: function (data, textStatus, request) {
             showAlert("L'élement a bien été créé", "success");
-            return true;
+            sessionStorage.setItem("created",true);
         }
     })
     .fail(function (xhr) {
         getError(xhr);
-        return false;
     })
 }
 

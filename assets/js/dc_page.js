@@ -67,9 +67,10 @@ function checkNewCalendar(form) {
     const newData = form.getElementsByTagName("input");
     const data = createDate(newData);
 
-    const d = create("associations/" + data.associationId + "/debitCalendar", data);
-    if(d) {
+    create("associations/" + data.associationId + "/debitCalendar", data);
+    if(sessionStorage.getItem("created") == "true") {
         removeOldDom();
+        sessionStorage.setItem("created", false);
         get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
     }
 }
