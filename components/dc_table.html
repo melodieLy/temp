@@ -1,43 +1,35 @@
 <script id="tpl-dc-table" type="text/html">
-    {{#.}}
-    <div>
-        <form style="display: flex;" onsubmit="checkNewCalendar(this)" id="dc-form">
-            <input type="date" name="startDate" id="startDate" class="form-control form-control-sm">
-            <input type="date" name="endDate" id="endDate" class="form-control form-control-sm">
-            <input type="date" name="debitDate" id="debitDate" class="form-control form-control-sm">
-            <input type="submit" class="btn btn-outline-primary btn-block btn-sm" value="Ajouter un calendrier">
-        </form>
+    <div class="basic-data-table">
+        <table id="basic-dc-table" class="table nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>période : Début</th>
+                    <th>Fin</th>
+                    <th>Date de prélèvement</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+            {{ #. }}{{ #. }}
+                <tr>        
+                    <td style="font-weight: 0;">{{startDate}}</td>
+                    <td>{{endDate}}</td>
+                    <td>{{debitDate}}</td>
+                    <td>
+                        <a href="./dc-update.html" onclick="saveId('{{Id}}')" title="Modifier">
+                            <span class="mdi mdi-18px mdi-calendar-edit"></span>
+                        </a>
+                        <a href="" onclick="return shouldBeDelete('{{Id}}')" title="Supprimer">
+                            <span class="mdi mdi-18px mdi-delete-forever"></span>
+                        </a>
+                    </td>
+                </tr>
+            {{ /. }}{{ /. }}
+            {{ ^. }}
+                <td>Aucune donnée n'a été trouvée.</td>
+            {{ /. }}
+        </tbody>
+        </table>
     </div>
-    {{/.}}
 
-    <table id="basic-dc-table" class="table nowrap" style="width:100%">
-        <thead>
-            <tr>
-                <th>période : Début</th>
-                <th>Fin</th>
-                <th>Date de prélèvement</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody id="myTable">
-        {{ #. }}{{ #. }}
-            <tr>        
-                <td style="font-weight: 0;">{{startDate}}</td>
-                <td>{{endDate}}</td>
-                <td>{{debitDate}}</td>
-                <td>
-                    <a href="./dc-update.html" onclick="saveId('{{Id}}')" title="Modifier">
-                        <span class="mdi mdi-18px mdi-calendar-edit"></span>
-                    </a>
-                    <a href="" onclick="return shouldBeDelete('{{Id}}')" title="Supprimer">
-                        <span class="mdi mdi-18px mdi-delete-forever"></span>
-                    </a>
-                </td>
-            </tr>
-        {{ /. }}{{ /. }}
-        {{ ^. }}
-            <td>Aucune donnée n'a été trouvée.</td>
-        {{ /. }}
-    </tbody>
-    </table>
 </script>

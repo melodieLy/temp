@@ -30,7 +30,6 @@ function saveId(data) {
     sessionStorage.setItem("calendarId", data);
 }
 
-
 function getAllCalendar(data) {
     $.get('components/dc_table.html', function (templates) {
         var component = $(templates).filter('#tpl-dc-table').html();
