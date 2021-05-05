@@ -70,8 +70,8 @@ function checkNewCalendar(form) {
     create("associations/" + data.associationId + "/debitCalendar", data);
     if(sessionStorage.getItem("created") == "true") {
         removeOldDom();
-        sessionStorage.setItem("created", false);
         get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
+        sessionStorage.setItem("created", false);
     }
 }
 
@@ -98,7 +98,7 @@ function createDate(form) {
 }
 
 function removeOldDom() {
-    if ($('.basic-data-table')) {
-        $('.basic-data-table').remove();
+    if ($('#basic-dc-table')) {
+        $('#basic-dc-table').remove();
     }
 }
