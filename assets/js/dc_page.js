@@ -84,7 +84,7 @@ function shouldBeDelete(dataId) {
 
 function createDate(form) {
     var data = {};
-    if(!form.Id) data.Id = form.id.value;
+    if(!form.id.value) data.Id = form.id.value;
     data.startDate = form.startDate.value;
     data.endDate = form.endDate.value;
     data.debitDate = form.debitDate.value;
