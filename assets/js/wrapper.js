@@ -435,8 +435,8 @@ function create(path,data) {
         },
         data: data,
         success: function (data, textStatus, request) {
-            showAlert("L'élement a bien été créé", "success");
             sessionStorage.setItem("created",true);
+            showAlert("L'élement a bien été créé", "success");
         }
     })
     .fail(function (xhr) {
