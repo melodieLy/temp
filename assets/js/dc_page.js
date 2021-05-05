@@ -85,9 +85,11 @@ function shouldBeDelete(dataId) {
     }
 }
 
+// PLEASE DELETE THE else data.Id= uuidv4() AFTER THE CORRECTION ABOUT THE GUID
 function createDate(form) {
     var data = {};
     if(form.id != undefined) data.Id = form.id.value;
+    else data.Id = uuidv4();
     data.startDate = form.startDate.value;
     data.endDate = form.endDate.value;
     data.debitDate = form.debitDate.value;
