@@ -40,6 +40,13 @@ function getError(info) {
             break;
         default:
             showAlert(info.status + " : " + info.responseJSON.Message, type);
+            if (info.responseJSON.ExceptionsStack) {
+                const exceptions = info.responseJSON.ExceptionsStack;
+                for (let i = 0; i < exceptions.length; i++) {
+                    const element = exceptions[i];
+                    console.console.error(element);
+                }
+            }
             break;
     }
 }
