@@ -68,11 +68,8 @@ function checkNewCalendar(form) {
     const data = createDate(newData);
 
     create("associations/" + data.associationId + "/debitCalendar", data);
-    if(sessionStorage.getItem("created") == "true") {
-        removeOldDom();
-        get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
-        sessionStorage.setItem("created", false);
-    }
+    removeOldDom();
+    get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
 }
 
 function shouldBeDelete(dataId) {
