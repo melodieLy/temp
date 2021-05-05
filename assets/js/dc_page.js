@@ -35,7 +35,7 @@ function getAllCalendar(data) {
         var component = $(templates).filter('#tpl-dc-table').html();
         if (data) {
             data.forEach(element => {
-                if (element.startDate) element.startDate = moment(element.startDate).format('YYYY-MM-DD');
+                if (element.startDate) element.startDate = moment(element.startDate).format('DD/MM/YYYY');
                 if (element.endDate) element.endDate = moment(element.endDate).format('DD/MM/YYYY');
                 if (element.debitDate) element.debitDate = moment(element.debitDate).format('DD/MM/YYYY');
             });
