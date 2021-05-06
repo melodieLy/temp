@@ -478,10 +478,13 @@ function deleteData(path, data) {
             success: function (data, textStatus, request) {
                 showAlert('Votre suppression à bien été prise en compte.', 'success');
                 window.stop();
-                resolve(true);
+                //resolve(true);
+                console.log("fail : " + xhr);
+
             }
         })
         .fail(function (xhr) {
+            console.log("fail : "+ xhr);
             getError(xhr);
             reject(false);
         }) 
