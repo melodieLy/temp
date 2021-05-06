@@ -81,11 +81,10 @@ function shouldBeDelete(dataId) {
             .then(function () {
                 removeOldDom();
                 get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
-                window.stop();
             })
     }
     else {
-        window.stop();
+        return false;
     }
 }
 

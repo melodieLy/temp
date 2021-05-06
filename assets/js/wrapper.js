@@ -476,13 +476,14 @@ function deleteData(path, data) {
             },
             method: "DELETE",
             success: function (data, textStatus, request) {
-                showAlert('Votre suppression à bien été prise en compte.', 'success')
+                showAlert('Votre suppression à bien été prise en compte.', 'success');
+                window.stop();
                 resolve(true);
             }
         })
         .fail(function (xhr) {
             getError(xhr);
-            resolve(false);
+            reject(false);
         }) 
     })
 }
