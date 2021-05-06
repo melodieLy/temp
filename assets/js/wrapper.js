@@ -443,6 +443,29 @@ function create(path,data) {
     })
 }
 
+function createData(path, data) {
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            url: apiPath + path,
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Authorization": "bearer " + cookies.token
+            },
+            data: data,
+            success: function (data, textStatus, request) {
+                showAlert("L'élement a bien été créé", "success");
+                resolve(true);
+            }
+        })
+        .fail(function (xhr) {
+            getError(xhr);
+            resolve(false);
+        })
+    })
+    
+}
+
 function deleteData(path, data) {
     $.ajax({
         url: apiPath + path + "?Id=" + data,
