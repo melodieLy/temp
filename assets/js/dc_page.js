@@ -81,7 +81,7 @@ function shouldBeDelete(dataId) {
             .then(function () {
                 removeOldDom();
                 get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
-                showAlert('Votre suppression à bien été prise en compte.', 'success')
+                window.stop();
             })
     }
     else {

@@ -471,10 +471,12 @@ function deleteData(path, data) {
         $.ajax({
             url: apiPath + path + "?Id=" + data,
             headers: {
-                "Authorization": "bearer " + cookies.token
+                "Authorization": "bearer " + cookies.token,
+                "Id": + data,
             },
             method: "DELETE",
             success: function (data, textStatus, request) {
+                showAlert('Votre suppression à bien été prise en compte.', 'success')
                 resolve(true);
             }
         })
