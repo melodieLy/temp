@@ -8,7 +8,7 @@ if(window.location.pathname.includes("debit-calendar")) {
         })
         sessionStorage.setItem("updated", false);
     }
-    else if (sessionStorage.getItem("deleted") == "true") {
+    else if (window.location.search.includes("deleted")) {
         document.addEventListener('DOMContentLoaded', (event) => {
             showAlert('Votre suppression à bien été prise en compte.', 'success')
         })

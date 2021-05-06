@@ -451,7 +451,7 @@ function deleteData(path, data) {
         },
         method: "DELETE",
         success: function (data, textStatus, request) {
-            sessionStorage.setItem("deleted", true);
+            window.location.replace("debit-calendar.html?deleted=true")
         }
     })
     .fail(function (xhr) {
