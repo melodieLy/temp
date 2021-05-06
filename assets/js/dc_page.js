@@ -77,10 +77,13 @@ function checkNewCalendar(form) {
 
 function shouldBeDelete(dataId) {
     if(confirm("Voulez-vous supprimer ce calendrier ?")) {
-        return deleteData("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", dataId)
+        deleteData("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", dataId)
             .then(function () {
-                window.onload = showAlert('Votre suppression à bien été prise en compte.', 'success');
+                removeOldDom();
+                get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
+                showAlert('Votre suppression à bien été prise en compte.', 'success');
             })
+        return false;
     }
     else {
         return false;
