@@ -472,12 +472,10 @@ function deleteData(path, data) {
             url: apiPath + path + "?Id=" + data,
             headers: {
                 "Authorization": "bearer " + cookies.token,
-                "Id": + data,
             },
             method: "DELETE",
             success: function (data, textStatus, request) {
                 resolve(true);
-
             }
         })
         .fail(function (xhr) {
