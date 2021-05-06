@@ -25,11 +25,12 @@ function getWCSearchbar(data) {
             selectToHide[0].setAttribute("style","display:none;");
         }
 
-        //fillSearchPageWithSessionStorage();
+        fillSearchPageWithSessionStorage();
     });
 };
 
 function getWCPage (data,param) {
+    if(typeof(param) == String) sessionStorage.setItem("rnr", param);
     const urlParam = getUrlParam(param);
     try {
         getWelcomeCall(data + urlParam);
@@ -52,12 +53,7 @@ function getUrlParam (form) {
         url += '&' + element.name + '=' + element.value;
     };
 
-    if(typeof(form) ==  "string") {
-        const allTypes = ["rnr", "nr", "r"];
-        allTypes.forEach(type => {
-            if (type == form) url += "&rnr=" + form;
-        });
-    }
+    if (type == form) url += "&rnr=" + sessionStorage.getItem("rnr");
     
     createSearchHistory(yourSelect,input,form);
     return url;
@@ -89,9 +85,6 @@ function createSearchHistory(select,inputs,form) {
     for(const element of inputs) {
         if(element.value) sessionStorage.setItem(element.name, element.value);
     };
-
-    if(typeof(form)== "string") sessionStorage.setItem("rnr", form);
-    else sessionStorage.setItem("rnr","rnr");
 }
 
 function getSearchHistory() {
@@ -123,8 +116,6 @@ function chooseOption(idType) {
         }
     });
     $('#' + idType).removeClass('btn-outline-primary').addClass('btn-primary').blur();
-
-
 };
 
 function downloadCalls(pageNumber) {

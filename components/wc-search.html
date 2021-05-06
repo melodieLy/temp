@@ -38,8 +38,8 @@
   </form>
 
   <div class="btn-group" role="group" aria-label="type de bulletins">
-    <button type="button" id="rnr" onclick="getWCPage(1,id)" class="btn btn-sm btn-primary">Tous</button>
-    <button type="button" id="nr" onclick="getWCPage(1,id)" class="btn btn-sm btn-outline-primary">non-Joint</button>
-    <button type="button" id="r" onclick="getWCPage(1,id)" class="btn btn-sm btn-outline-primary">Joint</button>
+    <button type="button" id="rnr" onclick="getWCPage(document.getElementById('pagenumber').value,id)" class="btn btn-sm btn-primary">Tous</button>
+    <button type="button" id="nr" onclick="getWCPage(document.getElementById('pagenumber').value,id)" class="btn btn-sm btn-outline-primary">non-Joint</button>
+    <button type="button" id="r" onclick="getWCPage(document.getElementById('pagenumber').value,id)" class="btn btn-sm btn-outline-primary">Joint</button>
   </div>
 </script>
