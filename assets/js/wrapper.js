@@ -467,25 +467,20 @@ function createData(path, data) {
 }
 
 function deleteData(path, data) {
-    $.ajax({
-        url: apiPath + path + "?Id=" + data,
-        headers: {
-            "Authorization": "bearer " + cookies.token
-        },
-        method: "DELETE",
-        success: function (data, textStatus, request) {
-            window.location.replace("debit-calendar.html?deleted=true")
-        }
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            url: apiPath + path + "?Id=" + data,
+            headers: {
+                "Authorization": "bearer " + cookies.token
+            },
+            method: "DELETE",
+            success: function (data, textStatus, request) {
+                resolve(true);
+            }
+        })
+        .fail(function (xhr) {
+            getError(xhr);
+            resolve(false);
+        }) 
     })
-    .fail(function (xhr) {
-        getError(xhr)
-    })
-}
-
-
-// PLEASE DELETE THIS FUNCTION AFTER THE CORRECTION FOR THE GUID
-function uuidv4() {
-    return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
-        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-    );
 }
