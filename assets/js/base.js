@@ -1,11 +1,14 @@
-//Call the new sidebar function for the recette version
+/// Call the new sidebar function (Inly for the recette version)
 $.getScript("assets/js/config.js", function () {
-    //Verify if the user did the authentification
+    
+
     let validCookie = false;
     $(document).ready(function() {
         try {
+            /// Verify if the user did the authentification
             validCookie = isValidateCookie();
             if(!validCookie) throw "authentification invalide";
+            
             if (environment == "prod") {
                 $(function () {
                     callSidebar();

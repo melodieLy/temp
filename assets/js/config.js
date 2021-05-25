@@ -1,20 +1,26 @@
-const environment = "prod";
+/// Main parameter to configure the environment
+const environment = "recette";
 
+/// Depending of the environment, redirect the user.
+/// Don't really useful for now since the dashboard is not use right now
 function EnvironmentRedirection () {
   if(environment == "prod") {
     window.location.replace("welcome-call.html");
   }
   else {
-    window.location.replace("dashboard.html");
+    window.location.replace("welcome-call.html");
+    //window.location.replace("dashboard.html");
   }
 }
 
+/// Change the years of the copyrights
 $(document).ready(function() {
   var d = new Date();
   var year = d.getFullYear();
   document.getElementById("copy-year").innerHTML = year;
 });
 
+/// To Check - Verify the cookies
 function isValidateCookie() {
   if (cookies === undefined) {
     window.location.replace("");

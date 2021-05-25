@@ -10,8 +10,16 @@
             "name":"Appels des donateurs"
          },
          {
-            "URL":"test.html",
-            "name":"2nd category"
+            "URL": "mailjet-emails.html",
+            "name": "Suivi emails donateurs"
+         },
+         {
+            "URL": "tdb.html",
+            "name": "Tableau de bords"
+         },
+         {
+            "URL": "folders-page.html",
+            "name": "Dossiers"
          }
       ]
    },
@@ -24,6 +32,24 @@
          {
             "URL":"debit-calendar.html",
             "name":"Calendrier des débits"
+         }
+      ]
+   },
+   {
+      "rights": [
+         "ADMIN"
+      ],
+      "title": "Associations",
+      "id": "asso",
+      "icon": "mdi-earth",
+      "category": [
+         {
+            "URL": "contacts.html",
+            "name": "Contacts"
+         },
+         {
+            "URL": "flux.html",
+            "name": "Flux"
          }
       ]
    }

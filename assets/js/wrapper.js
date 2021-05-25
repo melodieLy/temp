@@ -1,6 +1,9 @@
+/// Main parameters for the request. Please change them if you need
 const pageSize = '10';
 const apiPath = "https://recette-api.song-fr.com/";
 
+/// Create a Alert pop-up in the DOM
+/// Type: define the type of pop-up (color)
 function showAlert(Info, type) {
     if (!document.getElementById("alertColumn")) addTheAlertColumn();
 
@@ -12,6 +15,7 @@ function showAlert(Info, type) {
     });
 }
 
+/// Call ShowAlert depending of the type of error.
 function getError(info) {
     const type = 'danger';
     switch(info.status) {
@@ -51,6 +55,9 @@ function getError(info) {
     }
 }
 
+//Rework this part (thiking with sessionStorage) until *const cookies = getCookie();*
+
+/// Create a cookie with all the data about association 
 function createCookieAsso(setup) {
     let assoNameList = "";
     let assoIdList = "";
@@ -83,6 +90,7 @@ function createCookieAsso(setup) {
     document.cookie = "actualAsso=" + 0 + ';';
 };
 
+///Verify the rights of the user
 function checkAdminRight(data) {
     for (let j = 0; j < data.length; j++) {
         if(data[j].Role.Id.toUpperCase() === "ADMIN") return true;
@@ -90,6 +98,7 @@ function checkAdminRight(data) {
     return false;
 };
 
+///Request : Work only if the user is a admin
 function getAllAsso(param) {
     $.ajax({
         url: apiPath + "associations/digest-list",
@@ -106,6 +115,7 @@ function getAllAsso(param) {
     });
 };
 
+/// Create a list of all the existing associations, will be add to the cookies
 function getAllExistingAsso(result) {
     let assoNameList = "";
     let assoIdList = "";
@@ -130,6 +140,7 @@ function getAllExistingAsso(result) {
     document.cookie = "actualAsso=" + 0 + ';';
 };
 
+/// Return all the data in the cookie, so that could be use easily
 function getCookie() {
     if(!document.cookie){
         return undefined;
@@ -158,34 +169,36 @@ function getCookie() {
     return result;
 };
 
-function createNewCookie() {
-    if(!document.cookie){
-        return undefined;
-    }
+/// TO CHECK IF THIS COULD BE USEFUL
+// function createNewCookie() {
+//     if(!document.cookie){
+//         return undefined;
+//     }
 
-    let cookieData = document.cookie.split(";");
-    let result = new Array();
-    const names = ["username", "token","assoName", "assoId", "expires","actualAsso"]
+//     let cookieData = document.cookie.split(";");
+//     let result = new Array();
+//     const names = ["username", "token","assoName", "assoId", "expires","actualAsso"]
 
-    cookieData.forEach(element => {
-        for (let i = 0; i < names.length; i++) {
-            const actualName = names[i];
-            if(element.includes(actualName)) {
-                if(actualName == "assoName" || actualName == "assoId") {
-                    let toSplit = (element.split('=').pop());
-                    const arrayAsso = toSplit.split(',');
-                    result[actualName] = arrayAsso;
-                } 
-                else {
-                    result[actualName] = (element.split('=').pop());
-                }
-                break;
-            } 
-        }
-    });
-    return result;
-};
+//     cookieData.forEach(element => {
+//         for (let i = 0; i < names.length; i++) {
+//             const actualName = names[i];
+//             if(element.includes(actualName)) {
+//                 if(actualName == "assoName" || actualName == "assoId") {
+//                     let toSplit = (element.split('=').pop());
+//                     const arrayAsso = toSplit.split(',');
+//                     result[actualName] = arrayAsso;
+//                 } 
+//                 else {
+//                     result[actualName] = (element.split('=').pop());
+//                 }
+//                 break;
+//             } 
+//         }
+//     });
+//     return result;
+// };
 
+//Delete all the cookies and data in the storages
 function deleteSession() {
     document.cookie = "expires=Thu Jan 01 1970 00:00:00 UTC; token=; username=; asso=; assoId=; actualAsso=;";
     sessionStorage.clear();
@@ -194,22 +207,24 @@ function deleteSession() {
 
 const cookies = getCookie();
 
-function get(path) {
-    $.ajax({
-        url: apiPath + path,
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Accept":"application/json",
-            "Authorization": "bearer " + cookies.token
-        },
-        method: "GET"
-    })
+/// General Request : Doesn't seem to be use. Please check
+// function get(path) {
+//     $.ajax({
+//         url: apiPath + path,
+//         headers: {
+//             "Content-Type": "application/x-www-form-urlencoded",
+//             "Accept":"application/json",
+//             "Authorization": "bearer " + cookies.token
+//         },
+//         method: "GET"
+//     })
     
-    .fail(function(xhr) {
-        getError(xhr);
-    });
-};
+//     .fail(function(xhr) {
+//         getError(xhr);
+//     });
+// };
 
+/// Main request : Call the funct if the request is a success
 function get(path,funct) {
     $.ajax({
         url: apiPath + path,
@@ -227,6 +242,8 @@ function get(path,funct) {
     });
 };
 
+/// Main request : launch the download of a file if the request is a success.
+/// param : Desired name of the document 
 function download(path, param) {
     $.ajax({
         url: apiPath + path,
@@ -239,7 +256,8 @@ function download(path, param) {
         success: function (data, statut) {
             const jsonBlob = new Blob([data])
             const blobUrl = window.URL.createObjectURL(jsonBlob);
-                //Create a link element
+            
+            //Create a link element
             const link = document.createElement("a");
 
             //Set link's href to point to the blob URL
@@ -249,7 +267,7 @@ function download(path, param) {
             //Append link tot he body
             document.body.appendChild(link);
 
-            //Dispatch click event ont he link
+            //Dispatch click event on the link
             // This is necessary as link.click() does not work on the latest firefox
             link.dispatchEvent(
                 new MouseEvent('click', { 
@@ -272,6 +290,7 @@ function download(path, param) {
     });
 }
 
+/// Main request : if success, retrieve the data and transofrm them on a CSV file
 function downloadCSV(path) {
     $.ajax({
         url: apiPath + path,
@@ -318,7 +337,7 @@ function downloadCSV(path) {
     });
 }
 
-
+/// To Check - Specific request : If success, will load all the element with mustacheJS
 function getWelcomeCall(path) {
     $.ajax({
         url: apiPath + "calls/called/" + cookies.assoId[cookies.actualAsso]+'?Page='+path + '&PageSize=' + pageSize,
@@ -331,21 +350,29 @@ function getWelcomeCall(path) {
         success: function (data, textStatus, request) {
             removeOldDOMElement();
 
+            //Calling the template
             $.get('components/wc_table.html', function(templates) {
                 var component = $(templates).filter('#tpl-wc-table').html();
                 if(data) {
+                    //Change the dateTime format 
                     data.forEach(element => {
                         if(element.LastContact) element.LastContact = moment(element.LastContact).format('DD/MM/YYYY');
                         if (element.CompletionDate) element.CompletionDate = moment(element.CompletionDate).format('DD/MM/YYYY');
                     });
                 }
+                //append the template to the main html file wc_page.html where the ID is
                 $('#welcome-call').append(Mustache.render(component,data));
             });
             
             $.get('components/pagination.html', function(templates) {
                 var component = $(templates).filter('#pagination-comp').html();
+                
+                //Retrieve the pagination data from the header X-Pagination.
+                // Set totalPages to 1 to avoid conflict for request or on template
                 let paginSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
                 if(paginSetup.TotalPages == 0) paginSetup.TotalPages = 1;
+
+                // The data is add manually because we can't access directly to the X-Pagination header
                 $('#pagination-row').append(Mustache.render(component, {
                     "PageSize":paginSetup.PageSize,
                     "PageNumber":paginSetup.PageNumber,
@@ -372,6 +399,7 @@ function getWelcomeCall(path) {
     });
 }
 
+/// Specific Request : Retrieve all associations where the user work
 function findAsso(param) {
     const token ="bearer " + param.access_token;
     $.ajax({
@@ -401,6 +429,8 @@ function findAsso(param) {
     });
 };
 
+/// To update for a more general one
+/// Speficic request : send updated data from a debit calendar for the server
 function put(path, form) {
     $.ajax ({
         url: apiPath + path,
@@ -425,6 +455,7 @@ function put(path, form) {
     })
 };
 
+/// Main request : send new data element for the server. For more information please chek the api
 function create(path,data) {
     $.ajax({
         url: apiPath + path,
@@ -443,6 +474,8 @@ function create(path,data) {
     })
 }
 
+///Alternative version depending of how we decide to manage - To check
+/// Main request : 
 function createData(path, data) {
     return new Promise(function (resolve, reject) {
         $.ajax({
@@ -466,6 +499,8 @@ function createData(path, data) {
     
 }
 
+/// To create a main request - to check
+///Specific Request : Delete a specific element with his ID
 function deleteData(path, data) {
     return new Promise(function (resolve, reject) {
         $.ajax({

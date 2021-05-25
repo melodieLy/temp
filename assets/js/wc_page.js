@@ -1,9 +1,12 @@
+/// Verify if this 's the first call of the page, load the elements of the page
+/// and create the sessionStorage for the "Reached" or "no reached"
 if(!window.location.hash.includes("#")) {
     let data = 1;
     getWCPage(data, null);
     sessionStorage.setItem("rnr","rnr");
 }
 
+/// Remove some DOM Elements for reload then for the page "Welcome-calls"
 function removeOldDOMElement() {
     if ($('#basic-wc-table')) {
         $('#basic-wc-table').remove();
@@ -12,7 +15,7 @@ function removeOldDOMElement() {
     }
 }
 
-// Rempli la combo-box "comité" de la searchbar. Appel la requête et rends visible ou non l'élement selon le résulat 
+/// Refill the "area" combo-box. Call the request and show or hide the element depending of the result
 get("associations/"+cookies.assoId[cookies.actualAsso]+"/areas", getWCSearchbar);
 
 function getWCSearchbar(data) {
@@ -28,9 +31,11 @@ function getWCSearchbar(data) {
         fillSearchPageWithSessionStorage();
     });
 };
-
+ 
 function getWCPage (data,param) {
+    //Update the sessionStorage if only the "RNR" was send
     if(typeof(param) == String) sessionStorage.setItem("rnr", param);
+    
     const urlParam = getUrlParam(param);
     try {
         getWelcomeCall(data + urlParam);
@@ -40,25 +45,26 @@ function getWCPage (data,param) {
     }
 };
 
+/// Return a url's parameter for the request
 function getUrlParam (form) {
-    if(form == null) {
-        return "";
-    }
-   
-    let url = '';
-    const yourSelect = document.getElementById("area-select").value;
-    const input = document.getElementById("search-form").getElementsByTagName("input");
-    if (yourSelect !== "") url += '&Area=' + yourSelect;
-    for (const element of input) {
-        url += '&' + element.name + '=' + element.value;
-    };
+    if(typeof form !== null) {
+        let url = '';
+        const yourSelect = document.getElementById("area-select").value;
+        const input = document.getElementById("search-form").getElementsByTagName("input");
+        if (yourSelect !== "") url += '&Area=' + yourSelect;
+        for (const element of input) {
+            url += '&' + element.name + '=' + element.value;
+        };
 
-    if (type == form) url += "&rnr=" + sessionStorage.getItem("rnr");
-    
-    createSearchHistory(yourSelect,input,form);
-    return url;
+        if (type == form) url += "&rnr=" + sessionStorage.getItem("rnr");
+
+        createSearchHistory(yourSelect, input, form);
+        return url;
+    }
+    else return "";
 }
 
+/// Copy the element (here a id) in the clipboard
 function copyId(ongId) {
     const el = document.createElement('textarea');
     el.value = ongId;
@@ -68,6 +74,7 @@ function copyId(ongId) {
     document.body.removeChild(el);
 }
 
+/// Refill the inputs elements with the data saved in the sesssionStorage.
 function fillSearchPageWithSessionStorage() {
     let area = document.getElementById('area-select');
     area.value = sessionStorage.getItem("area");
@@ -80,6 +87,7 @@ function fillSearchPageWithSessionStorage() {
     chooseOption(sessionStorage.getItem("rnr"));
 }
 
+/// Save the search parameters 
 function createSearchHistory(select,inputs,form) {
     if(select != "") sessionStorage.setItem("area", select.value);
     for(const element of inputs) {
@@ -87,6 +95,7 @@ function createSearchHistory(select,inputs,form) {
     };
 }
 
+/// return a array of data saved as search parameters
 function getSearchHistory() {
     const names = ["area","from", "to","search","rnr"];
     let obj = [];
@@ -97,6 +106,7 @@ function getSearchHistory() {
     return obj;
 }
 
+/// clear the data in the input element. Doesn't remove data saved in the sesssionStorage
 function deleteSeachHistory() {
     sessionStorage.clear();
     document.getElementById( "area-select" ).value = "";
@@ -107,6 +117,7 @@ function deleteSeachHistory() {
     };
 }
 
+///Remove and Select the right type of "RNR" filted
 function chooseOption(idType) {
     $('.btn-group').children().each(function (index, element) {
         if (element.classList.contains('btn-primary')) {
@@ -118,9 +129,12 @@ function chooseOption(idType) {
     $('#' + idType).removeClass('btn-outline-primary').addClass('btn-primary').blur();
 };
 
+/// To download files, 
 function downloadCalls(pageNumber) {
     showAlert("Téléchargement lancé. Cela peut prendre quelques secondes.", 'info');
     const names = ["Area","from", "to","search"];
+    
+    // Search all the filter saved and create a the url's parameter
     const param = getSearchHistory();
     let urlParam = '';
     for (let i = 0; i < names.length; i++) {
@@ -128,6 +142,7 @@ function downloadCalls(pageNumber) {
         urlParam += '&' + names[i] + '=' +element;
     }
     const url = 'calls/called/'+cookies.assoId[cookies.actualAsso]+'/download?Page='+pageNumber+urlParam;
+    
+    //Send a request. The request will start the download
     let data = downloadCSV(url);
-
 };
