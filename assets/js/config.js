@@ -1,5 +1,6 @@
 /// Main parameter to configure the environment
-const environment = "recette";
+/// 25.05.21 : The recette environment need to be check again see the main page is dashboard
+const environment = "prod";
 
 /// Depending of the environment, redirect the user.
 /// Don't really useful for now since the dashboard is not use right now
