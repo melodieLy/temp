@@ -47,7 +47,7 @@ function getWCPage (data,param) {
 
 /// Return a url's parameter for the request
 function getUrlParam (form) {
-    if(typeof form !== null) {
+    if(form !== null) {
         let url = '';
         const yourSelect = document.getElementById("area-select").value;
         const input = document.getElementById("search-form").getElementsByTagName("input");
