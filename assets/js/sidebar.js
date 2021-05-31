@@ -1,4 +1,5 @@
 function createAssoData(assoDigestList) {
+  console.log(assoDigestList)
   let copy = [];
   const actualAsso = sessionStorage.getItem("assoId");
 
@@ -26,7 +27,7 @@ function loadSimplySidebarHeader() {
 };
 
 function loadSidebarHeader(){  
-  get("associations/digest-list", function() {
+  get("associations/digest-list", function(data) {
     const dataAsso = createAssoData(data);
 
     $.get('components/sidebar_header.html', function(templates) {
@@ -89,5 +90,5 @@ function changeAssociationPage(newAsso) {
 }
 
 function retrieveAssoLogo() {
-  return 'https://recette-api.song-fr.com/public/associations/'+sessionStorage.getItem("assoId")[cookies.actualAsso] + '/logo';
+  return 'https://recette-api.song-fr.com/public/associations/'+sessionStorage.getItem("assoId") + '/logo';
 }
