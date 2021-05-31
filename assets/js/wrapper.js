@@ -21,6 +21,7 @@ function getError(info) {
     switch(info.status) {
         case 401 :
             deleteSession();
+            Alert('t');
             window.location.replace("index.html");
             showAlert("401 : Erreur lors de l'authentification Vous avez été redirigé.", type);
             break;
@@ -111,7 +112,7 @@ function getAllAsso(param) {
     })
     .done(function(result) {
         getAllExistingAsso(result);
-        EnvironmentRedirection();
+        //EnvironmentRedirection();
     });
 };
 
