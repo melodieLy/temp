@@ -117,6 +117,8 @@ function deleteSeachHistory() {
     for(const element of input) {
         element.value = "";
     };
+
+    getWCPage(1, null);
 }
 
 ///Remove and Select the right type of "RNR" filted
@@ -134,7 +136,7 @@ function chooseOption(idType) {
 /// To download files, 
 function downloadCalls(pageNumber) {
     showAlert("Téléchargement lancé. Cela peut prendre quelques secondes.", 'info');
-    const names = ["Area","from", "to","search"];
+    const names = ["Area","from", "to","search","rnr"];
     
     // Search all the filter saved and create a the url's parameter
     const param = getSearchHistory();
@@ -143,7 +145,7 @@ function downloadCalls(pageNumber) {
         const element = param[i];
         urlParam += '&' + names[i] + '=' +element;
     }
-    const url = 'calls/called/'+sessionStorage.getItem("assoId")[cookies.actualAsso]+'/download?Page='+pageNumber+urlParam;
+    const url = 'calls/called/'+sessionStorage.getItem("assoId")+'/download?Page='+pageNumber+urlParam;
     
     //Send a request. The request will start the download
     let data = downloadCSV(url);
