@@ -21,8 +21,7 @@ function getError(info) {
     switch(info.status) {
         case 401 :
             deleteSession();
-            Alert('t');
-            window.location.replace("index.html");
+            console.log(info);
             showAlert("401 : Erreur lors de l'authentification Vous avez été redirigé.", type);
             break;
         case 403 :
