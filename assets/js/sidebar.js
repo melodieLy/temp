@@ -5,7 +5,7 @@ function createAssoData(assoDigestList) {
 
   for (let i = 0; i < assoDigestList.length; i++) {
     if(actualAsso != i) {
-      let element = {name: assoName[i], id: assoId[i]}
+      let element = { name: assoDigestList[i].Value, id: assoDigestList[i].Id}
       copy.push(element);
     }
   }
