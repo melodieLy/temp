@@ -148,7 +148,7 @@ function getCookie() {
 
     let cookieData = document.cookie.split(";");
     let result = new Array();
-    const names = ["f", "token","assoName", "assoId", "expires","actualAsso"]
+    const names = ["token","assoName", "assoId", "expires","actualAsso"]
 
     cookieData.forEach(element => {
         for (let i = 0; i < names.length; i++) {
