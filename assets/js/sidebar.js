@@ -65,7 +65,7 @@ function showSelectedNavElement() {
 function changeActualAssociation() {
   const newAsso = this.options[this.selectedIndex].value;
 
-  if(newAsso === sessionStorage.getItem("assoId")[cookies.actualAsso]) return;
+  if(newAsso === sessionStorage.getItem("assoId")) return;
   else {
     changeAssociationPage(newAsso);
     loadSidebarHeader();
@@ -74,13 +74,11 @@ function changeActualAssociation() {
 }
 
 function changeAssociationPage(newAsso) {
-  const names = ["username", "token","assoName", "assoId", "expires","actualAsso"];
-
-  for (let i = 0; i < sessionStorage.getItem("assoId").length; i++) {
-    const element = sessionStorage.getItem("assoId")[i];
-    if(element === newAsso) {
-      cookies.actualAsso = i;
-      break;
+  const element = sessionStorage.getItem("assoId");
+    if(element === newAsso)
+    {
+      sessionStorage.setItem("assoId", newAsso);
+      sessionStorage.setItem("assoName", newAsso);
     }
   }
 
