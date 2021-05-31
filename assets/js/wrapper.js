@@ -415,6 +415,7 @@ function findAsso(param) {
         if (checkAdminRight(result)) {
             sessionStorage.setItem("assoId", "ACF")
             sessionStorage.setItem("rights","ADMIN")
+            EnvironmentRedirection();
         }
         else {
             const rights = createCookieAsso(result);
