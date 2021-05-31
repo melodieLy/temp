@@ -1,4 +1,4 @@
-get('mail/stats/counters/'+cookies.assoId, retrieveAssoMail);
+get('mail/stats/counters/'+sessionStorage.getItem("assoId"), retrieveAssoMail);
 changeWeek();
 
 //From here, we call specifics components

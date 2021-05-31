@@ -3,10 +3,10 @@ $(document).ready(function() {
 
   if (path != "") {
     path = path.replace('?id=', '');
-    get('folders/'+cookies.assoId+'/'+ path,getAccesibleFiles);
+    get('folders/'+sessionStorage.getItem("assoId")+'/'+ path,getAccesibleFiles);
   } 
   else {
-    get('folders/'+cookies.assoId, getAccessibleFolders);
+    get('folders/'+sessionStorage.getItem("assoId"), getAccessibleFolders);
   }
 });
 
@@ -37,6 +37,6 @@ function getAccesibleFiles(data) {
 
 function downloadBlob(blob, name) {
   // Convert your blob into a Blob URL (a special url that points to an object in the browser's memory)
-  const url = 'folders/'+cookies.assoId+'/'+ path+ '/' +blob;
+  const url = 'folders/'+sessionStorage.getItem("assoId")+'/'+ path+ '/' +blob;
   let data = download(url, name);
 }

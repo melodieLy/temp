@@ -1,7 +1,7 @@
 const names = ['startDate', 'endDate', 'debitDate'];
 
 if(window.location.pathname.includes("debit-calendar")) {
-    get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
+    get("associations/" + sessionStorage.getItem("assoId") + "/debitCalendar", getAllCalendar);
     if (sessionStorage.getItem("updated") == "true") {
         document.addEventListener('DOMContentLoaded', (event) => {
             showAlert('Votre modification à bien été prise en compte.', 'success');
@@ -17,7 +17,7 @@ if(window.location.pathname.includes("debit-calendar")) {
     } 
 }
 else {
-    get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar/"+sessionStorage.getItem('calendarId'), getCalendarById);
+    get("associations/" + sessionStorage.getItem("assoId") + "/debitCalendar/"+sessionStorage.getItem('calendarId'), getCalendarById);
 }
 
 function saveMainData(data) {
@@ -70,17 +70,17 @@ function checkNewCalendar(form) {
     return createData("associations/" + data.associationId + "/debitCalendar", data)
         .then(function () {
             removeOldDom();
-            get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
+            get("associations/" + sessionStorage.getItem("assoId") + "/debitCalendar", getAllCalendar);
         })
 }
 
 
 function shouldBeDelete(dataId) {
     if(confirm("Voulez-vous supprimer ce calendrier ?")) {
-        deleteData("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", dataId)
+        deleteData("associations/" + sessionStorage.getItem("assoId") + "/debitCalendar", dataId)
             .then(function () {
                 removeOldDom();
-                get("associations/" + cookies.assoId[cookies.actualAsso] + "/debitCalendar", getAllCalendar);
+                get("associations/" + sessionStorage.getItem("assoId") + "/debitCalendar", getAllCalendar);
                 showAlert('Votre suppression à bien été prise en compte.', 'success');
             })
         return false;
@@ -96,7 +96,7 @@ function createDate(form) {
     data.startDate = form.startDate.value;
     data.endDate = form.endDate.value;
     data.debitDate = form.debitDate.value;
-    data.associationId = cookies.assoId[cookies.actualAsso];
+    data.associationId = sessionStorage.getItem("assoId");
     return data;
 }
 

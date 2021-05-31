@@ -1,7 +1,9 @@
-function createAssoData(assoName, assoId) {
+function createAssoData(assoDigestList) {
   let copy = [];
-  for (let i = 0; i < assoName.length; i++) {
-    if(cookies.actualAsso != i) {
+  const actualAsso = sessionStorage.getItem("assoId");
+
+  for (let i = 0; i < assoDigestList.length; i++) {
+    if(actualAsso != i) {
       let element = {name: assoName[i], id: assoId[i]}
       copy.push(element);
     }
@@ -15,7 +17,7 @@ function loadSimplySidebarHeader() {
     const rendered = Mustache.render(
       component,{
       img_src:retrieveAssoLogo(),
-      Name: cookies.assoName[cookies.actualAsso]
+      Name: sessionStorage.getItem("assoId")
     });
     $("#association").html(rendered).promise().done(function() {
       showSelectedNavElement();
@@ -23,21 +25,23 @@ function loadSimplySidebarHeader() {
   })
 };
 
-function loadSidebarHeader(){
-  let t = createAssoData(cookies.assoName, cookies.assoId);
+function loadSidebarHeader(){  
+  get("associations/digest-list", function() {
+    const dataAsso = createAssoData(data);
 
-  $.get('components/sidebar_header.html', function(templates) {
-    var component = $(templates).filter('#tpl-sidebar-header').html();
-    const rendered = Mustache.render(
-      component, {
-        img_src:retrieveAssoLogo(),
-        associations : t, 
-        actualName: cookies.assoName[cookies.actualAsso],
-        actualId: cookies.assoId[cookies.actualAsso]
-      })
-    $('#association').html(rendered).promise().done(function() {
-      showSelectedNavElement();
-    });
+    $.get('components/sidebar_header.html', function(templates) {
+      var component = $(templates).filter('#tpl-sidebar-header').html();
+      const rendered = Mustache.render(
+        component, {
+          img_src:retrieveAssoLogo(),
+          associations : dataAsso, 
+          actualName: sessionStorage.getItem("assoName"),
+          actualId: sessionStorage.getItem("assoId")
+        })
+      $('#association').html(rendered).promise().done(function() {
+        showSelectedNavElement();
+      });
+    })
   })
 };
 
@@ -60,7 +64,7 @@ function showSelectedNavElement() {
 function changeActualAssociation() {
   const newAsso = this.options[this.selectedIndex].value;
 
-  if(newAsso === cookies.assoId[cookies.actualAsso]) return;
+  if(newAsso === sessionStorage.getItem("assoId")[cookies.actualAsso]) return;
   else {
     changeAssociationPage(newAsso);
     loadSidebarHeader();
@@ -71,8 +75,8 @@ function changeActualAssociation() {
 function changeAssociationPage(newAsso) {
   const names = ["username", "token","assoName", "assoId", "expires","actualAsso"];
 
-  for (let i = 0; i < cookies.assoId.length; i++) {
-    const element = cookies.assoId[i];
+  for (let i = 0; i < sessionStorage.getItem("assoId").length; i++) {
+    const element = sessionStorage.getItem("assoId")[i];
     if(element === newAsso) {
       cookies.actualAsso = i;
       break;
@@ -85,5 +89,5 @@ function changeAssociationPage(newAsso) {
 }
 
 function retrieveAssoLogo() {
-  return 'https://recette-api.song-fr.com/public/associations/'+cookies.assoId[cookies.actualAsso] + '/logo';
+  return 'https://recette-api.song-fr.com/public/associations/'+sessionStorage.getItem("assoId")[cookies.actualAsso] + '/logo';
 }

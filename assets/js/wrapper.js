@@ -340,7 +340,7 @@ function downloadCSV(path) {
 /// To Check - Specific request : If success, will load all the element with mustacheJS
 function getWelcomeCall(path) {
     $.ajax({
-        url: apiPath + "calls/called/" + cookies.assoId[cookies.actualAsso]+'?Page='+path + '&PageSize=' + pageSize,
+        url: apiPath + "calls/called/" + sessionStorage.getItem("assoId") +'?Page='+path + '&PageSize=' + pageSize,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept":"application/json",
@@ -415,6 +415,7 @@ function findAsso(param) {
         if (checkAdminRight(result)) {
             sessionStorage.setItem("assoId", "ACF")
             sessionStorage.setItem("rights","ADMIN")
+            sessionStorage.setItem("assoName", "Action Contre la Faim")
             EnvironmentRedirection();
         }
         else {

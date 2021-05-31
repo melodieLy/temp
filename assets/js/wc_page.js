@@ -16,7 +16,7 @@ function removeOldDOMElement() {
 }
 
 /// Refill the "area" combo-box. Call the request and show or hide the element depending of the result
-get("associations/"+cookies.assoId[cookies.actualAsso]+"/areas", getWCSearchbar);
+get("associations/"+sessionStorage.getItem("assoId")[cookies.actualAsso]+"/areas", getWCSearchbar);
 
 function getWCSearchbar(data) {
     $.get('components/wc-search.html', function(templates) {
@@ -143,7 +143,7 @@ function downloadCalls(pageNumber) {
         const element = param[i];
         urlParam += '&' + names[i] + '=' +element;
     }
-    const url = 'calls/called/'+cookies.assoId[cookies.actualAsso]+'/download?Page='+pageNumber+urlParam;
+    const url = 'calls/called/'+sessionStorage.getItem("assoId")[cookies.actualAsso]+'/download?Page='+pageNumber+urlParam;
     
     //Send a request. The request will start the download
     let data = downloadCSV(url);

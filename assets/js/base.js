@@ -15,7 +15,7 @@ $.getScript("assets/js/config.js", function () {
                 else callSidebar("sidebar_data.recette");
 
                 $.getScript("assets/js/sidebar.js", function () {
-                    if (cookies.assoName.length <= 1) loadSimplySidebarHeader();
+                    if (sessionStorage.getItem('rights') != "ADMIN") loadSimplySidebarHeader();
                     else loadSidebarHeader();
                 });
                 get("context/current-user", callheader);

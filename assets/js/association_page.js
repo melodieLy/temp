@@ -1,4 +1,4 @@
-get('associations/'+cookies.assoId + '/flows', retrieveFlows);
+get('associations/' + sessionStorage.getItem("assoId") + '/flows', retrieveFlows);
 
 function retrieveFlows(data) {
     $.get('components/flux_model.html', function(templates) {
