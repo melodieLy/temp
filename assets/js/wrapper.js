@@ -57,7 +57,7 @@ function getError(info) {
 
 //Rework this part (thiking with sessionStorage) until *const cookies = getCookie();*
 
-/// Create a cookie with all the data about association 
+/// Retrieve all associations where the user have some rights
 function createCookieAsso(setup) {
     let assoNameList = "";
     let assoIdList = "";
@@ -68,7 +68,6 @@ function createCookieAsso(setup) {
         for (let j = 0; j < rightName.length; j++) {
             if(setup[i].Role.Id.toUpperCase() === rightName[j]) {
                 if(sesssionRights.indexOf(rightName[j]) == -1) sesssionRights.push(rightName[j]);
-                if(su)
                 if(i < 1) {
                     assoNameList = setup[i].Association.Name +",";
                     assoIdList = setup[i].Association.Id +",";
@@ -83,6 +82,7 @@ function createCookieAsso(setup) {
         }
     }
     if(!sessionStorage.getItem("rights")) sessionStorage.setItem("rights", JSON.stringify(sesssionRights));
+
 
     if(assoIdList.length == 0) return false;
     document.cookie = "assoName=" + assoNameList +";";
@@ -148,7 +148,7 @@ function getCookie() {
 
     let cookieData = document.cookie.split(";");
     let result = new Array();
-    const names = ["username", "token","assoName", "assoId", "expires","actualAsso"]
+    const names = ["f", "token","assoName", "assoId", "expires","actualAsso"]
 
     cookieData.forEach(element => {
         for (let i = 0; i < names.length; i++) {
@@ -412,9 +412,9 @@ function findAsso(param) {
         method: "GET"
     })
     .done(function(result) {
-        const checkAdmin = checkAdminRight(result);
-        if(checkAdmin) {
-            getAllAsso(token);
+        if (checkAdminRight(result)) {
+            sessionStorage.setItem("assoId", "ACF")
+            sessionStorage.setItem("rights","ADMIN")
         }
         else {
             const rights = createCookieAsso(result);

@@ -72,6 +72,8 @@ function copyId(ongId) {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
+
+    showAlert("Id copié","info")
 }
 
 /// Refill the inputs elements with the data saved in the sesssionStorage.

@@ -19,7 +19,8 @@ function Auth(theForm) {
       const time = 1000;
       let actualDate = new Date();
       actualDate.setTime(actualDate.getTime()+ (result.expires_in * time));
-      createCookieAuth(result, actualDate, theForm.email.value);
+      document.cookie = "token=" + result.access_token + ";";
+      document.cookie = "expires=" + actualDate + ";";
       findAsso(result);
     })
 
@@ -30,8 +31,8 @@ function Auth(theForm) {
     })
 }
 
-function createCookieAuth(setup,time,username) {
-  document.cookie = "expires=" + time +";"; 
-  document.cookie = "token="+setup.access_token+";";
-  document.cookie = "username="+username+";";
-};
+// function createCookieAuth(setup,time,username) {
+//   document.cookie = "expires=" + time +";"; 
+//   document.cookie = "token="+setup.access_token+";";
+//   document.cookie = "username="+username+";";
+// };

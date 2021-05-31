@@ -1,36 +1,28 @@
-/// Call the new sidebar function (Inly for the recette version)
+/// Call the new sidebar function (Only for the recette version)
 $.getScript("assets/js/config.js", function () {
     
-
     let validCookie = false;
     $(document).ready(function() {
         try {
             /// Verify if the user did the authentification
             validCookie = isValidateCookie();
             if(!validCookie) throw "authentification invalide";
-            
-            if (environment == "prod") {
-                $(function () {
-                    callSidebar();
-                    $.getScript("assets/js/sidebar.js", function () {
-                        if (cookies.assoName.length <= 1) loadSimplySidebarHeader();
-                        else loadSidebarHeader();
-                    });
-                    get("context/current-user", callheader);
+
+            $(function () {
+                // Select the right navigation elements, will be remove when all pages will be show in prod
+                //The recette element is more live a save
+                if (environment == "prod") callSidebar("sidebar_data");
+                else callSidebar("sidebar_data.recette");
+
+                $.getScript("assets/js/sidebar.js", function () {
+                    if (cookies.assoName.length <= 1) loadSimplySidebarHeader();
+                    else loadSidebarHeader();
                 });
-            }
-            else {
-                $(function () {
-                    $("#sidebar").load("sidebar.recette.html");
-                    $.getScript("assets/js/sidebar.js", function () {
-                        if (cookies.assoName.length <= 1) loadSimplySidebarHeader();
-                        else loadSidebarHeader();
-                    });
-                    get("context/current-user", callheaderDev);
-                });
-            }
+                get("context/current-user", callheader);
+            });
         }
         catch (error) {
+            /// Delete all the data
             console.error(error);
             document.cookie = "expires=Thu Jan 01 1970 00:00:00 UTC; token=; username=; asso=; assoId=; actualAsso=;";
             sessionStorage.clear();
@@ -62,6 +54,8 @@ function checkRightForthePage() {
     return r;
 };
 
+/// Verify if each right of a element in the navigation is the same with tue user's right
+/// TO check, becarful of the link !
 function searchRights(data) {
     const userRights = sessionStorage.getItem('rights');
 
@@ -85,10 +79,12 @@ function addTheAlertColumn() {
     doc[0].append(node);
 }
 
-function callSidebar(){
+/// Retrieve the navigation elements on the sidebar_data
+// fileData = name of the file in data
+function callSidebar(fileData){
     $.get('sidebar.html', function(templates) {
         var sidebar = $(templates).filter('#tpl-sidebar').html();
-        $.getJSON("assets/data/sidebar_data.json", function(data) {
+        $.getJSON("assets/data/"+fileData+".json", function(data) {
             let result = [];
             data.forEach(element => {
                 element.rights.forEach(right => {
@@ -100,7 +96,6 @@ function callSidebar(){
     });
 }
 
-//Get element with Jquery + moustache
 function callheader(result){
     $.get('header.html', function(templates) {
         var header = $(templates).filter('#tpl-header').html();
@@ -108,7 +103,6 @@ function callheader(result){
     });
 }
 
-//Get element with Jquery + moustache
 function callheaderDev(result){
     $.get('header.recette.html', function(templates) {
         var header = $(templates).filter('#tpl-header').html();

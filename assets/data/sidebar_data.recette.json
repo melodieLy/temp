@@ -1,0 +1,56 @@
+[
+   {
+      "rights":["FORMS-MANAGER", "ADMIN"],
+      "title":"Vos données",
+      "id":"data",
+      "icon":"mdi-pencil-box-multiple",
+      "category":[
+         {
+            "URL":"welcome-call.html",
+            "name":"Appels des donateurs"
+         },
+         {
+            "URL": "mailjet-emails.html",
+            "name": "Suivi emails donateurs"
+         },
+         {
+            "URL": "tdb.html",
+            "name": "Tableau de bords"
+         },
+         {
+            "URL": "folders-page.html",
+            "name": "Dossiers"
+         }
+      ]
+   },
+   {
+      "rights":["ADMIN","FORMS-MANAGER","ASSO-ADMIN","QUALITY-WATCH"],
+      "title":"Calendriers",
+      "id":"debitCalendar",
+      "icon":"mdi-calendar",
+      "category":[
+         {
+            "URL":"debit-calendar.html",
+            "name":"Calendrier des débits"
+         }
+      ]
+   },
+   {
+      "rights": [
+         "ADMIN"
+      ],
+      "title": "Associations",
+      "id": "asso",
+      "icon": "mdi-earth",
+      "category": [
+         {
+            "URL": "contacts.html",
+            "name": "Contacts"
+         },
+         {
+            "URL": "flux.html",
+            "name": "Flux"
+         }
+      ]
+   }
+]
