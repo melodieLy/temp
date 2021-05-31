@@ -7,6 +7,7 @@ $.getScript("assets/js/config.js", function () {
             /// Verify if the user did the authentification
             validCookie = isValidateCookie();
             if(!validCookie) throw "authentification invalide";
+            alert("test");
 
             $(function () {
                 // Select the right navigation elements, will be remove when all pages will be show in prod
@@ -19,10 +20,13 @@ $.getScript("assets/js/config.js", function () {
                     else loadSidebarHeader();
                 });
                 get("context/current-user", callheader);
+                alert("god");
+
             });
         }
         catch (error) {
             /// Delete all the data
+            alert(error);
             console.error(error);
             document.cookie = "expires=Thu Jan 01 1970 00:00:00 UTC; token=; username=; asso=; assoId=; actualAsso=;";
             sessionStorage.clear();
