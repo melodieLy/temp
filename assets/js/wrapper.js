@@ -370,7 +370,7 @@ function getWelcomeCall(path) {
                 }
                 //append the template to the main html file wc_page.html where the ID is
                 $('#welcome-call').append(Mustache.render(component,data));
-            });
+            })
             
             $.get('components/pagination.html', function(templates) {
                 var component = $(templates).filter('#pagination-comp').html();
@@ -380,11 +380,14 @@ function getWelcomeCall(path) {
                 let paginSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
                 if(paginSetup.TotalPages == 0) paginSetup.TotalPages = 1;
 
+                //create a node before the table. Show the number of result
+                const resultPage = '<h6 align="right">' + paginSetup.TotalCount + ' resultats</h6>'
+                $(".row")[0].before(resultPage);
+
                 // The data is add manually because we can't access directly to the X-Pagination header
                 $('#pagination-row').append(Mustache.render(component, {
                     "PageSize":paginSetup.PageSize,
                     "PageNumber":paginSetup.PageNumber,
-                    "TotalCount":paginSetup.TotalCount,
                     "TotalPages":paginSetup.TotalPages,
                     "nextPage": function () {
                         const result = paginSetup.PageNumber + 1;
@@ -398,6 +401,8 @@ function getWelcomeCall(path) {
                         else return result;
                     }
                 }));
+
+
 
             });
         }

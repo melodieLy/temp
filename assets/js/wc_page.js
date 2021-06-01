@@ -16,7 +16,7 @@ function removeOldDOMElement() {
 }
 
 /// Refill the "area" combo-box. Call the request and show or hide the element depending of the result
-get("associations/"+sessionStorage.getItem("assoId")[cookies.actualAsso]+"/areas", getWCSearchbar);
+get("associations/"+sessionStorage.getItem("assoId")+"/areas", getWCSearchbar);
 
 function getWCSearchbar(data) {
     $.get('components/wc-search.html', function(templates) {
@@ -114,7 +114,7 @@ function deleteSeachHistory() {
     names.forEach(name => {
         sessionStorage.removeItem(names);
     });
-    
+
     document.getElementById( "area-select" ).value = "";
     let input = document.getElementById("search-form").getElementsByTagName('input');
     for(const element of input) {
