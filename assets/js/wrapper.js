@@ -23,10 +23,6 @@ function showAlert(Info, type) {
     })
 }
 
-function getAlert(params) {
-    
-}
-
 /// Call ShowAlert depending of the type of error.
 function getError(info) {
     const type = 'danger';

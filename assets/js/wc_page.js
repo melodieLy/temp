@@ -56,7 +56,7 @@ function getUrlParam (form) {
             url += '&' + element.name + '=' + element.value;
         };
 
-        if (type == form) url += "&rnr=" + sessionStorage.getItem("rnr");
+        url += "&rnr=" + sessionStorage.getItem("rnr");
 
         createSearchHistory(yourSelect, input, form);
         return url;
