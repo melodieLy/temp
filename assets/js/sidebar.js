@@ -75,16 +75,11 @@ function changeActualAssociation() {
 
 function changeAssociationPage(newAsso) {
   const element = sessionStorage.getItem("assoId");
-    if(element === newAsso)
-    {
-      sessionStorage.setItem("assoId", newAsso);
-      sessionStorage.setItem("assoName", newAsso);
-    }
+  if(element === newAsso)
+  {
+    sessionStorage.setItem("assoId", newAsso);
+    sessionStorage.setItem("assoName", newAsso);
   }
-
-  names.forEach(element => {
-    document.cookie = element+"="+ cookies[element] +";";
-  });
 }
 
 function retrieveAssoLogo() {
