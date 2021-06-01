@@ -9,8 +9,7 @@
                 <th>Nom initial</th>
                 <th>Date du bulletin</th>
                 <th>Date de contact</th>
-                <th>Etat d'appel</th>
-                <th>ID ONG.C</th>
+                <th>Etats & actions</th>
             </tr>
         </thead>
         <tbody id="myTable">
@@ -23,13 +22,11 @@
                 <td>{{OriginalLastName}}</td>
                 <td>{{CompletionDate}}</td>
                 <td>{{LastContact}}</td>
-                {{#ReachedOnce}}
-                <td>Joint</td>
-                {{/ReachedOnce}}
-                {{^ReachedOnce}}
-                <td>Non joint</td>
-                {{/ReachedOnce}}
                 <td>
+                    {{#ReachedOnce}}<span class="mdi mdi-phone" style="color:green"></span>{{/ReachedOnce}}
+                    {{^ReachedOnce}}<span class="mdi mdi-phone" style="color:gray"></span>{{/ReachedOnce}}
+                    <span class="mdi mdi-bank" style="color:gray"></span>
+                    <span class="mdi mdi-account-card-details" style="color:green"></span>
                     <a href="javascript:void(0);" onclick="copyId('{{Id}}')" title="copie l'ID dans un presse-papier">
                         <span class="mdi mdi-content-copy"></span>
                     </a>
