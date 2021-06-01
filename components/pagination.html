@@ -4,29 +4,29 @@
   </a>
     
   <nav id="nav-page">
-        <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" onClick="getWCPage({{previousPage}}, document.getElementById('search-form'))" href="#{{previousPage}}" tabindex="-1">
-                <span class="mdi mdi-chevron-left"></span>
-              </a>
-            </li>
+    <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" onClick="getWCPage({{previousPage}}, document.getElementById('search-form'))" href="#{{previousPage}}" tabindex="-1">
+            <span class="mdi mdi-chevron-left"></span>
+          </a>
+        </li>
 
-                <li class="page-item">
-                <form action="javascript:void(0);" onsubmit="getWCPage(this.pagenumber.value, document.getElementById('search-form'))" id="form">
-                  <div class="form-group">
-                    <input type="number" lass="form-control" id="pagenumber" value="{{PageNumber}}" 
-                    min="1" max="{{TotalPages}}" class="page-link" style="max-width: 80px;">
-                  </div>
-                </form>
-                </li>
-                <li class="page-item disabled"><a class="page-link">/{{TotalPages}}</a></li>
             <li class="page-item">
-              <a class="page-link" onClick="getWCPage({{nextPage}}, document.getElementById('search-form'))" href="#{{nextPage}}">
-                <span class="mdi mdi-chevron-right"></span>
-              </a>
+            <form action="javascript:void(0);" onsubmit="getWCPage(this.pagenumber.value, document.getElementById('search-form'))" id="form">
+              <div class="form-group">
+                <input type="number" lass="form-control" id="pagenumber" value="{{PageNumber}}" 
+                min="1" max="{{TotalPages}}" class="page-link" style="max-width: 80px;">
+              </div>
+            </form>
             </li>
-        </ul>
-    </nav>
+            <li class="page-item disabled"><a class="page-link">/{{TotalPages}}</a></li>
+        <li class="page-item">
+          <a class="page-link" onClick="getWCPage({{nextPage}}, document.getElementById('search-form'))" href="#{{nextPage}}">
+            <span class="mdi mdi-chevron-right"></span>
+          </a>
+        </li>
+    </ul>
+  </nav>
 
 </script>
 

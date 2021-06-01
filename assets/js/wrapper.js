@@ -7,12 +7,24 @@ const apiPath = "https://recette-api.song-fr.com/";
 function showAlert(Info, type) {
     if (!document.getElementById("alertColumn")) addTheAlertColumn();
 
-    $.get('components/alert.html', function(templates) {
-      var alert = $(templates).filter('#tpl-alert').html();
-      let data = {"info" : Info,
-    "type":type};
+    var addAlert = $.get('components/alert.html', function (templates) {
+        var alert = $(templates).filter('#tpl-alert').html();
+        let data = {
+            "info": Info,
+            "type": type
+        };
         $('#alertColumn').append(Mustache.render(alert, data));
     });
+
+    addAlert.done(function (data) {
+        setTimeout(function () {
+            $('#alert').remove();
+        }, 5000);
+    })
+}
+
+function getAlert(params) {
+    
 }
 
 /// Call ShowAlert depending of the type of error.

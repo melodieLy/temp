@@ -10,7 +10,6 @@ function retrieveAssoMail(data) {
             $('#mailSummary').append(Mustache.render(component,data));
         }
         catch(e) {
-             alert("hello");
             $('#mailSummary').append(Mustache.render(component,data));
         }
     });
