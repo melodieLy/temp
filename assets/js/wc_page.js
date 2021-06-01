@@ -12,6 +12,7 @@ function removeOldDOMElement() {
         $('#basic-wc-table').remove();
         $('nav#nav-page').remove();
         $('a#btn-export').remove();
+        $('#totalCount').remove();
     }
 }
 

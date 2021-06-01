@@ -384,6 +384,7 @@ function getWelcomeCall(path) {
                 let resultPage = document.createElement("h6");
                 resultPage.textContent = paginSetup.TotalCount + " résultats";
                 resultPage.setAttribute("align", "right");
+                resizeTo.setAttribute("id","totalCount");
                 $(".row")[0].before(resultPage);
 
                 // The data is add manually because we can't access directly to the X-Pagination header
