@@ -381,8 +381,10 @@ function getWelcomeCall(path) {
                 if(paginSetup.TotalPages == 0) paginSetup.TotalPages = 1;
 
                 //create a node before the table. Show the number of result
-                //const resultPage = '<h6 align="right">' + paginSetup.TotalCount + ' resultats</h6>'
-                //$(".row")[0].append(resultPage);
+                let resultPage = document.createElement("h6");
+                resultPage.textContent = paginSetup.TotalCount + " résultats";
+                resultPage.setAttribute("align", "right");
+                $(".row")[0].before(resultPage);
 
                 // The data is add manually because we can't access directly to the X-Pagination header
                 $('#pagination-row').append(Mustache.render(component, {
