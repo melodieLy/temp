@@ -68,6 +68,7 @@ function changeActualAssociation() {
   if(newAsso === sessionStorage.getItem("assoId")) return;
   else {
     changeAssociationPage(newAsso);
+    alert(sessionStorage.getItem("assoId"));
     loadSidebarHeader();
     document.location.replace("welcome-call.html");
   }
@@ -75,6 +76,8 @@ function changeActualAssociation() {
 
 function changeAssociationPage(newAsso) {
   const element = sessionStorage.getItem("assoId");
+  alert(element + ' + ' + newAsso)
+  alert(element === newAsso)
   if(element === newAsso)
   {
     sessionStorage.setItem("assoId", newAsso);
