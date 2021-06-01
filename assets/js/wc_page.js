@@ -34,10 +34,12 @@ function getWCSearchbar(data) {
  
 function getWCPage (data,param) {
     //Update the sessionStorage if only the "RNR" was send
-    if (typeof (param) == String) sessionStorage.setItem("rnr", param);
-    do {
+    if (typeof (param) == String) {
         sessionStorage.setItem("rnr", param);
-    } while (sessionStorage.getItem("rnr") != param);
+        do {
+            sessionStorage.setItem("rnr", param);
+        } while (sessionStorage.getItem("rnr") != param);
+    }
     const urlParam = getUrlParam(param);
     try {
         getWelcomeCall(data + urlParam);
