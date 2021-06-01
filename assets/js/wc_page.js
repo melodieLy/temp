@@ -109,9 +109,13 @@ function getSearchHistory() {
 
 /// clear the data in the input element. Doesn't remove data saved in the sesssionStorage
 function deleteSeachHistory() {
-    sessionStorage.clear();
+    sessionStorage.setItem("rnr", "rnr");
+    const names = ["Area", "from", "to", "search"]
+    names.forEach(name => {
+        sessionStorage.removeItem(names);
+    });
+    
     document.getElementById( "area-select" ).value = "";
-
     let input = document.getElementById("search-form").getElementsByTagName('input');
     for(const element of input) {
         element.value = "";
