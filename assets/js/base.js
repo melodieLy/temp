@@ -114,4 +114,8 @@ function callheaderDev(result){
         $('#header').append(Mustache.render(header, result));
     });
 }
-  
+
+const mediaQuery = window.matchMedia('(min-width: 768px)')
+if (mediaQuery.matches) {
+    $('body').removeClass("sidebar-minified")
+}
