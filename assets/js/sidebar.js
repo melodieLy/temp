@@ -1,5 +1,4 @@
 function createAssoData(assoDigestList) {
-  console.log(assoDigestList)
   let copy = [];
   const actualAsso = sessionStorage.getItem("assoId");
 
