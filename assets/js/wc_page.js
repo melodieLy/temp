@@ -20,7 +20,7 @@ function removeOldDOMElement() {
 get("associations/"+sessionStorage.getItem("assoId")+"/areas", getWCSearchbar);
 
 function getWCSearchbar(data) {
-    $.get('components/wc-search.html', function(templates) {
+    $.get('components/wc_search.html', function(templates) {
         var component = $(templates).filter('#tpl-wc-search').html();
         $('#search-zone').append(Mustache.render(component,data));
 

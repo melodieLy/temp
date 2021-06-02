@@ -372,10 +372,10 @@ function getWelcomeCall(path) {
                 $('#welcome-call').append(Mustache.render(component,data));
             })
             
-            $.get('components/pagination.html', function(templates) {
+            $.get('components/wc_pagination.html', function(templates) {
                 var component = $(templates).filter('#pagination-comp').html();
                 
-                //Retrieve the pagination data from the header X-Pagination.
+                //Retrieve the wc_pagination data from the header X-Pagination.
                 // Set totalPages to 1 to avoid conflict for request or on template
                 let paginSetup = JSON.parse(request.getResponseHeader("X-Pagination"));
                 if(paginSetup.TotalPages == 0) paginSetup.TotalPages = 1;
