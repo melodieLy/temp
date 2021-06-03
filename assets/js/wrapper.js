@@ -1,6 +1,6 @@
 /// Main parameters for the request. Please change them if you need
 const pageSize = '10';
-const apiPath = "https://recette-api.song-fr.com/";
+const apiPath = "https://api.song-fr.com/";
 
 /// Create a Alert pop-up in the DOM
 /// Type: define the type of pop-up (color)
@@ -29,7 +29,7 @@ function getError(info) {
     switch(info.status) {
         case 401 :
             deleteSession();
-            console.log(info);
+            //window.location.replace("index.html");
             showAlert("401 : Erreur lors de l'authentification Vous avez été redirigé.", type);
             break;
         case 403 :
@@ -63,39 +63,32 @@ function getError(info) {
     }
 }
 
-//Rework this part (thiking with sessionStorage) until *const cookies = getCookie();*
-
+// this function need to be rework. I don't think a member of a association will have multiples rights.
 /// Retrieve all associations where the user have some rights
 function createCookieAsso(setup) {
-    let assoNameList = "";
-    let assoIdList = "";
+    let assoNameList = [];
+    let assoIdList = [];
     let sesssionRights = [];
     
-    const rightName = ["FORMS-MANAGER", "QUALITY-WATCH", "ADMIN"];
+    const rightName = ["FORMS-MANAGER", "QUALITY-WATCH"];
     for ( i = 0; i < setup.length; i++) {
         for (let j = 0; j < rightName.length; j++) {
             if(setup[i].Role.Id.toUpperCase() === rightName[j]) {
-                if(sesssionRights.indexOf(rightName[j]) == -1) sesssionRights.push(rightName[j]);
-                if(i < 1) {
-                    assoNameList = setup[i].Association.Name +",";
-                    assoIdList = setup[i].Association.Id +",";
-                } else if (i == setup.length - 1) {
-                    assoNameList += setup[i].Association.Name;
-                    assoIdList += setup[i].Association.Id ;
-                } else {
-                    assoNameList += setup[i].Association.Name +",";
-                    assoIdList += setup[i].Association.Id +",";
+                if(sesssionRights.indexOf(rightName[j]) == -1) {
+                    sesssionRights.push(rightName[j])
+                    assoNameList.push(setup[i].Association.Name)
+                    assoIdList.push(setup[i].Association.Id)
                 }
             }
         }
     }
-    if(!sessionStorage.getItem("rights")) sessionStorage.setItem("rights", JSON.stringify(sesssionRights));
 
-
-    if(assoIdList.length == 0) return false;
-    document.cookie = "assoName=" + assoNameList +";";
-    document.cookie = "assoId=" + assoIdList + ";";
-    document.cookie = "actualAsso=" + 0 + ';';
+    if(assoIdList.length == 0) return false
+    else {
+        sessionStorage.setItem("rights", JSON.stringify(sesssionRights));
+        sessionStorage.setItem("assoId", assoIdList);
+        sessionStorage.setItem("assoName",assoNameList);
+    }
 };
 
 ///Verify the rights of the user
@@ -106,48 +99,6 @@ function checkAdminRight(data) {
     return false;
 };
 
-///Request : Work only if the user is a admin
-function getAllAsso(param) {
-    $.ajax({
-        url: apiPath + "associations/digest-list",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Accept":"application/json",
-            "Authorization": param
-        },
-        method: "GET"
-    })
-    .done(function(result) {
-        getAllExistingAsso(result);
-        //EnvironmentRedirection();
-    });
-};
-
-/// Create a list of all the existing associations, will be add to the cookies
-function getAllExistingAsso(result) {
-    let assoNameList = "";
-    let assoIdList = "";
-
-    for (let i = 0; i < result.length; i++) {
-        if(i < 1) {
-            assoNameList = result[i].Value +",";
-            assoIdList = result[i].Id +",";
-        } else if (i == result.length - 1) {
-            assoNameList += result[i].Name;
-            assoIdList += result[i].Id ;
-        } else {
-            assoNameList += result[i].Name +",";
-            assoIdList += result[i].Id +",";
-        }
-    }
-
-    if(!sessionStorage.getItem("rights")) sessionStorage.setItem("rights", "ADMIN");
-
-    document.cookie = "assoName=" + assoNameList +";";
-    document.cookie = "assoId=" + assoIdList + ";";
-    document.cookie = "actualAsso=" + 0 + ';';
-};
-
 /// Return all the data in the cookie, so that could be use easily
 function getCookie() {
     if(!document.cookie){
@@ -156,55 +107,16 @@ function getCookie() {
 
     let cookieData = document.cookie.split(";");
     let result = new Array();
-    const names = ["token","assoName", "assoId", "expires","actualAsso"]
+    const names = ["token", "expires"]
 
     cookieData.forEach(element => {
         for (let i = 0; i < names.length; i++) {
             const actualName = names[i];
-            if(element.includes(actualName)) {
-                if(actualName == "assoName" || actualName == "assoId") {
-                    let toSplit = (element.split('=').pop());
-                    const arrayAsso = toSplit.split(',');
-                    result[actualName] = arrayAsso;
-                } 
-                else {
-                    result[actualName] = (element.split('=').pop());
-                }
-                break;
-            } 
+            result[actualName] = (element.split('=').pop());
         }
     });
     return result;
-};
-
-/// TO CHECK IF THIS COULD BE USEFUL
-// function createNewCookie() {
-//     if(!document.cookie){
-//         return undefined;
-//     }
-
-//     let cookieData = document.cookie.split(";");
-//     let result = new Array();
-//     const names = ["username", "token","assoName", "assoId", "expires","actualAsso"]
-
-//     cookieData.forEach(element => {
-//         for (let i = 0; i < names.length; i++) {
-//             const actualName = names[i];
-//             if(element.includes(actualName)) {
-//                 if(actualName == "assoName" || actualName == "assoId") {
-//                     let toSplit = (element.split('=').pop());
-//                     const arrayAsso = toSplit.split(',');
-//                     result[actualName] = arrayAsso;
-//                 } 
-//                 else {
-//                     result[actualName] = (element.split('=').pop());
-//                 }
-//                 break;
-//             } 
-//         }
-//     });
-//     return result;
-// };
+}
 
 //Delete all the cookies and data in the storages
 function deleteSession() {
@@ -215,22 +127,6 @@ function deleteSession() {
 
 const cookies = getCookie();
 
-/// General Request : Doesn't seem to be use. Please check
-// function get(path) {
-//     $.ajax({
-//         url: apiPath + path,
-//         headers: {
-//             "Content-Type": "application/x-www-form-urlencoded",
-//             "Accept":"application/json",
-//             "Authorization": "bearer " + cookies.token
-//         },
-//         method: "GET"
-//     })
-    
-//     .fail(function(xhr) {
-//         getError(xhr);
-//     });
-// };
 
 /// Main request : Call the funct if the request is a success
 function get(path,funct) {
