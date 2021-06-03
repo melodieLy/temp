@@ -90,10 +90,12 @@ function fillSearchPageWithSessionStorage() {
 }
 
 /// Save the search parameters 
-function createSearchHistory(select,inputs,form) {
-    if(select != "") sessionStorage.setItem("area", select.value);
-    for(const element of inputs) {
-        if(element.value) sessionStorage.setItem(element.name, element.value);
+function createSearchHistory(select, inputs, form) {
+    if (select != "") sessionStorage.setItem("area", select.value)
+    else sessionStorage.removeItem(element.name);
+    for (const element of inputs) {
+        if (element.value != "") sessionStorage.setItem(element.name, element.value);
+        else sessionStorage.removeItem(element.name);
     };
 }
 
