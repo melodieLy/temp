@@ -51,7 +51,8 @@ function getError(info) {
             showAlert("429 : Nombre de requêtes émis trop important. Veuillez patientez avant de lancer une nouvelle requête.", type);
             break;
         default:
-            showAlert(info.status + " : " + info.responseJSON.Message, type);
+            if(info.responseJSON.Message)showAlert(info.status + " : " + info.responseJSON.Message, type);
+            else console.log(info);
             if (info.responseJSON.ExceptionsStack) {
                 const exceptions = info.responseJSON.ExceptionsStack;
                 for (let i = 0; i < exceptions.length; i++) {

@@ -41,7 +41,7 @@ function getWCPage (data,param) {
         getWelcomeCall(data + urlParam);
         chooseOption(sessionStorage.getItem("rnr"));
     } catch (e) {
-        console.error(e);
+        getError(e)
     }
 };
 
