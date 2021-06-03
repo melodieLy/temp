@@ -102,9 +102,7 @@ function checkAdminRight(data) {
 
 /// Return all the data in the cookie, so that could be use easily
 function getCookie() {
-    if(!document.cookie){
-        return undefined;
-    }
+    if(!document.cookie) return undefined;
 
     let cookieData = document.cookie.split(";");
     let result = new Array();
@@ -113,7 +111,9 @@ function getCookie() {
     cookieData.forEach(element => {
         for (let i = 0; i < names.length; i++) {
             const actualName = names[i];
-            result[actualName] = (element.split('=').pop());
+            if (element.includes(actualName)) {
+                result[actualName] = (element.split('=').pop());
+            }
         }
     });
     return result;
