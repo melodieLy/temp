@@ -1,6 +1,6 @@
 /// Main parameters for the request. Please change them if you need
 const pageSize = '10';
-const apiPath = "https://api.song-fr.com/";
+const apiPath = "https://recette-api.song-fr.com/";
 
 /// Create a Alert pop-up in the DOM
 /// Type: define the type of pop-up (color)
