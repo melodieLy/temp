@@ -275,7 +275,7 @@ function getWelcomeCall(path) {
                                     element.UpdatedCategories[i] = "mdi-bank"
                                 }
                                 else if (t == "Personal") {
-                                    element.UpdatedCategories[i] = "mdi-perso"
+                                    element.UpdatedCategories[i] = "mdi-account-card-details"
                                 }
                                 else element.UpdatedCategories.pop()
                             }
@@ -284,6 +284,10 @@ function getWelcomeCall(path) {
                 }
                 //append the template to the main html file wc_page.html where the ID is
                 $('#welcome-call').append(Mustache.render(component,data));
+            })
+            .done(function () {
+                $(".mdi-bank").attr("title", "Modification des données bancaires effectuées");
+                $(".mdi-account-card-details").attr("title", "Modification des données personnelles effectuées");
             })
             
             $.get('components/wc_pagination.html', function(templates) {

@@ -10,22 +10,5 @@
             "name":"Appels des donateurs"
          }
       ]
-   },
-   {
-      "rights": [
-         "ADMIN",
-         "FORMS-MANAGER",
-         "ASSO-ADMIN",
-         "QUALITY-WATCH"
-      ],
-      "title": "Calendriers",
-      "id": "debitCalendar",
-      "icon": "mdi-calendar",
-      "category": [
-         {
-            "URL": "debit-calendar.html",
-            "name": "Calendrier des débits"
-         }
-      ]
    }
 ]
