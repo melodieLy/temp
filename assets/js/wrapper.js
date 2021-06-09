@@ -267,17 +267,19 @@ function getWelcomeCall(path) {
                     //Change the dateTime format 
                     data.forEach(element => {
                         if(element.LastContact) element.LastContact = moment(element.LastContact).format('DD/MM/YYYY');
-                        if (element.CompletionDate) element.CompletionDate = moment(element.CompletionDate).format('DD/MM/YYYY');
-                        for (var i = 0; i < element.UpdatedCategories.length; i++) {
-                            var t = element.UpdatedCategories[i]
-                            if (t == "Banking") {
-                                element.UpdatedCategories[i] = "mdi-bank"
+                        if(element.CompletionDate) element.CompletionDate = moment(element.CompletionDate).format('DD/MM/YYYY');
+                        if(element.UpdatedCategories) {
+                            for (var i = 0; i < element.UpdatedCategories.length; i++) {
+                                var t = element.UpdatedCategories[i]
+                                if (t == "Banking") {
+                                    element.UpdatedCategories[i] = "mdi-bank"
+                                }
+                                else if (t == "Personal") {
+                                    element.UpdatedCategories[i] = "mdi-perso"
+                                }
+                                else element.UpdatedCategories.pop()
                             }
-                            else if (t == "Personal") {
-                                element.UpdatedCategories[i] = "mdi-perso"
-                            }
-                            else element.UpdatedCategories.pop()
-                        }
+                        } 
                     });
                 }
                 //append the template to the main html file wc_page.html where the ID is
