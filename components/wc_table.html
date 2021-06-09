@@ -15,21 +15,20 @@
         <tbody id="myTable">
         {{ #. }}
             <tr>        
-                <td>{{UMR}}</td>
-                <td>{{ExternalMissionId}}</td>
-                <td>{{OriginalEmail}}</td>
-                <td>{{OriginalFirstName}}</td>
-                <td>{{OriginalLastName}}</td>
-                <td>{{CompletionDate}}</td>
-                <td>{{LastContact}}</td>
-                <td>
-                    {{#ReachedOnce}}<span class="mdi mdi-phone" style="color: rgb(41, 167, 41)"></span>{{/ReachedOnce}}
-                    {{^ReachedOnce}}<span class="mdi mdi-phone" style="color:rgb(49, 49, 49)"></span>{{/ReachedOnce}}
-                    <span class="mdi mdi-bank" style="color:rgb(49, 49, 49)"></span>
-                    <span class="mdi mdi-account-card-details" style="color:rgb(41, 167, 41)"></span>
+                <td class="align-middle">{{UMR}}</td>
+                <td class="align-middle">{{ExternalMissionId}}</td>
+                <td class="align-middle">{{OriginalEmail}}</td>
+                <td class="align-middle">{{OriginalFirstName}}</td>
+                <td class="align-middle">{{OriginalLastName}}</td>
+                <td class="align-middle">{{CompletionDate}}</td>
+                <td class="align-middle">{{LastContact}}</td>
+                <td class="align-middle">
                     <a href="javascript:void(0);" onclick="copyId('{{Id}}')" title="copie l'ID dans un presse-papier">
                         <span class="mdi mdi-content-copy"></span>
                     </a>
+                    {{#ReachedOnce}}<span class="mdi mdi-18px mdi-phone" style="color: #b6ee00"  title="bulletin join"></span>{{/ReachedOnce}}
+                    {{^ReachedOnce}}<span class="mdi mdi-18px mdi-phone" style="color:rgb(49, 49, 49)"  title="bulletin non-joint"></span>{{/ReachedOnce}}
+                    {{#UpdatedCategories}}<span class="mdi mdi-18px {{.}}" style="color:#b6ee00"></span>{{/#UpdatedCategories}}
                 </td>
             </tr>
         {{ /. }}

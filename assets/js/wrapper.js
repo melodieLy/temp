@@ -255,6 +255,11 @@ function getWelcomeCall(path) {
         success: function (data, textStatus, request) {
             removeOldDOMElement();
 
+            var UpdatedData = {
+                "bancaire": {},
+                "perso": {}
+            }
+
             //Calling the template
             $.get('components/wc_table.html', function(templates) {
                 var component = $(templates).filter('#tpl-wc-table').html();
@@ -263,6 +268,16 @@ function getWelcomeCall(path) {
                     data.forEach(element => {
                         if(element.LastContact) element.LastContact = moment(element.LastContact).format('DD/MM/YYYY');
                         if (element.CompletionDate) element.CompletionDate = moment(element.CompletionDate).format('DD/MM/YYYY');
+                        for (var i = 0; i < element.UpdatedCategories.length; i++) {
+                            var t = element.UpdatedCategories[i]
+                            if (t == "Banking") {
+                                element.UpdatedCategories[i] = "mdi-bank"
+                            }
+                            else if (t == "Personal") {
+                                element.UpdatedCategories[i] = "mdi-perso"
+                            }
+                            else element.UpdatedCategories.pop()
+                        }
                     });
                 }
                 //append the template to the main html file wc_page.html where the ID is
@@ -301,9 +316,6 @@ function getWelcomeCall(path) {
                         else return result;
                     }
                 }));
-
-
-
             });
         }
     })
