@@ -4,6 +4,13 @@ if(!window.location.hash.includes("#")) {
     let data = 1;
     getWCPage(data, null);
     sessionStorage.setItem("rnr","rnr");
+
+    // Remove old search's parameters stored previously
+    const names = ["area","from", "to", "search"]
+    names.forEach(name => {
+        if(name == "area") sessionStorage.setItem(name,"");
+        if(sessionStorage.getItem(name)) sessionStorage.removeItem(name);
+    });
 }
 
 /// Remove some DOM Elements for reload then for the page "Welcome-calls"

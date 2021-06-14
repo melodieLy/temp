@@ -23,11 +23,27 @@
                 <td class="align-middle">{{CompletionDate}}</td>
                 <td class="align-middle">{{LastContact}}</td>
                 <td class="align-middle">
-                    <a href="javascript:void(0);" onclick="copyId('{{Id}}')" title="copie l'ID dans un presse-papier">
-                        <span class="mdi mdi-content-copy"></span>
-                    </a>
-                    {{#ReachedOnce}}<span class="mdi mdi-18px mdi-phone" style="color: #b6ee00"  title="bulletin join"></span>{{/ReachedOnce}}
-                    {{^ReachedOnce}}<span class="mdi mdi-18px mdi-phone" style="color:rgb(49, 49, 49)"  title="bulletin non-joint"></span>{{/ReachedOnce}}
+                    {{#Closed}}
+                        <span class="mdi mdi-18px mdi-checkbox-marked-outline" style="color: #b6ee00" title="Appel traité et cloturé"></span>
+                    {{/Closed}}
+                    {{^Closed}}
+                        <span class="mdi mdi-18px mdi-checkbox-blank-outline" style="color: rgb(49, 49, 49)" title="Appel non traité ou en cours"></span>
+                    {{/Closed}}
+
+                    {{#ReachedOnce}}<span class="mdi mdi-18px mdi-phone" style="color: #b6ee00"
+                        title="Donateur joint"></span>
+                    {{/ReachedOnce}}
+                    {{^ReachedOnce}}
+                    {{#Calls.notResponding}}<span class="mdi mdi-18px mdi-mdi-phone-missed" style="color:rgb(49, 49, 49)"
+                        title="Donateur injoignable"></span>{{/Calls.notResponding}}
+                    {{#Calls.VoiceMail}}<span class="mdi mdi-18px mdi-voicemail" style="color:rgb(207, 19, 19)"
+                        title="Répondeur"></span>{{/Calls.VoiceMail}}
+                    {{#Calls.wrongNumber}}<span class="mdi mdi-18px mdi-dialpad" style="color:rgb(207, 19, 19)" 
+                        title="Mauvais numéro"></span>{{/Calls.wrongNumber}}
+                    {{^mobilePhone}}<span class="mdi mdi-18px mdi-phone-off-outline" style="color:rgb(207, 19, 19)" 
+                        title="Pas de numéro"></span>{{/mobilePhone}}
+                    {{/ReachedOnce}}
+
                     {{#UpdatedCategories}}<span class="mdi mdi-18px {{.}}" style="color:#b6ee00"></span>{{/UpdatedCategories}}
                 </td>
             </tr>
@@ -38,3 +54,7 @@
     </tbody>
     </table>
 </script>
+
+<!-- <a href="javascript:void(0);" onclick="copyId('{{Id}}')" title="copie l'ID dans un presse-papier">
+    <span class="mdi mdi-content-copy"></span>
+</a> -->

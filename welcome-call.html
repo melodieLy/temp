@@ -8,7 +8,7 @@
     <title>Welcome Call - Association extranet</title>
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
-    <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
+    <link href="https://cdn.materialdesignicons.com/4.5.95/css/materialdesignicons.min.css" rel="stylesheet" />
     <!-- PLUGINS CSS STYLE -->
     <link href="assets/plugins/nprogress/nprogress.css" rel="stylesheet" />
 
@@ -87,7 +87,51 @@
             <div class="card card-default" style="width:100%">
               <div class="card-body" style="padding-top: 10px; padding-bottom: 10px;">
                 <div class="basic-data-table" id="welcome-call">
-                  <p><small>les données modifiées sont représentées par la présence d'une icone dans "Etat & Actions"</small></p>
+                  <a data-toggle="collapse" href="#explanation" role="button" aria-expanded="false" aria-controls="explanation">
+                    <span class="mdi mdi-arrow-down-drop-circle-outline">
+                      Aide
+                    </span>
+                  </a>
+                  <div class="collapse" id="explanation">
+                    <div class="card card-body" style="padding: 15px;">
+                      <p>Les états d'un bulletin sont représentés de manière suivante :
+                      <ul>
+                        <li>
+                          - <span class="mdi mdi-checkbox-marked-outline" style="color: #b6ee00"></span>
+                          Appel traité et clôturé
+                        </li>
+                        <li>
+                          - <span class="mdi mdi-dialpad" style="color: rgb(49, 49, 49)"></span>
+                          Appel non traité ou en cours
+                        </li>
+                        <li>
+                          - <span class="mdi mdi-phone" style="color: #b6ee00"></span>
+                          Nous avons pu joindre le donateur - Donateur joint
+                        </li>
+                        <li>
+                          - <span class="mdi mdi-phone" style="color:rgb(49, 49, 49)"></span>
+                          Nous n'avons pas (encore) réussi à joindre le donateur - Donateur injoignable
+                        </li>
+                        <li>
+                          - <span class="mdi mdi-voicemail" style="color:rgb(207, 19, 19)"></span>
+                          Nous sommes tombé sur le répondeur - Répondeur
+                        </li>
+                        <li>
+                          - <span class="mdi mdi-phone-missed" style="color:rgb(207, 19, 19)"></span>
+                          Le numéro appelé n'est pas celui du donateur - Mauvais Numéro
+                        </li>
+                        <li>
+                          - <span class="mdi mdi-bank" style="color: #b6ee00"></span>
+                          Les données bancaires (BIC, IBAN...) ont été modifiées
+                        </li>
+                        <li>
+                          - <span class="mdi mdi-account-card-details" style="color: #b6ee00"></span>
+                          Les données personnelles (prénom, nom, age...) ont été modifiées
+                        </li>
+                      </ul>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

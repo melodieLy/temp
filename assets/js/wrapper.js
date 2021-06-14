@@ -279,15 +279,38 @@ function getWelcomeCall(path) {
                                 }
                                 else element.UpdatedCategories.pop()
                             }
-                        } 
+                        }
+                        if(element.Calls[element.Calls.length-1]) {
+                            const t = element.Calls[element.Calls.length - 1].AnswerType;
+                            switch (t) {
+                                case "answering-machine":
+                                    element.Calls.VoiceMail = true;
+                                    break;
+                                case "wrong-number":
+                                    element.Calls.wrongNumber = true;
+                                    break;
+                                case "not responding":
+                                    element.Calls.notResponding = true;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        if(element.mobilePhone != "" || element.phone !=  "") element.mobilePhone =  true
+                        else element.mobilePhone = false;
+                        if (element.OriginalEmail == "") {
+                            element.OriginalEmail = element.Email
+                            element.OriginalFirstName = element.FirstName
+                            element.OriginalLastName = element.LastName
+                        }
                     });
                 }
                 //append the template to the main html file wc_page.html where the ID is
                 $('#welcome-call').append(Mustache.render(component,data));
             })
             .done(function () {
-                $(".mdi-bank").attr("title", "Modification des données bancaires effectuées");
-                $(".mdi-account-card-details").attr("title", "Modification des données personnelles effectuées");
+                $(".mdi-bank").attr("title", "Données bancaires modifiées (BIC, IBAN...)");
+                $(".mdi-account-card-details").attr("title", "Données personnelles modifiées (prénom, nom, age...)");
             })
             
             $.get('components/wc_pagination.html', function(templates) {

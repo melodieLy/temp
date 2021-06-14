@@ -3,7 +3,7 @@ function createAssoData(assoDigestList) {
   const actualAsso = sessionStorage.getItem("assoId");
 
   for (let i = 0; i < assoDigestList.length; i++) {
-    if(actualAsso != i) {
+    if (actualAsso != assoDigestList[i]) {
       let element = { name: assoDigestList[i].Value, id: assoDigestList[i].Id}
       copy.push(element);
     }
